@@ -4,22 +4,28 @@
   "description": "bauhaus-ui",
   "main": "index.js",
   "scripts": {
-    "build": "node build.js",
-    "start": "node index.js",
+    "build": "webpack && npm run minify",
+    "dev": "webpack --progress --colors --watch",
+    "minify": "node uglify.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dustin Hoffner",
   "license": "MIT",
   "dependencies": {
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0",
-    "react-look": "^0.5.1",
-    "react-redux": "^3.1.0",
-    "redux": "^3.0.2",
-    "unijs-bundle": "0.0.9"
+    "moment": "^2.10.6",
+    "object-assign": "^4.0.1",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-look": "latest",
+    "react-redux": "latest",
+    "redux": "latest",
+    "redux-thunk": "latest",
+    "superagent": "latest"
   },
   "devDependencies": {
     "babel-loader": "^5.3.3",
+    "express": "^4.13.3",
+    "uglify-js": "^2.5.0",
     "webpack": "^1.12.2"
   }
 }
