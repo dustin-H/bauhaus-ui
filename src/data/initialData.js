@@ -1,10 +1,10 @@
 var data = {
-	title: 'Dustin Hoffner Modern Webdevelopment',
+	title: 'Bauhaus UI',
 	data: [{
 		type: 'Welcome',
 		data: {
-			textA: "Dustin Hoffner",
-			textB: "MODERN WEB-APPLICATIONS",
+			textA: "Bauhaus UIr",
+			textB: "bla",
 			boxcolor: "transparent", // 6E00FF
 			color: "#ffffff"
 		}
@@ -14,7 +14,7 @@ var data = {
 			backgroundColor: "rgba(0, 0, 0, 0.5)",
 			color: "#ffffff",
 			skew: 2,
-			title: 'TECHNOLOGIES',
+			title: 'dfd',
 			list: ['ReactJS','ReduxJS','NodeJS','ExpressJS','Socket.IO']
 		}
 	}, {
@@ -23,8 +23,8 @@ var data = {
 			backgroundColor: "rgba(34, 34, 34, 0.31)",
 			color: "#ffffff",
 			skew: 2,
-			title: 'SERVICES',
-			list: ['Professional Webdesign','Komplex Applications','Deployment','Maintaining']
+			title: 'dsfsd',
+			list: ['dada']
 		}
 	}, {
 		type: 'GrayBox',
@@ -32,8 +32,8 @@ var data = {
 			backgroundColor: "transparent",
 			color: "#ffffff",
 			skew: 0,
-			title: 'REFERENCES',
-			list: ['form8.de','rrnd.de']
+			title: 'hihihi',
+			list: ['web.de','google.com']
 		}
 	}, {
 		type: 'GrayBox',
@@ -41,8 +41,8 @@ var data = {
 			backgroundColor: "#222222",
 			color: "#ffffff",
 			skew:0,
-			title: 'IMPRESSUM',
-			list: ['Dustin Hoffner | Poststraße 15 | 69257 Wiesenbach','','dustin.hoffner@gmail.com']
+			title: 'HUHU',
+			list: ['LALA','','lol@web.e']
 		}
 	}]
 };
