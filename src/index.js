@@ -5,7 +5,8 @@ import { Provider } from 'react-redux';
 import configureStore from './store/configureStore.js';
 import App from './containers/App.js';
 
-const store = configureStore();
+import thestore from './store/store.js';
+const store = thestore;
 
 render(
   <Provider store={store}>

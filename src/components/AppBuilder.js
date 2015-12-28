@@ -4,9 +4,7 @@ import Look, {StyleSheet} from 'react-look/dom';
 class AppBuilder extends Component {
 	render() {
 		console.log('Rerender!');
-		const {blocks, actions} = this.props;
-		const data = blocks.data;
-		document.title = blocks.title;
+		const {state, actions} = this.props;
 		return (
 			<div>
 				<div look={styles.wrapper}>
@@ -178,7 +176,7 @@ class AppBuilder extends Component {
 */
 
 AppBuilder.propTypes = {
-	blocks: PropTypes.object.isRequired,
+	state: PropTypes.object.isRequired,
 	actions: PropTypes.object.isRequired
 };
 

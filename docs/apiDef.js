@@ -1,35 +1,26 @@
-GET => /   {
-auth: {
-		loginEndpoint: '/login',
-		logoutEndpoint: {
-			url: '/logout',
-			map: {
-				res: {
-					token: 'id'
-				}
-				req: {
-					user: 'email'
-				}
-			}
-		},
-		fields: {
-			email: '#core-login-email',
-			password: '#core-login-password'
-		},
-		token: {
-			type: 'HEADER',
-			name: 'Authorization'
+GET => config.json {
+	endpoints: {
+		entry: '/test/hihi'
+	},
+	languages: {
+		'en': {
+			url: '/ln/en',
+			complete: true
 		}
+	}
+}
+
+GET => /   {
+	auth: {
+		tokenHeaderName: 'Authorization'
 	},
 	endpoints: {
-		sideBarHierarchy: '/sideBarHierarchy',
-		sideBarInbox: '/sideBarInbox',
-		sideBarEvents: '/sideBarEvents',
+		sideBar: '/sideBar',
 		search: '/search',
-		language: '/language',
-		views: '/views'
-	},
-	language: 'en',
+		views: '/views',
+		loginEndpoint: '/login',
+		logoutEndpoint: '/logout'
+	}
 }
 
 POST => /login
@@ -38,25 +29,25 @@ SEND => {
 	password: 'pw'
 }
 REC => {
-	username: 'Admin',
-	apiKey: 'sA32mK93NKLun83fk43f',
-	language: 'en'
-
+	token: 'sA32mK93NKLun83fk43f',
+	profile: {
+		firstname: ''
+	}
 }
 
 GET => /views {
 posts: {
 	endpoint: '/views/posts',
-	name: '#extern-posts-name'
+	route: '/posts/:id'
 }
 menu: {
-	endpoint: '/views/posts',
-	name: '#extern-menu-name'
+	endpoint: '/views/menu',
+	route: '/menu/:id'
 }
 }
 
 GET => /views/posts {
-	name: 'Posts',
+	title: 'Posts',
 	params: ['id'],
 	components: [{
 		name: 'CTitle',

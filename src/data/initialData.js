@@ -1,50 +1,36 @@
 var data = {
-	title: 'Bauhaus UI',
-	data: [{
-		type: 'Welcome',
+	generals: {
+		state: 'LOADING',
+		configUrl: 'config.json'
+	},
+	endpoints: {
+		config: 'config.json',
+		entry: '/lol/hi'
+	},
+	config: {
+		state: 'WAITING', // LOADING ERROR READY
 		data: {
-			textA: "Bauhaus UIr",
-			textB: "bla",
-			boxcolor: "transparent", // 6E00FF
-			color: "#ffffff"
+			entryUrl: '/test/hihi'
 		}
-	}, {
-		type: 'GrayBox',
-		data: {
-			backgroundColor: "rgba(0, 0, 0, 0.5)",
-			color: "#ffffff",
-			skew: 2,
-			title: 'dfd',
-			list: ['ReactJS','ReduxJS','NodeJS','ExpressJS','Socket.IO']
-		}
-	}, {
-		type: 'GrayBox',
-		data: {
-			backgroundColor: "rgba(34, 34, 34, 0.31)",
-			color: "#ffffff",
-			skew: 2,
-			title: 'dsfsd',
-			list: ['dada']
-		}
-	}, {
-		type: 'GrayBox',
-		data: {
-			backgroundColor: "transparent",
-			color: "#ffffff",
-			skew: 0,
-			title: 'hihihi',
-			list: ['web.de','google.com']
-		}
-	}, {
-		type: 'GrayBox',
-		data: {
-			backgroundColor: "#222222",
-			color: "#ffffff",
-			skew:0,
-			title: 'HUHU',
-			list: ['LALA','','lol@web.e']
-		}
-	}]
+	},
+	auth: {
+		state: 'WAITING',
+		data: {}
+	},
+	i18n: {
+		fallbackMode: false,
+		languages: ['en', 'de'],
+		store: {
+			en: {
+				'core.auth.fields.username': 'Username',
+				'core.auth.fields.password': 'Password'
+			},
+			de: {
+				'core.auth.fields.username': 'Benutzername',
+				'core.auth.fields.password': 'Passwort'
+			}
+		},
+		loading: 0
+	}
 };
-
 export default data;

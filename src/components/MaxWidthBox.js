@@ -1,19 +1,14 @@
-import React, {
-	Component
-} from 'react';
-import styles from './MaxWidthBox.styles.js';
-import Look from 'react-look/dom';
+import React, {Component} from 'react';
 
 class MaxWidthBox extends Component {
 	render() {
-		styles.maxBox.backgroundColor = this.props.boxcolor;
-		styles.maxBox.color = this.props.color;
+		const Children = this.props.bauhaus.Children;
 		return (
-			<div look="maxBox">
-				{this.props.children}
-			</div>
+			<Children data={8} bauhaus={this.props.bauhaus}></Children>
 		);
 	}
 }
 
-export default Look(MaxWidthBox, styles);
+export default function() {
+	return MaxWidthBox;
+};
