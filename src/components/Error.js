@@ -8,8 +8,9 @@ class Error extends Component {
 		return (
 			<div look={styles.center}>
 				<img src="media/bauhausuilogo.svg"/>
-				<br/><br/>
-				<img src="media/loader.gif"/>
+				<br/><br/><br/><br/>
+				<b><big>ERROR:</big></b><br/>
+				An internal error occured! Please inform your admin or see logs.
 			</div>
 		);
 	}
@@ -21,7 +22,7 @@ class Error extends Component {
 </div>
 */
 
-Loading.propTypes = {
+Error.propTypes = {
 	state: PropTypes.object.isRequired,
 	actions: PropTypes.object.isRequired
 };

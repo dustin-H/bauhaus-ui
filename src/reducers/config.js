@@ -3,7 +3,7 @@ import * as pageTypes from '../constants/PageTypes.js';
 
 const initialState = {
 	page: 'LOADING',
-	configLoaded: false,
+	loaded: false,
 	config: [],
 	header: 'Authorization',
 	token: localStorage.getItem('token') || '',
@@ -53,6 +53,11 @@ export default function i18n(state = initialState, action) {
 		case types.CONFIG_REMOVE_FIRST_URL:
 			var newState = Object.assign({}, state);
 			newState.config.shift();
+			return newState;
+		case types.CONFIG_LOADED:
+			var newState = Object.assign({}, state);
+			newState.loaded = true;
+			newState.page = pageTypes.LOGIN;
 			return newState;
 		case types.CONFIG_LOAD_ERROR:
 			var newState = Object.assign({}, state);

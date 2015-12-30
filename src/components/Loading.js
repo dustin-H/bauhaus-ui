@@ -3,7 +3,7 @@ import Look, {StyleSheet} from 'react-look/dom';
 
 class Loading extends Component {
 	render() {
-		console.log('Rerender!');
+		console.log('Rerender Loading!');
 		const {state, actions} = this.props;
 		return (
 			<div look={styles.center}>

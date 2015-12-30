@@ -1,4 +1,5 @@
 import languagePlugin from '../utils/i18n/plugin.js';
+import * as types from '../constants/ActionTypes.js';
 
 export function addUrls(configUrls) {
 	return {
@@ -23,7 +24,7 @@ export function loadError(err, configUrl) {
 	return {
 		type: types.CONFIG_LOAD_ERROR,
 		err,
-      configUrl
+		configUrl
 	};
 }
 
@@ -36,9 +37,9 @@ export function setEndpoints(endpoints) {
 
 export function load() {
 	return(dispatch, getState) => {
-		var state = getState().endpoints;
-		if(state.config.length > 0) {
-         var configUrl = state.config[0];
+		var state = getState().config;
+		if(state.config.length > 0 && state.loaded === false) {
+			var configUrl = state.config[0];
 			return superagent
 				.get(configUrl)
 				.use(languagePlugin)

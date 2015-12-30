@@ -21,24 +21,24 @@ class Main extends Component {
 				return Error;}
 	}
    componentDidMount(){
-      this.props.actions.endpoints.loadInitialData();
+      this.props.actions.config.load();
    }
 	render () {
 		const {
 			state,
 			actions
 		} = this.props;
-		var Comp = this.getComponent(state.generals.page);
+		var Comp = this.getComponent(state.config.page);
 
 		return (
-			<Comp></Comp>
+			<Comp state={state} actions={actions}></Comp>
 		);
 	}
 }
 
-AppBuilder.propTypes = {
+Main.propTypes = {
 	state: PropTypes.object.isRequired,
 	actions: PropTypes.object.isRequired
 };
 
-export default Look(Main);
+export default Main;

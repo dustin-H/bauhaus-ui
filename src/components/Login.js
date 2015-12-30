@@ -3,13 +3,14 @@ import Look, {StyleSheet} from 'react-look/dom';
 
 class Login extends Component {
 	render() {
-		console.log('Rerender!');
+		console.log('Rerender Login!');
 		const {state, actions} = this.props;
 		return (
 			<div look={styles.center}>
 				<img src="media/bauhausuilogo.svg"/>
-				<br/><br/>
-				<img src="media/loader.gif"/>
+				<br/><br/><br/><br/>
+         <input type="text" look={styles.input} value={'Username'}></input><br/><br/>
+         <input type="password" look={styles.input} value={'Password'}></input>
 			</div>
 		);
 	}
@@ -21,7 +22,7 @@ class Login extends Component {
 </div>
 */
 
-Loading.propTypes = {
+Login.propTypes = {
 	state: PropTypes.object.isRequired,
 	actions: PropTypes.object.isRequired
 };
