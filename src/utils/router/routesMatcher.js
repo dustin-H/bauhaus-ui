@@ -15,6 +15,7 @@ var matchRoutes = function(routes, location) {
 			}
 		}
 	}
+   return false;
 }
 
 export default matchRoutes;
