@@ -8,8 +8,8 @@ const bauhaus = {
 		{
 			name: 'InputText',
 			props: {
-				defaultValue: 'core.auth.login.username',
-				label: 'core.auth.login.submit'
+				defaultValue: '$core.auth.login.username',
+				label: '$core.auth.login.submit'
 			}
 		}
 	]

@@ -1,13 +1,17 @@
 import React, {PropTypes, Component} from 'react';
 import Look, {StyleSheet} from 'react-look';
-import {_} from '../../utils/i18n/index.js';
+import {$} from '../../utils/i18n/index.js';
+import _ from 'lodash';
 
 class SimpleWrapper extends Component {
 	render() {
 		const {bauhaus} = this.props;
 		return (
 			<div>
-				{bauhaus._childrenGenerators}
+				{_
+					.map(bauhaus._childrenGenerators, function(value, key) {
+						return value({some: 'props HAHA', key: key})
+					})}
 			</div>
 		);
 	}

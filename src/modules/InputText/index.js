@@ -1,14 +1,16 @@
 import React, {PropTypes, Component} from 'react';
 import Look, {StyleSheet} from 'react-look';
-import {_} from '../../utils/i18n/index.js';
+import {$} from '../../utils/i18n/index.js';
 
 class InputText extends Component {
 	render() {
-		const {defaultValue, label} = this.props;
+		const {bauhaus, some} = this.props;
 		return (
 			<span>
-				<span>{_(label)}</span>
-         <input look={styles.textInput} type="text" defaultValue={_(defaultValue)}></input>
+				<span>{$(bauhaus.props.label)}
+					+
+					{some}</span>
+				<input look={styles.textInput} type="text" defaultValue={$(bauhaus.props.defaultValue)}></input>
 			</span>
 		);
 	}

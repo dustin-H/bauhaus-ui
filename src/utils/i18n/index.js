@@ -7,7 +7,12 @@ import {
 }
 from '../../actions/i18n.js';
 
-export function _(id) {
+export function $(id) {
+   if(typeof id !== 'string' || id[0] !== '$'){
+      return id;
+   } else {
+      id = id.substr(1);
+   }
 	var state = store.getState().i18n;
 	for(var i in state.languages) {
 		if(state.store[state.languages[i]][id] != null) {
@@ -46,7 +51,6 @@ export function loadLanguagePacks(packs, cb) {
 }
 
 export function loadLanguages(pack, cb) {
-	console.log('loadLanguages');
 	if(Object.keys(pack).length > 0) {
 		var state = store.getState().i18n;
 		var loadNow = null;
