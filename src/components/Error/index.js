@@ -1,9 +1,8 @@
 import React, {PropTypes, Component} from 'react';
-import Look, {StyleSheet} from 'react-look/dom';
+import Look, {StyleSheet} from 'react-look';
 
 class Error extends Component {
 	render() {
-		console.log('Rerender!');
 		const {state, actions} = this.props;
 		return (
 			<div look={styles.center}>
@@ -27,7 +26,7 @@ Error.propTypes = {
 	actions: PropTypes.object.isRequired
 };
 
-import styleSheet from './Error.styles.js';
+import styleSheet from './style.js';
 var styles = StyleSheet.create(Error, styleSheet);
 
 export default Look(Error);

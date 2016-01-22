@@ -1,9 +1,8 @@
 import React, {PropTypes, Component} from 'react';
-import Look, {StyleSheet} from 'react-look/dom';
+import look, {StyleSheet} from 'react-look';
 
 class AppBuilder extends Component {
 	render() {
-		console.log('Rerender!');
 		const {state, actions} = this.props;
 		return (
 			<div>
@@ -160,6 +159,7 @@ class AppBuilder extends Component {
 										</tr>
 									</tbody>
 								</table>
+                        <br/>
 							</div>
 						</div>
 					</div>
@@ -180,7 +180,7 @@ AppBuilder.propTypes = {
 	actions: PropTypes.object.isRequired
 };
 
-import styleSheet from './AppBuilder.styles.js';
+import styleSheet from './style.js';
 var styles = StyleSheet.create(AppBuilder, styleSheet);
 
-export default Look(AppBuilder);
+export default look(AppBuilder);

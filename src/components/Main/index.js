@@ -1,10 +1,13 @@
 import React, {PropTypes, Component} from 'react';
-import * as pageTypes from '../constants/PageTypes.js';
+import * as pageTypes from '../../constants/PageTypes.js';
 
-import App from './AppBuilder.js';
-import Loading from './Loading.js';
-import Login from './Login.js';
-import Error from './Error.js';
+import App from '../App';
+import Loading from '../Loading';
+import Login from '../Login';
+import Error from '../Error';
+
+import { Presets, DevTools } from 'react-look/addons'
+const customConfig = Presets['react-dom'];
 
 class Main extends Component {
 	getComponent(page) {
@@ -31,7 +34,7 @@ class Main extends Component {
 		var Comp = this.getComponent(state.config.page);
 
 		return (
-			<Comp state={state} actions={actions}></Comp>
+			<Comp state={state} actions={actions} lookConfig={customConfig}></Comp>
 		);
 	}
 }

@@ -1,9 +1,8 @@
 import React, {PropTypes, Component} from 'react';
-import Look, {StyleSheet} from 'react-look/dom';
+import Look, {StyleSheet} from 'react-look';
 
 class Loading extends Component {
 	render() {
-		console.log('Rerender Loading!');
 		const {state, actions} = this.props;
 		return (
 			<div look={styles.center}>
@@ -26,7 +25,7 @@ Loading.propTypes = {
 	actions: PropTypes.object.isRequired
 };
 
-import styleSheet from './Loading.styles.js';
+import styleSheet from './style.js';
 var styles = StyleSheet.create(Loading, styleSheet);
 
 export default Look(Loading);

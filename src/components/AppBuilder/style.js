@@ -46,10 +46,10 @@ var style = {
 		letterSpacing: '1px',
 		borderLeft: '2px solid transparent',
 		':hover': {
-			borderLeft: '2px solid #F96331',
+			borderLeft: '2px solid #20C753',
 		},
 		':active': {
-			borderLeft: '6px solid #F96331',
+			borderLeft: '6px solid #20C753',
 			fontWeight: 700,
 			transition: 'ease-in-out 0.1s',
 			paddingLeft: '30px'
@@ -102,7 +102,7 @@ var style = {
 	},
 	mainFrame: {
 		position: 'fixed',
-		//left: sideBarSize + 'px', 
+		//left: sideBarSize + 'px',
 		left: (props, state, context) => sideBarSize,
 		top: '0px',
 		right: '0px',
@@ -115,7 +115,7 @@ var style = {
 		left: '0px',
 		right: '0px',
 		height: headerHeight + 'px',
-		backgroundColor: '#F96331',
+		backgroundColor: '#20C753',
 		boxSizing: 'border-box',
 		color: '#ffffff',
 		padding: '18px',
@@ -192,7 +192,7 @@ var style = {
 		fontSize: '14px',
 		width: '100%',
 		':focus': {
-			border: '1px solid #F96331', // F96331 6E00FF
+			border: '1px solid #20C753', // F96331 6E00FF
 			color: '#000000'
 		}
 	},
@@ -236,7 +236,10 @@ var style = {
 	imageIcon: {
 		width: '20px',
 		verticalAlign: 'middle'
-	}
+	},
+   link: {
+      color: '#ff0000'
+   }
 };
 
 style.frontTdHeadLine = Object.assign({}, style.frontTd, {
