@@ -37,17 +37,60 @@ module.exports = function() {
 		})
 	})
 
+	app.get('/sideBar', function(req, res) {
+		res.json({
+			sideBar: [{
+				name: 'Posts',
+				pathname: '/posts',
+				imageUrl: 'media/icons/channels.svg'
+			},{
+				name: 'Menu',
+				pathname: '/menu'
+			}]
+		})
+	});
+
 	app.get('/views', function(req, res) {
 		res.json({
 			posts: {
 				endpoint: '/views/posts',
-				route: '/posts/:id'
+				route: '/posts'
 			},
 			menu: {
 				endpoint: '/views/menu',
-				route: '/menu/:id'
+				route: '/menu'
 			}
 		})
+	});
+
+	app.get('/views/posts', function(req, res) {
+		res.json({
+			bauhaus: {
+				name: 'SimpleWrapper',
+				components: [{
+					name: 'InputText',
+					props: {
+						defaultValue: 'core.auth.login.username',
+						label: 'POSTS'
+					}
+				}]
+			}
+		});
+	});
+
+	app.get('/views/menu', function(req, res) {
+		res.json({
+			content: {
+				name: 'SimpleWrapper',
+				components: [{
+					name: 'InputText',
+					props: {
+						defaultValue: 'core.auth.login.username',
+						label: 'MENU'
+					}
+				}]
+			}
+		});
 	});
 
 	app.get('/i18n/pack/en', function(req, res) {
