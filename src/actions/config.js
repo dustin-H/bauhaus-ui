@@ -1,5 +1,7 @@
-import languagePlugin from '../utils/i18n/plugin.js';
 import * as types from '../constants/ActionTypes.js';
+import superagent from 'superagent';
+import superagentPlugin from '../utils/helpers/superagentPlugin.js';
+//const superagent = languagePlugin(superagent_temp);
 
 export function addUrls(configUrls) {
 	return {
@@ -40,12 +42,15 @@ export function load() {
 		var state = getState().config;
 		if(state.config.length > 0 && state.loaded === false) {
 			var configUrl = state.config[0];
-			return superagent
+			dispatch(removeFirstUrl());
+			superagent
 				.get(configUrl)
-				.use(languagePlugin)
+				//.set('Accept', 'application/json')
+				.accept('json')
+				.use(superagentPlugin())
 				.end(function(err, res) {
-					if(err) {
-						return loadError(err, configUrl);
+					if(err != null) {
+						return dispatch(loadError(err, configUrl));
 					}
 					if(res.body.endpoints) {
 						dispatch(setEndpoints(res.body.endpoints));
@@ -55,7 +60,6 @@ export function load() {
 					}
 					dispatch(load());
 				});
-			dispatch(removeFirstUrl());
 		} else {
 			dispatch(loaded());
 		}

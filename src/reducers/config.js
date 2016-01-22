@@ -4,43 +4,35 @@ import * as pageTypes from '../constants/PageTypes.js';
 const initialState = {
 	page: 'LOADING',
 	loaded: false,
-	config: [],
-	header: 'Authorization',
-	token: localStorage.getItem('token') || '',
-	list: {
-		config: {
-			url: 'config.json',
-			loaded: false,
-			loading: false
-		},
-		entry: {
-			url: '/',
-			loaded: false,
-			loading: false
+   loadState: {
+      entry: false,
+      sideBar: false,
+      views: false
+   },
+	config: ['config.json'],
+	endpoints: {
+		/*entry: {
+			url: '/api'
 		},
 		views: {
-			url: '/views',
-			loaded: false,
-			loading: false
+			url: '/api/views'
 		},
 		sideBar: {
-			url: '/sideBar',
-			loaded: false,
-			loading: false
+			url: '/api/sideBar'
 		},
 		search: {
-			url: '/search',
+			url: '/api/search',
 		},
 		login: {
-			url: '/login',
+			url: '/api/login',
 		},
 		logout: {
-			url: '/logout',
-		}
+			url: '/api/logout',
+		}*/
 	}
 };
 
-export default function i18n(state = initialState, action) {
+export default function config(state = initialState, action) {
 	switch(action.type) {
 		case types.CONFIG_SET_PAGE:
 			if(pageTypes[action.page] != null) {
@@ -59,6 +51,11 @@ export default function i18n(state = initialState, action) {
 			newState.loaded = true;
 			newState.page = pageTypes.LOGIN;
 			return newState;
+		case types.CONFIG_FATAL_ERROR:
+			var newState = Object.assign({}, state);
+         console.error('Fatal Error:', action.err);
+			newState.page = pageTypes.ERROR;
+			return newState;
 		case types.CONFIG_LOAD_ERROR:
 			var newState = Object.assign({}, state);
 			newState.page = pageTypes.ERROR;
@@ -68,13 +65,11 @@ export default function i18n(state = initialState, action) {
 			newState.config = newState.config.concat(action.configUrls);
 			return newState;
 		case types.CONFIG_SET_ENDPOINTS:
-			if(pageTypes[action.page] != null) {
-				var newState = Object.assign({}, state);
-				newState.page = action.page;
-				return newState;
-			} else {
-				return state;
+			var newState = Object.assign({}, state, {});
+			for(var i in action.endpoints) {
+				newState.endpoints[i] = action.endpoints[i];
 			}
+			return newState;
 		default:
 			return state;
 	}
