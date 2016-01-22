@@ -5,30 +5,32 @@ from 'react';
 import {
 	getModule
 }
-from '../utils/componentLoader/index.js';
+from '../utils/moduleLoader/index.js';
 import Children from './Children.js';
 
 class Loader extends Component {
+	createChild(component) {
+		return function(props) {
+			return React.createElement(Loader, Object.assign({}, props, {
+				bauhaus: component
+			}));
+		}
+	}
+
 	render() {
-		const bauhaus = this.props.bauhaus;
-      console.log(bauhaus);
-      console.log(getModule(bauhaus.name));
+		const {bauhaus} = this.props;
+		var props = Object.assign({}, this.props);
 		if(bauhaus.components != null && typeof bauhaus.components === 'object' && bauhaus.components.length > 0) {
 			var childrenGenerators = [];
 			for(var i in bauhaus.components) {
-				childrenGenerators.push(function(props) {
-					return React.createElement(Loader, Object.assign({}, props, {
-						bauhaus: bauhaus.components[i]
-					}));
-				}.bind(bauhaus));
+				var component = bauhaus.components[i];
+				childrenGenerators.push(this.createChild(component));
 			}
-			var props = Object.assign({}, this.props);
 			props.bauhaus._childrenGenerators = childrenGenerators;
-			props.bauhaus.Children = Children;
 			return React.createElement(getModule(bauhaus.name), props);
 		}
 		else {
-			return React.createElement(getModule(bauhaus.name), this.props);
+			return React.createElement(getModule(bauhaus.name), props);
 		}
 	}
 }

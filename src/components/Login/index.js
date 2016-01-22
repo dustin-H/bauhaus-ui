@@ -1,6 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import Look, {StyleSheet} from 'react-look';
-import {_} from '../../utils/i18n/index.js';
+import {$} from '../../utils/i18n/index.js';
 
 class Login extends Component {
 	onChange(key) {
@@ -29,20 +29,20 @@ class Login extends Component {
 		);
 		if (state.auth.error === true && state.auth.loginLoading === false) {
 			errorOutput = (
-				<span look={styles.errorMessage}>{_('core.auth.login.error')}</span>
+				<span look={styles.errorMessage}>{$('$core.auth.login.error')}</span>
 			)
 		}
 		var content = (
 			<form onSubmit={this
 				.onSubmit
 				.bind(this)}>
-				<input type="text" look={styles.input} placeholder={_('core.auth.login.username')} value={state.auth.login.username} onChange={this
+				<input type="text" look={styles.input} placeholder={$('$core.auth.login.username')} value={state.auth.login.username} onChange={this
 					.onChange('username')
 					.bind(this)}></input><br/><br/>
-				<input type="password" look={styles.input} value={state.auth.login.password} placeholder={_('core.auth.login.password')} onChange={this
+            <input type="password" look={styles.input} value={state.auth.login.password} placeholder={$('$core.auth.login.password')} onChange={this
 					.onChange('password')
 					.bind(this)}></input><br/><br/>
-				<input type="submit" look={styles.button} value={_('core.auth.login.submit')}></input>
+            <input type="submit" look={styles.button} value={$('$core.auth.login.submit')}></input>
 			</form>
 		);
 		if (state.auth.loginLoading === true) {

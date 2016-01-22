@@ -1,7 +1,7 @@
 import {
 	registerModule
 }
-from '../utils/componentLoader';
+from '../utils/moduleLoader';
 
 
 import InputText from './InputText';

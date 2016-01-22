@@ -5,7 +5,7 @@ from '../i18n/index.js';
 import {
 	defineModuleUrl
 }
-from '../componentLoader/index.js';
+from '../moduleLoader/index.js';
 
 import store from '../../store/store.js';
 
