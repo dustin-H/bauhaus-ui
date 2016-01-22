@@ -9,6 +9,7 @@ import * as auth from '../actions/auth.js';
 import * as config from '../actions/config.js';
 import * as i18n from '../actions/i18n.js';
 import * as router from '../actions/router.js';
+import * as sideBar from '../actions/sideBar.js';
 
 class App extends Component {
   render() {
@@ -17,7 +18,8 @@ class App extends Component {
       auth: bindActionCreators(auth, dispatch),
       config: bindActionCreators(config, dispatch),
       i18n: bindActionCreators(i18n, dispatch),
-      router: bindActionCreators(router, dispatch)
+      router: bindActionCreators(router, dispatch),
+      sideBar: bindActionCreators(sideBar, dispatch)
    }
 
     return (

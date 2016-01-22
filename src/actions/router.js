@@ -18,3 +18,11 @@ function locationChanged(location) {
 		location
 	};
 }
+
+export function pushLocation(location) {
+   history.push(location);
+	return {
+		type: types.ROUTER_PUSH_LOCATION,
+		location
+	};
+}
