@@ -1,0 +1,37 @@
+{
+	"i18n": {
+		"packA": {
+			"en": {
+				"complete": false,
+				"url": "/api/i18n/pack/en"
+			},
+			"de": {
+				"complete": true,
+				"url": "/api/i18n/pack/de"
+			}
+		}
+	},
+   "modules": {
+      "testmodule": "/api/testmodule"
+   },
+	"endpoints": {
+		"entry": {
+			"url": "/api"
+		},
+		"views": {
+			"url": "/api/views"
+		},
+		"sideBar": {
+			"url": "/api/sideBar"
+		},
+		"search": {
+			"url": "/api/search"
+		},
+		"login": {
+			"url": "/api/login"
+		},
+		"logout": {
+			"url": "/api/logout"
+		}
+	}
+}

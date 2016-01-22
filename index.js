@@ -5,8 +5,14 @@ var app = express();
 
 app.use(function(req, res, next) {
 	//res.header('Access-Control-Allow-Origin', '*');
-   next();
+	next();
 });
+
+app.use('/config.json', function(req, res, next) {
+	setTimeout(function() {
+		next();
+	}, 1500);
+})
 
 app.use('/api', testapi())
 

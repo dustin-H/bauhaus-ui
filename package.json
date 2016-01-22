@@ -12,15 +12,18 @@
   "author": "Dustin Hoffner",
   "license": "MIT",
   "dependencies": {
+    "history": "^1.17.0",
+    "lodash": "^4.0.0",
     "moment": "^2.10.6",
     "object-assign": "^4.0.1",
     "react": "latest",
     "react-dom": "latest",
     "react-look": "latest",
+    "react-native": "^0.17.0",
     "react-redux": "latest",
     "redux": "latest",
     "redux-thunk": "latest",
-    "superagent": "latest"
+    "superagent": "^1.7.0"
   },
   "devDependencies": {
     "babel-loader": "^5.3.3",

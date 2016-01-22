@@ -2,7 +2,13 @@ var express = require('express');
 
 module.exports = function() {
 
-	var app = express()
+	var app = express();
+
+	app.use(function(req, res, next) {
+		setTimeout(function() {
+			next();
+		}, 1500);
+	})
 
 	app.get('/', function(req, res, next) {
 		res.json({
@@ -42,6 +48,30 @@ module.exports = function() {
 				route: '/menu/:id'
 			}
 		})
+	});
+
+	app.get('/i18n/pack/en', function(req, res) {
+		var ln = [];
+		ln.push(JSON.stringify({
+			language: 'en'
+		}));
+		ln.push(JSON.stringify({
+			id: '3rd.test.text',
+			text: 'Test text in english.'
+		}));
+		res.send(ln.join('\n'));
+	});
+
+	app.get('/i18n/pack/de', function(req, res) {
+		var ln = [];
+		ln.push(JSON.stringify({
+			language: 'de'
+		}));
+		ln.push(JSON.stringify({
+			id: '3rd.test.text',
+			text: 'Test Text in Deutsch.'
+		}));
+		res.send(ln.join('\n'));
 	});
 
 	return app;
