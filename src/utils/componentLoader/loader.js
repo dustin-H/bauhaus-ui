@@ -1,6 +1,6 @@
 import superagent from 'superagent';
 import store from './store.js';
-import c from './constants.js';
+import * as c from './constants.js';
 
 __GLOBAL__.exportDefault = null;
 

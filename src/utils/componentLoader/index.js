@@ -1,6 +1,6 @@
 import store from './store.js';
 import loader from './loader.js';
-import c from './constants.js';
+import * as c from './constants.js';
 
 export function getModule(id) {
 	if (store[id] != null && store[id].module != null && store[id].state === c.LOADED) {
@@ -26,4 +26,12 @@ export function defineModuleUrl(id, url) {
 
 export function ensureModules(ids, cb) {
 	return loader(ids, cb);
+}
+
+export function registerModule(id, module){
+   store[id] = {
+      module: module,
+      state: c.LOADED
+   };
+   //store[id].module = module;
 }
