@@ -13,3 +13,8 @@ export function addFallbacks(fallbacks) {
 		fallbacks
 	};
 }
+export function clearFallbacks() {
+   return {
+		type: types.I18N_CLEAR_FALLBACKS
+	};
+}

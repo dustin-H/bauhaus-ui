@@ -1,37 +1,59 @@
-
 import store from '../../store/store.js';
 import loader from './loader.js';
 
 import {
-	addFallbacks
+	addFallbacks,
+	clearFallbacks
 }
 from '../../actions/i18n.js';
 
 export function _(id) {
 	var state = store.getState().i18n;
-	if(state.store[id] != null) {
-		for(var i in state.languages) {
-			if(state.store[id][state.languages[i]] != null) {
-				return state.store[id][state.languages[i]];
-			}
-			languageComplete[state.languages[i]] = false;
-		}
-		for(var i in state.store[id]) {
-			return state.store[id][i];
+	for(var i in state.languages) {
+		if(state.store[state.languages[i]][id] != null) {
+			return state.store[state.languages[i]][id];
 		}
 	}
+	for(var i in state.store) {
+		if(state.store[i][id] != null) {
+			return state.store[i][id];
+		}
+	}
+	setTimeout(function() {
+		var state = store.getState().i18n;
+		if(state.fallbacks.length > 0) {
+			var fallbacks = state.fallbacks;
+			store.dispatch(clearFallbacks());
+			loader(fallbacks, function() {});
+		}
+	}, 0);
 	console.error('Could not get i18n text of id [', id, ']!');
 	return id;
 }
 
+export function loadLanguagePacks(packs, cb) {
+	console.log('loadLanguagePacks');
+	var k = 0;
+	for(var i in packs) {
+		k++;
+		loadLanguages(packs[i], function() {
+			k--;
+			if(k < 1) {
+				cb();
+			}
+		})
+	}
+}
+
 export function loadLanguages(pack, cb) {
+	console.log('loadLanguages');
 	if(Object.keys(pack).length > 0) {
 		var state = store.getState().i18n;
 		var loadNow = null;
 		var fallbacks = [];
 		var isComplete = false;
-		for(var i in languages) {
-			if(pack[languages[i]] != null) {
+		for(var i in state.languages) {
+			if(pack[state.languages[i]] != null) {
 				if(loadNow == null) {
 					var loadNow = pack[state.languages[i]].url;
 					if(pack[state.languages[i]].complete === true) {
@@ -87,7 +109,7 @@ export function loadLanguages(pack, cb) {
 			}
 		}
 		var toLoad = [loadNow];
-		if(state.fallbackMode === true){
+		if(state.fallbackMode === true) {
 			toLoad = toLoad.concat(fallbacks);
 		} else {
 			store.dispatch(addFallbacks(fallbacks));
