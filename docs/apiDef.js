@@ -23,6 +23,16 @@ GET => /   {
 	}
 }
 
+GET => /   {
+	sidebar: [{
+		name: 'core.sidebar.news',
+		route: '/news',
+		views: '/views',
+		loginEndpoint: '/login',
+		logoutEndpoint: '/logout'
+	}]
+}
+
 POST => /login
 SEND => {
 	username: 'Admin',
