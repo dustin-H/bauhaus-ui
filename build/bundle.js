@@ -26436,8 +26436,12 @@
 	var ROUTER_LOCATION_CHANGED = 'ROUTER_LOCATION_CHANGED';
 	exports.ROUTER_LOCATION_CHANGED = ROUTER_LOCATION_CHANGED;
 	var ROUTER_PUSH_LOCATION = 'ROUTER_PUSH_LOCATION';
-
 	exports.ROUTER_PUSH_LOCATION = ROUTER_PUSH_LOCATION;
+	var ROUTER_SET_ROUTES = 'ROUTER_SET_ROUTES';
+	exports.ROUTER_SET_ROUTES = ROUTER_SET_ROUTES;
+	var ROUTER_SET_LOADING = 'ROUTER_SET_LOADING';
+
+	exports.ROUTER_SET_LOADING = ROUTER_SET_LOADING;
 	// SideBar
 	var SIDEBAR_SET_LOADING = 'SIDEBAR_SET_LOADING';
 	exports.SIDEBAR_SET_LOADING = SIDEBAR_SET_LOADING;
@@ -26801,7 +26805,9 @@
 	var types = _interopRequireWildcard(_constantsActionTypesJs);
 
 	var initialState = {
-		location: {}
+		location: {},
+		routes: {},
+		loading: false
 	};
 
 	function router(state, action) {
@@ -26811,6 +26817,15 @@
 			case types.ROUTER_LOCATION_CHANGED:
 				var newState = Object.assign({}, state);
 				newState.location = action.location;
+				return newState;
+			case types.ROUTER_SET_ROUTES:
+				var newState = Object.assign({}, state);
+				newState.routes = action.routes;
+				newState.loading = false;
+				return newState;
+			case types.ROUTER_SET_LOADING:
+				var newState = Object.assign({}, state);
+				newState.loading = true;
 				return newState;
 			default:
 				return state;
@@ -29079,7 +29094,7 @@
 				if (state.sideBar.loading === true) {
 					content = _react2['default'].createElement(
 						'div',
-						{ look: styles.loaderCenter },
+						{ look: styles.center },
 						_react2['default'].createElement('br', null),
 						_react2['default'].createElement('img', { src: 'media/loader.gif' })
 					);
@@ -29216,7 +29231,7 @@
 				fontWeight: 700
 			}
 		},
-		loaderCenter: {
+		center: {
 			textAlign: 'center',
 			width: '100%',
 			display: 'inline-block'
@@ -29425,6 +29440,10 @@
 
 	var _Loader2 = _interopRequireDefault(_Loader);
 
+	var _Router = __webpack_require__(361);
+
+	var _Router2 = _interopRequireDefault(_Router);
+
 	var _styleJs = __webpack_require__(268);
 
 	var _styleJs2 = _interopRequireDefault(_styleJs);
@@ -29468,16 +29487,7 @@
 					_react2['default'].createElement(
 						'div',
 						{ look: styles.content },
-						_react2['default'].createElement(
-							'span',
-							{ look: styles.contentHeadline },
-							'User'
-						),
-						_react2['default'].createElement('hr', { look: styles.contentHr }),
-						_react2['default'].createElement('br', null),
-						_react2['default'].createElement('br', null),
-						_react2['default'].createElement(_Loader2['default'], { bauhaus: bauhaus }),
-						_react2['default'].createElement('br', null)
+						_react2['default'].createElement(_Router2['default'], { state: state, actions: actions })
 					)
 				);
 			}
@@ -29495,6 +29505,9 @@
 
 	exports['default'] = (0, _reactLook2['default'])(Content);
 	module.exports = exports['default'];
+	/*<span look={styles.contentHeadline}>User</span><hr look={styles.contentHr}/><br/><br/>
+	<Loader bauhaus={bauhaus}></Loader>
+	<br/>*/
 
 /***/ },
 /* 267 */
@@ -38398,6 +38411,7 @@
 		value: true
 	});
 	exports.pushLocation = pushLocation;
+	exports.loadRoutes = loadRoutes;
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -38407,9 +38421,13 @@
 
 	var types = _interopRequireWildcard(_constantsActionTypesJs);
 
-	//import * as pageTypes from '../constants/PageTypes.js';
-	//import superagent from 'superagent';
-	//import languagePlugin from '../utils/i18n/plugin.js';
+	var _superagent = __webpack_require__(5);
+
+	var _superagent2 = _interopRequireDefault(_superagent);
+
+	var _utilsHelpersSuperagentPluginJs = __webpack_require__(241);
+
+	var _utilsHelpersSuperagentPluginJs2 = _interopRequireDefault(_utilsHelpersSuperagentPluginJs);
 
 	var _storeStoreJs = __webpack_require__(213);
 
@@ -38437,6 +38455,42 @@
 		return {
 			type: types.ROUTER_PUSH_LOCATION,
 			location: location
+		};
+	}
+
+	function setRoutes(routes) {
+		return {
+			type: types.ROUTER_SET_ROUTES,
+			routes: routes
+		};
+	}
+
+	function setLoading() {
+		return {
+			type: types.ROUTER_SET_LOADING
+		};
+	}
+
+	function loadRoutes() {
+		return function (dispatch, getState) {
+			var state = getState();
+			if (state.router.loading === false) {
+				dispatch(setLoading());
+				var url = state.config.endpoints.routes.url; // TODO: Error Handling
+				_superagent2['default'].get(url).accept('json').use((0, _utilsHelpersSuperagentPluginJs2['default'])()).end(function (err, res) {
+					if (err != null) {
+						return dispatch(loadError(err, url));
+					}
+					var routes = {};
+
+					if (res.body.routes != null && typeof res.body.routes === 'object') {
+						routes = res.body.routes;
+					}
+					dispatch(setRoutes(routes));
+				});
+			} else {
+				console.warn('router.loadRoutes called as it was loading!');
+			}
 		};
 	}
 
@@ -54636,6 +54690,148 @@
 			}
 		};
 	}
+
+/***/ },
+/* 361 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(10);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactLook = __webpack_require__(167);
+
+	var _reactLook2 = _interopRequireDefault(_reactLook);
+
+	var _Loader = __webpack_require__(267);
+
+	var _Loader2 = _interopRequireDefault(_Loader);
+
+	var _styleJs = __webpack_require__(362);
+
+	var _styleJs2 = _interopRequireDefault(_styleJs);
+
+	var bauhaus = {
+		name: 'SimpleWrapper',
+		components: [{
+			name: 'InputText',
+			props: {
+				defaultValue: '$core.auth.login.username',
+				label: '$core.auth.login.submit'
+			}
+		}]
+	};
+
+	var Router = (function (_Component) {
+		_inherits(Router, _Component);
+
+		function Router() {
+			_classCallCheck(this, Router);
+
+			_get(Object.getPrototypeOf(Router.prototype), 'constructor', this).apply(this, arguments);
+		}
+
+		_createClass(Router, [{
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				var _props = this.props;
+				var state = _props.state;
+				var actions = _props.actions;
+
+				actions.router.loadRoutes();
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var _props2 = this.props;
+				var state = _props2.state;
+				var actions = _props2.actions;
+
+				if (state.router.loading === true) {
+					return _react2['default'].createElement(
+						'div',
+						{ look: styles.center },
+						_react2['default'].createElement('br', null),
+						_react2['default'].createElement('img', { src: 'media/loader.gif' })
+					);
+				} else {
+					return _react2['default'].createElement(
+						'div',
+						{ look: styles.center },
+						_react2['default'].createElement('br', null),
+						'Now REnder IT!'
+					);
+				}
+
+				return _react2['default'].createElement(
+					'div',
+					{ look: styles.contentWrapper },
+					_react2['default'].createElement(
+						'div',
+						{ look: styles.content },
+						_react2['default'].createElement(
+							'span',
+							{ look: styles.contentHeadline },
+							'User'
+						),
+						_react2['default'].createElement('hr', { look: styles.contentHr }),
+						_react2['default'].createElement('br', null),
+						_react2['default'].createElement('br', null),
+						_react2['default'].createElement(_Loader2['default'], { bauhaus: bauhaus }),
+						_react2['default'].createElement('br', null)
+					)
+				);
+			}
+		}]);
+
+		return Router;
+	})(_react.Component);
+
+	Router.propTypes = {
+		state: _react.PropTypes.object.isRequired,
+		actions: _react.PropTypes.object.isRequired
+	};
+
+	var styles = _reactLook.StyleSheet.create(Router, _styleJs2['default']);
+
+	exports['default'] = (0, _reactLook2['default'])(Router);
+	module.exports = exports['default'];
+
+/***/ },
+/* 362 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	var style = {
+		center: {
+			textAlign: 'center',
+			width: '100%',
+			display: 'inline-block'
+		}
+	};
+
+	exports['default'] = style;
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);
