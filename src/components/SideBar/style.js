@@ -76,7 +76,7 @@ var style = {
 			fontWeight: 700
 		}
 	},
-   loaderCenter: {
+   center: {
       textAlign: 'center',
       width: '100%',
       display: 'inline-block'

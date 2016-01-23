@@ -20,7 +20,7 @@ class SideBar extends Component {
 		);
 		if (state.sideBar.loading === true) {
 			content = (
-				<div look={styles.loaderCenter}><br/><img src="media/loader.gif"/></div>
+				<div look={styles.center}><br/><img src="media/loader.gif"/></div>
 			);
 		}
 		return (
@@ -29,7 +29,7 @@ class SideBar extends Component {
 					Bauhaus UI
 				</div>
 				<div look={styles.sideBarMenu}>
-               <br/>
+					<br/>
 					{content}
 					{_
 						.map(state.sideBar.list, function(value, key) {
