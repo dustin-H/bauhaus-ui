@@ -18,8 +18,8 @@
 		"entry": {
 			"url": "/api"
 		},
-		"views": {
-			"url": "/api/views"
+		"routes": {
+			"url": "/api/routes"
 		},
 		"sideBar": {
 			"url": "/api/sideBar"

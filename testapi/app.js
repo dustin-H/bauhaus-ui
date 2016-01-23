@@ -43,22 +43,24 @@ module.exports = function() {
 				name: 'Posts',
 				pathname: '/posts',
 				imageUrl: 'media/icons/channels.svg'
-			},{
+			}, {
 				name: 'Menu',
 				pathname: '/menu'
 			}]
 		})
 	});
 
-	app.get('/views', function(req, res) {
+	app.get('/routes', function(req, res) {
 		res.json({
-			posts: {
-				endpoint: '/views/posts',
-				route: '/posts'
-			},
-			menu: {
-				endpoint: '/views/menu',
-				route: '/menu'
+			routes: {
+				posts: {
+					endpoint: '/views/posts',
+					route: '/posts'
+				},
+				menu: {
+					endpoint: '/views/menu',
+					route: '/menu'
+				}
 			}
 		})
 	});
