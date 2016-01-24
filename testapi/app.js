@@ -7,7 +7,7 @@ module.exports = function() {
 	app.use(function(req, res, next) {
 		setTimeout(function() {
 			next();
-		}, 1500);
+		}, 1000);
 	})
 
 	app.get('/', function(req, res, next) {
@@ -54,11 +54,11 @@ module.exports = function() {
 		res.json({
 			routes: {
 				posts: {
-					endpoint: '/views/posts',
+					endpoint: '/api/views/posts',
 					route: '/posts'
 				},
 				menu: {
-					endpoint: '/views/menu',
+					endpoint: '/api/views/menu',
 					route: '/menu'
 				}
 			}
@@ -67,7 +67,7 @@ module.exports = function() {
 
 	app.get('/views/posts', function(req, res) {
 		res.json({
-			bauhaus: {
+			content: {
 				name: 'SimpleWrapper',
 				components: [{
 					name: 'InputText',
