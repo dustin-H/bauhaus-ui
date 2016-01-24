@@ -49,12 +49,6 @@ class SideBar extends Component {
 	}
 }
 
-/*
-<div look={styles.footer}>
-<div look={styles.footerLanguage}></div>
-</div>
-*/
-
 SideBar.propTypes = {
 	state: PropTypes.object.isRequired,
 	actions: PropTypes.object.isRequired
