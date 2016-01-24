@@ -37,7 +37,7 @@ var style = {
 		width: '200px',
 		textAlign: 'right',
 		verticalAlign: 'middle',
-		lineHeight: headerHeight-2 + 'px'
+		lineHeight: headerHeight-4 + 'px'
 	},
 	inlineBlock: {
 		display: 'inline-block',

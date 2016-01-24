@@ -3,6 +3,7 @@ import Look, {StyleSheet} from 'react-look';
 import SideBar from '../SideBar';
 import Header from '../Header';
 import Content from '../Content';
+import Search from '../Search';
 
 class App extends Component {
 	render() {
@@ -14,6 +15,7 @@ class App extends Component {
 					<div look={styles.mainFrame}>
 						<Header state={state} actions={actions}></Header>
 						<Content state={state} actions={actions}></Content>
+						<Search state={state} actions={actions}></Search>
 					</div>
 				</div>
 			</div>
