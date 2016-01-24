@@ -2,6 +2,7 @@ import React, {PropTypes, Component} from 'react';
 import look, {StyleSheet} from 'react-look';
 import _ from 'lodash';
 import SideBarListElement from '../SideBarListElement';
+import {$} from '../../utils/i18n/index.js';
 
 class SideBar extends Component {
 	componentDidMount() {
@@ -39,7 +40,7 @@ class SideBar extends Component {
 						})}
 				</div>
 				<div look={styles.sideBarUser}>
-					<div look={styles.sideBarUserLogOut}>Log out</div>
+					<div look={styles.sideBarUserLogOut}>{$('$core.auth.logout')}</div>
 					{state.auth.profile.firstname}
 					{state.auth.profile.lastname}
 				</div>
