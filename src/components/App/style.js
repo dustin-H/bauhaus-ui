@@ -10,7 +10,8 @@ var style = {
 		top: '0px',
 		right: '0px',
 		height: '100%',
-		backgroundColor: '#ffffff'
+		backgroundColor: '#ffffff',
+      fontFamily: 'Open Sans'
 	}
 };
 
