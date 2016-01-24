@@ -49,6 +49,13 @@ export function pushLocation(location) {
 	};
 }
 
+export function reload(routes) {
+   return(dispatch, getState) => {
+		var state = getState();
+		dispatch(pushLocation(state.router.location));
+	}
+}
+
 function setRoutes(routes) {
    return(dispatch, getState) => {
 		var state = getState();

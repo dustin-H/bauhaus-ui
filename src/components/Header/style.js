@@ -27,7 +27,7 @@ var style = {
 		width: '200px',
 		textAlign: 'left',
 		verticalAlign: 'middle',
-		lineHeight: headerHeight + 'px'
+		lineHeight: headerHeight-2 + 'px'
 	},
 	headerRight: {
 		position: 'absolute',
@@ -37,12 +37,17 @@ var style = {
 		width: '200px',
 		textAlign: 'right',
 		verticalAlign: 'middle',
-		lineHeight: headerHeight + 'px'
+		lineHeight: headerHeight-2 + 'px'
 	},
 	inlineBlock: {
 		display: 'inline-block',
 		textAlign: 'center',
-		width: '60px'
+		width: '60px',
+      cursor: 'pointer',
+      borderTop: '2px solid transparent',
+      ':hover': {
+         borderTop: '2px solid #ffffff'
+      }
 	},
 	imageIcon: {
 		width: '20px',

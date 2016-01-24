@@ -4,16 +4,16 @@ import look, {StyleSheet} from 'react-look';
 class Header extends Component {
 	render() {
 		const {state, actions} = this.props;
-      console.log(state);
+		console.log(state);
 		return (
 			<div look={styles.header}>
 				<div look={styles.headerLeft}>
-					<span look={styles.inlineBlock}><img src="media/icons/menu_white.svg" look={styles.imageIcon}/></span>
-					<span look={styles.inlineBlock}>{state.auth.login.username}</span>
+					<span key={'k1'} look={styles.inlineBlock}><img src="media/icons/menu_white.svg" look={styles.imageIcon}/></span>
+					<span key={'k2'} look={styles.inlineBlock}>{state.auth.login.username}</span>
 				</div>
 				<div look={styles.headerRight}>
-					<span look={styles.inlineBlock}><img src="media/icons/search_white.svg" look={styles.imageIcon}/></span>
-					<span look={styles.inlineBlock}><img src="media/icons/bookmark_white.svg" look={styles.imageIcon}/></span>
+					<span key={'k3'} look={styles.inlineBlock}><img src="media/icons/search_white.svg" look={styles.imageIcon}/></span>
+					<span key={'k4'} look={styles.inlineBlock} onClick={actions.router.reload}><img src="media/icons/reload_white.svg" look={styles.imageIcon}/></span>
 				</div>
 			</div>
 		);
