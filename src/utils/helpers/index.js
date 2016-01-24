@@ -1,8 +1,10 @@
 
-import objectReplacer from './objectReplacer.js'
+import {objectReplacer, replaceAll, replaceAllParams} from './objectReplacer.js'
 
 let exp = {
-   replaceParamsInObject: objectReplacer
+   replaceParamsInObject: objectReplacer,
+   replaceAll: replaceAll,
+   replaceAllParams: replaceAllParams
 }
 
 export default exp;

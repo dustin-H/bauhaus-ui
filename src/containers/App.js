@@ -10,6 +10,7 @@ import * as config from '../actions/config.js';
 import * as i18n from '../actions/i18n.js';
 import * as router from '../actions/router.js';
 import * as sideBar from '../actions/sideBar.js';
+import * as content from '../actions/content.js';
 
 class App extends Component {
   render() {
@@ -19,7 +20,8 @@ class App extends Component {
       config: bindActionCreators(config, dispatch),
       i18n: bindActionCreators(i18n, dispatch),
       router: bindActionCreators(router, dispatch),
-      sideBar: bindActionCreators(sideBar, dispatch)
+      sideBar: bindActionCreators(sideBar, dispatch),
+      content: bindActionCreators(content, dispatch)
    }
 
     return (

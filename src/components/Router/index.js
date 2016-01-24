@@ -1,6 +1,7 @@
 import React, {PropTypes, Component} from 'react';
 import look, {StyleSheet} from 'react-look';
-import Loader from '../Loader';
+import Route from '../Route';
+import {$} from '../../utils/i18n/index.js';
 
 const bauhaus = {
 	name: 'SimpleWrapper',
@@ -30,9 +31,16 @@ class Router extends Component {
 		if (state.router.loading === true) {return (
 				<div look={styles.center}><br/><img src="media/loader.gif"/></div>
 			);} else {
-			return (
-				<div look={styles.center}><br/>Now REnder IT!</div>
-			);
+			if (state.router.route === false) {
+            return (
+					<div look={styles.center}><br/>{$('$core.router.routeNotFound')}</div>
+				);
+         } else {
+				return (
+					<Route state={state} actions={actions}></Route>
+				);
+			}
+
 		}
 
 		return (

@@ -1,6 +1,11 @@
 import * as types from '../constants/ActionTypes.js';
 import superagent from 'superagent';
 import superagentPlugin from '../utils/helpers/superagentPlugin.js';
+import {loadError} from './config.js';
+import {
+	matchRoutes
+}
+from '../utils/router/index.js';
 
 import store from '../store/store.js';
 
@@ -12,11 +17,29 @@ let unlisten = history.listen(location => {
 })
 
 function locationChanged(location) {
-	return {
-		type: types.ROUTER_LOCATION_CHANGED,
-		location
-	};
+	return(dispatch, getState) => {
+		var state = getState();
+		var route = matchRoutes(state.router.routes, location);
+
+		dispatch({
+			type: types.ROUTER_LOCATION_CHANGED,
+			location,
+         route
+		});
+	}
 }
+
+/*function updateRoute(location) {
+	return(dispatch, getState) => {
+		var state = getState();
+		var route = matchRoutes(state.router.routes, state.router.location);
+
+		dispatch({
+			type: types.ROUTER_UPDATE_ROUTE,
+         route
+		});
+	}
+}*/
 
 export function pushLocation(location) {
 	history.push(location);
@@ -27,10 +50,16 @@ export function pushLocation(location) {
 }
 
 function setRoutes(routes) {
-	return {
-		type: types.ROUTER_SET_ROUTES,
-		routes
-	};
+   return(dispatch, getState) => {
+		var state = getState();
+		var route = matchRoutes(routes, state.router.location);
+
+		dispatch({
+			type: types.ROUTER_SET_ROUTES,
+         routes,
+         route
+		});
+	}
 }
 
 function setLoading() {

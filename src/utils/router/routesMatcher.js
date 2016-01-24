@@ -11,7 +11,9 @@ var matchRoutes = function(routes, location) {
 			}
 			return {
 				route: i,
-				params: params
+				params: params,
+            url: route.endpoint,
+            pathname: route.route
 			}
 		}
 	}
