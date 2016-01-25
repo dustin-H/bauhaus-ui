@@ -82,6 +82,18 @@ module.exports = function() {
 
 	app.get('/views/menu', function(req, res) {
 		res.json({
+			"i18n": {
+				"packB": {
+					"en": {
+						"complete": true,
+						"url": "/api/i18n/pack/en"
+					},
+					"de": {
+						"complete": true,
+						"url": "/api/i18n/pack/de"
+					}
+				}
+			},
 			content: {
 				name: 'SimpleWrapper',
 				components: [{
@@ -124,7 +136,7 @@ module.exports = function() {
 			searchResults: [{
 				title: 'Posts',
 				pathname: '/posts',
-				description: 'This is a very nice description of the regarding result! '+JSON.stringify(req.query)
+				description: 'This is a very nice description of the regarding result! ' + JSON.stringify(req.query)
 			}, {
 				title: 'Menu',
 				pathname: '/menu',

@@ -2,7 +2,7 @@
 	"i18n": {
 		"packA": {
 			"en": {
-				"complete": false,
+				"complete": true,
 				"url": "/api/i18n/pack/en"
 			},
 			"de": {
