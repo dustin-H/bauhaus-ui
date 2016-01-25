@@ -32,7 +32,7 @@ module.exports = function() {
 			profile: {
 				firstname: 'Dustin',
 				lastname: 'Hoffner',
-				avatarUrl: 'image'
+				avatarUrl: 'testapi/steve-jobs.jpg'
 			}
 		})
 	})
