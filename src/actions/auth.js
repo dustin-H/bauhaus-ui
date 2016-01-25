@@ -4,6 +4,11 @@ import superagent from 'superagent';
 import superagentPlugin from '../utils/helpers/superagentPlugin.js';
 //const superagent = languagePlugin(superagent_temp);
 
+import {
+	changePage
+}
+from './config.js';
+
 export function loginError(err) {
 	return {
 		type: types.AUTH_LOGIN_ERROR,
@@ -11,16 +16,18 @@ export function loginError(err) {
 	};
 }
 
-export function authLoginSubmit() {
+export function logout() {
+   localStorage.removeItem('token');
+   localStorage.removeItem('profile');
+   window.location.reload();
 	return {
-		type: types.AUTH_LOGIN_SUBMIT
+		type: types.AUTH_LOGOUT
 	};
 }
 
-export function configChangePage(page) {
+export function authLoginSubmit() {
 	return {
-		type: types.CONFIG_SET_PAGE,
-		page
+		type: types.AUTH_LOGIN_SUBMIT
 	};
 }
 
@@ -47,6 +54,18 @@ export function loginSucceeded(token, profile) {
 	};
 }
 
+export function checkLogin(err) {
+	return(dispatch, getState) => {
+      var state = getState();
+      //var a = state.auth.token !== '';
+		if(state.auth.token !== '' && state.auth.profile != null && state.auth.profile.firstname !== '' && state.auth.profile.lastname !== '' &&  state.auth.profile.avatarUrl !== ''){
+         dispatch(changePage(pageTypes.APP));
+      } else {
+         dispatch(changePage(pageTypes.LOGIN));
+      }
+	}
+}
+
 export function loginSubmit() {
 	return(dispatch, getState) => {
 		dispatch(authLoginSubmit());
@@ -59,7 +78,8 @@ export function loginSubmit() {
 				if(err != null) {
 					if(err.status === 401) {
 						return dispatch(loginError(err));
-					} else {
+					}
+					else {
 						return dispatch(fatalError(err));
 					}
 				}
@@ -87,7 +107,7 @@ export function loginSubmit() {
 					dispatch(setEndpoints(res.body.endpoints));
 				}
 				dispatch(loginSucceeded(res.body.token, res.body.profile));
-				dispatch(configChangePage(pageTypes.APP));
+				dispatch(changePage(pageTypes.APP));
 			});
 	};
 }

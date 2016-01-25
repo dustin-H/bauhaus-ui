@@ -49,7 +49,7 @@ export default function config(state = initialState, action) {
 		case types.CONFIG_LOADED:
 			var newState = Object.assign({}, state);
 			newState.loaded = true;
-			newState.page = pageTypes.LOGIN;
+			//newState.page = pageTypes.LOGIN;
 			return newState;
 		case types.CONFIG_FATAL_ERROR:
 			var newState = Object.assign({}, state);

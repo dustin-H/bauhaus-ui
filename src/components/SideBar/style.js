@@ -46,7 +46,8 @@ var style = {
 	sideBarUserLogOut: {
 		fontSize: '14px',
 		textTransform: 'uppercase',
-		paddingBottom: '10px'
+		paddingBottom: '10px',
+      cursor: 'pointer'
 	},
 	sideBarHistory: {},
 	sideBarInbox: {},

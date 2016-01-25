@@ -3,10 +3,22 @@ import superagent from 'superagent';
 import superagentPlugin from '../utils/helpers/superagentPlugin.js';
 //const superagent = languagePlugin(superagent_temp);
 
+import {
+	checkLogin
+}
+from './auth.js';
+
 export function addUrls(configUrls) {
 	return {
 		type: types.CONFIG_ADD_URLS,
 		configUrls
+	};
+}
+
+export function changePage(page) {
+	return {
+		type: types.CONFIG_SET_PAGE,
+		page
 	};
 }
 
@@ -62,6 +74,7 @@ export function load() {
 				});
 		} else {
 			dispatch(loaded());
+         dispatch(checkLogin());
 		}
 	};
 }
