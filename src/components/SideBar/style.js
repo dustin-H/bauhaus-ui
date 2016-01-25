@@ -47,7 +47,7 @@ var style = {
 		fontSize: '14px',
 		textTransform: 'uppercase',
 		paddingBottom: '10px',
-      cursor: 'pointer'
+		cursor: 'pointer'
 	},
 	sideBarHistory: {},
 	sideBarInbox: {},
@@ -81,7 +81,23 @@ var style = {
 		textAlign: 'center',
 		width: '100%',
 		display: 'inline-block'
-	}
+	},
+	avatar: {
+		position: 'absolute',
+		width: 42,
+		height: 42,
+		right: 0,
+		bottom: 0,
+		overflow: 'hidden',
+		borderRadius: '50%'
+	},
+	avatarImage: {
+		width: 42,
+		height: 42
+	},
+   name: {
+      color: 'rgba(255, 255, 255, 0.54)'
+   }
 };
 
 export default style;
