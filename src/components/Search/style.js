@@ -2,7 +2,14 @@ var style = {
 	popup: {
 		zIndex: 997,
 		position: 'fixed',
-		right: 0,
+		right: (props) => {
+			if(props.state.search.active === true) {
+				return 0;
+			}
+			else {
+				return -324;
+			}
+		},
 		bottom: 0,
 		width: 320,
 		top: 50,
@@ -31,20 +38,11 @@ var style = {
 			color: '#000000'
 		}
 	},
-   resultTitle: {
-      fontSize: 18,
-      fontWeight: 500,
-      color: '#0056FF',
-      cursor: 'pointer'
-   },
-   resultDescription: {
-      fontSize: 14,
-      fontWeight: 300,
-      paddingTop: 2
-   },
-   resultFrame: {
-      paddingTop: 24
-   }
+	center: {
+		textAlign: 'center',
+		width: '100%',
+		display: 'inline-block'
+	}
 }
 
 export default style;

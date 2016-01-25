@@ -11,6 +11,8 @@ import * as i18n from '../actions/i18n.js';
 import * as router from '../actions/router.js';
 import * as sideBar from '../actions/sideBar.js';
 import * as content from '../actions/content.js';
+import * as search from '../actions/search.js';
+
 
 class App extends Component {
   render() {
@@ -21,7 +23,8 @@ class App extends Component {
       i18n: bindActionCreators(i18n, dispatch),
       router: bindActionCreators(router, dispatch),
       sideBar: bindActionCreators(sideBar, dispatch),
-      content: bindActionCreators(content, dispatch)
+      content: bindActionCreators(content, dispatch),
+      search: bindActionCreators(search, dispatch)
    }
 
     return (

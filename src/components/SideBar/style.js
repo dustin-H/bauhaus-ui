@@ -76,11 +76,11 @@ var style = {
 			fontWeight: 700
 		}
 	},
-   center: {
-      textAlign: 'center',
-      width: '100%',
-      display: 'inline-block'
-   }
+	center: {
+		textAlign: 'center',
+		width: '100%',
+		display: 'inline-block'
+	}
 };
 
 export default style;

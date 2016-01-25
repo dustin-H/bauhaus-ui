@@ -12,7 +12,7 @@ class Header extends Component {
 					<span key={'k2'} look={styles.inlineBlock}>{state.auth.login.username}</span>
 				</div>
 				<div look={styles.headerRight}>
-					<span key={'k3'} look={styles.inlineBlock}><img src="media/icons/search_white.svg" look={styles.imageIcon}/></span>
+					<span key={'k3'} look={styles.inlineBlock} onClick={actions.search.activate}><img src="media/icons/search_white.svg" look={styles.imageIcon}/></span>
 					<span key={'k4'} look={styles.inlineBlock} onClick={actions.router.reload}><img src="media/icons/reload_white.svg" look={styles.imageIcon}/></span>
 				</div>
 			</div>

@@ -5,6 +5,7 @@ import config from './config.js';
 import router from './router.js';
 import sideBar from './sideBar.js';
 import content from './content.js';
+import search from './search.js';
 
 const rootReducer = combineReducers({
   i18n,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   auth,
   router,
   sideBar,
-  content
+  content,
+  search
   //components
 });
 
