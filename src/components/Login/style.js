@@ -34,17 +34,17 @@ var style = {
 		paddingLeft: '16px',
 		paddingRight: '16px',
 		width: '200px',
-		backgroundColor: 'rgba(255,255,255,0.2)',
+		backgroundColor: 'rgba(255,255,255,0.0)',
 		color: '#ffffff',
-		border: 'none',
 		fontSize: '14px',
 		borderRadius: '38px',
+      border: '1px solid rgba(255, 255, 255, 0.34902)',
 		outline: 'none',
 		transition: 'ease-in-out 0.1s',
 		':hover': {
 			width: 252,
 			cursor: 'pointer',
-			backgroundColor: 'rgba(255,255,255,0.1)',
+			backgroundColor: 'rgba(255,255,255,0.0)',
 		}
 	},
 	errorMessage: {
