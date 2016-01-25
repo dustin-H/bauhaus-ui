@@ -27,7 +27,7 @@ var style = {
 		width: '200px',
 		textAlign: 'left',
 		verticalAlign: 'middle',
-		lineHeight: headerHeight-2 + 'px'
+		lineHeight: headerHeight-4 + 'px'
 	},
 	headerRight: {
 		position: 'absolute',
