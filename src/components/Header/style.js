@@ -29,6 +29,17 @@ var style = {
 		verticalAlign: 'middle',
 		lineHeight: headerHeight-4 + 'px'
 	},
+	headerCenter: {
+		position: 'absolute',
+		top: 0,
+		left: '50%',
+      marginLeft: -30,
+		bottom: 0,
+		width: 60,
+		textAlign: 'center',
+		verticalAlign: 'middle',
+		lineHeight: headerHeight-6 + 'px'
+	},
 	headerRight: {
 		position: 'absolute',
 		top: '0px',
@@ -37,7 +48,7 @@ var style = {
 		width: '200px',
 		textAlign: 'right',
 		verticalAlign: 'middle',
-		lineHeight: headerHeight-4 + 'px'
+		lineHeight: headerHeight-6 + 'px'
 	},
 	inlineBlock: {
 		display: 'inline-block',
@@ -49,8 +60,17 @@ var style = {
          borderTop: '2px solid #ffffff'
       }
 	},
+	logoWrapper: {
+		display: 'inline-block',
+		textAlign: 'center',
+		width: '60px'
+	},
 	imageIcon: {
 		width: '20px',
+		verticalAlign: 'middle'
+	},
+	logo: {
+		width: '40px',
 		verticalAlign: 'middle'
 	}
 };
