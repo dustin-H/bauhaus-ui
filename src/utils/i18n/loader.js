@@ -27,7 +27,6 @@ var parse = function(data, packurl) {
 			list.push(temp);
 		}
 	}
-   console.log(packurl);
 	store.dispatch(parseLanguage(list, packurl));
 }
 var loadLanguageByUrl = function(packurl, cb) {
@@ -40,11 +39,10 @@ var loadLanguageByUrl = function(packurl, cb) {
 }
 
 var loadLanguagesByUrl = function(urlArray, cb) {
-   console.log(urlArray);
 	var state = store.getState().i18n;
 	var c = 0;
 	for(var i in urlArray) {
-		if(state.loaded.indexOf(urlArray[i]) < 0) {
+		if(state.loaded[urlArray[i]] == null) {
 			c++;
 			loadLanguageByUrl(urlArray[i], function() {
 				c--;

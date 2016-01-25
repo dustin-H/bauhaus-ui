@@ -23,7 +23,7 @@ const initialState = {
 		}
 	},
 	fallbacks: [],
-	loaded: []
+	loaded: {}
 };
 
 export default function i18n(state = initialState, action) {
@@ -63,7 +63,7 @@ export default function i18n(state = initialState, action) {
 					}
 				}
 			}
-			newState.loaded.push(action.url);
+			newState.loaded[action.url] = true;
 			return newState;
 		case types.I18N_ADD_FALLBACKS:
 			var newState = Object.assign({}, state);
