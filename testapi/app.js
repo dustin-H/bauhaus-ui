@@ -7,7 +7,7 @@ module.exports = function() {
 	app.use(function(req, res, next) {
 		setTimeout(function() {
 			next();
-		}, 1000);
+		}, 200);
 	})
 
 	app.get('/', function(req, res, next) {
@@ -117,6 +117,20 @@ module.exports = function() {
 			text: 'Test Text in Deutsch.'
 		}));
 		res.send(ln.join('\n'));
+	});
+
+	app.get('/search', function(req, res) {
+		res.json({
+			searchResults: [{
+				title: 'Posts',
+				pathname: '/posts',
+				description: 'This is a very nice description of the regarding result! '+JSON.stringify(req.query)
+			}, {
+				title: 'Menu',
+				pathname: '/menu',
+				description: 'This is a very nice description of the regarding result!'
+			}]
+		})
 	});
 
 	return app;
