@@ -23,15 +23,19 @@ class Route extends Component {
 			state,
 			actions
 		} = this.props;
+      if (state.router.error === true) {return (
+         <div look={styles.center}><br/>{$('$core.content.error')}</div>
+      );}
 		if (state.content.loading === true) {return (
 				<div look={styles.center}><br/><img src="media/loader.gif"/></div>
-			);} else {
-			if (state.content.data === false) {return (
-					<div look={styles.center}><br/>{$('$core.router.routeNotFound')}</div>
-				);} else {return (
-					<Loader bauhaus={state.content.data}></Loader>
-				);}
-		}
+			);}
+		if (state.content.data === false) {return (
+				<div look={styles.center}><br/>{$('$core.router.routeNotFound')}</div>
+			);}
+		return (
+			<Loader bauhaus={state.content.data}></Loader>
+		);
+
 	}
 }
 

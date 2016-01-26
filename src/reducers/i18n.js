@@ -11,7 +11,11 @@ const initialState = {
 			'core.auth.login.submit': 'Login',
 			'core.auth.login.error': 'Login failed!',
 			'core.auth.logout': 'LOG OUT',
-         'core.router.routeNotFound': 'Page not found!'
+         'core.router.routeNotFound': 'Page not found!',
+         'core.content.error': 'Error while loading page!',
+         'core.sidebar.error': 'Error while loading sidebar!',
+         'core.search.error': 'Error while loading search!',
+         'core.search.nothingFound': 'Nothing found!'
 		},
 		de: {
 			'core.auth.login.username': 'Benutzername',
@@ -19,7 +23,11 @@ const initialState = {
 			'core.auth.login.submit': 'Anmelden',
 			'core.auth.login.error': 'Anmeldung ist fehlgeschlagen!',
 			'core.auth.logout': 'ABMELDEN',
-         'core.router.routeNotFound': 'Seite nicht gefunden!'
+         'core.router.routeNotFound': 'Seite nicht gefunden!',
+         'core.content.error': 'Fehler beim Laden der Seite!',
+         'core.sidebar.error': 'Fehler beim Laden der Sidebar!',
+         'core.search.error': 'Fehler beim Laden der Suche!',
+         'core.search.nothingFound': 'Nichts gefunden!'
 		}
 	},
 	fallbacks: [],

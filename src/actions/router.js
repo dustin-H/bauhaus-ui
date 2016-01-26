@@ -56,6 +56,14 @@ export function reload(routes) {
 	}
 }
 
+export function showError(err, url) {
+	return {
+		type: types.ROUTER_SHOW_ERROR,
+		err,
+		url
+	};
+}
+
 function setRoutes(routes) {
    return(dispatch, getState) => {
 		var state = getState();

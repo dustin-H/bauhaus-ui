@@ -239,6 +239,9 @@ var style = {
 	},
    link: {
       color: '#ff0000'
+   },
+   center: {
+      textAlign: 'center'
    }
 };
 

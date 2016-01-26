@@ -35,7 +35,6 @@ var triggerCallbacksById = function(id, ok) {
 }
 
 var loadModuleIfNecessary = function(id, cb) {
-	console.log(store, id);
 	if(store[id] != null) {
 		if(store[id].state !== c.LOADING && store[id].state !== c.LOADED && store[id].url != null) {
 			store[id].state = c.LOADING;

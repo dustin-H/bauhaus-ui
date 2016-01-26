@@ -2,8 +2,6 @@ import * as types from '../constants/ActionTypes.js';
 import superagent from 'superagent';
 import superagentPlugin from '../utils/helpers/superagentPlugin.js';
 
-import {loadError} from './config.js';
-
 function setList(list) {
 	return {
 		type: types.SIDEBAR_SET_LIST,
@@ -17,11 +15,19 @@ function setLoading() {
 	};
 }
 
+function showError(err, url) {
+	return {
+		type: types.SIDEBAR_SHOW_ERROR,
+		err,
+		url
+	};
+}
+
 export function load() {
 	return(dispatch, getState) => {
 		var state = getState();
 		if(state.sideBar.loading === false) {
-         dispatch(setLoading());
+			dispatch(setLoading());
 			var url = state.config.endpoints.sideBar.url;
 			superagent
 				.get(url)
@@ -29,14 +35,14 @@ export function load() {
 				.use(superagentPlugin())
 				.end(function(err, res) {
 					if(err != null) {
-						return dispatch(loadError(err, url));
+						return dispatch(showError(err, url));
 					}
 					var sideBarContent = [];
 
 					if(res.body.sideBar != null && typeof res.body.sideBar === 'object') {
 						sideBarContent = res.body.sideBar;
 					}
-               dispatch(setList(sideBarContent));
+					dispatch(setList(sideBarContent));
 				});
 		}
 		else {

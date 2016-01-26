@@ -2,11 +2,6 @@ import * as types from '../constants/ActionTypes.js';
 import superagent from 'superagent';
 import superagentPlugin from '../utils/helpers/superagentPlugin.js';
 
-import {
-	loadError
-}
-from './config.js';
-
 export function toggle() {
 	return {
 		type: types.SEARCH_TOGGLE
@@ -22,6 +17,14 @@ export function activate() {
 export function deactivate() {
 	return {
 		type: types.SEARCH_DEACTIVATE
+	};
+}
+
+function showError(err, url) {
+	return {
+		type: types.SEARCH_SHOW_ERROR,
+		err,
+		url
 	};
 }
 
@@ -63,12 +66,12 @@ export function requestSearch() {
 		var url = state.config.endpoints.search.url;
 		superagent
 			.get(url)
-         .query({search: state.search.value})
+         .query({search: state.search.value, languages: state.i18n.languages})
 			.accept('json')
 			.use(superagentPlugin())
 			.end(function(err, res) {
 				if(err != null) {
-					return dispatch(loadError(err, url));
+					return dispatch(showError(err, url));
 				}
 				var results = [];
 				if(res.body.searchResults != null && typeof res.body.searchResults === 'object') {

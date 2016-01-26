@@ -82,6 +82,12 @@ var style = {
 		width: '100%',
 		display: 'inline-block'
 	},
+	centerError: {
+		textAlign: 'center',
+		width: '100%',
+		display: 'inline-block',
+      color: '#ffffff'
+	},
 	avatar: {
 		position: 'absolute',
 		width: 42,

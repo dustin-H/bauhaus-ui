@@ -22,9 +22,6 @@ class Content extends Component {
 		return (
 			<div look={styles.contentWrapper}>
 				<div look={styles.content}>
-					{/*<span look={styles.contentHeadline}>User</span><hr look={styles.contentHr}/><br/><br/>
-					<Loader bauhaus={bauhaus}></Loader>
-					<br/>*/}
 					<Router state={state} actions={actions}></Router>
 				</div>
 			</div>

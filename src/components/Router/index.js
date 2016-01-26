@@ -30,28 +30,14 @@ class Router extends Component {
 		} = this.props;
 		if (state.router.loading === true) {return (
 				<div look={styles.center}><br/><img src="media/loader.gif"/></div>
-			);} else {
-			if (state.router.route === false) {
-            return (
-					<div look={styles.center}><br/>{$('$core.router.routeNotFound')}</div>
-				);
-         } else {
-				return (
-					<Route state={state} actions={actions}></Route>
-				);
-			}
-
-		}
-
+			);}
+		if (state.router.route === false) {return (
+				<div look={styles.center}><br/>{$('$core.router.routeNotFound')}</div>
+			);}
 		return (
-			<div look={styles.contentWrapper}>
-				<div look={styles.content}>
-					<span look={styles.contentHeadline}>User</span><hr look={styles.contentHr}/><br/><br/>
-					<Loader bauhaus={bauhaus}></Loader>
-					<br/>
-				</div>
-			</div>
+			<Route state={state} actions={actions}></Route>
 		);
+
 	}
 }
 

@@ -25,9 +25,23 @@ class Search extends Component {
 		}
 	}
 	handleKeyDown (event) {
-		if(event.keyCode === 27) {
-			ReactDOM.findDOMNode(this.refs.searchInput).blur();
-		}
+		if(event.keyCode === 27) {ReactDOM.findDOMNode(this.refs.searchInput).blur();}
+	}
+	getContent (state, actions) {
+		if(state.search.error === true) {return (
+				<div look={styles.center}><br/><br/>{$('$core.search.error')}</div>
+			)}
+		if (state.search.loading === true) {return (
+				<div look={styles.center}><br/><br/><img src="media/loader.gif"/></div>
+			)}
+		if (state.search.results.length < 1) {return (
+				<div look={styles.center}><br/><br/>{$('$core.search.nothingFound')}</div>
+			);}
+		return _.map(state.search.results, function(value, key) {
+			return (
+				<SearchElement key={key} state={state} actions={actions} title={value.title} description={value.description} pathname={value.pathname}></SearchElement>
+			)
+		});
 	}
 	render () {
 		const {
@@ -35,26 +49,7 @@ class Search extends Component {
 			actions
 		} = this.props;
 
-		var content;
-
-		if (state.search.results.length > 0 && state.search.loading === false) {
-			content = _.map(state.search.results, function(value, key) {
-				return (
-					<SearchElement key={key} state={state} actions={actions} title={value.title} description={value.description} pathname={value.pathname}></SearchElement>
-				)
-			});
-		} else {
-			if (state.search.loading === true) {
-				content = (
-					<div look={styles.center}><br/><br/><img src="media/loader.gif"/></div>
-				);
-			} else {
-				content = (
-					<div look={styles.center}><br/><br/>Nothing found!</div>
-				);
-			}
-
-		}
+      var content = this.getContent(state, actions);
 
 		return (
 			<div look={styles.popup}>

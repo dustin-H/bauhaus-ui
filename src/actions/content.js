@@ -1,10 +1,7 @@
 import * as types from '../constants/ActionTypes.js';
 import superagent from 'superagent';
 import superagentPlugin from '../utils/helpers/superagentPlugin.js';
-import {
-	loadError
-}
-from './config.js';
+
 import {
 	replaceParamsInObject, replaceAllParams
 }
@@ -14,6 +11,11 @@ import {
 	findModules, ensureModules
 }
 from '../utils/moduleLoader';
+
+import {
+	showError
+}
+from './router.js';
 
 
 function setData(newData, key) {
@@ -33,7 +35,7 @@ function setData(newData, key) {
 				}
 			}
 			else {
-				dispatch(loadError());
+				dispatch(showError());
 			}
 		});
 	}
@@ -56,7 +58,7 @@ export function loadCurrentRoute() {
 			.use(superagentPlugin())
 			.end(function(err, res) {
 				if(err != null) {
-					return dispatch(loadError(err, url));
+					return dispatch(showError(err, url));
 				}
 				var content = false;
 

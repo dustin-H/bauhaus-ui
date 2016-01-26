@@ -7,7 +7,7 @@ module.exports = function() {
 	app.use(function(req, res, next) {
 		setTimeout(function() {
 			next();
-		}, 200);
+		}, 300);
 	})
 
 	app.get('/', function(req, res, next) {
@@ -72,7 +72,7 @@ module.exports = function() {
 				components: [{
 					name: 'InputText',
 					props: {
-						defaultValue: 'core.auth.login.username',
+						defaultValue: '$core.auth.login.username',
 						label: 'POSTS'
 					}
 				}]
@@ -99,7 +99,7 @@ module.exports = function() {
 				components: [{
 					name: 'InputText',
 					props: {
-						defaultValue: 'core.auth.login.username',
+						defaultValue: '$core.auth.login.username',
 						label: 'MENU'
 					}
 				}]

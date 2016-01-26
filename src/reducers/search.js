@@ -4,6 +4,7 @@ const initialState = {
 	results: [],
 	loading: false,
 	active: false,
+   error: false,
 	value: ""
 };
 
@@ -24,6 +25,7 @@ export default function search(state = initialState, action) {
 		case types.SEARCH_SET_LOADING:
 			var newState = Object.assign({}, state);
 			newState.loading = true;
+			newState.error = false;
 			return newState;
 		case types.SEARCH_CHANGE_VALUE:
 			var newState = Object.assign({}, state);
@@ -35,6 +37,12 @@ export default function search(state = initialState, action) {
 				action.results.pop();
 			}
 			newState.results = action.results;
+			newState.loading = false;
+			newState.error = false;
+			return newState;
+		case types.SEARCH_SHOW_ERROR:
+			var newState = Object.assign({}, state);
+			newState.error = true;
 			newState.loading = false;
 			return newState;
 		default:

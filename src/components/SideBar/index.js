@@ -24,6 +24,11 @@ class SideBar extends Component {
 				<div look={styles.center}><br/><img src="media/loader.gif"/></div>
 			);
 		}
+		if (state.sideBar.error === true) {
+			content = (
+				<div look={styles.centerError}><br/>{$('$core.sidebar.error')}</div>
+			);
+		}
 		return (
 			<div look={styles.sideBar}>
 				<div look={styles.sideBarAppName}>
