@@ -15,12 +15,6 @@ class Error extends Component {
 	}
 }
 
-/*
-<div look={styles.footer}>
-	<div look={styles.footerLanguage}></div>
-</div>
-*/
-
 Error.propTypes = {
 	state: PropTypes.object.isRequired,
 	actions: PropTypes.object.isRequired
