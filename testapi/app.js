@@ -46,6 +46,76 @@ module.exports = function() {
 			}, {
 				name: 'Menu',
 				pathname: '/menu'
+			},{
+				name: 'Posts',
+				pathname: '/posts',
+				imageUrl: 'media/icons/channels.svg'
+			}, {
+				name: 'Menu',
+				pathname: '/menu'
+			},{
+				name: 'Posts',
+				pathname: '/posts',
+				imageUrl: 'media/icons/channels.svg'
+			}, {
+				name: 'Menu',
+				pathname: '/menu'
+			},{
+				name: 'Posts',
+				pathname: '/posts',
+				imageUrl: 'media/icons/channels.svg'
+			}, {
+				name: 'Menu',
+				pathname: '/menu'
+			},{
+				name: 'Posts',
+				pathname: '/posts',
+				imageUrl: 'media/icons/channels.svg'
+			}, {
+				name: 'Menu',
+				pathname: '/menu'
+			},{
+				name: 'Posts',
+				pathname: '/posts',
+				imageUrl: 'media/icons/channels.svg'
+			}, {
+				name: 'Menu',
+				pathname: '/menu'
+			},{
+				name: 'Posts',
+				pathname: '/posts',
+				imageUrl: 'media/icons/channels.svg'
+			}, {
+				name: 'Menu',
+				pathname: '/menu'
+			},{
+				name: 'Posts',
+				pathname: '/posts',
+				imageUrl: 'media/icons/channels.svg'
+			}, {
+				name: 'Menu',
+				pathname: '/menu'
+			},{
+				name: 'Posts',
+				pathname: '/posts',
+				imageUrl: 'media/icons/channels.svg'
+			}, {
+				name: 'Menu',
+				pathname: '/menu'
+			},{
+				name: 'Posts',
+				pathname: '/posts',
+				imageUrl: 'media/icons/channels.svg'
+			}, {
+				name: 'Menu',
+				pathname: '/menu'
+			},{
+				name: 'Posts',
+				pathname: '/posts',
+				imageUrl: 'media/icons/channels.svg'
+			}, {
+				name: 'Menu',
+				pathname: '/menu'
 			}]
 		})
 	});
