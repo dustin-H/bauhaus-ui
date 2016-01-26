@@ -8,13 +8,15 @@ var evalCode = function(id, code) {
 	try {
 		__GLOBAL__.exportDefault = null;
 		eval(code);
-		if (__GLOBAL__.exportDefault != null) {
+		if(__GLOBAL__.exportDefault != null) {
 			store[id].module = __GLOBAL__.exportDefault;
 			return true;
-		} else {
+		}
+		else {
 			console.warn('A module needs to export to "__GLOBAL__.exportDefault"!');
 		}
-	} catch (e) {
+	}
+	catch(e) {
 		console.warn(e.message);
 		setTimeout(function() {
 			throw e;
@@ -25,7 +27,7 @@ var evalCode = function(id, code) {
 }
 
 var triggerCallbacksById = function(id, ok) {
-	for (var i in store[id].callbacks) {
+	for(var i in store[id].callbacks) {
 		store[id].callbacks[i](ok);
 	}
 	store[id].callbacks = null;
@@ -33,30 +35,37 @@ var triggerCallbacksById = function(id, ok) {
 }
 
 var loadModuleIfNecessary = function(id, cb) {
-	if (store[id] != null && store[id].url) {
-		if (store[id].state !== c.LOADING && store[id].state !== c.LOADED) {
+	console.log(store, id);
+	if(store[id] != null) {
+		if(store[id].state !== c.LOADING && store[id].state !== c.LOADED && store[id].url != null) {
 			store[id].state = c.LOADING;
+         store[id].callbacks.push(cb);
 			superagent.get(store[id].url)
 				.end(function(err, res) {
-					if (err) {
+					if(err) {
 						store[id].state = c.ERROR;
 						return triggerCallbacksById(id, false);
 					}
-					if (evalCode(id, res.text) !== true) {
+					if(evalCode(id, res.text) !== true) {
 						store[id].state = c.ERROR;
 						return triggerCallbacksById(id, false);
 					}
 					store[id].state = c.LOADED;
 					return triggerCallbacksById(id, true);
 				});
-		} else {
-			if (store[id].state === c.LOADED) {
-				return cb(true);
-			} else {
+		}
+		else {
+			if(store[id].state === c.LOADED) {
+				return setTimeout(function() {
+					cb(true);
+				}, 0);
+			}
+			else {
 				store[id].callbacks.push(cb);
 			}
 		}
-	} else {
+	}
+	else {
 		return cb(false);
 	}
 }
@@ -64,16 +73,16 @@ var loadModuleIfNecessary = function(id, cb) {
 var loadModulesIfNecessary = function(ids, cb) {
 	var check = true;
 	var counter = 0;
-	for (var i in ids) {
+	for(var i in ids) {
 		var id = ids[i];
 		counter++;
 		loadModuleIfNecessary(id, function(ok) {
 			counter--;
-			if (ok !== true) {
+			if(ok !== true) {
 				check = false;
 			}
-			if (counter < 1) {
-            cb(check);
+			if(counter < 1) {
+				cb(check);
 			}
 		})
 	}

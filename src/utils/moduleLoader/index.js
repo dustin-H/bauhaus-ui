@@ -1,6 +1,7 @@
 import store from './store.js';
 import loader from './loader.js';
 import * as c from './constants.js';
+import api from './api.js';
 
 export function getModule(id) {
 	if (store[id] != null && store[id].module != null && store[id].state === c.LOADED) {
@@ -34,4 +35,17 @@ export function registerModule(id, module){
       state: c.LOADED
    };
    //store[id].module = module;
+}
+
+export function findModules(obj) {
+   var arr = [];
+   if(obj.name != null && typeof obj.name === 'string'){
+      arr.push(obj.name);
+      if(obj.components != null && typeof obj.components === 'object'){
+         for(var i in obj.components){
+            arr = arr.concat(findModules(obj.components[i]));
+         }
+      }
+   }
+   return arr;
 }

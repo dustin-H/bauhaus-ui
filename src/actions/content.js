@@ -10,15 +10,31 @@ import {
 }
 from '../utils/helpers';
 
+import {
+	findModules, ensureModules
+}
+from '../utils/moduleLoader';
 
-function setData(newData) {
+
+function setData(newData, key) {
 	return(dispatch, getState) => {
 		var state = getState();
 		var data = replaceParamsInObject(newData, state.router.route.params); // TODO: Error Handling
+		var modules = findModules(newData);
 
-		dispatch({
-			type: types.CONTENT_SET_DATA,
-			data
+		ensureModules(modules, function(ok) {
+			if(ok === true) {
+				var state = getState();
+				if(state.router.location.key === key) {
+					dispatch({
+						type: types.CONTENT_SET_DATA,
+						data
+					});
+				}
+			}
+			else {
+				dispatch(loadError());
+			}
 		});
 	}
 }
@@ -49,7 +65,7 @@ export function loadCurrentRoute() {
 				}
 				var newState = getState();
 				if(state.router.location.key === newState.router.location.key) {
-					dispatch(setData(content));
+					dispatch(setData(content, state.router.location.key));
 				}
 			});
 	};
