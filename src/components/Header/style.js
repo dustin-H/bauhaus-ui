@@ -17,8 +17,6 @@ var style = {
 		userSelect: 'none',
 		fontSize: '10px'
 	},
-	headerSettingsButton: {},
-	headerUser: {},
 	headerLeft: {
 		position: 'absolute',
 		top: '0px',

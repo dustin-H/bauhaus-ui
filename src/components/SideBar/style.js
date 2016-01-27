@@ -6,7 +6,7 @@ var style = {
 		position: 'fixed',
 		left: '0px',
 		height: '100%',
-		width: sideBarSize + 'px',
+		width: sideBarSize,
 		backgroundColor: 'transparent',
 		userSelect: 'none'
 	},
@@ -38,50 +38,29 @@ var style = {
 		overflowY: 'scroll'
 	},
 	sideBarUser: {
-		position: 'fixed',
-		bottom: '20px',
-		left: '20px',
-		width: sideBarSize - 40 + 'px',
-		paddingTop: '20px',
-		fontSize: '10px',
+		position: 'absolute',
+		bottom: 0,
+		left: 0,
+		width: '100%',
+		padding: 20,
+		fontSize: 10,
 		color: '#ffffff',
 		boxSizing: 'border-box',
-		borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+		//borderTop: '1px solid rgba(255, 255, 255, 0.1)',
 		fontWeight: 300
 	},
+   logoutLine: {
+      height: 20,
+      borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+      position: 'relative',
+      width: '100%'
+      //backgroundColor: 'rgba(255, 255, 255, 0.1)'
+   },
 	sideBarUserLogOut: {
 		fontSize: '14px',
 		textTransform: 'uppercase',
 		paddingBottom: '10px',
 		cursor: 'pointer'
-	},
-	sideBarHistory: {},
-	sideBarInbox: {},
-	sideBarSwitch: {
-		position: 'fixed',
-		bottom: '0px',
-		left: '0px',
-		width: sideBarSize + 'px',
-		height: '40px',
-		boxSizing: 'border-box',
-		color: '#595959',
-		borderTop: '1px solid rgba(0, 0, 0, 0.04)',
-		display: 'flex'
-	},
-	sideBarSelect: {
-		flex: 1,
-		padding: '10px',
-		textAlign: 'center',
-		fontWeight: 300,
-		cursor: 'pointer',
-		borderBottom: '2px solid transparent',
-		':hover': {
-			borderBottom: '2px solid #6E00FF'
-		},
-		':active': {
-			borderBottom: '6px solid #6E00FF',
-			fontWeight: 700
-		}
 	},
 	center: {
 		textAlign: 'center',
@@ -98,8 +77,8 @@ var style = {
 		position: 'absolute',
 		width: 42,
 		height: 42,
-		right: 0,
-		bottom: 0,
+		right: 20,
+		bottom: 20,
 		overflow: 'hidden',
 		borderRadius: '50%'
 	},

@@ -44,10 +44,11 @@ class SideBar extends Component {
 						})}
 				</div>
 				<div look={styles.sideBarUser}>
+               <div look={styles.logoutLine}></div>
 					<div look={styles.sideBarUserLogOut} onClick={actions.auth.logout}>{$('$core.auth.logout')}</div>
-            <span look={styles.name}>{state.auth.profile.firstname}&nbsp;
+					<span look={styles.name}>{state.auth.profile.firstname}&nbsp;
 						{state.auth.profile.lastname}</span>
-               <div look={styles.avatar}><img src={state.auth.profile.avatarUrl} look={styles.avatarImage}/></div>
+					<div look={styles.avatar}><img src={state.auth.profile.avatarUrl} look={styles.avatarImage}/></div>
 				</div>
 			</div>
 		);
