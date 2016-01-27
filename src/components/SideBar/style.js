@@ -30,7 +30,13 @@ var style = {
 	sideBarLogoImg: {
 		width: '50px'
 	},
-	sideBarMenu: {},
+	sideBarMenu: {
+		position: 'absolute',
+		top: 60,
+		bottom: 90,
+		width: '100%',
+		overflowY: 'scroll'
+	},
 	sideBarUser: {
 		position: 'fixed',
 		bottom: '20px',
@@ -86,7 +92,7 @@ var style = {
 		textAlign: 'center',
 		width: '100%',
 		display: 'inline-block',
-      color: '#ffffff'
+		color: '#ffffff'
 	},
 	avatar: {
 		position: 'absolute',
@@ -101,9 +107,9 @@ var style = {
 		width: 42,
 		height: 42
 	},
-   name: {
-      color: 'rgba(255, 255, 255, 0.54)'
-   }
+	name: {
+		color: 'rgba(255, 255, 255, 0.54)'
+	}
 };
 
 export default style;

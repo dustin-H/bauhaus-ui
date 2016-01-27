@@ -11,7 +11,9 @@ var style = {
 		paddingTop: 2
 	},
 	resultFrame: {
-		paddingTop: 24
+		paddingBottom: 24,
+		paddingLeft: 20,
+		paddingRight: 20
 	}
 }
 

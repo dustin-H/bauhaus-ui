@@ -17,10 +17,13 @@ var style = {
 		boxShadow: '0 0 4px 4px rgba(0, 0, 0, 0.12)',
 		transition: 'ease-in-out 0.2s',
 		boxSizing: 'border-box',
-		padding: 20,
+		padding: 0,
 		fontFamily: 'Open Sans'
 			//right: -324,
 	},
+   inputWrapper: {
+      padding: 20
+   },
 	input: {
 		padding: '8px',
 		paddingLeft: '16px',
@@ -42,7 +45,14 @@ var style = {
 		textAlign: 'center',
 		width: '100%',
 		display: 'inline-block'
-	}
+	},
+   searchResults: {
+      position: 'absolute',
+      top: 75,
+      bottom: 20,
+      width: '100%',
+      overflowY: 'scroll'
+   }
 }
 
 export default style;

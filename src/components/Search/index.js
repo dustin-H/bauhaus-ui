@@ -49,17 +49,18 @@ class Search extends Component {
 			actions
 		} = this.props;
 
-      var content = this.getContent(state, actions);
+		var content = this.getContent(state, actions);
 
 		return (
 			<div look={styles.popup}>
-				<input look={styles.input} ref="searchInput" onKeyDown={this
-					.handleKeyDown
-					.bind(this)} onBlur={actions.search.deactivate} value={state.search.value} onChange={this
-					.handleValueChange
-					.bind(this)}></input>
-				<br/><br/>
-				{content}
+				<div look={styles.inputWrapper}>
+					<input look={styles.input} ref="searchInput" onKeyDown={this
+						.handleKeyDown
+						.bind(this)} onBlur={actions.search.deactivate} value={state.search.value} onChange={this
+						.handleValueChange
+						.bind(this)}></input>
+				</div>
+				<div look={styles.searchResults}>{content}</div>
 			</div>
 		);
 	}

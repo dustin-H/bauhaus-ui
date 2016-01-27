@@ -35,7 +35,6 @@ class SideBar extends Component {
 					Bauhaus UI
 				</div>
 				<div look={styles.sideBarMenu}>
-					<br/>
 					{content}
 					{_
 						.map(state.sideBar.list, function(value, key) {
