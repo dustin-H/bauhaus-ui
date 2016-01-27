@@ -211,6 +211,86 @@ module.exports = function() {
 				title: 'Menu',
 				pathname: '/menu',
 				description: 'This is a very nice description of the regarding result!'
+			},{
+				title: 'Posts',
+				pathname: '/posts',
+				description: 'This is a very nice description of the regarding result! ' + JSON.stringify(req.query)
+			}, {
+				title: 'Menu',
+				pathname: '/menu',
+				description: 'This is a very nice description of the regarding result!'
+			},{
+				title: 'Posts',
+				pathname: '/posts',
+				description: 'This is a very nice description of the regarding result! ' + JSON.stringify(req.query)
+			}, {
+				title: 'Menu',
+				pathname: '/menu',
+				description: 'This is a very nice description of the regarding result!'
+			},{
+				title: 'Posts',
+				pathname: '/posts',
+				description: 'This is a very nice description of the regarding result! ' + JSON.stringify(req.query)
+			}, {
+				title: 'Menu',
+				pathname: '/menu',
+				description: 'This is a very nice description of the regarding result!'
+			},{
+				title: 'Posts',
+				pathname: '/posts',
+				description: 'This is a very nice description of the regarding result! ' + JSON.stringify(req.query)
+			}, {
+				title: 'Menu',
+				pathname: '/menu',
+				description: 'This is a very nice description of the regarding result!'
+			},{
+				title: 'Posts',
+				pathname: '/posts',
+				description: 'This is a very nice description of the regarding result! ' + JSON.stringify(req.query)
+			}, {
+				title: 'Menu',
+				pathname: '/menu',
+				description: 'This is a very nice description of the regarding result!'
+			},{
+				title: 'Posts',
+				pathname: '/posts',
+				description: 'This is a very nice description of the regarding result! ' + JSON.stringify(req.query)
+			}, {
+				title: 'Menu',
+				pathname: '/menu',
+				description: 'This is a very nice description of the regarding result!'
+			},{
+				title: 'Posts',
+				pathname: '/posts',
+				description: 'This is a very nice description of the regarding result! ' + JSON.stringify(req.query)
+			}, {
+				title: 'Menu',
+				pathname: '/menu',
+				description: 'This is a very nice description of the regarding result!'
+			},{
+				title: 'Posts',
+				pathname: '/posts',
+				description: 'This is a very nice description of the regarding result! ' + JSON.stringify(req.query)
+			}, {
+				title: 'Menu',
+				pathname: '/menu',
+				description: 'This is a very nice description of the regarding result!'
+			},{
+				title: 'Posts',
+				pathname: '/posts',
+				description: 'This is a very nice description of the regarding result! ' + JSON.stringify(req.query)
+			}, {
+				title: 'Menu',
+				pathname: '/menu',
+				description: 'This is a very nice description of the regarding result!'
+			},{
+				title: 'Posts',
+				pathname: '/posts',
+				description: 'This is a very nice description of the regarding result! ' + JSON.stringify(req.query)
+			}, {
+				title: 'Menu',
+				pathname: '/menu',
+				description: 'This is a very nice description of the regarding result!'
 			}]
 		})
 	});
