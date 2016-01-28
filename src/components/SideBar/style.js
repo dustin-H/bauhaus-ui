@@ -4,11 +4,34 @@ var headerHeight = 50;
 var style = {
 	sideBar: {
 		position: 'fixed',
-		left: '0px',
+		left: (props, state, context) => {
+			if(props.state.sideBar.show === false) {
+				if(props.state.responsive.device.tablet === true) {
+					return -props.state.sideBar.smallSize;
+				}
+				if(props.state.responsive.device.desktop === true) {
+					return -props.state.sideBar.bigSize;
+				}
+				return '-100%';
+			}
+         return 0;
+		},
 		height: '100%',
-		width: sideBarSize,
-		backgroundColor: 'transparent',
-		userSelect: 'none'
+		width: (props, state, context) => {
+			if(props.state.responsive.device.tablet === true) {
+				return props.state.sideBar.smallSize;
+			}
+			if(props.state.responsive.device.desktop === true) {
+				return props.state.sideBar.bigSize;
+			}
+			return '100%';
+		},
+		userSelect: 'none',
+		transition: 'ease-in-out 0.2s',
+		background: 'linear-gradient(to bottom, #206917 0%, #2B302C 100%)',
+		backgroundAttachment: 'fixed',
+		zIndex: 10,
+		overflow: 'hidden'
 	},
 	sideBarAppName: {
 		height: '50px',
@@ -32,7 +55,13 @@ var style = {
 	},
 	sideBarMenu: {
 		position: 'absolute',
-		top: 60,
+		top: (props) => {
+         if(props.state.responsive.device.tablet === true){
+            return 0;
+         } else {
+            return 60;
+         }
+      },
 		bottom: 90,
 		width: '100%',
 		overflowY: 'scroll'
@@ -42,22 +71,49 @@ var style = {
 		bottom: 0,
 		left: 0,
 		width: '100%',
-		padding: 20,
-		fontSize: 10,
+		padding: (props) => {
+         if(props.state.responsive.device.tablet === true){
+            return 0;
+         }
+         return 20;
+      },
+		paddingBottom: (props) => {
+         if(props.state.responsive.device.tablet === true){
+            return 8;
+         }
+         return 20;
+      },
+      textAlign: (props) => {
+         if(props.state.responsive.device.tablet === true){
+            return 'center';
+         }
+         return '';
+      },
+		fontSize: (props) => {
+         if(props.state.responsive.device.tablet === true){
+            return 5;
+         }
+         return 10;
+      },
 		color: '#ffffff',
 		boxSizing: 'border-box',
 		//borderTop: '1px solid rgba(255, 255, 255, 0.1)',
 		fontWeight: 300
 	},
-   logoutLine: {
-      height: 20,
-      borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-      position: 'relative',
-      width: '100%'
-      //backgroundColor: 'rgba(255, 255, 255, 0.1)'
-   },
+	logoutLine: {
+		height: 20,
+		borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+		position: 'relative',
+		width: '100%'
+			//backgroundColor: 'rgba(255, 255, 255, 0.1)'
+	},
 	sideBarUserLogOut: {
-		fontSize: '14px',
+		fontSize: (props) => {
+         if(props.state.responsive.device.tablet === true){
+            return 10;
+         }
+         return 14;
+      },
 		textTransform: 'uppercase',
 		paddingBottom: '10px',
 		cursor: 'pointer'
@@ -85,6 +141,24 @@ var style = {
 	avatarImage: {
 		width: 42,
 		height: 42
+	},
+   inlineBlock: {
+		position: 'absolute',
+		textAlign: 'center',
+		width: 60,
+		height: 50,
+      cursor: 'pointer',
+      borderTop: '2px solid transparent',
+      ':hover': {
+         borderTop: '2px solid #ffffff'
+      },
+      top: 0,
+      right: 0
+	},
+	imageIcon: {
+		width: 20,
+		verticalAlign: 'middle',
+      paddingTop: 17
 	},
 	name: {
 		color: 'rgba(255, 255, 255, 0.54)'

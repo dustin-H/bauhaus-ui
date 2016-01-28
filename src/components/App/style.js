@@ -6,12 +6,23 @@ var style = {
 	mainFrame: {
 		position: 'fixed',
 		//left: sideBarSize + 'px',
-		left: (props, state, context) => sideBarSize,
+		left: (props, state, context) => {
+			if(props.state.sideBar.show === true) {
+				if(props.state.responsive.device.tablet === true) {
+					return props.state.sideBar.smallSize;
+				}
+				if(props.state.responsive.device.desktop === true) {
+					return props.state.sideBar.bigSize;
+				}
+			}
+			return 0;
+		},
 		top: '0px',
 		right: '0px',
 		height: '100%',
 		backgroundColor: '#ffffff',
-      fontFamily: 'Open Sans'
+		fontFamily: 'Open Sans',
+		transition: 'ease-in-out 0.2s'
 	}
 };
 

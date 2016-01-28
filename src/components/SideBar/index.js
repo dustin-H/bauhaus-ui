@@ -29,26 +29,39 @@ class SideBar extends Component {
 				<div look={styles.centerError}><br/>{$('$core.sidebar.error')}</div>
 			);
 		}
+		var backButton = (
+			<span></span>
+		);
+      if(state.responsive.device.smartphone === true){
+         backButton = (<div look={styles.inlineBlock} onClick={actions.sideBar.toggleShow}><img src="media/icons/menu_white.svg" look={styles.imageIcon}/></div>);
+      }
+      var appName = (<span></span>);
+      var avatar = (<span></span>);
+      if(!state.responsive.device.tablet){
+         appName = (<div look={styles.sideBarAppName}>
+            Bauhaus UI
+         </div>);
+         avatar = (<div look={styles.avatar}><img src={state.auth.profile.avatarUrl} look={styles.avatarImage}/></div>);
+      }
 		return (
 			<div look={styles.sideBar}>
-				<div look={styles.sideBarAppName}>
-					Bauhaus UI
-				</div>
+				{appName}
+            {backButton}
 				<div look={styles.sideBarMenu}>
 					{content}
 					{_
 						.map(state.sideBar.list, function(value, key) {
 							return (
-								<SideBarListElement key={key} state={state} actions={actions} label={value.name} imageUrl={value.imageUrl || "media/icons/terms.svg"} pathname={value.pathname}></SideBarListElement>
+								<SideBarListElement key={key} state={state} actions={actions} label={value.name} imageUrl={value.imageUrl || "media/icons/terms.svg"} pathname={value.pathname} tabletView={state.responsive.device.tablet}></SideBarListElement>
 							)
 						})}
 				</div>
 				<div look={styles.sideBarUser}>
-               <div look={styles.logoutLine}></div>
+					<div look={styles.logoutLine}></div>
 					<div look={styles.sideBarUserLogOut} onClick={actions.auth.logout}>{$('$core.auth.logout')}</div>
 					<span look={styles.name}>{state.auth.profile.firstname}&nbsp;
 						{state.auth.profile.lastname}</span>
-					<div look={styles.avatar}><img src={state.auth.profile.avatarUrl} look={styles.avatarImage}/></div>
+               {avatar}
 				</div>
 			</div>
 		);

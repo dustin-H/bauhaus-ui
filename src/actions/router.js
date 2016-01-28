@@ -1,11 +1,18 @@
 import * as types from '../constants/ActionTypes.js';
 import superagent from 'superagent';
 import superagentPlugin from '../utils/helpers/superagentPlugin.js';
-import {loadError} from './config.js';
+import {
+	loadError
+}
+from './config.js';
 import {
 	matchRoutes
 }
 from '../utils/router/index.js';
+import {
+	toggleShow
+}
+from './sideBar.js';
 
 import store from '../store/store.js';
 
@@ -24,7 +31,7 @@ function locationChanged(location) {
 		dispatch({
 			type: types.ROUTER_LOCATION_CHANGED,
 			location,
-         route
+			route
 		});
 	}
 }
@@ -42,15 +49,21 @@ function locationChanged(location) {
 }*/
 
 export function pushLocation(location) {
-	history.push(location);
-	return {
-		type: types.ROUTER_PUSH_LOCATION,
-		location
-	};
+	return(dispatch, getState) => {
+		history.push(location);
+		dispatch({
+			type: types.ROUTER_PUSH_LOCATION,
+			location
+		});
+      var state = getState();
+      if(state.sideBar.show === true && state.responsive.device.smartphone === true){
+         dispatch(toggleShow());
+      }
+	}
 }
 
 export function reload(routes) {
-   return(dispatch, getState) => {
+	return(dispatch, getState) => {
 		var state = getState();
 		dispatch(pushLocation(state.router.location));
 	}
@@ -65,14 +78,14 @@ export function showError(err, url) {
 }
 
 function setRoutes(routes) {
-   return(dispatch, getState) => {
+	return(dispatch, getState) => {
 		var state = getState();
 		var route = matchRoutes(routes, state.router.location);
 
 		dispatch({
 			type: types.ROUTER_SET_ROUTES,
-         routes,
-         route
+			routes,
+			route
 		});
 	}
 }

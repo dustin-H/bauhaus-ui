@@ -12,6 +12,7 @@ import * as router from '../actions/router.js';
 import * as sideBar from '../actions/sideBar.js';
 import * as content from '../actions/content.js';
 import * as search from '../actions/search.js';
+import * as responsive from '../actions/responsive.js';
 
 
 class App extends Component {
@@ -24,7 +25,8 @@ class App extends Component {
       router: bindActionCreators(router, dispatch),
       sideBar: bindActionCreators(sideBar, dispatch),
       content: bindActionCreators(content, dispatch),
-      search: bindActionCreators(search, dispatch)
+      search: bindActionCreators(search, dispatch),
+      responsive: bindActionCreators(responsive, dispatch),
    }
 
     return (

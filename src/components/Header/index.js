@@ -8,7 +8,7 @@ class Header extends Component {
 		return (
 			<div look={styles.header}>
 				<div look={styles.headerLeft}>
-					<span key={'k1'} look={styles.inlineBlock}><img src="media/icons/menu_white.svg" look={styles.imageIcon}/></span>
+					<span key={'k1'} look={styles.inlineBlock} onClick={actions.sideBar.toggleShow}><img src="media/icons/menu_white.svg" look={styles.imageIcon}/></span>
 				</div>
 				<div look={styles.headerCenter}>
 					<span key={'k3'} look={styles.logoWrapper}><img src="media/logo.svg" look={styles.logo}/></span>

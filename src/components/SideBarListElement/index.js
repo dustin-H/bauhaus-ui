@@ -12,14 +12,19 @@ class SideBarListElement extends Component {
 	render () {
 		const {
 			label,
-			imageUrl
+			imageUrl,
+         tabletView
 		} = this.props;
+      var labelContent = (<span></span>);
+      if(tabletView === false){
+         labelContent = (<span>{$(label)}</span>);
+      }
 		return (
-			<div look={styles.sideBarListElement} onClick={this.handleClick.bind(this)}>
+			<div look={tabletView ? styles.sideBarListElementTablet : styles.sideBarListElement} onClick={this.handleClick.bind(this)} title={$(label)}>
 				<span look={styles.menuIcon}>
 					<img src={imageUrl} look={styles.imageIcon}/>
 				</span>
-				<span>{$(label)}</span>
+				{labelContent}
 			</div>
 		);
 	}

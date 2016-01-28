@@ -6,6 +6,7 @@ import router from './router.js';
 import sideBar from './sideBar.js';
 import content from './content.js';
 import search from './search.js';
+import responsive from './responsive.js';
 
 const rootReducer = combineReducers({
   i18n,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   router,
   sideBar,
   content,
-  search
+  search,
+  responsive
   //components
 });
 

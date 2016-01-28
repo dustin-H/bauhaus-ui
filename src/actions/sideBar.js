@@ -23,6 +23,12 @@ function showError(err, url) {
 	};
 }
 
+export function toggleShow() {
+	return {
+		type: types.SIDEBAR_TOGGLE_SHOW
+	};
+}
+
 export function load() {
 	return(dispatch, getState) => {
 		var state = getState();
