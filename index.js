@@ -18,4 +18,8 @@ app.use('/api', testapi())
 
 app.use(express.static('./'));
 
-app.listen(1234);
+var port = 1234;
+
+app.listen(port, function(){
+   console.log('Listening to port', port);
+});
