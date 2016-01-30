@@ -68,13 +68,79 @@ module.exports = function() {
 	app.get('/views/posts', function(req, res) {
 		res.json({
 			content: {
-				name: 'SimpleWrapper',
+				name: 'JsonForm',
+				props: {
+					getUrl: '/api/formdata',
+					postUrl: '/api/formdata',
+					title: 'Mein schönes Testformular'
+				},
 				components: [{
-					name: 'InputText',
+					name: 'Section',
 					props: {
-						defaultValue: '$core.auth.login.username',
-						label: 'POSTS'
-					}
+						label: 'Meine Sektion'
+					},
+   				components: [{
+   					name: 'Label',
+   					props: {
+   						label: 'POSTS NEU LABEL'
+   					},
+   					components: [{
+   						name: 'InputText',
+   						props: {
+   							path: 'hallo.welt.test'
+   						}
+   					}]
+   				},{
+   					name: 'Label',
+   					props: {
+   						label: 'Dein Vorname:'
+   					},
+   					components: [{
+   						name: 'InputText',
+   						props: {
+   							path: 'hallo.welt.nix'
+   						}
+   					}]
+   				}]
+				},{
+					name: 'Section',
+					props: {
+						label: 'Meine Sektion'
+					},
+   				components: [{
+   					name: 'Label',
+   					props: {
+   						label: 'POSTS NEU LABEL'
+   					},
+   					components: [{
+   						name: 'InputText',
+   						props: {
+   							path: 'hallo.welt.test'
+   						}
+   					}]
+   				},{
+   					name: 'Label',
+   					props: {
+   						label: 'Dein Vorname:'
+   					},
+   					components: [{
+   						name: 'InputText',
+   						props: {
+   							path: 'hallo.welt.nix'
+   						}
+   					}]
+   				}]
+				},{
+					name: 'Label',
+					props: {
+						label: 'Dein Vorname:'
+					},
+					components: [{
+						name: 'InputText',
+						props: {
+							path: 'hallo.welt.nix'
+						}
+					}]
 				}]
 			}
 		});
@@ -142,6 +208,18 @@ module.exports = function() {
 				pathname: '/menu',
 				description: 'This is a very nice description of the regarding result!'
 			}]
+		})
+	});
+
+	app.get('/formdata', function(req, res) {
+		res.json({
+			jsondata: {
+				hallo: {
+					welt: {
+						test: "Das ist der Test Inhalt"
+					}
+				}
+			}
 		})
 	});
 
