@@ -19,10 +19,7 @@ class Route extends Component {
 		if (state.router.location.key !== nextState.router.location.key) {actions.content.loadCurrentRoute();}
 	}
 	render () {
-		const {
-			state,
-			actions
-		} = this.props;
+		const {state, actions} = this.props;
       if (state.router.error === true) {return (
          <div look={styles.center}><br/>{$('$core.content.error')}</div>
       );}
@@ -32,8 +29,9 @@ class Route extends Component {
 		if (state.content.data === false) {return (
 				<div look={styles.center}><br/>{$('$core.router.routeNotFound')}</div>
 			);}
+      var data = Object.assign({}, state.content.data, {_path: 'root', _contentState: state.router.contentState});
 		return (
-			<Loader bauhaus={state.content.data}></Loader>
+			<Loader bauhaus={data} state={state} actions={actions}></Loader>
 		);
 
 	}

@@ -5,7 +5,8 @@ const initialState = {
 	routes: {},
    route: false,
 	loading: false,
-   error: false
+   error: false,
+   contentState: {}
 };
 
 export default function router(state = initialState, action) {
@@ -15,6 +16,7 @@ export default function router(state = initialState, action) {
 			newState.location = action.location;
 			newState.route = action.route;
 			newState.error = false;
+         newState.contentState = {};
 			return newState;
 		case types.ROUTER_SET_ROUTES:
 			var newState = Object.assign({}, state);
@@ -32,6 +34,10 @@ export default function router(state = initialState, action) {
 			var newState = Object.assign({}, state);
 			newState.error = true;
 			newState.loading = false;
+			return newState;
+		case types.ROUTER_SET_CONTENT_STATE:
+			var newState = Object.assign({}, state);
+			newState.contentState[action.key] = action.state;
 			return newState;
 		default:
 			return state;

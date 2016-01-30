@@ -77,6 +77,14 @@ export function showError(err, url) {
 	};
 }
 
+export function setContentState(key, state) {
+	return {
+		type: types.ROUTER_SET_CONTENT_STATE,
+		key,
+		state
+	};
+}
+
 function setRoutes(routes) {
 	return(dispatch, getState) => {
 		var state = getState();

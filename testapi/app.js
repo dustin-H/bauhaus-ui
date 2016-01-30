@@ -78,12 +78,12 @@ module.exports = function() {
 				components: [{
 					name: 'Section',
 					props: {
-						label: 'Meine Sektion'
+						text: 'Meine Sektion'
 					},
 					components: [{
 						name: 'Label',
 						props: {
-							label: 'POSTS NEU LABEL'
+							text: 'POSTS NEU LABEL'
 						},
 						components: [{
 							name: 'InputText',
@@ -94,7 +94,7 @@ module.exports = function() {
 					}, {
 						name: 'Label',
 						props: {
-							label: 'Dein Vorname:'
+							text: 'Dein Vorname:'
 						},
 						components: [{
 							name: 'InputText',
@@ -106,12 +106,12 @@ module.exports = function() {
 				}, {
 					name: 'Section',
 					props: {
-						label: 'Meine Sektion'
+						text: 'Meine Sektion'
 					},
 					components: [{
 						name: 'Label',
 						props: {
-							label: 'POSTS NEU LABEL'
+							text: 'POSTS NEU LABEL'
 						},
 						components: [{
 							name: 'InputText',
@@ -122,7 +122,7 @@ module.exports = function() {
 					}, {
 						name: 'Label',
 						props: {
-							label: 'Dein Vorname:'
+							text: 'Dein Vorname:'
 						},
 						components: [{
 							name: 'InputText',
@@ -134,7 +134,7 @@ module.exports = function() {
 				}, {
 					name: 'Label',
 					props: {
-						label: 'Dein Vorname:'
+						text: 'Dein Vorname:'
 					},
 					components: [{
 						name: 'InputText',
@@ -167,7 +167,7 @@ module.exports = function() {
 					name: 'InputText',
 					props: {
 						defaultValue: '$core.auth.login.username',
-						label: 'MENU'
+						text: 'MENU'
 					}
 				}]
 			}

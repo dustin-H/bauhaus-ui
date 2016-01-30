@@ -8,7 +8,7 @@ class Section extends Component {
 		const {bauhaus} = this.props;
 		return (
 			<div>
-            <div look={styles.section}>{$(bauhaus.props.label)}<hr look={styles.sectionHr}/></div>
+            <div look={styles.section}>{$(bauhaus.props.text)}<hr look={styles.sectionHr}/></div>
 				{_
 					.map(bauhaus._childrenGenerators, function(value, key) {
                   var newProps = Object.assign({}, this.props, {key: key});
