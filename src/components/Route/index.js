@@ -31,7 +31,7 @@ class Route extends Component {
 			);}
       var data = Object.assign({}, state.content.data, {_path: 'root', _contentState: state.router.contentState});
 		return (
-			<Loader bauhaus={data} state={state} actions={actions}></Loader>
+			<Loader bauhaus={data} actions={actions}></Loader>
 		);
 
 	}
