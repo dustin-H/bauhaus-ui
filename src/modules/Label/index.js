@@ -3,21 +3,23 @@ import Look, {StyleSheet} from 'react-look';
 import {$} from '../../utils/i18n/index.js';
 import _ from 'lodash';
 
-class SimpleWrapper extends Component {
+class Label extends Component {
 	render() {
 		const {bauhaus} = this.props;
 		return (
 			<div>
+            <div look={styles.label}>{$(bauhaus.props.label)}</div>
 				{_
 					.map(bauhaus._childrenGenerators, function(value, key) {
-						return value({some: 'props HAHA', key: key})
-					})}
+                  var newProps = Object.assign({}, this.props, {key: key});
+						return value(newProps)
+					}.bind(this))}
 			</div>
 		);
 	}
 }
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(SimpleWrapper, styleSheet);
+var styles = StyleSheet.create(Label, styleSheet);
 
-export default Look(SimpleWrapper);
+export default Look(Label);
