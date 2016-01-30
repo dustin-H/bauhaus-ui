@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "babel-loader": "^5.3.3",
+    "body-parser": "^1.14.2",
     "express": "^4.13.3",
     "uglify-js": "^2.5.0",
     "webpack": "^1.12.2"

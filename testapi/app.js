@@ -1,4 +1,6 @@
 var express = require('express');
+var bodyParser = require('body-parser');
+var jsonParser = bodyParser.json();
 
 module.exports = function() {
 
@@ -70,8 +72,7 @@ module.exports = function() {
 			content: {
 				name: 'JsonForm',
 				props: {
-					getUrl: '/api/formdata',
-					postUrl: '/api/formdata',
+					url: '/api/formdata',
 					title: 'Mein schönes Testformular'
 				},
 				components: [{
@@ -79,58 +80,58 @@ module.exports = function() {
 					props: {
 						label: 'Meine Sektion'
 					},
-   				components: [{
-   					name: 'Label',
-   					props: {
-   						label: 'POSTS NEU LABEL'
-   					},
-   					components: [{
-   						name: 'InputText',
-   						props: {
-   							path: 'hallo.welt.test'
-   						}
-   					}]
-   				},{
-   					name: 'Label',
-   					props: {
-   						label: 'Dein Vorname:'
-   					},
-   					components: [{
-   						name: 'InputText',
-   						props: {
-   							path: 'hallo.welt.nix'
-   						}
-   					}]
-   				}]
-				},{
+					components: [{
+						name: 'Label',
+						props: {
+							label: 'POSTS NEU LABEL'
+						},
+						components: [{
+							name: 'InputText',
+							props: {
+								path: 'hallo.welt.test'
+							}
+						}]
+					}, {
+						name: 'Label',
+						props: {
+							label: 'Dein Vorname:'
+						},
+						components: [{
+							name: 'InputText',
+							props: {
+								path: 'hallo.welt.nix'
+							}
+						}]
+					}]
+				}, {
 					name: 'Section',
 					props: {
 						label: 'Meine Sektion'
 					},
-   				components: [{
-   					name: 'Label',
-   					props: {
-   						label: 'POSTS NEU LABEL'
-   					},
-   					components: [{
-   						name: 'InputText',
-   						props: {
-   							path: 'hallo.welt.test'
-   						}
-   					}]
-   				},{
-   					name: 'Label',
-   					props: {
-   						label: 'Dein Vorname:'
-   					},
-   					components: [{
-   						name: 'InputText',
-   						props: {
-   							path: 'hallo.welt.nix'
-   						}
-   					}]
-   				}]
-				},{
+					components: [{
+						name: 'Label',
+						props: {
+							label: 'POSTS NEU LABEL'
+						},
+						components: [{
+							name: 'InputText',
+							props: {
+								path: 'hallo.welt.test'
+							}
+						}]
+					}, {
+						name: 'Label',
+						props: {
+							label: 'Dein Vorname:'
+						},
+						components: [{
+							name: 'InputText',
+							props: {
+								path: 'hallo.welt.nix'
+							}
+						}]
+					}]
+				}, {
 					name: 'Label',
 					props: {
 						label: 'Dein Vorname:'
@@ -211,16 +212,34 @@ module.exports = function() {
 		})
 	});
 
-	app.get('/formdata', function(req, res) {
-		res.json({
-			jsondata: {
-				hallo: {
-					welt: {
-						test: "Das ist der Test Inhalt"
-					}
-				}
+	var myData = {
+		hallo: {
+			welt: {
+				test: "Das ist der Test Inhalt"
 			}
-		})
+		}
+	};
+
+	app.get('/formdata', function(req, res) {
+		if(myData != null) {
+			res.json({
+				jsondata: myData
+			});
+		}
+		else {
+			res.status(404)
+				.send();
+		}
+	});
+
+	app.put('/formdata', jsonParser, function(req, res) {
+		myData = req.body;
+		res.send();
+	});
+
+	app.delete('/formdata', function(req, res) {
+		myData = null;
+		res.send();
 	});
 
 	return app;
