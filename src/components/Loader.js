@@ -6,7 +6,6 @@ import {
 	getModule
 }
 from '../utils/moduleLoader/index.js';
-import Children from './Children.js';
 
 class Loader extends Component {
 
