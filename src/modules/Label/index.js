@@ -7,8 +7,8 @@ class Label extends Component {
 	render() {
 		const {bauhaus} = this.props;
 		return (
-			<div>
-            <div look={styles.label}>{$(bauhaus.props.label)}</div>
+			<div look={styles.labelWrapper}>
+            <div look={styles.label}>{$(bauhaus.props.text)}</div>
 				{_
 					.map(bauhaus._childrenGenerators, function(value, key) {
                   var newProps = Object.assign({}, this.props, {key: key});
