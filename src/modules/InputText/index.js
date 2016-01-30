@@ -1,4 +1,4 @@
-import React, {PropTypes, Component,} from 'react';
+import React, {PropTypes, Component} from 'react';
 import Look, {StyleSheet} from 'react-look';
 import {$} from '../../utils/i18n/index.js';
 
