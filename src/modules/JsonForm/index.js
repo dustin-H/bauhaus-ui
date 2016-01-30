@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, {PropTypes, Component,} from 'react';
 import Look, {StyleSheet} from 'react-look';
 import {$} from '../../utils/i18n/index.js';
 import _ from 'lodash';
@@ -7,17 +7,12 @@ import superagent from 'superagent';
 import superagentPlugin from '../../utils/helpers/superagentPlugin.js';
 
 class JsonForm extends Component {
-	/*constructor() {
-		super();
-		this.state = {
-			savedData: {},
-			data: {},
-			loading: false,
-			initialLoaded: false,
-			changed: false,
-			error: false
-		}
-	}*/
+   constructor(props){
+      super(props);
+      this.saveData = this.saveData.bind(this);
+      this.delete = this.delete.bind(this);
+      this.reset = this.reset.bind(this);
+   }
 	getValue(path) {
 		const {bauhaus} = this.props;
 		return objectPath.get(bauhaus._state.data, path);
@@ -35,7 +30,7 @@ class JsonForm extends Component {
 	}
 	loadData() {
 		const {bauhaus} = this.props;
-      var state = Object.assign({}, bauhaus._state);
+		var state = Object.assign({}, bauhaus._state);
 		state.loading = true;
 		bauhaus._setState(state);
 		superagent
@@ -43,7 +38,7 @@ class JsonForm extends Component {
 			.accept('json')
 			.use(superagentPlugin())
 			.end((function(err, res) {
-            var state = Object.assign({}, bauhaus._state);
+				var state = Object.assign({}, bauhaus._state);
 				if (err != null || res == null || res.body == null || res.body.jsondata == null) {
 					state.error = true;
 					return bauhaus._setState(state);
@@ -58,17 +53,17 @@ class JsonForm extends Component {
 	}
 	saveData() {
 		const {bauhaus} = this.props;
-      var state = Object.assign({}, bauhaus._state);
+		var state = Object.assign({}, bauhaus._state);
 		bauhaus._state.loading = true;
 		bauhaus._setState(bauhaus._state);
 		superagent
 			.put(bauhaus.props.url)
-         .send(bauhaus._state.data)
+			.send(bauhaus._state.data)
 			.accept('json')
 			.use(superagentPlugin())
 			.end((function(err, res) {
 				if (err != null) {
-               var state = Object.assign({}, bauhaus._state);
+					var state = Object.assign({}, bauhaus._state);
 					bauhaus._state.error = true;
 					return bauhaus._setState(bauhaus._state);
 				}
@@ -77,7 +72,7 @@ class JsonForm extends Component {
 	}
 	delete() {
 		const {bauhaus} = this.props;
-      var state = Object.assign({}, bauhaus._state);
+		var state = Object.assign({}, bauhaus._state);
 		bauhaus._state.loading = true;
 		bauhaus._setState(bauhaus._state);
 		superagent
@@ -86,7 +81,7 @@ class JsonForm extends Component {
 			.use(superagentPlugin())
 			.end((function(err, res) {
 				if (err != null) {
-               var state = Object.assign({}, bauhaus._state);
+					var state = Object.assign({}, bauhaus._state);
 					bauhaus._state.error = true;
 					return bauhaus._setState(bauhaus._state);
 				}
@@ -94,6 +89,7 @@ class JsonForm extends Component {
 			}).bind(this));
 	}
 	componentWillMount() {
+		console.log('componentWillMount');
 		const {bauhaus} = this.props;
 		bauhaus._setState({
 			savedData: {},
@@ -101,16 +97,24 @@ class JsonForm extends Component {
 			loading: false,
 			initialLoaded: false,
 			changed: false,
-			error: false
+			error: false,
 		});
 	}
 	componentDidMount() {
+		console.log('componentDidMount');
 		this.loadData();
+	}
+	componentWillUnmount() {
+		console.log('componentWillUnmount');
 	}
 	reset() {
 		this.loadData();
 	}
+   safe(){
+      console.log('sdf ====');
+   }
 	render() {
+		console.log('REnder');
 		const {bauhaus} = this.props;
 		if (bauhaus._state.error === true) {
 			return (
@@ -118,6 +122,7 @@ class JsonForm extends Component {
 			);
 		}
 		if (bauhaus._state.loading === true || bauhaus._state.initialLoaded === false) {
+         console.log('render loda');
 			return (
 				<div look={styles.center}><br/><img src="media/loader.gif"/></div>
 			);
@@ -126,33 +131,34 @@ class JsonForm extends Component {
 		if (bauhaus._state.changed === true) {
 			saveColor = styles.green;
 		}
+      var safe = function(){
+         console.log('sdf');
+      }
 		return (
 			<div>
-				<span look={styles.contentHeadline}>{bauhaus.props.title}</span><hr look={styles.contentHr}/>
-				<input look={[styles.button, saveColor,]} type="button" value="Save" onClick={this
-					.saveData
-					.bind(this)} key="b1"/>
-				<input look={[styles.button, styles.gray,]} type="button" value="Reset" onClick={this
-					.reset
-					.bind(this)} key="b2"/>
-				<input look={[styles.button, styles.gray, styles.hoverRed,]} type="button" value="Delete" onClick={this
-					.delete
-					.bind(this)} key="b3"/>
+            <span look={styles.contentHeadline}>{bauhaus.props.title}</span>
+				<hr look={styles.contentHr}/>
+				<input look={[styles.button, saveColor]} type="button" value="Save" onClick={this.saveData} key={bauhaus._path + 'saveButton'}/>
+
+            <input look={[styles.button, styles.gray,]} type="button" value="Reset" onClick={this
+					.reset} key={bauhaus._path + 'resetButton'}/>
+            <input look={[styles.button, styles.gray, styles.hoverRed,]} type="button" value="Delete" onClick={this
+					.delete} key={bauhaus._path + 'deleteButton'}/>
 				<br/><br/>
-				{_
-					.map(bauhaus._childrenGenerators, function(component, key) {
-						return component({
-							get: this
-								.getValue
-								.bind(this),
-							set: this
-								.setValue
-								.bind(this),
-							key: key,
-						})
-					}.bind(this))}
+               {_
+   					.map(bauhaus._childrenGenerators, function(component, key) {
+   						return component({
+   							get: this
+   								.getValue
+   								.bind(this),
+   							set: this
+   								.setValue
+   								.bind(this),
+   							key: key
+   						})
+   					}.bind(this))}
 			</div>
-		);
+		)
 	}
 }
 
