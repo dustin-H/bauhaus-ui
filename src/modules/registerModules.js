@@ -5,11 +5,15 @@ from '../utils/moduleLoader';
 
 
 import InputText from './InputText';
-import SimpleWrapper from './SimpleWrapper';
+import Label from './Label';
+import JsonForm from './JsonForm';
+import Section from './Section';
 
 var registerModules = function() {
 	registerModule('InputText', InputText);
-	registerModule('SimpleWrapper', SimpleWrapper);
+	registerModule('Label', Label);
+	registerModule('JsonForm', JsonForm);
+	registerModule('Section', Section);
 }
 
 export default registerModules;
