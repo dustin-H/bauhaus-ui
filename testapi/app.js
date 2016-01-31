@@ -137,12 +137,23 @@ module.exports = function() {
 				}, {
 					name: 'Label',
 					props: {
-						text: 'Dein Vorname:'
+						text: 'Meine Email:'
+					},
+					components: [{
+						name: 'InputEmail',
+						props: {
+							path: 'hallo.welt.email'
+						}
+					}]
+				}, {
+					name: 'Label',
+					props: {
+						text: 'Meine Email als Text:'
 					},
 					components: [{
 						name: 'InputText',
 						props: {
-							path: 'hallo.welt.nix'
+							path: 'hallo.welt.email'
 						}
 					}]
 				}]
