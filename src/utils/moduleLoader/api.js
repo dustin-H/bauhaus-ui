@@ -14,7 +14,6 @@ __GLOBAL__.npm = {
 	'react-dom': require('react-dom'),
 	superagent: require('superagent'),
 	lodash: require('lodash'),
-	moment: require('moment'),
 	'react-look': require('react-look')
 };
 

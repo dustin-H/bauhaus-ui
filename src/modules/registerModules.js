@@ -10,7 +10,7 @@ import JsonForm from './JsonForm';
 import Section from './Section';
 
 var registerModules = function() {
-	registerModule('InputText', InputText);
+	//registerModule('InputText', InputText);
 	registerModule('Label', Label);
 	registerModule('JsonForm', JsonForm);
 	registerModule('Section', Section);

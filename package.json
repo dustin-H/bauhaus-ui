@@ -12,9 +12,9 @@
   "author": "Dustin Hoffner",
   "license": "MIT",
   "dependencies": {
+    "bauhaus-ui-module-utils": "0.0.1",
     "history": "^1.17.0",
     "lodash": "^4.0.0",
-    "moment": "^2.10.6",
     "object-assign": "^4.0.1",
     "object-path": "^0.9.2",
     "react": "latest",
