@@ -100,7 +100,7 @@ module.exports = function() {
 							text: 'Dein Vorname:'
 						},
 						components: [{
-							name: 'InputText',
+							name: 'InputPassword',
 							props: {
 								path: 'hallo.welt.nix'
 							}
