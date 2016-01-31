@@ -15,7 +15,9 @@ module.exports = [{
 			loader: "babel-loader"
 		}]
 	}
-},{
+}]
+/*
+,{
    name: 'bauhaus-ui-module-InputText',
 	context: __dirname + "/",
 	entry: __dirname + "/modules/InputText/src/index.js",
@@ -32,4 +34,4 @@ module.exports = [{
 			loader: "babel-loader"
 		}]
 	}
-}]
+} */

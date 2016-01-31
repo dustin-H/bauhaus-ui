@@ -69,9 +69,9 @@ module.exports = function() {
 
 	app.get('/views/posts', function(req, res) {
 		res.json({
-         modules: {
+         /*modules: {
             InputText: '/modules/InputText/build/bundle.js'
-         },
+         },*/
 			content: {
 				name: 'JsonForm',
 				props: {
