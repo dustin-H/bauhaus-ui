@@ -28,8 +28,12 @@ var style = {
 		},
 		userSelect: 'none',
 		transition: 'ease-in-out 0.2s',
-		background: 'linear-gradient(to bottom, #206917 0%, #2B302C 100%)',
-		backgroundAttachment: 'fixed',
+      //backgroundColor: '#206917',
+		//background: (props) => {
+      //   return 'linear-gradient(to bottom, #206917 0%, #2B302C 100%)'
+      //},
+		//backgroundAttachment: 'fixed',
+      backgroundColor: '#206917',
 		zIndex: 10,
 		overflow: 'hidden'
 	},

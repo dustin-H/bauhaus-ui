@@ -89,7 +89,6 @@ class JsonForm extends Component {
 			}).bind(this));
 	}
 	componentWillMount() {
-		console.log('componentWillMount');
 		const {bauhaus} = this.props;
 		bauhaus._setState({
 			savedData: {},
@@ -101,20 +100,12 @@ class JsonForm extends Component {
 		});
 	}
 	componentDidMount() {
-		console.log('componentDidMount');
 		this.loadData();
-	}
-	componentWillUnmount() {
-		console.log('componentWillUnmount');
 	}
 	reset() {
 		this.loadData();
 	}
-   safe(){
-      console.log('sdf ====');
-   }
 	render() {
-		console.log('REnder');
 		const {bauhaus} = this.props;
 		if (bauhaus._state.error === true) {
 			return (
@@ -122,7 +113,6 @@ class JsonForm extends Component {
 			);
 		}
 		if (bauhaus._state.loading === true || bauhaus._state.initialLoaded === false) {
-         console.log('render loda');
 			return (
 				<div look={styles.center}><br/><img src="media/loader.gif"/></div>
 			);
@@ -131,18 +121,15 @@ class JsonForm extends Component {
 		if (bauhaus._state.changed === true) {
 			saveColor = styles.green;
 		}
-      var safe = function(){
-         console.log('sdf');
-      }
 		return (
 			<div>
-            <span look={styles.contentHeadline}>{bauhaus.props.title}</span>
+            <span look={styles.contentHeadline}>{$(bauhaus.props.title)}</span>
 				<hr look={styles.contentHr}/>
-				<input look={[styles.button, saveColor]} type="button" value="Save" onClick={this.saveData} key={bauhaus._path + 'saveButton'}/>
+				<input look={[styles.button, saveColor]} type="button" value={$('$core.commons.save')} onClick={this.saveData} key={bauhaus._path + 'saveButton'}/>
 
-            <input look={[styles.button, styles.gray,]} type="button" value="Reset" onClick={this
+            <input look={[styles.button, styles.gray,]} type="button" value={$('$core.commons.reset')} onClick={this
 					.reset} key={bauhaus._path + 'resetButton'}/>
-            <input look={[styles.button, styles.gray, styles.hoverRed,]} type="button" value="Delete" onClick={this
+            <input look={[styles.button, styles.gray, styles.hoverRed,]} type="button" value={$('$core.commons.delete')} onClick={this
 					.delete} key={bauhaus._path + 'deleteButton'}/>
 				<br/><br/>
                {_

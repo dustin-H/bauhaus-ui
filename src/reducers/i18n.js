@@ -15,7 +15,10 @@ const initialState = {
          'core.content.error': 'Error while loading page!',
          'core.sidebar.error': 'Error while loading sidebar!',
          'core.search.error': 'Error while loading search!',
-         'core.search.nothingFound': 'Nothing found!'
+         'core.search.nothingFound': 'Nothing found!',
+         'core.commons.save': 'Save',
+         'core.commons.reset': 'Reset',
+         'core.commons.delete': 'Delete'
 		},
 		de: {
 			'core.auth.login.username': 'Benutzername',
@@ -27,7 +30,10 @@ const initialState = {
          'core.content.error': 'Fehler beim Laden der Seite!',
          'core.sidebar.error': 'Fehler beim Laden der Sidebar!',
          'core.search.error': 'Fehler beim Laden der Suche!',
-         'core.search.nothingFound': 'Nichts gefunden!'
+         'core.search.nothingFound': 'Nichts gefunden!',
+         'core.commons.save': 'Speichern',
+         'core.commons.reset': 'Zurücksetzen',
+         'core.commons.delete': 'Löschen'
 		}
 	},
 	fallbacks: [],
