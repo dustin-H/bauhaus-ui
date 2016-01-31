@@ -10,6 +10,7 @@ import JsonForm from './JsonForm';
 import Section from './Section';
 import InputPassword from './InputPassword';
 import InputEmail from './InputEmail';
+import InputTextarea from './InputTextarea';
 
 var registerModules = function() {
 	registerModule('InputText', InputText);
@@ -18,6 +19,7 @@ var registerModules = function() {
 	registerModule('Section', Section);
 	registerModule('InputPassword', InputPassword);
 	registerModule('InputEmail', InputEmail);
+	registerModule('InputTextarea', InputTextarea);
 }
 
 export default registerModules;
