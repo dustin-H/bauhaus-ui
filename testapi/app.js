@@ -107,6 +107,17 @@ module.exports = function() {
 						}]
 					}]
 				}, {
+					name: 'Label',
+					props: {
+						text: 'Textarea:'
+					},
+					components: [{
+						name: 'InputTextarea',
+						props: {
+							path: 'hallo.welt.textarea'
+						}
+					}]
+				}, {
 					name: 'Section',
 					props: {
 						text: 'Meine Sektion'
