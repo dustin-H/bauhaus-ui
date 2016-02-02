@@ -4,7 +4,7 @@
   "description": "bauhaus-ui",
   "main": "index.js",
   "scripts": {
-    "build": "webpack && npm run minify",
+    "build": "NODE_ENV=production webpack && npm run minify",
     "dev": "webpack --progress --colors --watch",
     "minify": "node uglify.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,6 @@
     "history": "^1.17.0",
     "lodash": "^4.0.0",
     "object-assign": "^4.0.1",
-    "object-path": "^0.9.2",
     "react": "latest",
     "react-dom": "latest",
     "react-look": "latest",

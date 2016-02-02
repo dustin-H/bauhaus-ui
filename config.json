@@ -11,13 +11,7 @@
 			}
 		}
 	},
-   "modules": {
-      "testmodule": "/api/testmodule"
-   },
 	"endpoints": {
-		"entry": {
-			"url": "/api"
-		},
 		"routes": {
 			"url": "/api/routes"
 		},

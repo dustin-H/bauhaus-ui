@@ -7,8 +7,6 @@ import {
 }
 from '../utils/moduleLoader/index.js';
 
-import _ from 'lodash';
-
 class Loader extends Component {
 
 	createSetStateAction(key) {

@@ -1,6 +1,5 @@
 import React, {PropTypes, Component} from 'react';
 import look, {StyleSheet} from 'react-look';
-import _ from 'lodash';
 import {$} from '../../utils/i18n/index.js';
 
 class SearchElement extends Component {
