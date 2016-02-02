@@ -1,6 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import look, {StyleSheet} from 'react-look';
-import _ from 'lodash';
+import _map from 'lodash/map';
 import SideBarListElement from '../SideBarListElement';
 import {$} from '../../utils/i18n/index.js';
 
@@ -49,8 +49,7 @@ class SideBar extends Component {
             {backButton}
 				<div look={styles.sideBarMenu}>
 					{content}
-					{_
-						.map(state.sideBar.list, function(value, key) {
+					{_map(state.sideBar.list, function(value, key) {
 							return (
 								<SideBarListElement key={key} state={state} actions={actions} label={value.name} imageUrl={value.imageUrl || "media/icons/terms.svg"} pathname={value.pathname} tabletView={state.responsive.device.tablet}></SideBarListElement>
 							)

@@ -1,7 +1,7 @@
 import React, {PropTypes, Component} from 'react';
 import ReactDOM from 'react-dom';
 import look, {StyleSheet} from 'react-look';
-import _ from 'lodash';
+import _map from 'lodash/map';
 import SearchElement from '../SearchElement';
 import {$} from '../../utils/i18n/index.js';
 
@@ -37,7 +37,7 @@ class Search extends Component {
 		if (state.search.results.length < 1) {return (
 				<div look={styles.center}><br/><br/>{$('$core.search.nothingFound')}</div>
 			);}
-		return _.map(state.search.results, function(value, key) {
+		return _map(state.search.results, function(value, key) {
 			return (
 				<SearchElement key={key} state={state} actions={actions} title={value.title} description={value.description} pathname={value.pathname}></SearchElement>
 			)

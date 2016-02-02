@@ -1,8 +1,9 @@
 import React, {PropTypes, Component,} from 'react';
 import Look, {StyleSheet} from 'react-look';
 import {$} from '../../utils/i18n/index.js';
-import _ from 'lodash';
-import objectPath from 'object-path';
+import _get from 'lodash/get';
+import _set from 'lodash/set';
+import _map from 'lodash/map';
 import superagent from 'superagent';
 import superagentPlugin from '../../utils/helpers/superagentPlugin.js';
 
@@ -15,14 +16,14 @@ class JsonForm extends Component {
    }
 	getValue(path) {
 		const {bauhaus} = this.props;
-		return objectPath.get(bauhaus._state.data, path);
+		return _get(bauhaus._state.data, path);
 	}
 	setValue(path, value) {
 		const {bauhaus} = this.props;
 		var state = Object.assign({}, bauhaus._state);
 		if (state.initialLoaded === true && state.loading === false) {
 			var data = state.data;
-			objectPath.set(data, path, value);
+			_set(data, path, value);
 			state.data = data;
 			state.changed = (JSON.stringify(state.data) !== state.savedData);
 		}
@@ -132,8 +133,7 @@ class JsonForm extends Component {
             <input look={[styles.button, styles.gray, styles.hoverRed,]} type="button" value={$('$core.commons.delete')} onClick={this
 					.delete} key={bauhaus._path + 'deleteButton'}/>
 				<br/><br/>
-               {_
-   					.map(bauhaus._childrenGenerators, function(component, key) {
+               {_map(bauhaus._childrenGenerators, function(component, key) {
    						return component({
    							get: this
    								.getValue
