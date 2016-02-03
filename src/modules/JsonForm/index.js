@@ -7,13 +7,21 @@ import _map from 'lodash/map';
 import superagent from 'superagent';
 import superagentPlugin from '../../utils/helpers/superagentPlugin.js';
 
+var validators = {};
+
 class JsonForm extends Component {
-   constructor(props){
-      super(props);
-      this.saveData = this.saveData.bind(this);
-      this.delete = this.delete.bind(this);
-      this.reset = this.reset.bind(this);
-   }
+	constructor(props) {
+		super(props);
+		this.saveData = this
+			.saveData
+			.bind(this);
+		this.delete = this
+			.delete
+			.bind(this);
+		this.reset = this
+			.reset
+			.bind(this);
+	}
 	getValue(path) {
 		const {bauhaus} = this.props;
 		return _get(bauhaus._state.data, path);
@@ -25,9 +33,28 @@ class JsonForm extends Component {
 			var data = state.data;
 			_set(data, path, value);
 			state.data = data;
+			if (validators[path] != null) {
+				state.validationData[path] = validators[path](value);
+			}
 			state.changed = (JSON.stringify(state.data) !== state.savedData);
 		}
 		bauhaus._setState(state);
+	}
+	setValidator(path, validator) {
+		validators[path] = validator;
+	}
+	isValid(path) {
+		const {bauhaus} = this.props;
+		if (bauhaus._state == null || bauhaus._state.validationData == null || bauhaus._state.validationData[path] == null || bauhaus._state.validationData[path] === true) {
+			return true;
+		}
+		if (bauhaus._state.validationData[path] === false) {
+			return 'Validation Error!';
+		}
+		if (typeof bauhaus._state.validationData[path] === 'string') {
+			return bauhaus._state.validationData[path];
+		}
+		return 'Validation Error!';
 	}
 	loadData() {
 		const {bauhaus} = this.props;
@@ -49,6 +76,7 @@ class JsonForm extends Component {
 				state.initialLoaded = true;
 				state.loading = false;
 				state.changed = false;
+				state.validationData = {};
 				bauhaus._setState(state);
 			}).bind(this));
 	}
@@ -94,6 +122,7 @@ class JsonForm extends Component {
 		bauhaus._setState({
 			savedData: {},
 			data: {},
+			validationData: {},
 			loading: false,
 			initialLoaded: false,
 			changed: false,
@@ -124,26 +153,30 @@ class JsonForm extends Component {
 		}
 		return (
 			<div>
-            <span look={styles.contentHeadline}>{$(bauhaus.props.title)}</span>
+				<span look={styles.contentHeadline}>{$(bauhaus.props.title)}</span>
 				<hr look={styles.contentHr}/>
-				<input look={[styles.button, saveColor]} type="button" value={$('$core.commons.save')} onClick={this.saveData} key={bauhaus._path + 'saveButton'}/>
+				<input look={[styles.button, saveColor,]} type="button" value={$('$core.commons.save')} onClick={this.saveData} key={bauhaus._path + 'saveButton'}/>
 
-            <input look={[styles.button, styles.gray,]} type="button" value={$('$core.commons.reset')} onClick={this
-					.reset} key={bauhaus._path + 'resetButton'}/>
-            <input look={[styles.button, styles.gray, styles.hoverRed,]} type="button" value={$('$core.commons.delete')} onClick={this
-					.delete} key={bauhaus._path + 'deleteButton'}/>
+				<input look={[styles.button, styles.gray,]} type="button" value={$('$core.commons.reset')} onClick={this.reset} key={bauhaus._path + 'resetButton'}/>
+				<input look={[styles.button, styles.gray, styles.hoverRed,]} type="button" value={$('$core.commons.delete')} onClick={this.delete} key={bauhaus._path + 'deleteButton'}/>
 				<br/><br/>
-               {_map(bauhaus._childrenGenerators, function(component, key) {
-   						return component({
-   							get: this
-   								.getValue
-   								.bind(this),
-   							set: this
-   								.setValue
-   								.bind(this),
-   							key: key
-   						})
-   					}.bind(this))}
+				{_map(bauhaus._childrenGenerators, function(component, key) {
+					return component({
+						get: this
+							.getValue
+							.bind(this),
+						set: this
+							.setValue
+							.bind(this),
+						isValid: this
+							.isValid
+							.bind(this),
+						setValidator: this
+							.setValidator
+							.bind(this),
+						key: key
+					})
+				}.bind(this))}
 			</div>
 		)
 	}
