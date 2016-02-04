@@ -10,12 +10,28 @@ var style = {
 		fooBar: 'none',
 		outline: 'none',
 		color: '#4E4E4E',
-		fontSize: '14px',
+		fontSize: 14,
 		width: '100%',
 		':focus': {
 			border: '1px solid #20C753', // F96331 6E00FF
 			color: '#000000'
 		}
-	}
+	},
+   error: {
+      color: '#ff0000',
+      fontWeight: 700,
+		fontSize: 11,
+      paddingLeft: 17
+   },
+   inputError: {
+      color: '#ff0000',
+		border: '1px solid #ff0000',
+      backgroundColor: 'rgba(255, 0, 0, 0.07)',
+      ':focus': {
+			border: '1px solid #ff0000', // F96331 6E00FF
+			color: '#ff0000',
+         backgroundColor: 'transparent'
+		}
+   }
 };
 export default style;

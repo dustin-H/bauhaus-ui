@@ -9,8 +9,8 @@ class InputText extends Component {
 		set(bauhaus.props.path, value, this.validate(value));
 	}
 	validate(value) {
-		if (value == null) {
-			return '';
+		if (value == null || value === '') {
+			return '$core.commons.errors.required';
 		}
 		if (value === 'böse') {
 			return 'Not allowed!';
@@ -24,21 +24,23 @@ class InputText extends Component {
 	render() {
 		const {bauhaus, get, set, isValid,} = this.props;
 		var valid = isValid(bauhaus.props.path);
+      var inputStyle = [styles.textInput];
 		var invalidError;
 		if (valid === true) {
 			invalidError = (
 				<span></span>
 			);
 		} else {
+         inputStyle.push(styles.inputError);
 			invalidError = (
 				<span><br/>
-					<span>{valid}</span>
+					<span look={styles.error}>{$(valid)}</span>
 				</span>
 			)
 		}
 		return (
 			<span>
-				<input look={styles.textInput} type="text" value={get(bauhaus.props.path)} onChange={this
+				<input look={inputStyle} type="text" value={get(bauhaus.props.path)} onChange={this
 					.handleChange
 					.bind(this)}></input>
 				{invalidError}
