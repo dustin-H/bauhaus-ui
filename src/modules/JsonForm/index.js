@@ -57,7 +57,6 @@ class JsonForm extends Component {
 		return '$core.commons.errors.validation';
 	}
 	validateAll() {
-      console.log('validating');
 		const {bauhaus} = this.props;
 		var state = Object.assign({}, bauhaus._state);
 		var data = state.data;
