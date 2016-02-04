@@ -50,6 +50,11 @@ var style = {
 			backgroundColor: 'rgb(255, 59, 0)',
 			color: '#ffffff'
 		}
-	}
+	},
+   validationError: {
+      color: '#ff0000',
+      fontWeight: 700,
+      fontSize: 14
+   }
 };
 export default style;

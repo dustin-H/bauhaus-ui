@@ -1,4 +1,4 @@
-import React, {PropTypes, Component,} from 'react';
+import React, {PropTypes, Component} from 'react';
 import Look, {StyleSheet} from 'react-look';
 import {$} from '../../utils/i18n/index.js';
 import _get from 'lodash/get';
@@ -49,12 +49,29 @@ class JsonForm extends Component {
 			return true;
 		}
 		if (bauhaus._state.validationData[path] === false) {
-			return 'Validation Error!';
+			return '$core.commons.errors.validation';
 		}
 		if (typeof bauhaus._state.validationData[path] === 'string') {
 			return bauhaus._state.validationData[path];
 		}
-		return 'Validation Error!';
+		return '$core.commons.errors.validation';
+	}
+	validateAll() {
+      console.log('validating');
+		const {bauhaus} = this.props;
+		var state = Object.assign({}, bauhaus._state);
+		var data = state.data;
+		state.valid = true;
+		for (var path in validators) {
+			var value = _get(data, path);
+			state.data = data;
+			state.validationData[path] = validators[path](value);
+			if (state.validationData[path] !== true) {
+				state.valid = false;
+			}
+		}
+		bauhaus._setState(state);
+		return state.valid;
 	}
 	loadData() {
 		const {bauhaus} = this.props;
@@ -76,28 +93,31 @@ class JsonForm extends Component {
 				state.initialLoaded = true;
 				state.loading = false;
 				state.changed = false;
+            state.valid = true;
 				state.validationData = {};
 				bauhaus._setState(state);
 			}).bind(this));
 	}
 	saveData() {
-		const {bauhaus} = this.props;
-		var state = Object.assign({}, bauhaus._state);
-		bauhaus._state.loading = true;
-		bauhaus._setState(bauhaus._state);
-		superagent
-			.put(bauhaus.props.url)
-			.send(bauhaus._state.data)
-			.accept('json')
-			.use(superagentPlugin())
-			.end((function(err, res) {
-				if (err != null) {
-					var state = Object.assign({}, bauhaus._state);
-					bauhaus._state.error = true;
-					return bauhaus._setState(bauhaus._state);
-				}
-				this.loadData();
-			}).bind(this));
+		if (this.validateAll() === true) {
+			const {bauhaus} = this.props;
+			var state = Object.assign({}, bauhaus._state);
+			bauhaus._state.loading = true;
+			bauhaus._setState(bauhaus._state);
+			superagent
+				.put(bauhaus.props.url)
+				.send(bauhaus._state.data)
+				.accept('json')
+				.use(superagentPlugin())
+				.end((function(err, res) {
+					if (err != null) {
+						var state = Object.assign({}, bauhaus._state);
+						bauhaus._state.error = true;
+						return bauhaus._setState(bauhaus._state);
+					}
+					this.loadData();
+				}).bind(this));
+		}
 	}
 	delete() {
 		const {bauhaus} = this.props;
@@ -127,6 +147,7 @@ class JsonForm extends Component {
 			initialLoaded: false,
 			changed: false,
 			error: false,
+			valid: true
 		});
 	}
 	componentDidMount() {
@@ -147,6 +168,12 @@ class JsonForm extends Component {
 				<div look={styles.center}><br/><img src="media/loader.gif"/></div>
 			);
 		}
+		var validationError = "";
+		if (bauhaus._state.valid !== true) {
+			validationError = (
+				<div look={[styles.validationError]}><br/>{$('$core.commons.errors.validation')}</div>
+			);
+		}
 		var saveColor = styles.gray;
 		if (bauhaus._state.changed === true) {
 			saveColor = styles.green;
@@ -156,10 +183,9 @@ class JsonForm extends Component {
 				<span look={styles.contentHeadline}>{$(bauhaus.props.title)}</span>
 				<hr look={styles.contentHr}/>
 				<input look={[styles.button, saveColor,]} type="button" value={$('$core.commons.save')} onClick={this.saveData} key={bauhaus._path + 'saveButton'}/>
-
 				<input look={[styles.button, styles.gray,]} type="button" value={$('$core.commons.reset')} onClick={this.reset} key={bauhaus._path + 'resetButton'}/>
 				<input look={[styles.button, styles.gray, styles.hoverRed,]} type="button" value={$('$core.commons.delete')} onClick={this.delete} key={bauhaus._path + 'deleteButton'}/>
-				<br/><br/>
+				<br/>{validationError}<br/>
 				{_map(bauhaus._childrenGenerators, function(component, key) {
 					return component({
 						get: this
@@ -174,7 +200,7 @@ class JsonForm extends Component {
 						setValidator: this
 							.setValidator
 							.bind(this),
-						key: key
+						key: key,
 					})
 				}.bind(this))}
 			</div>
