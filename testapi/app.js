@@ -69,9 +69,9 @@ module.exports = function() {
 
 	app.get('/views/posts', function(req, res) {
 		res.json({
-         /*modules: {
-            InputText: '/modules/InputText/build/bundle.js'
-         },*/
+			/*modules: {
+			   InputText: '/modules/InputText/build/bundle.js'
+			},*/
 			content: {
 				name: 'JsonForm',
 				props: {
@@ -91,7 +91,10 @@ module.exports = function() {
 						components: [{
 							name: 'InputText',
 							props: {
-								path: 'hallo.welt.test'
+								path: 'hallo.welt.test',
+								required: true,
+                        regex: 'abc.*',
+                        failMessage: 'This needs to start with abc!'
 							}
 						}]
 					}, {
@@ -130,7 +133,8 @@ module.exports = function() {
 						components: [{
 							name: 'InputText',
 							props: {
-								path: 'hallo.welt.test'
+								path: 'hallo.welt.test2',
+								required: true
 							}
 						}]
 					}, {
