@@ -1,4 +1,4 @@
-import React, {PropTypes, Component,} from 'react';
+import React, {PropTypes, Component} from 'react';
 import Look, {StyleSheet} from 'react-look';
 import {$} from '../../utils/i18n/index.js';
 
@@ -17,11 +17,11 @@ class Validator extends Component {
 		return true;
 	}
 	componentDidMount() {
-		const {bauhaus, setValidator,} = this.props;
+		const {bauhaus, setValidator} = this.props;
 		setValidator(bauhaus.props.path, this.validate.bind(this))
 	}
 	render() {
-		const {bauhaus, isValid,} = this.props;
+		const {bauhaus, isValid} = this.props;
 		var valid = isValid(bauhaus.props.path);
 		if (valid !== true) {
 			return (
