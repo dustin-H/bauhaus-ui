@@ -9,8 +9,8 @@ import Label from './Label';
 import JsonForm from './JsonForm';
 import Section from './Section';
 import InputPassword from './InputPassword';
-import InputEmail from './InputEmail';
 import InputTextarea from './InputTextarea';
+import Validator from './Validator';
 
 var registerModules = function() {
 	registerModule('InputText', InputText);
@@ -18,8 +18,8 @@ var registerModules = function() {
 	registerModule('JsonForm', JsonForm);
 	registerModule('Section', Section);
 	registerModule('InputPassword', InputPassword);
-	registerModule('InputEmail', InputEmail);
 	registerModule('InputTextarea', InputTextarea);
+	registerModule('Validator', Validator);
 }
 
 export default registerModules;
