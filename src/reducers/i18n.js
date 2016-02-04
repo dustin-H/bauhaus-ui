@@ -18,7 +18,9 @@ const initialState = {
          'core.search.nothingFound': 'Nothing found!',
          'core.commons.save': 'Save',
          'core.commons.reset': 'Reset',
-         'core.commons.delete': 'Delete'
+         'core.commons.delete': 'Delete',
+         'core.commons.errors.validation': 'Validation failed!',
+         'core.commons.errors.required': 'Required!'
 		},
 		de: {
 			'core.auth.login.username': 'Benutzername',
@@ -33,7 +35,9 @@ const initialState = {
          'core.search.nothingFound': 'Nichts gefunden!',
          'core.commons.save': 'Speichern',
          'core.commons.reset': 'Zurücksetzen',
-         'core.commons.delete': 'Löschen'
+         'core.commons.delete': 'Löschen',
+         'core.commons.errors.validation': 'Validierung fehlgeschlagen!',
+         'core.commons.errors.required': 'Erforderlich!'
 		}
 	},
 	fallbacks: [],
