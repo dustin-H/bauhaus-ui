@@ -36,6 +36,12 @@ class JsonForm extends Component {
 			if (validators[path] != null) {
 				state.validationData[path] = validators[path](value);
 			}
+			state.valid = true;
+			for (var i in state.validationData) {
+				if (state.validationData[i] !== true) {
+					state.valid = false;
+				}
+			}
 			state.changed = (JSON.stringify(state.data) !== state.savedData);
 		}
 		bauhaus._setState(state);
@@ -92,7 +98,7 @@ class JsonForm extends Component {
 				state.initialLoaded = true;
 				state.loading = false;
 				state.changed = false;
-            state.valid = true;
+				state.valid = true;
 				state.validationData = {};
 				bauhaus._setState(state);
 			}).bind(this));
@@ -146,7 +152,7 @@ class JsonForm extends Component {
 			initialLoaded: false,
 			changed: false,
 			error: false,
-			valid: true
+			valid: true,
 		});
 	}
 	componentDidMount() {
@@ -199,7 +205,7 @@ class JsonForm extends Component {
 						setValidator: this
 							.setValidator
 							.bind(this),
-						key: key,
+						key: key
 					})
 				}.bind(this))}
 			</div>
