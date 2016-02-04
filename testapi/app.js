@@ -91,10 +91,15 @@ module.exports = function() {
 						components: [{
 							name: 'InputText',
 							props: {
+								path: 'hallo.welt.test'
+							}
+						}, {
+							name: 'Validator',
+							props: {
 								path: 'hallo.welt.test',
 								required: true,
-                        regex: 'abc.*',
-                        failMessage: 'This needs to start with abc!'
+								regex: 'abc',
+								failMessage: 'This needs to include "abc"!'
 							}
 						}]
 					}, {
@@ -107,6 +112,14 @@ module.exports = function() {
 							props: {
 								path: 'hallo.welt.nix'
 							}
+						}, {
+							name: 'Validator',
+							props: {
+								path: 'hallo.welt.nix',
+								required: true,
+								regex: '........',
+								failMessage: 'This needs to have at least 8 characters!'
+							}
 						}]
 					}]
 				}, {
@@ -118,6 +131,14 @@ module.exports = function() {
 						name: 'InputTextarea',
 						props: {
 							path: 'hallo.welt.textarea'
+						}
+					}, {
+						name: 'Validator',
+						props: {
+							path: 'hallo.welt.textarea',
+							required: true,
+							regex: '........',
+							failMessage: 'This needs to have at least 8 characters!'
 						}
 					}]
 				}, {
@@ -133,8 +154,7 @@ module.exports = function() {
 						components: [{
 							name: 'InputText',
 							props: {
-								path: 'hallo.welt.test2',
-								required: true
+								path: 'hallo.welt.test2'
 							}
 						}]
 					}, {
@@ -155,7 +175,7 @@ module.exports = function() {
 						text: 'Meine Email:'
 					},
 					components: [{
-						name: 'InputEmail',
+						name: 'InputText',
 						props: {
 							path: 'hallo.welt.email'
 						}
