@@ -121,26 +121,26 @@ module.exports = function() {
 								failMessage: 'This needs to have at least 8 characters!'
 							}
 						}]
-					}]
-				}, {
-					name: 'Label',
-					props: {
-						text: 'Textarea:'
-					},
-					components: [{
-						name: 'InputTextarea',
-						props: {
-							path: 'hallo.welt.textarea'
-						}
 					}, {
-						name: 'Validator',
-						props: {
-							path: 'hallo.welt.textarea',
-							required: true,
-							regex: '........',
-							failMessage: 'This needs to have at least 8 characters!'
-						}
-					}]
+   					name: 'Label',
+   					props: {
+   						text: 'Textarea:'
+   					},
+   					components: [{
+   						name: 'InputTextarea',
+   						props: {
+   							path: 'hallo.welt.textarea'
+   						}
+   					}, {
+   						name: 'Validator',
+   						props: {
+   							path: 'hallo.welt.textarea',
+   							required: true,
+   							regex: '........',
+   							failMessage: 'This needs to have at least 8 characters!'
+   						}
+   					}]
+   				}]
 				}, {
 					name: 'Section',
 					props: {
@@ -168,29 +168,29 @@ module.exports = function() {
 								path: 'hallo.welt.nix'
 							}
 						}]
-					}]
-				}, {
-					name: 'Label',
-					props: {
-						text: 'Meine Email:'
-					},
-					components: [{
-						name: 'InputText',
-						props: {
-							path: 'hallo.welt.email'
-						}
-					}]
-				}, {
-					name: 'Label',
-					props: {
-						text: 'Meine Email als Text:'
-					},
-					components: [{
-						name: 'InputText',
-						props: {
-							path: 'hallo.welt.email'
-						}
-					}]
+					}, {
+   					name: 'Label',
+   					props: {
+   						text: 'Meine Email:'
+   					},
+   					components: [{
+   						name: 'InputText',
+   						props: {
+   							path: 'hallo.welt.email'
+   						}
+   					}]
+   				}, {
+   					name: 'Label',
+   					props: {
+   						text: 'Meine Email als Text:'
+   					},
+   					components: [{
+   						name: 'InputText',
+   						props: {
+   							path: 'hallo.welt.email'
+   						}
+   					}]
+   				}]
 				}]
 			}
 		});

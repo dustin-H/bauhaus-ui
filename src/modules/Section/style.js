@@ -15,5 +15,14 @@ var style = {
    sectionEnd: {
       height: 30
    }
+   /*
+   overflow: hidden;
+max-height: 72px;
+transition: ease 0.3s;
+transform: scaleY(0);
+transform: scaleY(1);
+transform-origin: top;
+
+   */
 };
 export default style;
