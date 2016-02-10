@@ -81,7 +81,8 @@ module.exports = function() {
 				components: [{
 					name: 'Section',
 					props: {
-						text: 'Meine Sektion'
+						text: 'EINS EINS EINS',
+                  folded: true
 					},
 					components: [{
 						name: 'Label',
