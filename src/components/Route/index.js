@@ -29,9 +29,9 @@ class Route extends Component {
 		if (state.content.data === false) {return (
 				<div look={styles.center}><br/>{$('$core.router.routeNotFound')}</div>
 			);}
-      var data = Object.assign({}, state.content.data, {_path: 'root', _contentState: state.router.contentState});
+      var data = Object.assign({}, state.content.data, {_path: 'root', _contentState: state.router.contentState, _actions: actions});
 		return (
-			<Loader bauhaus={data} actions={actions}></Loader>
+			<Loader bauhaus={data}></Loader>
 		);
 
 	}
