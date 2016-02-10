@@ -152,7 +152,7 @@ class JsonForm extends Component {
 			initialLoaded: false,
 			changed: false,
 			error: false,
-			valid: true,
+			valid: true
 		});
 	}
 	componentDidMount() {
