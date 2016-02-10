@@ -87,7 +87,8 @@ module.exports = function() {
 					components: [{
 						name: 'Label',
 						props: {
-							text: 'POSTS NEU LABEL'
+							text: 'POSTS NEU LABEL',
+                     info: 'Please write some nice words! It would be nice if your words are not colored red, because otherwise they will not be sent!'
 						},
 						components: [{
 							name: 'InputText',
