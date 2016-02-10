@@ -3,7 +3,8 @@ var style = {
 		paddingTop: 24,
 		paddingBottom: 0,
 		fontSize: 24,
-		fontWeight: 300
+		fontWeight: 300,
+      cursor: 'pointer'
 	},
 	sectionHr: {
 		border: 'none',
@@ -14,6 +15,15 @@ var style = {
 	},
    sectionEnd: {
       height: 30
+   },
+   content: {
+      overflow: 'hidden',
+      maxHeight: (props) => {
+         if(props.bauhaus._state.folded === true) {
+            return 0;
+         }
+         return false;
+      }
    }
    /*
    overflow: hidden;
