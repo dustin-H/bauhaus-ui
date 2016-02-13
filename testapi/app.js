@@ -79,16 +79,36 @@ module.exports = function() {
 					title: 'Mein schönes Testformular'
 				},
 				components: [{
+					name: 'Condition',
+					props: {
+						valueA: 'Hui abc',
+						pathB: 'hallo.welt.test',
+						operator: '=='
+					},
+					components: [{
+						name: 'Label',
+						props: {
+							text: 'Label 1 erscheint wenn es stimmt!'
+						},
+						components: []
+					}, {
+						name: 'Label',
+						props: {
+							text: 'Label 2 erscheint wenn es nicht stimmt!'
+						},
+						components: []
+					}]
+				}, {
 					name: 'Section',
 					props: {
 						text: 'EINS EINS EINS',
-                  folded: true
+						folded: false
 					},
 					components: [{
 						name: 'Label',
 						props: {
 							text: 'POSTS NEU LABEL',
-                     info: 'Please write some nice words! It would be nice if your words are not colored red, because otherwise they will not be sent!'
+							info: 'Please write some nice words! It would be nice if your words are not colored red, because otherwise they will not be sent!'
 						},
 						components: [{
 							name: 'InputText',
@@ -124,25 +144,25 @@ module.exports = function() {
 							}
 						}]
 					}, {
-   					name: 'Label',
-   					props: {
-   						text: 'Textarea:'
-   					},
-   					components: [{
-   						name: 'InputTextarea',
-   						props: {
-   							path: 'hallo.welt.textarea'
-   						}
-   					}, {
-   						name: 'Validator',
-   						props: {
-   							path: 'hallo.welt.textarea',
-   							required: true,
-   							regex: '........',
-   							failMessage: 'This needs to have at least 8 characters!'
-   						}
-   					}]
-   				}]
+						name: 'Label',
+						props: {
+							text: 'Textarea:'
+						},
+						components: [{
+							name: 'InputTextarea',
+							props: {
+								path: 'hallo.welt.textarea'
+							}
+						}, {
+							name: 'Validator',
+							props: {
+								path: 'hallo.welt.textarea',
+								required: true,
+								regex: '........',
+								failMessage: 'This needs to have at least 8 characters!'
+							}
+						}]
+					}]
 				}, {
 					name: 'Section',
 					props: {
@@ -171,28 +191,28 @@ module.exports = function() {
 							}
 						}]
 					}, {
-   					name: 'Label',
-   					props: {
-   						text: 'Meine Email:'
-   					},
-   					components: [{
-   						name: 'InputText',
-   						props: {
-   							path: 'hallo.welt.email'
-   						}
-   					}]
-   				}, {
-   					name: 'Label',
-   					props: {
-   						text: 'Meine Email als Text:'
-   					},
-   					components: [{
-   						name: 'InputText',
-   						props: {
-   							path: 'hallo.welt.email'
-   						}
-   					}]
-   				}]
+						name: 'Label',
+						props: {
+							text: 'Meine Email:'
+						},
+						components: [{
+							name: 'InputText',
+							props: {
+								path: 'hallo.welt.email'
+							}
+						}]
+					}, {
+						name: 'Label',
+						props: {
+							text: 'Meine Email als Text:'
+						},
+						components: [{
+							name: 'InputText',
+							props: {
+								path: 'hallo.welt.email'
+							}
+						}]
+					}]
 				}]
 			}
 		});
