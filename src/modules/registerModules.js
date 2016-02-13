@@ -11,6 +11,7 @@ import Section from './Section';
 import InputPassword from './InputPassword';
 import InputTextarea from './InputTextarea';
 import Validator from './Validator';
+import Condition from './Condition';
 
 var registerModules = function() {
 	registerModule('InputText', InputText);
@@ -20,6 +21,7 @@ var registerModules = function() {
 	registerModule('InputPassword', InputPassword);
 	registerModule('InputTextarea', InputTextarea);
 	registerModule('Validator', Validator);
+	registerModule('Condition', Condition);
 }
 
 export default registerModules;
