@@ -21,13 +21,13 @@ class Route extends Component {
 	render () {
 		const {state, actions} = this.props;
       if (state.router.error === true) {return (
-         <div look={styles.center}><br/>{$('$core.content.error')}</div>
+         <div className={styles.center}><br/>{$('$core.content.error')}</div>
       );}
 		if (state.content.loading === true) {return (
-				<div look={styles.center}><br/><img src="media/loader.gif"/></div>
+				<div className={styles.center}><br/><img src="media/loader.gif"/></div>
 			);}
 		if (state.content.data === false) {return (
-				<div look={styles.center}><br/>{$('$core.router.routeNotFound')}</div>
+				<div className={styles.center}><br/>{$('$core.router.routeNotFound')}</div>
 			);}
       var data = Object.assign({}, state.content.data, {_path: 'root', _contentState: state.router.contentState, _actions: actions});
 		return (
@@ -43,6 +43,6 @@ Route.propTypes = {
 };
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(Route, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default look(Route);

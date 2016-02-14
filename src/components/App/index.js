@@ -10,9 +10,9 @@ class App extends Component {
 		const {state, actions} = this.props;
 		return (
 			<div>
-				<div look={styles.wrapper}>
+				<div className={styles.wrapper}>
 					<SideBar state={state} actions={actions}></SideBar>
-					<div look={styles.mainFrame}>
+					<div className={styles.mainFrame}>
 						<Header state={state} actions={actions}></Header>
 						<Content state={state} actions={actions}></Content>
 						<Search state={state} actions={actions}></Search>
@@ -24,8 +24,8 @@ class App extends Component {
 }
 
 /*
-<div look={styles.footer}>
-	<div look={styles.footerLanguage}></div>
+<div className={styles.footer}>
+	<div className={styles.footerLanguage}></div>
 </div>
 */
 
@@ -35,6 +35,6 @@ App.propTypes = {
 };
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(App, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default Look(App);

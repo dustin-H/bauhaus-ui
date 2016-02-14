@@ -15,7 +15,8 @@ var style = {
 		top: 50,
 		background: '#EFEFEF',
 		boxShadow: '0 0 4px 4px rgba(0, 0, 0, 0.12)',
-		transition: 'ease-in-out 0.2s',
+		transition: 'all 0.2s',
+      transform: 'translate3d(0,0,0)',
 		boxSizing: 'border-box',
 		padding: 0,
 		fontFamily: 'Open Sans'

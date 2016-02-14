@@ -6,9 +6,6 @@ import Loading from '../Loading';
 import Login from '../Login';
 import Error from '../Error';
 
-import { Presets, DevTools } from 'react-look/addons'
-const customConfig = Presets['react-dom'];
-
 class Main extends Component {
 	getComponent(page) {
 		switch (page) {
@@ -34,7 +31,7 @@ class Main extends Component {
 		var Comp = this.getComponent(state.config.page);
 
 		return (
-			<Comp state={state} actions={actions} lookConfig={customConfig}></Comp>
+			<Comp state={state} actions={actions}></Comp>
 		);
 	}
 }

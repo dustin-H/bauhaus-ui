@@ -63,6 +63,6 @@ class Condition extends Component {
 }
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(Condition, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default Look(Condition);

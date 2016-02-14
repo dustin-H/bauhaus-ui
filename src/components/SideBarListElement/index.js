@@ -20,9 +20,9 @@ class SideBarListElement extends Component {
          labelContent = (<span>{$(label)}</span>);
       }
 		return (
-			<div look={tabletView ? styles.sideBarListElementTablet : styles.sideBarListElement} onClick={this.handleClick.bind(this)} title={$(label)}>
-				<span look={styles.menuIcon}>
-					<img src={imageUrl} look={styles.imageIcon}/>
+			<div className={tabletView ? styles.sideBarListElementTablet : styles.sideBarListElement} onClick={this.handleClick.bind(this)} title={$(label)}>
+				<span className={styles.menuIcon}>
+					<img src={imageUrl} className={styles.imageIcon}/>
 				</span>
 				{labelContent}
 			</div>
@@ -31,6 +31,6 @@ class SideBarListElement extends Component {
 }
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(SideBarListElement, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default look(SideBarListElement);

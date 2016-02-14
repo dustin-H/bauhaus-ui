@@ -27,7 +27,8 @@ var style = {
 			return '100%';
 		},
 		userSelect: 'none',
-		transition: 'ease-in-out 0.2s',
+		transition: 'all 0.2s',
+      transform: 'translate3d(0,0,0)',
       //backgroundColor: '#206917',
 		//background: (props) => {
       //   return 'linear-gradient(to bottom, #206917 0%, #2B302C 100%)'

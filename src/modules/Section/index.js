@@ -28,20 +28,20 @@ class Section extends Component {
 		const {bauhaus} = this.props;
 		return (
 			<div>
-				<div look={styles.section} onClick={this.toggleFoldState}>{$(bauhaus.props.text)}<hr look={styles.sectionHr}/></div>
-				<div look={styles.content}>
+				<div className={styles.section} onClick={this.toggleFoldState}>{$(bauhaus.props.text)}<hr className={styles.sectionHr}/></div>
+				<div className={styles.content}>
 					{_map(bauhaus._childrenGenerators, function(value, key) {
 						var newProps = Object.assign({}, this.props, {key: key});
 						return value(newProps)
 					}.bind(this))}
 				</div>
-				<div look={styles.sectionEnd}></div>
+				<div className={styles.sectionEnd}></div>
 			</div>
 		);
 	}
 }
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(Section, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default Look(Section);

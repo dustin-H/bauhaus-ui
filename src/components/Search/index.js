@@ -29,13 +29,13 @@ class Search extends Component {
 	}
 	getContent (state, actions) {
 		if(state.search.error === true) {return (
-				<div look={styles.center}><br/><br/>{$('$core.search.error')}</div>
+				<div className={styles.center}><br/><br/>{$('$core.search.error')}</div>
 			)}
 		if (state.search.loading === true) {return (
-				<div look={styles.center}><br/><br/><img src="media/loader.gif"/></div>
+				<div className={styles.center}><br/><br/><img src="media/loader.gif"/></div>
 			)}
 		if (state.search.results.length < 1) {return (
-				<div look={styles.center}><br/><br/>{$('$core.search.nothingFound')}</div>
+				<div className={styles.center}><br/><br/>{$('$core.search.nothingFound')}</div>
 			);}
 		return _map(state.search.results, function(value, key) {
 			return (
@@ -52,15 +52,15 @@ class Search extends Component {
 		var content = this.getContent(state, actions);
 
 		return (
-			<div look={styles.popup}>
-				<div look={styles.inputWrapper}>
-					<input look={styles.input} ref="searchInput" onKeyDown={this
+			<div className={styles.popup}>
+				<div className={styles.inputWrapper}>
+					<input className={styles.input} ref="searchInput" onKeyDown={this
 						.handleKeyDown
 						.bind(this)} onBlur={actions.search.deactivate} value={state.search.value} onChange={this
 						.handleValueChange
 						.bind(this)}></input>
 				</div>
-				<div look={styles.searchResults}>{content}</div>
+				<div className={styles.searchResults}>{content}</div>
 			</div>
 		);
 	}
@@ -72,6 +72,6 @@ Search.propTypes = {
 };
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(Search, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default look(Search);

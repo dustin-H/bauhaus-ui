@@ -1,5 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import Look, {StyleSheet} from 'react-look';
+const c = StyleSheet.combineStyles
 import {$} from '../../utils/i18n/index.js';
 
 class InputPassword extends Component {
@@ -16,7 +17,7 @@ class InputPassword extends Component {
 			inputStyle.push(styles.inputError);
 		}
 		return (
-			<input look={inputStyle} type="password" value={get(bauhaus.props.path)} onChange={this
+			<input className={c(...inputStyle)} type="password" value={get(bauhaus.props.path)} onChange={this
 				.handleChange
 				.bind(this)}></input>
 		);
@@ -24,6 +25,6 @@ class InputPassword extends Component {
 }
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(InputPassword, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default Look(InputPassword);

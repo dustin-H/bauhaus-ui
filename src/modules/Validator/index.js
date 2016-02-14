@@ -26,7 +26,7 @@ class Validator extends Component {
 		if (valid !== true) {
 			return (
 				<span><br/>
-					<span look={styles.error}>{$(valid)}</span>
+					<span className={styles.error}>{$(valid)}</span>
 				</span>
 			)
 		}
@@ -37,6 +37,6 @@ class Validator extends Component {
 }
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(Validator, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default Look(Validator);

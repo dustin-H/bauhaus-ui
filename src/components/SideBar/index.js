@@ -21,33 +21,33 @@ class SideBar extends Component {
 		);
 		if (state.sideBar.loading === true) {
 			content = (
-				<div look={styles.center}><br/><img src="media/loader.gif"/></div>
+				<div className={styles.center}><br/><img src="media/loader.gif"/></div>
 			);
 		}
 		if (state.sideBar.error === true) {
 			content = (
-				<div look={styles.centerError}><br/>{$('$core.sidebar.error')}</div>
+				<div className={styles.centerError}><br/>{$('$core.sidebar.error')}</div>
 			);
 		}
 		var backButton = (
 			<span></span>
 		);
       if(state.responsive.device.smartphone === true){
-         backButton = (<div look={styles.inlineBlock} onClick={actions.sideBar.toggleShow}><img src="media/icons/menu_white.svg" look={styles.imageIcon}/></div>);
+         backButton = (<div className={styles.inlineBlock} onClick={actions.sideBar.toggleShow}><img src="media/icons/menu_white.svg" className={styles.imageIcon}/></div>);
       }
       var appName = (<span></span>);
       var avatar = (<span></span>);
       if(!state.responsive.device.tablet){
-         appName = (<div look={styles.sideBarAppName}>
+         appName = (<div className={styles.sideBarAppName}>
             Bauhaus UI
          </div>);
-         avatar = (<div look={styles.avatar}><img src={state.auth.profile.avatarUrl} look={styles.avatarImage}/></div>);
+         avatar = (<div className={styles.avatar}><img src={state.auth.profile.avatarUrl} className={styles.avatarImage}/></div>);
       }
 		return (
-			<div look={styles.sideBar}>
+			<div className={styles.sideBar}>
 				{appName}
             {backButton}
-				<div look={styles.sideBarMenu}>
+				<div className={styles.sideBarMenu}>
 					{content}
 					{_map(state.sideBar.list, function(value, key) {
 							return (
@@ -55,10 +55,10 @@ class SideBar extends Component {
 							)
 						})}
 				</div>
-				<div look={styles.sideBarUser}>
-					<div look={styles.logoutLine}></div>
-					<div look={styles.sideBarUserLogOut} onClick={actions.auth.logout}>{$('$core.auth.logout')}</div>
-					<span look={styles.name}>{state.auth.profile.firstname}&nbsp;
+				<div className={styles.sideBarUser}>
+					<div className={styles.logoutLine}></div>
+					<div className={styles.sideBarUserLogOut} onClick={actions.auth.logout}>{$('$core.auth.logout')}</div>
+					<span className={styles.name}>{state.auth.profile.firstname}&nbsp;
 						{state.auth.profile.lastname}</span>
                {avatar}
 				</div>
@@ -73,6 +73,6 @@ SideBar.propTypes = {
 };
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(SideBar, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default look(SideBar);

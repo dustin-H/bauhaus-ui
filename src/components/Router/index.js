@@ -29,10 +29,10 @@ class Router extends Component {
 			actions
 		} = this.props;
 		if (state.router.loading === true) {return (
-				<div look={styles.center}><br/><img src="media/loader.gif"/></div>
+				<div className={styles.center}><br/><img src="media/loader.gif"/></div>
 			);}
 		if (state.router.route === false) {return (
-				<div look={styles.center}><br/>{$('$core.router.routeNotFound')}</div>
+				<div className={styles.center}><br/>{$('$core.router.routeNotFound')}</div>
 			);}
 		return (
 			<Route state={state} actions={actions}></Route>
@@ -47,6 +47,6 @@ Router.propTypes = {
 };
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(Router, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default look(Router);

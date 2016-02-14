@@ -11,9 +11,16 @@ import App from './containers/App.js';
 import thestore from './store/store.js';
 const store = thestore;
 
+
+
+import { LookRoot, Presets } from 'react-look';
+// const customConfig = Presets['react-dom'];
+
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <LookRoot config={Presets['react-dom']}>
+      <Provider store={store}>
+         <App />
+      </Provider>
+   </LookRoot>,
   document.getElementById('root')
 );

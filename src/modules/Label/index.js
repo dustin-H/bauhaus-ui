@@ -27,18 +27,18 @@ class Label extends Component {
 		if (bauhaus.props.info != null) {
 			info = (
 				<span>&nbsp;&nbsp;
-					<span look={styles.info} onClick={this.toggleInfoState}>INFO</span>
+					<span className={styles.info} onClick={this.toggleInfoState}>INFO</span>
 				</span>
 			);
 			if (bauhaus._state.infoActive === true) {
 				infobox = (
-					<div look={styles.infobox}>{$(bauhaus.props.info)}</div>
+					<div className={styles.infobox}>{$(bauhaus.props.info)}</div>
 				);
 			}
 		}
 		return (
-			<div look={styles.labelWrapper}>
-				<div look={styles.label}>{$(bauhaus.props.text)}{info}</div>
+			<div className={styles.labelWrapper}>
+				<div className={styles.label}>{$(bauhaus.props.text)}{info}</div>
 				{infobox}
 				{_map(bauhaus._childrenGenerators, function(value, key) {
 					var newProps = Object.assign({}, this.props, {key: key});
@@ -50,6 +50,6 @@ class Label extends Component {
 }
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(Label, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default Look(Label);

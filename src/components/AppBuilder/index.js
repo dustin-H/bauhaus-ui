@@ -6,9 +6,9 @@ class AppBuilder extends Component {
 		const {state, actions} = this.props;
 		return (
 			<div>
-				<div look={styles.wrapper}>
-					<div look={styles.sideBar}>
-						<div look={styles.sideBarAppName}>
+				<div className={styles.wrapper}>
+					<div className={styles.sideBar}>
+						<div className={styles.sideBarAppName}>
 							{/*<span className="fa-stack fa-lg">
 								<i className="fa fa-square fa-stack-2x"></i>
 								<i className="fa fa-terminal fa-stack-1x fa-inverse"></i>
@@ -16,145 +16,145 @@ class AppBuilder extends Component {
 							{/*<i className="fa fa-cog"></i>*/}
 							Bauhaus UI
 						</div>
-						<div look={styles.sideBarLogo}>
-							{/*<img look={styles.sideBarLogoImg} src={'bauhaus.svg'}/>*/}
+						<div className={styles.sideBarLogo}>
+							{/*<img className={styles.sideBarLogoImg} src={'bauhaus.svg'}/>*/}
 						</div>
-						<div look={styles.sideBarMenu}>
-							<div key={'j1'} look={styles.sideBarListElement}>
-								<span look={styles.menuIcon}>
-									<img src="media/icons/news.svg" look={styles.imageIcon}/>
+						<div className={styles.sideBarMenu}>
+							<div key={'j1'} className={styles.sideBarListElement}>
+								<span className={styles.menuIcon}>
+									<img src="media/icons/news.svg" className={styles.imageIcon}/>
 								</span>News</div>
-							<div key={'j2'} look={styles.sideBarListElement}>
-								<span look={styles.menuIcon}>
-									<img src="media/icons/channels.svg" look={styles.imageIcon}/>
+							<div key={'j2'} className={styles.sideBarListElement}>
+								<span className={styles.menuIcon}>
+									<img src="media/icons/channels.svg" className={styles.imageIcon}/>
 								</span>Menu</div>
-							<div key={'j3'} look={styles.sideBarListElement}>
-								<span look={styles.menuIcon}>
-									<img src="media/icons/bookmarks.svg" look={styles.imageIcon}/>
+							<div key={'j3'} className={styles.sideBarListElement}>
+								<span className={styles.menuIcon}>
+									<img src="media/icons/bookmarks.svg" className={styles.imageIcon}/>
 								</span>Projects</div>
-							<div key={'j4'} look={styles.sideBarListElement}>
-								<span look={styles.menuIcon}>
-									<img src="media/icons/overview.svg" look={styles.imageIcon}/>
+							<div key={'j4'} className={styles.sideBarListElement}>
+								<span className={styles.menuIcon}>
+									<img src="media/icons/overview.svg" className={styles.imageIcon}/>
 								</span>Gallery</div>
-							<div key={'j5'} look={styles.sideBarListElement}>
-								<span look={styles.menuIcon}>
-									<img src="media/icons/calendar.svg" look={styles.imageIcon}/>
+							<div key={'j5'} className={styles.sideBarListElement}>
+								<span className={styles.menuIcon}>
+									<img src="media/icons/calendar.svg" className={styles.imageIcon}/>
 								</span>About Me</div>
-							<div key={'j6'} look={styles.sideBarListElement}>
-								<span look={styles.menuIcon}>
-									<img src="media/icons/profile.svg" look={styles.imageIcon}/>
+							<div key={'j6'} className={styles.sideBarListElement}>
+								<span className={styles.menuIcon}>
+									<img src="media/icons/profile.svg" className={styles.imageIcon}/>
 								</span>Users</div>
-							<div key={'j7'} look={styles.sideBarListElement}>
-								<span look={styles.menuIcon}>
-									<img src="media/icons/widgets.svg" look={styles.imageIcon}/>
+							<div key={'j7'} className={styles.sideBarListElement}>
+								<span className={styles.menuIcon}>
+									<img src="media/icons/widgets.svg" className={styles.imageIcon}/>
 								</span>Banking</div>
-							<div key={'j8'} look={styles.sideBarListElement}>
-								<span look={styles.menuIcon}>
-									<img src="media/icons/timeline.svg" look={styles.imageIcon}/>
+							<div key={'j8'} className={styles.sideBarListElement}>
+								<span className={styles.menuIcon}>
+									<img src="media/icons/timeline.svg" className={styles.imageIcon}/>
 								</span>Timeline</div>
-							<div key={'j9'} look={styles.sideBarListElement}>
-								<span look={styles.menuIcon}>
-									<img src="media/icons/settings.svg" look={styles.imageIcon}/>
+							<div key={'j9'} className={styles.sideBarListElement}>
+								<span className={styles.menuIcon}>
+									<img src="media/icons/settings.svg" className={styles.imageIcon}/>
 								</span>Settings</div>
-							<div key={'j10'} look={styles.sideBarListElement}>
-								<span look={styles.menuIcon}>
-									<img src="media/icons/mail.svg" look={styles.imageIcon}/>
+							<div key={'j10'} className={styles.sideBarListElement}>
+								<span className={styles.menuIcon}>
+									<img src="media/icons/mail.svg" className={styles.imageIcon}/>
 								</span>Mail</div>
-							<div key={'j11'} look={styles.sideBarListElement}>
-								<span look={styles.menuIcon}>
-									<img src="media/icons/terms.svg" look={styles.imageIcon}/>
+							<div key={'j11'} className={styles.sideBarListElement}>
+								<span className={styles.menuIcon}>
+									<img src="media/icons/terms.svg" className={styles.imageIcon}/>
 								</span>Terms</div>
 						</div>
-						<div look={styles.sideBarHistory}></div>
-						<div look={styles.sideBarInbox}></div>
-						{/*<div look={styles.sideBarSwitch}>
-							<div key={'b1'} look={styles.sideBarSelect}>MENU</div>
-							<div key={'b2'} look={styles.sideBarSelect}>INBOX</div>
-							<div key={'b3'} look={styles.sideBarSelect}>EVENTS</div>
+						<div className={styles.sideBarHistory}></div>
+						<div className={styles.sideBarInbox}></div>
+						{/*<div className={styles.sideBarSwitch}>
+							<div key={'b1'} className={styles.sideBarSelect}>MENU</div>
+							<div key={'b2'} className={styles.sideBarSelect}>INBOX</div>
+							<div key={'b3'} className={styles.sideBarSelect}>EVENTS</div>
 						</div>*/}
-						<div look={styles.sideBarUser}>
-							<div look={styles.sideBarUserLogOut}>Log out</div>
+						<div className={styles.sideBarUser}>
+							<div className={styles.sideBarUserLogOut}>Log out</div>
 							Dustin Hoffner
 						</div>
 					</div>
-					<div look={styles.mainFrame}>
-						<div look={styles.header}>
-							<div look={styles.headerLeft}>
-								<span look={styles.inlineBlock}><img src="media/icons/menu_white.svg" look={styles.imageIcon}/></span>
-								<span look={styles.inlineBlock}>ADMIN</span>
+					<div className={styles.mainFrame}>
+						<div className={styles.header}>
+							<div className={styles.headerLeft}>
+								<span className={styles.inlineBlock}><img src="media/icons/menu_white.svg" className={styles.imageIcon}/></span>
+								<span className={styles.inlineBlock}>ADMIN</span>
 							</div>
-							<div look={styles.headerRight}>
-								<span look={styles.inlineBlock}><img src="media/icons/search_white.svg" look={styles.imageIcon}/></span>
-								<span look={styles.inlineBlock}><img src="media/icons/bookmark_white.svg" look={styles.imageIcon}/></span>
+							<div className={styles.headerRight}>
+								<span className={styles.inlineBlock}><img src="media/icons/search_white.svg" className={styles.imageIcon}/></span>
+								<span className={styles.inlineBlock}><img src="media/icons/bookmark_white.svg" className={styles.imageIcon}/></span>
 							</div>
 						</div>
-						<div look={styles.contentWrapper}>
-							<div look={styles.content}>
-								<span look={styles.contentHeadline}>User</span><hr look={styles.contentHr}/><br/><br/>
-								<table look={styles.formTable}>
+						<div className={styles.contentWrapper}>
+							<div className={styles.content}>
+								<span className={styles.contentHeadline}>User</span><hr className={styles.contentHr}/><br/><br/>
+								<table className={styles.formTable}>
 									<tbody>
-										<tr look={styles.tableTr}>
-											<td look={styles.frontTdHeadLine}>
+										<tr className={styles.tableTr}>
+											<td className={styles.frontTdHeadLine}>
 												User
 											</td>
-											<td look={styles.backTd}>
-												<hr look={styles.formHr}/>
+											<td className={styles.backTd}>
+												<hr className={styles.formHr}/>
 											</td>
 										</tr>
-										<tr look={styles.tableTr}>
-											<td look={styles.frontTd}>
+										<tr className={styles.tableTr}>
+											<td className={styles.frontTd}>
 												First Name
 											</td>
-											<td look={styles.backTd}>
-												<input key={'i1'} look={styles.textInput} type="text"></input>
+											<td className={styles.backTd}>
+												<input key={'i1'} className={styles.textInput} type="text"></input>
 											</td>
 										</tr>
-										<tr look={styles.tableTr}>
-											<td look={styles.frontTd}>
+										<tr className={styles.tableTr}>
+											<td className={styles.frontTd}>
 												Last Name
 											</td>
-											<td look={styles.backTd}>
-												<input key={'i2'} look={styles.textInput} type="text"></input>
+											<td className={styles.backTd}>
+												<input key={'i2'} className={styles.textInput} type="text"></input>
 											</td>
 										</tr>
-										<tr look={styles.tableTr}>
-											<td look={styles.frontTd}>
+										<tr className={styles.tableTr}>
+											<td className={styles.frontTd}>
 												Nickname
 											</td>
-											<td look={styles.backTd}>
-												<input key={'i3'} look={styles.textInput} type="text"></input>
+											<td className={styles.backTd}>
+												<input key={'i3'} className={styles.textInput} type="text"></input>
 											</td>
 										</tr>
-										<tr look={styles.tableTr}>
-											<td look={styles.frontTdHeadLine}>
+										<tr className={styles.tableTr}>
+											<td className={styles.frontTdHeadLine}>
 												Address
 											</td>
-											<td look={styles.backTd}>
-												<hr look={styles.formHr}/>
+											<td className={styles.backTd}>
+												<hr className={styles.formHr}/>
 											</td>
 										</tr>
-										<tr look={styles.tableTr}>
-											<td look={styles.frontTd}>
+										<tr className={styles.tableTr}>
+											<td className={styles.frontTd}>
 												Street
 											</td>
-											<td look={styles.backTd}>
-												<input key={'i4'} look={styles.textInput} type="text"></input>
+											<td className={styles.backTd}>
+												<input key={'i4'} className={styles.textInput} type="text"></input>
 											</td>
 										</tr>
-										<tr look={styles.tableTr}>
-											<td look={styles.frontTd}>
+										<tr className={styles.tableTr}>
+											<td className={styles.frontTd}>
 												City
 											</td>
-											<td look={styles.backTd}>
-												<input key={'i5'} look={styles.textInput} type="text"></input>
+											<td className={styles.backTd}>
+												<input key={'i5'} className={styles.textInput} type="text"></input>
 											</td>
 										</tr>
-										<tr look={styles.tableTr}>
-											<td look={styles.frontTd}>
+										<tr className={styles.tableTr}>
+											<td className={styles.frontTd}>
 												Country
 											</td>
-											<td look={styles.backTd}>
-												<input key={'i6'} look={styles.textInput} type="text"></input>
+											<td className={styles.backTd}>
+												<input key={'i6'} className={styles.textInput} type="text"></input>
 											</td>
 										</tr>
 									</tbody>
@@ -170,8 +170,8 @@ class AppBuilder extends Component {
 }
 
 /*
-<div look={styles.footer}>
-	<div look={styles.footerLanguage}></div>
+<div className={styles.footer}>
+	<div className={styles.footerLanguage}></div>
 </div>
 */
 
@@ -181,6 +181,6 @@ AppBuilder.propTypes = {
 };
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(AppBuilder, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default look(AppBuilder);

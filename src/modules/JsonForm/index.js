@@ -1,5 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import Look, {StyleSheet} from 'react-look';
+const c = StyleSheet.combineStyles;
 import {$} from '../../utils/i18n/index.js';
 import _get from 'lodash/get';
 import _set from 'lodash/set';
@@ -165,18 +166,18 @@ class JsonForm extends Component {
 		const {bauhaus} = this.props;
 		if (bauhaus._state.error === true) {
 			return (
-				<div look={styles.center}><br/>{$('$core.content.error')}</div>
+				<div className={styles.center}><br/>{$('$core.content.error')}</div>
 			);
 		}
 		if (bauhaus._state.loading === true || bauhaus._state.initialLoaded === false) {
 			return (
-				<div look={styles.center}><br/><img src="media/loader.gif"/></div>
+				<div className={styles.center}><br/><img src="media/loader.gif"/></div>
 			);
 		}
 		var validationError = "";
 		if (bauhaus._state.valid !== true) {
 			validationError = (
-				<div look={[styles.validationError]}><br/>{$('$core.commons.errors.validation')}</div>
+				<div className={styles.validationError}><br/>{$('$core.commons.errors.validation')}</div>
 			);
 		}
 		var saveColor = styles.gray;
@@ -185,11 +186,11 @@ class JsonForm extends Component {
 		}
 		return (
 			<div>
-				<span look={styles.contentHeadline}>{$(bauhaus.props.title)}</span>
-				<hr look={styles.contentHr}/>
-				<input look={[styles.button, saveColor,]} type="button" value={$('$core.commons.save')} onClick={this.saveData} key={bauhaus._path + 'saveButton'}/>
-				<input look={[styles.button, styles.gray,]} type="button" value={$('$core.commons.reset')} onClick={this.reset} key={bauhaus._path + 'resetButton'}/>
-				<input look={[styles.button, styles.gray, styles.hoverRed,]} type="button" value={$('$core.commons.delete')} onClick={this.delete} key={bauhaus._path + 'deleteButton'}/>
+				<span className={styles.contentHeadline}>{$(bauhaus.props.title)}</span>
+				<hr className={styles.contentHr}/>
+				<input className={c(styles.button, saveColor)} type="button" value={$('$core.commons.save')} onClick={this.saveData} key={bauhaus._path + 'saveButton'}/>
+				<input className={c(styles.button, styles.gray)} type="button" value={$('$core.commons.reset')} onClick={this.reset} key={bauhaus._path + 'resetButton'}/>
+				<input className={c(styles.button, styles.gray, styles.hoverRed)} type="button" value={$('$core.commons.delete')} onClick={this.delete} key={bauhaus._path + 'deleteButton'}/>
 				<br/>{validationError}<br/>
 				{_map(bauhaus._childrenGenerators, function(component, key) {
 					return component({
@@ -214,6 +215,6 @@ class JsonForm extends Component {
 }
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(JsonForm, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default Look(JsonForm);

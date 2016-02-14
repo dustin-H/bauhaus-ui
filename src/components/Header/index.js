@@ -6,16 +6,16 @@ class Header extends Component {
 		const {state, actions} = this.props;
 		console.log(state);
 		return (
-			<div look={styles.header}>
-				<div look={styles.headerLeft}>
-					<span key={'k1'} look={styles.inlineBlock} onClick={actions.sideBar.toggleShow}><img src="media/icons/menu_white.svg" look={styles.imageIcon}/></span>
+			<div className={styles.header}>
+				<div className={styles.headerLeft}>
+					<span key={'k1'} className={styles.inlineBlock} onClick={actions.sideBar.toggleShow}><img src="media/icons/menu_white.svg" className={styles.imageIcon}/></span>
 				</div>
-				<div look={styles.headerCenter}>
-					<span key={'k3'} look={styles.logoWrapper}><img src="media/logo.svg" look={styles.logo}/></span>
+				<div className={styles.headerCenter}>
+					<span key={'k3'} className={styles.logoWrapper}><img src="media/logo.svg" className={styles.logo}/></span>
 				</div>
-				<div look={styles.headerRight}>
-					<span key={'k4'} look={styles.inlineBlock} onClick={actions.search.activate}><img src="media/icons/search_white.svg" look={styles.imageIcon}/></span>
-					<span key={'k5'} look={styles.inlineBlock} onClick={actions.router.reload}><img src="media/icons/reload_white.svg" look={styles.imageIcon}/></span>
+				<div className={styles.headerRight}>
+					<span key={'k4'} className={styles.inlineBlock} onClick={actions.search.activate}><img src="media/icons/search_white.svg" className={styles.imageIcon}/></span>
+					<span key={'k5'} className={styles.inlineBlock} onClick={actions.router.reload}><img src="media/icons/reload_white.svg" className={styles.imageIcon}/></span>
 				</div>
 			</div>
 		);
@@ -23,8 +23,8 @@ class Header extends Component {
 }
 
 /*
-<div look={styles.footer}>
-	<div look={styles.footerLanguage}></div>
+<div className={styles.footer}>
+	<div className={styles.footerLanguage}></div>
 </div>
 */
 
@@ -34,6 +34,6 @@ Header.propTypes = {
 };
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(Header, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default look(Header);

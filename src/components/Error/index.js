@@ -5,7 +5,7 @@ class Error extends Component {
 	render() {
 		const {state, actions} = this.props;
 		return (
-			<div look={styles.center}>
+			<div className={styles.center}>
 				<img src="media/bauhausuilogo.svg"/>
 				<br/><br/><br/><br/>
 				<b><big>ERROR:</big></b><br/>
@@ -21,6 +21,6 @@ Error.propTypes = {
 };
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(Error, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default Look(Error);

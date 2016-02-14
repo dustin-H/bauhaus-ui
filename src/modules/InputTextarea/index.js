@@ -1,5 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import Look, {StyleSheet} from 'react-look';
+const c = StyleSheet.combineStyles;
 import {$} from '../../utils/i18n/index.js';
 
 class InputTextarea extends Component {
@@ -16,7 +17,7 @@ class InputTextarea extends Component {
 			inputStyle.push(styles.inputError);
 		}
 		return (
-			<textarea look={inputStyle} value={get(bauhaus.props.path)} onChange={this
+			<textarea className={c(...inputStyle)} value={get(bauhaus.props.path)} onChange={this
 				.handleChange
 				.bind(this)}></textarea>
 		);
@@ -24,6 +25,6 @@ class InputTextarea extends Component {
 }
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(InputTextarea, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default Look(InputTextarea);

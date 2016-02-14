@@ -13,9 +13,9 @@ class SearchElement extends Component {
 		const {state, actions, title, description} = this.props;
 
 		return (
-			<div look={styles.resultFrame}>
-				<div look={styles.resultTitle} onMouseDown={this.handleClick.bind(this)}>{title}</div>
-				<div look={styles.resultDescription}>{description}</div>
+			<div className={styles.resultFrame}>
+				<div className={styles.resultTitle} onMouseDown={this.handleClick.bind(this)}>{title}</div>
+				<div className={styles.resultDescription}>{description}</div>
 			</div>
 		);
 	}
@@ -27,6 +27,6 @@ SearchElement.propTypes = {
 };
 
 import styleSheet from './style.js';
-var styles = StyleSheet.create(SearchElement, styleSheet);
+var styles = StyleSheet.create(styleSheet);
 
 export default look(SearchElement);
