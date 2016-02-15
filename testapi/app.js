@@ -9,7 +9,7 @@ module.exports = function() {
 	app.use(function(req, res, next) {
 		setTimeout(function() {
 			next();
-		}, 300);
+		}, 00);
 	})
 
 	app.get('/', function(req, res, next) {
@@ -174,7 +174,7 @@ module.exports = function() {
 							text: 'POSTS NEU LABEL'
 						},
 						components: [{
-							name: 'InputText',
+							name: 'InputScribe',
 							props: {
 								path: 'hallo.welt.test2'
 							}
