@@ -21,7 +21,7 @@ var style = {
 		paddingRight: 16,
 		minWidth: '116px',
 		fontSize: '14px',
-		borderRadius: '38px',
+		borderRadius: 5, // '38px'
 		border: 'none',
 		outline: 'none',transition: 'ease-in-out 0.1s',
 		cursor: 'pointer',
