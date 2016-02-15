@@ -6,11 +6,11 @@ module.exports = function() {
 
 	var app = express();
 
-	app.use(function(req, res, next) {
+	/*app.use(function(req, res, next) {
 		setTimeout(function() {
 			next();
-		}, 00);
-	})
+		}, 300);
+	})*/
 
 	app.get('/', function(req, res, next) {
 		res.json({
@@ -178,6 +178,14 @@ module.exports = function() {
 							props: {
 								path: 'hallo.welt.test2'
 							}
+						}, {
+							name: 'Validator',
+							props: {
+								path: 'hallo.welt.test2',
+								required: true,
+								regex: 'abc',
+								failMessage: 'This needs to include abc!'
+							}
 						}]
 					}, {
 						name: 'Label',
@@ -189,16 +197,37 @@ module.exports = function() {
 							props: {
 								path: 'hallo.welt.checkbox'
 							}
+						}, {
+							name: 'Validator',
+							props: {
+								path: 'hallo.welt.checkbox',
+								required: true,
+								regex: 'true',
+								failMessage: 'This needs to be selected!'
+							}
 						}]
 					}, {
 						name: 'Label',
 						props: {
-							text: 'Meine Email:'
+							text: 'Meine Select:'
 						},
 						components: [{
-							name: 'InputText',
+							name: 'InputSelect',
 							props: {
-								path: 'hallo.welt.email'
+								path: 'hallo.welt.select',
+								options: {
+									a: 'A Auswahl',
+									b: 'B Auswahl',
+									c: 'C Auswahl'
+								}
+							}
+						}, {
+							name: 'Validator',
+							props: {
+								path: 'hallo.welt.select',
+								required: true,
+								regex: '[a-b]',
+								failMessage: 'This needs to be A or B!'
 							}
 						}]
 					}, {
@@ -209,7 +238,7 @@ module.exports = function() {
 						components: [{
 							name: 'InputText',
 							props: {
-								path: 'hallo.welt.email'
+								path: 'hallo.welt.test2'
 							}
 						}]
 					}]
