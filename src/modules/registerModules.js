@@ -12,6 +12,7 @@ import InputPassword from './InputPassword';
 import InputTextarea from './InputTextarea';
 import Validator from './Validator';
 import Condition from './Condition';
+import InputScribe from './InputScribe';
 
 var registerModules = function() {
 	registerModule('InputText', InputText);
@@ -22,6 +23,7 @@ var registerModules = function() {
 	registerModule('InputTextarea', InputTextarea);
 	registerModule('Validator', Validator);
 	registerModule('Condition', Condition);
+	registerModule('InputScribe', InputScribe);
 }
 
 export default registerModules;
