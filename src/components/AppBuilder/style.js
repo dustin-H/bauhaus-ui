@@ -186,7 +186,7 @@ var style = {
 		borderRadius: '50px', // 4px
 		border: '1px solid rgb(210, 210, 210)',
 		boxSizing: 'border-box',
-		fooBar: 'none',
+		
 		outline: 'none',
 		color: '#4E4E4E',
 		fontSize: '14px',
