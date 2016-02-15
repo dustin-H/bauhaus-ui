@@ -4,7 +4,7 @@ import look, {StyleSheet} from 'react-look';
 class Header extends Component {
 	render() {
 		const {state, actions} = this.props;
-		console.log(state);
+		//console.log(state);
 		return (
 			<div className={styles.header}>
 				<div className={styles.headerLeft}>
