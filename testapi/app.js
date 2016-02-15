@@ -185,9 +185,9 @@ module.exports = function() {
 							text: 'Dein Vorname:'
 						},
 						components: [{
-							name: 'InputText',
+							name: 'InputCheckbox',
 							props: {
-								path: 'hallo.welt.nix'
+								path: 'hallo.welt.checkbox'
 							}
 						}]
 					}, {
