@@ -3,7 +3,7 @@ var style = {
 		padding: '8px',
 		paddingLeft: '16px',
 		paddingRight: '16px',
-		borderRadius: '50px', // 4px
+		borderRadius: '18px', // 4px
 		border: '1px solid rgb(210, 210, 210)',
 		boxSizing: 'border-box',
 		backgroundColor: 'transparent',
