@@ -13,6 +13,7 @@ import InputTextarea from './InputTextarea';
 import Validator from './Validator';
 import Condition from './Condition';
 import InputScribe from './InputScribe';
+import InputCheckbox from './InputCheckbox';
 
 var registerModules = function() {
 	registerModule('InputText', InputText);
@@ -24,6 +25,7 @@ var registerModules = function() {
 	registerModule('Validator', Validator);
 	registerModule('Condition', Condition);
 	registerModule('InputScribe', InputScribe);
+	registerModule('InputCheckbox', InputCheckbox);
 }
 
 export default registerModules;
