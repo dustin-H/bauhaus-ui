@@ -8,6 +8,8 @@ class ScribeEditor extends Component {
   constructor() {
     super();
     this.refis = {};
+    this.scribe = null;
+    this.newValue = null;
   }
   setRef(name) {
     return function(elem) {
@@ -20,12 +22,24 @@ class ScribeEditor extends Component {
     scribe.setContent(this.props.value);
 
     function updateHtml() {
-      this.props
-        .onChange(scribe.getHTML());
+      var value = scribe.getHTML();
+      if (value !== this.props.value && value !== this.newValue) {
+        this.props
+          .onChange(value);
+      }
     }
 
     scribe.on('content-changed', updateHtml.bind(this));
-    updateHtml.bind(this)();
+    this.scribe = scribe;
+    // updateHtml.bind(this)();
+  }
+  componentWillUnmount() {
+  }
+  componentWillReceiveProps(newProps) {
+    if (newProps.value !== this.props.value) {
+      this.newValue = newProps.value;
+      this.scribe.setContent(newProps.value);
+    }
   }
   render() {
     return (
@@ -46,9 +60,9 @@ class ScribeEditor extends Component {
           <button data-command-name="insertOrderedList">Ordered List</button>
           <button data-command-name="insertUnorderedList">Unordered List</button>
         </div>
-        <div className={this.props.className} ref={ this
-                                               .setRef('main')
-                                               .bind(this) } style={ {  border: '1px solid #ccc',  minHeight: '200px'} }></div>
+        <div className={ this.props.className } ref={ this
+                                                        .setRef('main')
+                                                        .bind(this) }></div>
       </div>
       );
   }
