@@ -13,7 +13,7 @@ This documentation provides all information you need.
      * [Search](endpoints/Search.md)
      * [Routes](endpoints/Routes.md)
      * [Content](endpoints/Content.md)
- * **1.3 [Bauhaus-UI content structure](BauhausUIstructure.md)**
+ * **1.3 [Bauhaus-Content object](BauhausContent.md)**
  * **1.4 [i18n](BauhausUIstructure.md)**
  * **1.5 [Core Modules](coreModules/README.md)**
 2. Advanced
