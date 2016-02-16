@@ -28,7 +28,7 @@ var style = {
 		fontSize: 14,
 		fontWeight: 500,
 		cursor: 'pointer',
-		borderRadius: 18,
+		borderRadius: 5,
 		backgroundColor: '#F1BD00',
 		padding: 8,
 		paddingLeft: 16,
