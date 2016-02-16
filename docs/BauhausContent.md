@@ -40,3 +40,5 @@ components <br/>***(optional for wrapper modules)*** | An array of Bauhaus-Conte
    ]
 }
 ```
+
+Core-modules are documented [here](coreModules/README.md).
