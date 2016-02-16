@@ -1,15 +1,15 @@
 # Endpoint: Sidebar
 > All endpoints need to respond valid `JSON` with the HTTP-Header `content-type`: `application/json`!
 
-## request
+## Request
 
 Name   | Info
 ------ | --------------------------------
 url    | *Defined in [Config](Config.md)*
 method | GET
 
-## response
-It needs to include an array of menu objects:
+## Response
+It needs to include an array `sideBar` of menu objects:
 
 ```js
 {

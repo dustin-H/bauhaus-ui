@@ -1,7 +1,7 @@
 # Endpoint: Login
 > All endpoints need to respond valid `JSON` with the HTTP-Header `content-type`: `application/json`!
 
-## request
+## Request
 
 Name         | Info
 ------------ | --------------------------------
@@ -18,10 +18,10 @@ The body contains this `JSON`:
 }
 ```
 
-## response
+## Response
 
 ### Login successful:
-It needs to respond a profile and a token like this:
+It needs to respond a `profile` and a `token` like this:
 
 ```js
 {

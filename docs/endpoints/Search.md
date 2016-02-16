@@ -1,7 +1,7 @@
 # Endpoint: Search
 > All endpoints need to respond valid `JSON` with the HTTP-Header `content-type`: `application/json`!
 
-## request
+## Request
 
 Name   | Info
 ------ | --------------------------------
@@ -15,8 +15,8 @@ Key       | Value
 search    | **String:** Search-String
 languages | **Array:** Array of language keys (e.g. ['de', 'en'])
 
-## response
-It needs to include an array of result objects:
+## Response
+It needs to include an array `searchResults` of result objects:
 
 ```js
 {

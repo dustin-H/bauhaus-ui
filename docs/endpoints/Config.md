@@ -3,15 +3,15 @@ This config gets loaded from the same path where the `index.html` file of **Bauh
 
 > All endpoints need to respond valid `JSON` with the HTTP-Header `content-type`: `application/json`!
 
-## request
+## Request
 
 Name   | Info
 ------ | --------------
 url    | `/config.json`
 method | GET
 
-## response
-It needs to define the other endpoints like this:
+## Response
+It needs to define the other `endpoints` like this:
 
 ```js
 {
@@ -33,3 +33,15 @@ It needs to define the other endpoints like this:
 ```
 
 You can choose the url's by your own!
+
+## Next
+When you defined this endpoints the url's will be called later.
+
+See further docs:
+
+Endpoint | Docs
+-------- | ---------------------
+routes   | [Routes](Routes.md)
+sideBar  | [Sidebar](Sidebar.md)
+search   | [Search](Search.md)
+login    | [Login](Login.md)
