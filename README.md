@@ -13,14 +13,12 @@ Bauhaus-UI is an API-driven dynamic Web-UI based on [React.JS](https://github.co
  - **Routes:** You can define routes which will lead to content pages
 - **Modular:** You can use core-modules or create own UI-modules/components.
 - **Responsive:** Supports desktop, tablet and smartphone.
-- **I18N:** Automated language loading and fallbacks. 
+- **I18N:** Automated language loading and fallbacks.
 
 ## Installation
 
-`// TODO`
+- [Get Started](docs/GetStarted.md)
 
 ## Information
 
 - [Documentation](docs/README.md)
-- [Tutorials](docs/README.md)
-- [Contribution](docs/README.md)
