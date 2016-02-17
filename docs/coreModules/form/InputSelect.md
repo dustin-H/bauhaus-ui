@@ -7,7 +7,7 @@ Renders a selection field with `options`, gets the value form `path` and updates
 Name | Info
 ---- | -----------------------------
 path | The JsonForm data-object-path
-options | An object of select options
+options<br/>(the option value is <a href="../../i18n.md"><img src="../../img/i18n.svg" height="15"/></a>) | An object of select options
 
 ## Example:
 

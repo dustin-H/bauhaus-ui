@@ -3,12 +3,12 @@ This module defines a validation for a JsonForm path. It renders the `failMessag
 
 ## Props:
 
-Name                              | Info
---------------------------------- | ---------------------------------------------------------------------------------
-path                              | The JsonForm data-object-path
-required <br/>***(Optional)***    | Boolean defines wether the path is required to be set or not (`false` by default)
-regex <br/>***(Optional)***       | String including a regular expression
-failMessage <br/>***(Optional)*** | String including a message which is shown when the regex does not match
+Name                                                                                                      | Info
+--------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------
+path                                                                                                      | The JsonForm data-object-path
+required <br/>***(Optional)***                                                                            | Boolean defines wether the path is required to be set or not (`false` by default)
+regex <br/>***(Optional)***                                                                               | String including a regular expression
+failMessage <br/>***(Optional)*** <a href="../../i18n.md"><img src="../../img/i18n.svg" height="15"/></a> | String including a message which is shown when the regex does not match
 
 ## Example:
 
@@ -23,3 +23,9 @@ failMessage <br/>***(Optional)*** | String including a message which is shown wh
    }
 }
 ```
+
+## I18n: <a href="../../i18n.md"><img src="../../img/i18n.svg" height="15"/></a>
+
+id   | english text
+---- | -----------------------------
+core.commons.errors.required | Required!

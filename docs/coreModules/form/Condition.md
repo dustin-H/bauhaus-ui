@@ -6,8 +6,8 @@ This is a wrapper-module. It compares `A` with `B` by using the `operator`. The 
 Name     | Info
 -------- | ---------------------------------------------------------------------------------------
 operator | [JavaScript Comparison Operator](http://www.w3schools.com/js/js_comparisons.asp) string
-valueA   | The value of `A` for comparison
-valueB   | The value of `B` for comparison
+valueA <a href="../../i18n.md"><img src="../../img/i18n.svg" height="15"/></a>   | The value of `A` for comparison
+valueB <a href="../../i18n.md"><img src="../../img/i18n.svg" height="15"/></a>   | The value of `B` for comparison
 pathA    | The path where the value of `A` gets loaded from for comparison
 pathB    | The path where the value of `B` gets loaded from for comparison
 

@@ -3,10 +3,10 @@ This is a wrapper-module. It loads `JSON`-data from the `url`, updates it with a
 
 ## Props:
 
-Name  | Info
------ | ----------------------------------------------------------
-url   | The CRUD url string
-title | A title string, that gets displayed at the top of the form
+Name                                                                          | Info
+----------------------------------------------------------------------------- | ----------------------------------------------------------
+url                                                                           | The CRUD url string
+title <a href="../../i18n.md"><img src="../../img/i18n.svg" height="15"/></a> | A title string, that gets displayed at the top of the form
 
 ## Functions:
 
@@ -36,3 +36,13 @@ setValidator(path, validator) | Sets a `validator` function for `path` of the `J
    ]
 }
 ```
+
+## I18n: <a href="../../i18n.md"><img src="../../img/i18n.svg" height="15"/></a>
+
+id                             | english text
+------------------------------ | -------------------------
+core.commons.errors.validation | Validation failed!
+core.content.error             | Error while loading page!
+core.commons.save              | Save
+core.commons.reset             | Reset
+core.commons.delete            | Delete
