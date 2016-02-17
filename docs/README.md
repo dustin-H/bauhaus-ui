@@ -20,3 +20,5 @@ This documentation provides all information you need.
  * **2.2 Custom modules**
      * [Use custom modules](UseCustomModule.md)
      * [Create custom modules](CreateCustomModule.md)
+        * [Superagent Plugin](SuperagentPlugin.md)
+        * [Internationalization Function](GetLanguageTextFunction.md)
