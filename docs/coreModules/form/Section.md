@@ -5,7 +5,7 @@ This is a wrapper-module. It renders the `text` and all its child components if 
 
 Name                                                                         | Info
 ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------
-text <a href="../../i18n.md"><img src="../../img/i18n.svg" height="15"/></a> | String shown as section-title
+text <a href="../../i18n.md"><img src="../../img/i18n.png" height="15"/></a> | String shown as section-title
 folded ***(Optional)***                                                      | Boolean defines wether the section is folded or open by default (`false` by default)
 
 ## Example:

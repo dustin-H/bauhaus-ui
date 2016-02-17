@@ -8,7 +8,7 @@ Name                                                                            
 path                                                                                                      | The JsonForm data-object-path
 required <br/>***(Optional)***                                                                            | Boolean defines wether the path is required to be set or not (`false` by default)
 regex <br/>***(Optional)***                                                                               | String including a regular expression
-failMessage <br/>***(Optional)*** <a href="../../i18n.md"><img src="../../img/i18n.svg" height="15"/></a> | String including a message which is shown when the regex does not match
+failMessage <br/>***(Optional)*** <a href="../../i18n.md"><img src="../../img/i18n.png" height="15"/></a> | String including a message which is shown when the regex does not match
 
 ## Example:
 
@@ -24,7 +24,7 @@ failMessage <br/>***(Optional)*** <a href="../../i18n.md"><img src="../../img/i1
 }
 ```
 
-## I18n: <a href="../../i18n.md"><img src="../../img/i18n.svg" height="15"/></a>
+## I18n: <a href="../../i18n.md"><img src="../../img/i18n.png" height="15"/></a>
 
 id   | english text
 ---- | -----------------------------

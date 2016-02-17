@@ -5,8 +5,8 @@ This is a wrapper-module. It renders the `text` and all its child components. Wh
 
 Name                                                                                          | Info
 --------------------------------------------------------------------------------------------- | ----------------------------------
-text <a href="../../i18n.md"><img src="../../img/i18n.svg" height="15"/></a>                  | String shown as label-text
-info ***(Optional)*** <a href="../../i18n.md"><img src="../../img/i18n.svg" height="15"/></a> | String with additional information
+text <a href="../../i18n.md"><img src="../../img/i18n.png" height="15"/></a>                  | String shown as label-text
+info ***(Optional)*** <a href="../../i18n.md"><img src="../../img/i18n.png" height="15"/></a> | String with additional information
 
 ## Example:
 
