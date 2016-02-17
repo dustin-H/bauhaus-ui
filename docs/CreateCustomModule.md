@@ -2,9 +2,9 @@
 A module needs to export a React-Component. There are some rules you need to follow:
 
 1. **Export:**  
-2. You need to export your component to `__GLOBAL__.exportDefault`. All other exports are ignored!
-3. **Import npm modules:**  
-4. Always use npm:`bauhaus-ui-module-utils` to import the default modules. It provides the biggest modules which are required by bauhaus-ui anyway without bundling them again.
+You need to export your component to `__GLOBAL__.exportDefault`. All other exports are ignored!
+2. **Import npm modules:**  
+Always use npm:`bauhaus-ui-module-utils` to import the default modules. It provides the biggest modules which are required by bauhaus-ui anyway without bundling them again.
 
 **Available npm packages:**
 
