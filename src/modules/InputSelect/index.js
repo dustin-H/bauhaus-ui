@@ -33,7 +33,7 @@ class InputSelect extends Component {
         <option key={ UNUSED_KEY } value={ UNUSED_KEY } disabled={ true }>Please select!</option>
         { _map(bauhaus.props.options, function(value, key) {
             return <option key={ key } value={ key }>
-                     { value }
+                     { $(value) }
                    </option>
           }) }
       </select>

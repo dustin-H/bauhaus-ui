@@ -11,14 +11,14 @@ class Condition extends Component {
 		if (bauhaus.props.operator != null) {
 			var valueA = null;
 			if (bauhaus.props.valueA != null) {
-				valueA = bauhaus.props.valueA;
+				valueA = $(bauhaus.props.valueA);
 			}
 			if (bauhaus.props.pathA != null) {
 				valueA = get(bauhaus.props.pathA);
 			}
 			var valueB = null;
 			if (bauhaus.props.valueB != null) {
-				valueB = bauhaus.props.valueB;
+				valueB = $(bauhaus.props.valueB);
 			}
 			if (bauhaus.props.pathB != null) {
 				valueB = get(bauhaus.props.pathB);
