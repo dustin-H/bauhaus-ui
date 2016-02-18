@@ -4,12 +4,10 @@ module.exports = [{
 		name: 'bauhaus-ui',
 		context: __dirname + "/",
 		entry: __dirname + "/src/index.js",
-
 		output: {
 			filename: "bundle.js",
-			path: __dirname + "/build/",
+			path: __dirname + "/public/",
 		},
-
 		module: {
 			loaders: [{
 				test: /\.js$/,
