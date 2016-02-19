@@ -29,3 +29,6 @@ node_modules
 *.DS_Store
 
 build/*
+src/coreModules.js
+public/modules/*
+public/bundle.js
