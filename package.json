@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "bauhaus-ui",
   "main": "index.js",
+  "files": [
+    "public/"
+  ],
   "scripts": {
     "build": "NODE_ENV=production webpack && npm run minify",
     "dev": "webpack --progress --colors --watch",
