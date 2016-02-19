@@ -38,7 +38,7 @@ export function load() {
 			superagent
 				.get(url)
 				.accept('json')
-				.use(superagentPlugin())
+				.use(superagentPlugin({auth: true}))
 				.end(function(err, res) {
 					if(err != null) {
 						return dispatch(showError(err, url));

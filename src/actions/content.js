@@ -55,7 +55,7 @@ export function loadCurrentRoute() {
 		superagent
 			.get(replaceAllParams(url, state.router.route.params)) // TODO: Error Handling
 			.accept('json')
-			.use(superagentPlugin())
+			.use(superagentPlugin({auth: true}))
 			.end(function(err, res) {
 				if(err != null) {
 					return dispatch(showError(err, url));

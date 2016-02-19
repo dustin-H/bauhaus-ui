@@ -68,7 +68,7 @@ export function requestSearch() {
 			.get(url)
          .query({search: state.search.value, languages: state.i18n.languages})
 			.accept('json')
-			.use(superagentPlugin())
+			.use(superagentPlugin({auth: true}))
 			.end(function(err, res) {
 				if(err != null) {
 					return dispatch(showError(err, url));

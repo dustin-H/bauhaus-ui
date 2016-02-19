@@ -1,6 +1,7 @@
 import superagent from 'superagent';
 import store from './store.js';
 import * as c from './constants.js';
+import superagentPlugin from '../helpers/superagentPlugin.js';
 
 __GLOBAL__.exportDefault = null;
 
@@ -40,6 +41,7 @@ var loadModuleIfNecessary = function(id, cb) {
 			store[id].state = c.LOADING;
          store[id].callbacks.push(cb);
 			superagent.get(store[id].url)
+        .use(superagentPlugin({auth: true}))
 				.end(function(err, res) {
 					if(err) {
 						store[id].state = c.ERROR;

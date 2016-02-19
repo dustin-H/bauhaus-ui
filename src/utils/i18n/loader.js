@@ -31,7 +31,7 @@ var parse = function(data, packurl) {
 }
 var loadLanguageByUrl = function(packurl, cb) {
 	superagent.get(packurl)
-   .use(superagentPlugin())
+   .use(superagentPlugin({auth: true}))
    .end(function(err, res) {
 		parse(res.text, packurl);
 		cb();
