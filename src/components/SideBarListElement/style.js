@@ -1,7 +1,7 @@
 var style = {
 	sideBarListElement: {
 		position: 'relative',
-		width: '100%',
+		width: 'calc(100% - 15px)',
 		fontSize: '12px',
 		textTransform: 'uppercase',
 		fontWeight: 700,
@@ -24,7 +24,7 @@ var style = {
 	},
 	sideBarListElementTablet: {
 		position: 'relative',
-		width: '100%',
+		width: 60,
 		fontSize: '12px',
 		textTransform: 'uppercase',
 		fontWeight: 700,

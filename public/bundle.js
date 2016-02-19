@@ -67584,7 +67584,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-		value: true
+	  value: true
 	});
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -67620,110 +67620,115 @@
 	var _styleJs2 = _interopRequireDefault(_styleJs);
 
 	var SideBar = (function (_Component) {
-		_inherits(SideBar, _Component);
+	  _inherits(SideBar, _Component);
 
-		function SideBar() {
-			_classCallCheck(this, SideBar);
+	  function SideBar() {
+	    _classCallCheck(this, SideBar);
 
-			_get(Object.getPrototypeOf(SideBar.prototype), 'constructor', this).apply(this, arguments);
-		}
+	    _get(Object.getPrototypeOf(SideBar.prototype), 'constructor', this).apply(this, arguments);
+	  }
 
-		_createClass(SideBar, [{
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				var _props = this.props;
-				var state = _props.state;
-				var actions = _props.actions;
+	  _createClass(SideBar, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _props = this.props;
+	      var state = _props.state;
+	      var actions = _props.actions;
 
-				actions.sideBar.load();
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				var _props2 = this.props;
-				var state = _props2.state;
-				var actions = _props2.actions;
+	      actions.sideBar.load();
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props2 = this.props;
+	      var state = _props2.state;
+	      var actions = _props2.actions;
 
-				var content = _react2['default'].createElement('span', null);
-				if (state.sideBar.loading === true) {
-					content = _react2['default'].createElement(
-						'div',
-						{ className: styles.center },
-						_react2['default'].createElement('br', null),
-						_react2['default'].createElement('img', { src: 'media/loader.gif' })
-					);
-				}
-				if (state.sideBar.error === true) {
-					content = _react2['default'].createElement(
-						'div',
-						{ className: styles.centerError },
-						_react2['default'].createElement('br', null),
-						(0, _utilsI18nIndexJs.$)('$core.sidebar.error')
-					);
-				}
-				var backButton = _react2['default'].createElement('span', null);
-				if (state.responsive.device.smartphone === true) {
-					backButton = _react2['default'].createElement(
-						'div',
-						{ className: styles.inlineBlock, onClick: actions.sideBar.toggleShow },
-						_react2['default'].createElement('img', { src: 'media/icons/menu_white.svg', className: styles.imageIcon })
-					);
-				}
-				var appName = _react2['default'].createElement('span', null);
-				var avatar = _react2['default'].createElement('span', null);
-				if (!state.responsive.device.tablet) {
-					appName = _react2['default'].createElement(
-						'div',
-						{ className: styles.sideBarAppName },
-						'Bauhaus UI'
-					);
-					avatar = _react2['default'].createElement(
-						'div',
-						{ className: styles.avatar },
-						_react2['default'].createElement('img', { src: state.auth.profile.avatarUrl, className: styles.avatarImage })
-					);
-				}
-				return _react2['default'].createElement(
-					'div',
-					{ className: styles.sideBar },
-					appName,
-					backButton,
-					_react2['default'].createElement(
-						'div',
-						{ className: styles.sideBarMenu },
-						content,
-						(0, _lodashMap2['default'])(state.sideBar.list, function (value, key) {
-							return _react2['default'].createElement(_SideBarListElement2['default'], { key: key, state: state, actions: actions, label: value.name, imageUrl: value.imageUrl || "media/icons/terms.svg", pathname: value.pathname, tabletView: state.responsive.device.tablet });
-						})
-					),
-					_react2['default'].createElement(
-						'div',
-						{ className: styles.sideBarUser },
-						_react2['default'].createElement('div', { className: styles.logoutLine }),
-						_react2['default'].createElement(
-							'div',
-							{ className: styles.sideBarUserLogOut, onClick: actions.auth.logout },
-							(0, _utilsI18nIndexJs.$)('$core.auth.logout')
-						),
-						_react2['default'].createElement(
-							'span',
-							{ className: styles.name },
-							state.auth.profile.firstname,
-							' ',
-							state.auth.profile.lastname
-						),
-						avatar
-					)
-				);
-			}
-		}]);
+	      var content = _react2['default'].createElement('span', null);
+	      if (state.sideBar.loading === true) {
+	        content = _react2['default'].createElement(
+	          'div',
+	          { className: styles.center },
+	          _react2['default'].createElement('br', null),
+	          _react2['default'].createElement('img', { src: 'media/loader.gif' })
+	        );
+	      }
+	      if (state.sideBar.error === true) {
+	        content = _react2['default'].createElement(
+	          'div',
+	          { className: styles.centerError },
+	          _react2['default'].createElement('br', null),
+	          (0, _utilsI18nIndexJs.$)('$core.sidebar.error')
+	        );
+	      }
+	      var backButton = _react2['default'].createElement('span', null);
+	      if (state.responsive.device.smartphone === true) {
+	        backButton = _react2['default'].createElement(
+	          'div',
+	          { className: styles.inlineBlock, onClick: actions.sideBar.toggleShow },
+	          _react2['default'].createElement('img', { src: 'media/icons/menu_white.svg', className: styles.imageIcon })
+	        );
+	      }
+	      var appName = _react2['default'].createElement('span', null);
+	      var avatar = _react2['default'].createElement('span', null);
+	      if (!state.responsive.device.tablet) {
+	        appName = _react2['default'].createElement(
+	          'div',
+	          { className: styles.sideBarAppName },
+	          'Bauhaus UI'
+	        );
+	        avatar = _react2['default'].createElement(
+	          'div',
+	          { className: styles.avatar },
+	          _react2['default'].createElement('img', { src: state.auth.profile.avatarUrl, className: styles.avatarImage })
+	        );
+	      }
+	      return _react2['default'].createElement(
+	        'div',
+	        { className: styles.sideBar },
+	        appName,
+	        backButton,
+	        _react2['default'].createElement(
+	          'div',
+	          { className: styles.sideBarMenu },
+	          _react2['default'].createElement(
+	            'div',
+	            { className: styles.noScroll },
+	            content,
+	            (0, _lodashMap2['default'])(state.sideBar.list, function (value, key) {
+	              return _react2['default'].createElement(_SideBarListElement2['default'], { key: key, state: state, actions: actions, label: value.name, imageUrl: value.imageUrl || 'media/icons/terms.svg', pathname: value.pathname,
+	                tabletView: state.responsive.device.tablet });
+	            })
+	          )
+	        ),
+	        _react2['default'].createElement(
+	          'div',
+	          { className: styles.sideBarUser },
+	          _react2['default'].createElement('div', { className: styles.logoutLine }),
+	          _react2['default'].createElement(
+	            'div',
+	            { className: styles.sideBarUserLogOut, onClick: actions.auth.logout },
+	            (0, _utilsI18nIndexJs.$)('$core.auth.logout')
+	          ),
+	          _react2['default'].createElement(
+	            'span',
+	            { className: styles.name },
+	            state.auth.profile.firstname,
+	            ' ',
+	            state.auth.profile.lastname
+	          ),
+	          avatar
+	        )
+	      );
+	    }
+	  }]);
 
-		return SideBar;
+	  return SideBar;
 	})(_react.Component);
 
 	SideBar.propTypes = {
-		state: _react.PropTypes.object.isRequired,
-		actions: _react.PropTypes.object.isRequired
+	  state: _react.PropTypes.object.isRequired,
+	  actions: _react.PropTypes.object.isRequired
 	};
 
 	var styles = _reactLook.StyleSheet.create(_styleJs2['default']);
@@ -67832,7 +67837,7 @@
 	var style = {
 		sideBarListElement: {
 			position: 'relative',
-			width: '100%',
+			width: 'calc(100% - 15px)',
 			fontSize: '12px',
 			textTransform: 'uppercase',
 			fontWeight: 700,
@@ -67855,7 +67860,7 @@
 		},
 		sideBarListElementTablet: {
 			position: 'relative',
-			width: '100%',
+			width: 60,
 			fontSize: '12px',
 			textTransform: 'uppercase',
 			fontWeight: 700,
@@ -67897,178 +67902,184 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-		value: true
+	  value: true
 	});
 	var sideBarSize = 280;
 	var headerHeight = 50;
 
 	var style = {
-		sideBar: {
-			position: 'fixed',
-			left: function left(props, state, context) {
-				if (props.state.sideBar.show === false) {
-					if (props.state.responsive.device.tablet === true) {
-						return -props.state.sideBar.smallSize;
-					}
-					if (props.state.responsive.device.desktop === true) {
-						return -props.state.sideBar.bigSize;
-					}
-					return '-100%';
-				}
-				return 0;
-			},
-			height: '100%',
-			width: function width(props, state, context) {
-				if (props.state.responsive.device.tablet === true) {
-					return props.state.sideBar.smallSize;
-				}
-				if (props.state.responsive.device.desktop === true) {
-					return props.state.sideBar.bigSize;
-				}
-				return '100%';
-			},
-			userSelect: 'none',
-			transition: 'all 0.2s',
-			transform: 'translate3d(0,0,0)',
-			//backgroundColor: '#206917',
-			//background: (props) => {
-			//   return 'linear-gradient(to bottom, #206917 0%, #2B302C 100%)'
-			//},
-			//backgroundAttachment: 'fixed',
-			backgroundColor: '#206917',
-			zIndex: 10,
-			overflow: 'hidden'
-		},
-		sideBarAppName: {
-			height: '50px',
-			backgroundColor: 'transparent',
-			boxSizing: 'border-box',
-			color: '#ffffff', //6E00FF
-			textTransform: 'uppercase',
-			padding: '7px',
-			paddingTop: '20px',
-			textAlign: 'center',
-			fontSize: '20px',
-			fontWeight: 700,
-			letterSpacing: '2px'
-		},
-		sideBarLogo: {
-			textAlign: 'center',
-			padding: '10px'
-		},
-		sideBarLogoImg: {
-			width: '50px'
-		},
-		sideBarMenu: {
-			position: 'absolute',
-			top: function top(props) {
-				if (props.state.responsive.device.tablet === true) {
-					return 0;
-				} else {
-					return 60;
-				}
-			},
-			bottom: 90,
-			width: '100%',
-			overflowY: 'scroll'
-		},
-		sideBarUser: {
-			position: 'absolute',
-			bottom: 0,
-			left: 0,
-			width: '100%',
-			padding: function padding(props) {
-				if (props.state.responsive.device.tablet === true) {
-					return 0;
-				}
-				return 20;
-			},
-			paddingBottom: function paddingBottom(props) {
-				if (props.state.responsive.device.tablet === true) {
-					return 8;
-				}
-				return 20;
-			},
-			textAlign: function textAlign(props) {
-				if (props.state.responsive.device.tablet === true) {
-					return 'center';
-				}
-				return '';
-			},
-			fontSize: function fontSize(props) {
-				if (props.state.responsive.device.tablet === true) {
-					return 5;
-				}
-				return 10;
-			},
-			color: '#ffffff',
-			boxSizing: 'border-box',
-			//borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-			fontWeight: 300
-		},
-		logoutLine: {
-			height: 20,
-			borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-			position: 'relative',
-			width: '100%'
-			//backgroundColor: 'rgba(255, 255, 255, 0.1)'
-		},
-		sideBarUserLogOut: {
-			fontSize: function fontSize(props) {
-				if (props.state.responsive.device.tablet === true) {
-					return 10;
-				}
-				return 14;
-			},
-			textTransform: 'uppercase',
-			paddingBottom: '10px',
-			cursor: 'pointer'
-		},
-		center: {
-			textAlign: 'center',
-			width: '100%',
-			display: 'inline-block'
-		},
-		centerError: {
-			textAlign: 'center',
-			width: '100%',
-			display: 'inline-block',
-			color: '#ffffff'
-		},
-		avatar: {
-			position: 'absolute',
-			width: 42,
-			height: 42,
-			right: 20,
-			bottom: 20,
-			overflow: 'hidden',
-			borderRadius: '50%'
-		},
-		avatarImage: {
-			width: 42,
-			height: 42
-		},
-		inlineBlock: {
-			position: 'absolute',
-			textAlign: 'center',
-			width: 60,
-			height: 50,
-			cursor: 'pointer',
-			borderTop: '2px solid transparent',
-			':hover': {
-				borderTop: '2px solid #ffffff'
-			},
-			top: 0,
-			right: 0
-		},
-		imageIcon: {
-			width: 20,
-			verticalAlign: 'middle',
-			paddingTop: 17
-		},
-		name: {
-			color: 'rgba(255, 255, 255, 0.54)'
-		}
+	  sideBar: {
+	    position: 'fixed',
+	    left: function left(props, state, context) {
+	      if (props.state.sideBar.show === false) {
+	        if (props.state.responsive.device.tablet === true) {
+	          return -props.state.sideBar.smallSize;
+	        }
+	        if (props.state.responsive.device.desktop === true) {
+	          return -props.state.sideBar.bigSize;
+	        }
+	        return '-100%';
+	      }
+	      return 0;
+	    },
+	    height: '100%',
+	    width: function width(props, state, context) {
+	      if (props.state.responsive.device.tablet === true) {
+	        return props.state.sideBar.smallSize;
+	      }
+	      if (props.state.responsive.device.desktop === true) {
+	        return props.state.sideBar.bigSize;
+	      }
+	      return '100%';
+	    },
+	    userSelect: 'none',
+	    transition: 'all 0.2s',
+	    transform: 'translate3d(0,0,0)',
+	    // backgroundColor: '#206917',
+	    // background: (props) => {
+	    //   return 'linear-gradient(to bottom, #206917 0%, #2B302C 100%)'
+	    // },
+	    // backgroundAttachment: 'fixed',
+	    backgroundColor: '#206917',
+	    zIndex: 10,
+	    overflow: 'hidden'
+	  },
+	  sideBarAppName: {
+	    height: '50px',
+	    backgroundColor: 'transparent',
+	    boxSizing: 'border-box',
+	    color: '#ffffff', // 6E00FF
+	    textTransform: 'uppercase',
+	    padding: '7px',
+	    paddingTop: '20px',
+	    textAlign: 'center',
+	    fontSize: '20px',
+	    fontWeight: 700,
+	    letterSpacing: '2px'
+	  },
+	  sideBarLogo: {
+	    textAlign: 'center',
+	    padding: '10px'
+	  },
+	  sideBarLogoImg: {
+	    width: '50px'
+	  },
+	  sideBarMenu: {
+	    position: 'absolute',
+	    top: function top(props) {
+	      if (props.state.responsive.device.tablet === true) {
+	        return 0;
+	      } else {
+	        return 60;
+	      }
+	    },
+	    bottom: 90,
+	    width: '100%',
+	    overflow: 'hidden'
+	  },
+	  noScroll: {
+	    width: 'calc(100% + 15px)',
+	    height: '100%',
+	    overflow: 'auto',
+	    paddingRight: 15
+	  },
+	  sideBarUser: {
+	    position: 'absolute',
+	    bottom: 0,
+	    left: 0,
+	    width: '100%',
+	    padding: function padding(props) {
+	      if (props.state.responsive.device.tablet === true) {
+	        return 0;
+	      }
+	      return 20;
+	    },
+	    paddingBottom: function paddingBottom(props) {
+	      if (props.state.responsive.device.tablet === true) {
+	        return 8;
+	      }
+	      return 20;
+	    },
+	    textAlign: function textAlign(props) {
+	      if (props.state.responsive.device.tablet === true) {
+	        return 'center';
+	      }
+	      return '';
+	    },
+	    fontSize: function fontSize(props) {
+	      if (props.state.responsive.device.tablet === true) {
+	        return 5;
+	      }
+	      return 10;
+	    },
+	    color: '#ffffff',
+	    boxSizing: 'border-box',
+	    // borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+	    fontWeight: 300
+	  },
+	  logoutLine: {
+	    height: 20,
+	    borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+	    position: 'relative',
+	    width: '100%'
+	    // backgroundColor: 'rgba(255, 255, 255, 0.1)'
+	  },
+	  sideBarUserLogOut: {
+	    fontSize: function fontSize(props) {
+	      if (props.state.responsive.device.tablet === true) {
+	        return 10;
+	      }
+	      return 14;
+	    },
+	    textTransform: 'uppercase',
+	    paddingBottom: '10px',
+	    cursor: 'pointer'
+	  },
+	  center: {
+	    textAlign: 'center',
+	    width: '100%',
+	    display: 'inline-block'
+	  },
+	  centerError: {
+	    textAlign: 'center',
+	    width: '100%',
+	    display: 'inline-block',
+	    color: '#ffffff'
+	  },
+	  avatar: {
+	    position: 'absolute',
+	    width: 42,
+	    height: 42,
+	    right: 20,
+	    bottom: 20,
+	    overflow: 'hidden',
+	    borderRadius: '50%'
+	  },
+	  avatarImage: {
+	    width: 42,
+	    height: 42
+	  },
+	  inlineBlock: {
+	    position: 'absolute',
+	    textAlign: 'center',
+	    width: 60,
+	    height: 50,
+	    cursor: 'pointer',
+	    borderTop: '2px solid transparent',
+	    ':hover': {
+	      borderTop: '2px solid #ffffff'
+	    },
+	    top: 0,
+	    right: 0
+	  },
+	  imageIcon: {
+	    width: 20,
+	    verticalAlign: 'middle',
+	    paddingTop: 17
+	  },
+	  name: {
+	    color: 'rgba(255, 255, 255, 0.54)'
+	  }
 	};
 
 	exports['default'] = style;
