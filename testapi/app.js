@@ -1,10 +1,13 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
+var fs = require('fs');
 
 module.exports = function() {
 
 	var app = express();
+
+  app.use('/img', express.static(__dirname + '/img'))
 
 	/*app.use(function(req, res, next) {
 		setTimeout(function() {
@@ -34,7 +37,7 @@ module.exports = function() {
 			profile: {
 				firstname: 'Dustin',
 				lastname: 'Hoffner',
-				avatarUrl: 'testapi/steve-jobs.jpg'
+				avatarUrl: 'api/img/steve-jobs.jpg'
 			}
 		})
 	})
