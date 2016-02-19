@@ -13,7 +13,7 @@ export function getModule(id) {
 
 export function defineModuleUrl(id, url) {
 	if (store[name] != null) {
-		console.warn('Do not overwrite already installed components!', id, '=>', url);
+		console.warn('Do not overwrite already installed modules!', id, '=>', url);
 		return false;
 	} else {
 		store[id] = {};
