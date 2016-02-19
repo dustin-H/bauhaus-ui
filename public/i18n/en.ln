@@ -1,0 +1,16 @@
+{ "language": "en" }
+{"id": "core.auth.login.username", "text": "Username"}
+{"id": "core.auth.login.password", "text": "Password"}
+{"id": "core.auth.login.submit", "text": "Login"}
+{"id": "core.auth.login.error", "text": "Login failed!"}
+{"id": "core.auth.logout", "text": "LOG OUT"}
+{"id": "core.router.routeNotFound", "text": "Page not found!"}
+{"id": "core.content.error", "text": "Error while loading page!"}
+{"id": "core.sidebar.error", "text": "Error while loading sidebar!"}
+{"id": "core.search.error", "text": "Error while loading search!"}
+{"id": "core.search.nothingFound", "text": "Nothing found!"}
+{"id": "core.commons.save", "text": "Save"}
+{"id": "core.commons.reset", "text": "Reset"}
+{"id": "core.commons.delete", "text": "Delete"}
+{"id": "core.commons.errors.validation", "text": "Validation failed!"}
+{"id": "core.commons.errors.required", "text": "Required!"}

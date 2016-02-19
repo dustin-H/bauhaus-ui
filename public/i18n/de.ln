@@ -1,0 +1,16 @@
+{ "language": "de" }
+{"id": "core.auth.login.username", "text": "Benutzername"}
+{"id": "core.auth.login.password", "text": "Passwort"}
+{"id": "core.auth.login.submit", "text": "Anmelden"}
+{"id": "core.auth.login.error", "text": "Anmeldung ist fehlgeschlagen!"}
+{"id": "core.auth.logout", "text": "ABMELDEN"}
+{"id": "core.router.routeNotFound", "text": "Seite nicht gefunden!"}
+{"id": "core.content.error", "text": "Fehler beim Laden der Seite!"}
+{"id": "core.sidebar.error", "text": "Fehler beim Laden der Sidebar!"}
+{"id": "core.search.error", "text": "Fehler beim Laden der Suche!"}
+{"id": "core.search.nothingFound", "text": "Nichts gefunden!"}
+{"id": "core.commons.save", "text": "Speichern"}
+{"id": "core.commons.reset", "text": "Zurücksetzen"}
+{"id": "core.commons.delete", "text": "Löschen"}
+{"id": "core.commons.errors.validation", "text": "Validierung fehlgeschlagen!"}
+{"id": "core.commons.errors.required", "text": "Erforderlich!"}
