@@ -51,75 +51,6 @@ module.exports = function() {
 			}, {
 				name: 'Menu',
 				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
-			}, {
-				name: 'Menu',
-				pathname: '/menu'
 			}]
 		})
 	});
@@ -305,12 +236,12 @@ module.exports = function() {
 					}, {
 						name: 'Label',
 						props: {
-							text: 'Meine Email als Text:'
+							text: 'InputNumber:'
 						},
 						components: [{
-							name: 'InputText',
+							name: 'InputNumber',
 							props: {
-								path: 'hallo.welt.test2'
+								path: 'hallo.welt.number'
 							}
 						}]
 					}]
