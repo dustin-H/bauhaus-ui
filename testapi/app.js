@@ -177,7 +177,7 @@ module.exports = function() {
 							text: 'POSTS NEU LABEL'
 						},
 						components: [{
-							name: 'InputText',
+							name: 'InputScribe',
 							props: {
 								path: 'hallo.welt.test2'
 							}
