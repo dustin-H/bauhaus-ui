@@ -51,14 +51,11 @@ function locationChanged(location) {
 export function pushLocation(location) {
 	return(dispatch, getState) => {
 		history.push(location);
-		dispatch({
-			type: types.ROUTER_PUSH_LOCATION,
-			location
-		});
-      var state = getState();
-      if(state.sideBar.show === true && state.responsive.device.smartphone === true){
-         dispatch(toggleShow());
-      }
+    //WARNING: DO NEVER DISPATCH AN ACTION HERE!!!!
+    var state = getState();
+    if(state.sideBar.show === true && state.responsive.device.smartphone === true){
+       dispatch(toggleShow());
+    }
 	}
 }
 
