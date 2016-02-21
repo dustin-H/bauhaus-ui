@@ -9,11 +9,11 @@ module.exports = function() {
 
   app.use('/img', express.static(__dirname + '/img'))
 
-	/*app.use(function(req, res, next) {
+	app.use(function(req, res, next) {
 		setTimeout(function() {
 			next();
-		}, 300);
-	})*/
+		}, 0);
+	})
 
 	app.get('/', function(req, res, next) {
 		res.json({
@@ -177,7 +177,7 @@ module.exports = function() {
 							text: 'POSTS NEU LABEL'
 						},
 						components: [{
-							name: 'InputScribe',
+							name: 'InputText',
 							props: {
 								path: 'hallo.welt.test2'
 							}
@@ -258,13 +258,17 @@ module.exports = function() {
           title: 'Liste der sinnlosen Dinge',
           list: [
             {
-              name: 'Das ist toll!'
+              name: 'Das ist toll!',
+              pathname: '/posts'
             },{
-              name: 'Hallo Welt'
+              name: 'Hallo Welt',
+              pathname: '/posts'
             },{
-              name: 'Raumfahrt'
+              name: 'Raumfahrt',
+              pathname: '/menu'
             },{
-              name: 'Es lebe der Keks!'
+              name: 'Es lebe der Keks!',
+              pathname: '/menu'
             }
           ]
         }
