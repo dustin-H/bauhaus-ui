@@ -12,7 +12,7 @@ __GLOBAL__.npm = {
 
 __GLOBAL__.bauhaus = {
   superagentPlugin: require('../helpers/superagentPlugin.js'),
-  $: require('../i18n/index.js').$
+  $: require('../i18n/index.js').$,
   pushLocation: function(location){
     store.dispatch(pushLocation(location))
   }
