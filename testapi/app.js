@@ -252,27 +252,22 @@ module.exports = function() {
 
 	app.get('/views/menu', function(req, res) {
 		res.json({
-			"i18n": {
-				"packB": {
-					"en": {
-						"complete": true,
-						"url": "/api/i18n/pack/en"
-					},
-					"de": {
-						"complete": true,
-						"url": "/api/i18n/pack/de"
-					}
-				}
-			},
 			content: {
-				name: 'SimpleWrapper',
-				components: [{
-					name: 'InputText',
-					props: {
-						defaultValue: '$core.auth.login.username',
-						text: 'MENU'
-					}
-				}]
+				name: 'SimpleLinkList',
+				props: {
+          title: 'Liste der sinnlosen Dinge',
+          list: [
+            {
+              name: 'Das ist toll!'
+            },{
+              name: 'Hallo Welt'
+            },{
+              name: 'Raumfahrt'
+            },{
+              name: 'Es lebe der Keks!'
+            }
+          ]
+        }
 			}
 		});
 	});
