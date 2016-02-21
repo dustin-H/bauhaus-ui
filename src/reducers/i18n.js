@@ -4,42 +4,7 @@ import languages from '../utils/i18n/initialLanguages.js';
 const initialState = {
   fallbackMode: false,
   languages: languages,
-  store: {
-    en: {
-      'core.auth.login.username': 'Username',
-      'core.auth.login.password': 'Password',
-      'core.auth.login.submit': 'Login',
-      'core.auth.login.error': 'Login failed!',
-      'core.auth.logout': 'LOG OUT',
-      'core.router.routeNotFound': 'Page not found!',
-      'core.content.error': 'Error while loading page!',
-      'core.sidebar.error': 'Error while loading sidebar!',
-      'core.search.error': 'Error while loading search!',
-      'core.search.nothingFound': 'Nothing found!',
-      'core.commons.save': 'Save',
-      'core.commons.reset': 'Reset',
-      'core.commons.delete': 'Delete',
-      'core.commons.errors.validation': 'Validation failed!',
-      'core.commons.errors.required': 'Required!'
-    },
-    de: {
-      'core.auth.login.username': 'Benutzername',
-      'core.auth.login.password': 'Passwort',
-      'core.auth.login.submit': 'Anmelden',
-      'core.auth.login.error': 'Anmeldung ist fehlgeschlagen!',
-      'core.auth.logout': 'ABMELDEN',
-      'core.router.routeNotFound': 'Seite nicht gefunden!',
-      'core.content.error': 'Fehler beim Laden der Seite!',
-      'core.sidebar.error': 'Fehler beim Laden der Sidebar!',
-      'core.search.error': 'Fehler beim Laden der Suche!',
-      'core.search.nothingFound': 'Nichts gefunden!',
-      'core.commons.save': 'Speichern',
-      'core.commons.reset': 'Zurücksetzen',
-      'core.commons.delete': 'Löschen',
-      'core.commons.errors.validation': 'Validierung fehlgeschlagen!',
-      'core.commons.errors.required': 'Erforderlich!'
-    }
-  },
+  store: {},
   fallbacks: [],
   loaded: {}
 };
@@ -49,7 +14,10 @@ export default function i18n(state = initialState, action) {
     case types.I18N_PARSE_LANGUAGE:
       console.log('LN Redu', action.url);
       var newState = Object.assign({}, state);
-      var generals = {id: null, language: null};
+      var generals = {
+        id: null,
+        language: null
+      };
       for (var i in action.list) {
         var temp = action.list[i];
         if (temp.text == null) {
