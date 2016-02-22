@@ -1,2 +1,2 @@
-var style = {};
-export default style;
+var style = {}
+export default style

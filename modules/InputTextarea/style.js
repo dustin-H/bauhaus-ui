@@ -28,5 +28,5 @@ var style = {
       backgroundColor: 'transparent'
     }
   }
-};
-export default style;
+}
+export default style

@@ -4,10 +4,10 @@ var style = {
 		position: 'fixed',
 		right: (props) => {
 			if(props.state.search.active === true) {
-				return 0;
+				return 0
 			}
 			else {
-				return -324;
+				return -324
 			}
 		},
 		bottom: 0,
@@ -55,4 +55,4 @@ var style = {
    }
 }
 
-export default style;
+export default style

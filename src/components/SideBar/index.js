@@ -1,26 +1,26 @@
-import React, { PropTypes, Component } from 'react';
-import look, { StyleSheet } from 'react-look';
-import _map from 'lodash/map';
-import SideBarListElement from '../SideBarListElement';
-import { $ } from '../../utils/i18n/index.js';
+import React, { PropTypes, Component } from 'react'
+import look, { StyleSheet } from 'react-look'
+import _map from 'lodash/map'
+import SideBarListElement from '../SideBarListElement'
+import { $ } from '../../utils/i18n/index.js'
 
 class SideBar extends Component {
   componentDidMount() {
-    const {state, actions} = this.props;
+    const {state, actions} = this.props
     actions
       .sideBar
-      .load();
+      .load()
   }
   render() {
-    const {state, actions} = this.props;
+    const {state, actions} = this.props
     var content = (
     <span></span>
-    );
+    )
     if (state.sideBar.loading === true) {
       content = (
         <div className={ styles.center }>
           <br/><img src="media/loader.gif" /></div>
-      );
+      )
     }
     if (state.sideBar.error === true) {
       content = (
@@ -28,21 +28,21 @@ class SideBar extends Component {
           <br/>
           { $('$core.sidebar.error') }
         </div>
-      );
+      )
     }
     var backButton = (
     <span></span>
-    );
+    )
     if (state.responsive.device.smartphone === true) {
-      backButton = (<div className={ styles.inlineBlock } onClick={ actions.sideBar.toggleShow }><img src="media/icons/menu_white.svg" className={ styles.imageIcon } /></div>);
+      backButton = (<div className={ styles.inlineBlock } onClick={ actions.sideBar.toggleShow }><img src="media/icons/menu_white.svg" className={ styles.imageIcon } /></div>)
     }
-    var appName = (<span></span>);
-    var avatar = (<span></span>);
+    var appName = (<span></span>)
+    var avatar = (<span></span>)
     if (!state.responsive.device.tablet) {
       appName = (<div className={ styles.sideBarAppName }>
                    Bauhaus UI
-                 </div>);
-      avatar = (<div className={ styles.avatar }><img src={ state.auth.profile.avatarUrl } className={ styles.avatarImage } /></div>);
+                 </div>)
+      avatar = (<div className={ styles.avatar }><img src={ state.auth.profile.avatarUrl } className={ styles.avatarImage } /></div>)
     }
     return (
       <div className={ styles.sideBar }>
@@ -69,16 +69,16 @@ class SideBar extends Component {
           { avatar }
         </div>
       </div>
-      );
+      )
   }
 }
 
 SideBar.propTypes = {
   state: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
-};
+}
 
-import styleSheet from './style.js';
-var styles = StyleSheet.create(styleSheet);
+import styleSheet from './style.js'
+var styles = StyleSheet.create(styleSheet)
 
-export default look(SideBar);
+export default look(SideBar)

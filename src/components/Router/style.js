@@ -4,6 +4,6 @@ var style = {
 		width: '100%',
 		display: 'inline-block'
 	}
-};
+}
 
-export default style;
+export default style

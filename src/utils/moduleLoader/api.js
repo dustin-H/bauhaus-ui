@@ -8,7 +8,7 @@ __GLOBAL__.npm = {
   superagent: require('superagent'),
   lodash: require('lodash'),
   'react-look': require('react-look')
-};
+}
 
 __GLOBAL__.bauhaus = {
   superagentPlugin: require('../helpers/superagentPlugin.js'),

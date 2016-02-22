@@ -1,31 +1,31 @@
-import React, { PropTypes, Component } from 'react';
-import Look, { StyleSheet } from 'react-look';
-import { $ } from '../../utils/i18n/index.js';
+import React, { PropTypes, Component } from 'react'
+import Look, { StyleSheet } from 'react-look'
+import { $ } from '../../utils/i18n/index.js'
 
 class Login extends Component {
   onChange(key) {
     return function(event) {
-      this.props.actions.auth.loginOnChange(key, event.target.value);
+      this.props.actions.auth.loginOnChange(key, event.target.value)
     }
   }
   onSubmit(evt) {
-    evt.preventDefault();
+    evt.preventDefault()
     this
       .props
       .actions
       .auth
-      .loginSubmit();
-    return false;
+      .loginSubmit()
+    return false
   }
 
   render() {
-    const {state, actions} = this.props;
+    const {state, actions} = this.props
 
-    console.log(JSON.parse(JSON.stringify(state)));
+    console.log(JSON.parse(JSON.stringify(state)))
 
     var errorOutput = (
     <span></span>
-    );
+    )
     if (state.auth.error === true && state.auth.loginLoading === false) {
       errorOutput = (
         <span className={styles.errorMessage}>{$('$core.auth.login.error')}</span>
@@ -41,11 +41,11 @@ class Login extends Component {
             <br/><br/>
             <input type='submit' className={styles.button} value={$('$core.auth.login.submit')}></input>
 			</form>
-    );
+    )
     if (state.auth.loginLoading === true) {
       content = (
         <img src='media/loader.gif'/>
-      );
+      )
     }
 
     return (
@@ -55,7 +55,7 @@ class Login extends Component {
          {content}<br/>
          {errorOutput}
       </div>
-      );
+      )
   }
 }
 
@@ -68,9 +68,9 @@ class Login extends Component {
 Login.propTypes = {
   state: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
-};
+}
 
-import styleSheet from './style.js';
-var styles = StyleSheet.create(styleSheet);
+import styleSheet from './style.js'
+var styles = StyleSheet.create(styleSheet)
 
-export default Look(Login);
+export default Look(Login)

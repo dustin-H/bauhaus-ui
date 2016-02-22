@@ -5,5 +5,5 @@ var style = {
     fontSize: 11,
     paddingLeft: 17
   }
-};
-export default style;
+}
+export default style

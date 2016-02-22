@@ -1,9 +1,9 @@
-import React, {PropTypes, Component} from 'react';
-import ReactDOM from 'react-dom';
-import look, {StyleSheet} from 'react-look';
-import _map from 'lodash/map';
-import SearchElement from '../SearchElement';
-import {$} from '../../utils/i18n/index.js';
+import React, {PropTypes, Component} from 'react'
+import ReactDOM from 'react-dom'
+import look, {StyleSheet} from 'react-look'
+import _map from 'lodash/map'
+import SearchElement from '../SearchElement'
+import {$} from '../../utils/i18n/index.js'
 
 class Search extends Component {
 	handleValueChange(event) {
@@ -11,21 +11,21 @@ class Search extends Component {
 			.props
 			.actions
 			.search
-			.changeValue(event.target.value);
+			.changeValue(event.target.value)
 	}
 	componentWillReceiveProps (nextProps) {
 		const {
 			state
-		} = this.props;
+		} = this.props
 		if (nextProps.state.search.active === true && nextProps.state.search.active !== state.search.active) {
-			var element = ReactDOM.findDOMNode(this.refs.searchInput);
+			var element = ReactDOM.findDOMNode(this.refs.searchInput)
 			setTimeout(function() {
-				element.select();
-			}, 10);
+				element.select()
+			}, 10)
 		}
 	}
 	handleKeyDown (event) {
-		if(event.keyCode === 27) {ReactDOM.findDOMNode(this.refs.searchInput).blur();}
+		if(event.keyCode === 27) {ReactDOM.findDOMNode(this.refs.searchInput).blur()}
 	}
 	getContent (state, actions) {
 		if(state.search.error === true) {return (
@@ -36,20 +36,20 @@ class Search extends Component {
 			)}
 		if (state.search.results.length < 1) {return (
 				<div className={styles.center}><br/><br/>{$('$core.search.nothingFound')}</div>
-			);}
+			)}
 		return _map(state.search.results, function(value, key) {
 			return (
 				<SearchElement key={key} state={state} actions={actions} title={value.title} description={value.description} pathname={value.pathname}></SearchElement>
 			)
-		});
+		})
 	}
 	render () {
 		const {
 			state,
 			actions
-		} = this.props;
+		} = this.props
 
-		var content = this.getContent(state, actions);
+		var content = this.getContent(state, actions)
 
 		return (
 			<div className={styles.popup}>
@@ -62,16 +62,16 @@ class Search extends Component {
 				</div>
 				<div className={styles.searchResults}>{content}</div>
 			</div>
-		);
+		)
 	}
 }
 
 Search.propTypes = {
 	state: PropTypes.object.isRequired,
 	actions: PropTypes.object.isRequired
-};
+}
 
-import styleSheet from './style.js';
-var styles = StyleSheet.create(styleSheet);
+import styleSheet from './style.js'
+var styles = StyleSheet.create(styleSheet)
 
-export default look(Search);
+export default look(Search)

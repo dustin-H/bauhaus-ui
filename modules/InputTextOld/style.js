@@ -17,5 +17,5 @@ var style = {
       color: '#000000'
     }
   }
-};
-export default style;
+}
+export default style

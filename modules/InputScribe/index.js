@@ -7,7 +7,7 @@ import ScribeEditor from './ScribeEditor'
 class InputScribe extends Component {
   handleChange(value) {
     const {bauhaus, get, set} = this.props
-    // var value = event.target.value;
+    // var value = event.target.value
     if (!(value === '' && get(bauhaus.props.path) == undefined)) {
       set(bauhaus.props.path, value)
     }
@@ -27,7 +27,7 @@ class InputScribe extends Component {
       <ScribeEditor className={ c(...inputStyle) } type="text" value={ value } onChange={ this
                                                                                       .handleChange
                                                                                       .bind(this) }></ScribeEditor>
-      );
+      )
   }
 }
 

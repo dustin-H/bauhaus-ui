@@ -1,60 +1,60 @@
-import superagent from 'superagent';
-import store from '../../store/store.js';
+import superagent from 'superagent'
+import store from '../../store/store.js'
 import {
 	parseLanguage
 }
-from '../../actions/i18n.js';
+from '../../actions/i18n.js'
 import {
 	authPlugin
 }
-from '../auth/index.js';
-import superagentPlugin from '../helpers/superagentPlugin.js';
+from '../auth/index.js'
+import superagentPlugin from '../helpers/superagentPlugin.js'
 
 var parse = function(data, packurl) {
-	var arr = data.split('\n');
-	var list = [];
+	var arr = data.split('\n')
+	var list = []
 	for(var i in arr) {
-		var temp = null;
+		var temp = null
 		if(arr[i].length > 0) {
 			try {
-				temp = JSON.parse(arr[i]);
+				temp = JSON.parse(arr[i])
 			} catch(e) {
-				console.warn('Failed to parse line', i, 'in language pack! [' + packurl + ']', e);
+				console.warn('Failed to parse line', i, 'in language pack! [' + packurl + ']', e)
 			}
 		}
 		if(temp != null && typeof temp === 'object') {
-			temp.line = i;
-			list.push(temp);
+			temp.line = i
+			list.push(temp)
 		}
 	}
-	store.dispatch(parseLanguage(list, packurl));
+	store.dispatch(parseLanguage(list, packurl))
 }
 var loadLanguageByUrl = function(packurl, cb) {
 	superagent.get(packurl)
    .use(superagentPlugin({auth: true}))
    .end(function(err, res) {
-		parse(res.text, packurl);
-		cb();
+		parse(res.text, packurl)
+		cb()
 	})
 }
 
 var loadLanguagesByUrl = function(urlArray, cb) {
-	var state = store.getState().i18n;
-	var c = 0;
+	var state = store.getState().i18n
+	var c = 0
 	for(var i in urlArray) {
 		if(state.loaded[urlArray[i]] == null) {
-			c++;
+			c++
 			loadLanguageByUrl(urlArray[i], function() {
-				c--;
+				c--
 				if(c < 1) {
-					cb();
+					cb()
 				}
-			});
+			})
 		}
 	}
 	if(c < 1) {
-		cb();
+		cb()
 	}
 }
 
-export default loadLanguagesByUrl;
+export default loadLanguagesByUrl

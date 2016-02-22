@@ -32,5 +32,5 @@ var style = {
     position: 'relative',
     marginBottom: 8
   }
-};
-export default style;
+}
+export default style

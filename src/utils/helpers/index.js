@@ -7,4 +7,4 @@ let exp = {
    replaceAllParams: replaceAllParams
 }
 
-export default exp;
+export default exp

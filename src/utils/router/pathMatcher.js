@@ -65,7 +65,7 @@ function _compilePattern(pattern) {
 }
 
 
-var CompiledPatternsCache = {};
+var CompiledPatternsCache = {}
 
 function compilePattern(pattern) {
   if (!(pattern in CompiledPatternsCache))
@@ -136,4 +136,4 @@ function matchPattern(pattern, pathname) {
   }
 }
 
-export default matchPattern;
+export default matchPattern

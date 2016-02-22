@@ -1,5 +1,5 @@
-var sideBarSize = 280;
-var headerHeight = 50;
+var sideBarSize = 280
+var headerHeight = 50
 
 var style = {
 	wrapper: {},
@@ -240,13 +240,13 @@ var style = {
    link: {
       color: '#ff0000'
    }
-};
+}
 
 style.frontTdHeadLine = Object.assign({}, style.frontTd, {
 	fontWeight: 500,
 	fontSize: '16px',
 	textAlign: 'left',
 	paddingLeft: '15px'
-});
+})
 
-export default style;
+export default style

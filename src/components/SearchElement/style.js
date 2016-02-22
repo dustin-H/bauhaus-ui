@@ -17,4 +17,4 @@ var style = {
 	}
 }
 
-export default style;
+export default style

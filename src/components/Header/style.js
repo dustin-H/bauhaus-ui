@@ -1,5 +1,5 @@
 
-var headerHeight = 50;
+var headerHeight = 50
 
 var style = {
 	header: {
@@ -71,6 +71,6 @@ var style = {
 		width: '40px',
 		verticalAlign: 'middle'
 	}
-};
+}
 
-export default style;
+export default style

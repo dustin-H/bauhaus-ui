@@ -1,9 +1,9 @@
-import React, {PropTypes, Component} from 'react';
-import look, {StyleSheet} from 'react-look';
+import React, {PropTypes, Component} from 'react'
+import look, {StyleSheet} from 'react-look'
 
 class AppBuilder extends Component {
 	render() {
-		const {state, actions} = this.props;
+		const {state, actions} = this.props
 		return (
 			<div>
 				<div className={styles.wrapper}>
@@ -165,7 +165,7 @@ class AppBuilder extends Component {
 					</div>
 				</div>
 			</div>
-		);
+		)
 	}
 }
 
@@ -178,9 +178,9 @@ class AppBuilder extends Component {
 AppBuilder.propTypes = {
 	state: PropTypes.object.isRequired,
 	actions: PropTypes.object.isRequired
-};
+}
 
-import styleSheet from './style.js';
-var styles = StyleSheet.create(styleSheet);
+import styleSheet from './style.js'
+var styles = StyleSheet.create(styleSheet)
 
-export default look(AppBuilder);
+export default look(AppBuilder)

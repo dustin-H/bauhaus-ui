@@ -56,5 +56,5 @@ var style = {
     fontWeight: 700,
     fontSize: 14
   }
-};
-export default style;
+}
+export default style

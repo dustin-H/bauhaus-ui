@@ -17,9 +17,9 @@ const i18n = {
 var registerI18nPackages = function(callback) {
   loadLanguagePacks(i18n, function() {
     if(callback != null && typeof callback === 'function'){
-      callback();
+      callback()
     }
-  });
+  })
 }
 
 export default registerI18nPackages

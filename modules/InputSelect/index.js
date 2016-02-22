@@ -1,11 +1,11 @@
-import React, { PropTypes, Component } from 'react';
-import Look, { StyleSheet } from 'react-look';
-const c = StyleSheet.combineStyles;
-import { $ } from 'bauhaus-ui-module-utils';
+import React, { PropTypes, Component } from 'react'
+import Look, { StyleSheet } from 'react-look'
+const c = StyleSheet.combineStyles
+import { $ } from 'bauhaus-ui-module-utils'
 
-import _ from 'lodash';
+import _ from 'lodash'
 
-var UNUSED_KEY = 'notUsedBauhausKeyWhichRepresentsUndefinded';
+var UNUSED_KEY = 'notUsedBauhausKeyWhichRepresentsUndefinded'
 
 class InputSelect extends Component {
   constructor(props) {
@@ -13,20 +13,20 @@ class InputSelect extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
   handleChange(event) {
-    const {bauhaus, get, set} = this.props;
-    var value = event.target.value;
+    const {bauhaus, get, set} = this.props
+    var value = event.target.value
     if (value !== UNUSED_KEY) {
-      set(bauhaus.props.path, value);
+      set(bauhaus.props.path, value)
     }
   }
   render() {
-    const {bauhaus, get, set, isValid} = this.props;
-    var valid = isValid(bauhaus.props.path);
-    var inputStyle = [styles.textInput];
+    const {bauhaus, get, set, isValid} = this.props
+    var valid = isValid(bauhaus.props.path)
+    var inputStyle = [styles.textInput]
     if (valid !== true) {
-      inputStyle.push(styles.inputError);
+      inputStyle.push(styles.inputError)
     }
-    var value = get(bauhaus.props.path);
+    var value = get(bauhaus.props.path)
     if (value == undefined) {
       value = UNUSED_KEY
     }
@@ -39,11 +39,11 @@ class InputSelect extends Component {
                    </option>
           }) }
       </select>
-      );
+      )
   }
 }
 
-import styleSheet from './style.js';
-var styles = StyleSheet.create(styleSheet);
+import styleSheet from './style.js'
+var styles = StyleSheet.create(styleSheet)
 
-__GLOBAL__.exportDefault = Look(InputSelect);
+__GLOBAL__.exportDefault = Look(InputSelect)

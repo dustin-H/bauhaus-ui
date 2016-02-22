@@ -1,32 +1,32 @@
-import React, {PropTypes, Component} from 'react';
-import look, {StyleSheet} from 'react-look';
-import {$} from '../../utils/i18n/index.js';
+import React, {PropTypes, Component} from 'react'
+import look, {StyleSheet} from 'react-look'
+import {$} from '../../utils/i18n/index.js'
 
 class SearchElement extends Component {
    handleClick(){
-      const {actions, pathname} = this.props;
+      const {actions, pathname} = this.props
 		actions
 			.router
-			.pushLocation({pathname: pathname});
+			.pushLocation({pathname: pathname})
    }
 	render() {
-		const {state, actions, title, description} = this.props;
+		const {state, actions, title, description} = this.props
 
 		return (
 			<div className={styles.resultFrame}>
 				<div className={styles.resultTitle} onMouseDown={this.handleClick.bind(this)}>{title}</div>
 				<div className={styles.resultDescription}>{description}</div>
 			</div>
-		);
+		)
 	}
 }
 
 SearchElement.propTypes = {
 	state: PropTypes.object.isRequired,
 	actions: PropTypes.object.isRequired
-};
+}
 
-import styleSheet from './style.js';
-var styles = StyleSheet.create(styleSheet);
+import styleSheet from './style.js'
+var styles = StyleSheet.create(styleSheet)
 
-export default look(SearchElement);
+export default look(SearchElement)

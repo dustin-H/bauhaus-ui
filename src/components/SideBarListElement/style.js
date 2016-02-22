@@ -55,5 +55,5 @@ var style = {
 		width: '20px',
 		verticalAlign: 'middle'
 	}
-};
-export default style;
+}
+export default style

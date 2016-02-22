@@ -1,13 +1,13 @@
-import React, {PropTypes, Component} from 'react';
-import Look, {StyleSheet} from 'react-look';
-import SideBar from '../SideBar';
-import Header from '../Header';
-import Content from '../Content';
-import Search from '../Search';
+import React, {PropTypes, Component} from 'react'
+import Look, {StyleSheet} from 'react-look'
+import SideBar from '../SideBar'
+import Header from '../Header'
+import Content from '../Content'
+import Search from '../Search'
 
 class App extends Component {
 	render() {
-		const {state, actions} = this.props;
+		const {state, actions} = this.props
 		return (
 			<div>
 				<div className={styles.wrapper}>
@@ -19,7 +19,7 @@ class App extends Component {
 					</div>
 				</div>
 			</div>
-		);
+		)
 	}
 }
 
@@ -32,9 +32,9 @@ class App extends Component {
 App.propTypes = {
 	state: PropTypes.object.isRequired,
 	actions: PropTypes.object.isRequired
-};
+}
 
-import styleSheet from './style.js';
-var styles = StyleSheet.create(styleSheet);
+import styleSheet from './style.js'
+var styles = StyleSheet.create(styleSheet)
 
-export default Look(App);
+export default Look(App)

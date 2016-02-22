@@ -15,6 +15,6 @@ var style = {
     position: 'relative',
     width: '100%'
   }
-};
+}
 
-export default style;
+export default style

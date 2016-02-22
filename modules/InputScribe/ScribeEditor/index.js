@@ -1,51 +1,51 @@
-import React, { Component } from 'react';
-import Look, { StyleSheet } from 'react-look';
-const c = StyleSheet.combineStyles;
-import Scribe from 'scribe-editor';
-import scribePluginToolbar from 'scribe-plugin-toolbar';
+import React, { Component } from 'react'
+import Look, { StyleSheet } from 'react-look'
+const c = StyleSheet.combineStyles
+import Scribe from 'scribe-editor'
+import scribePluginToolbar from 'scribe-plugin-toolbar'
 
 class ScribeEditor extends Component {
   constructor() {
-    super();
-    this.refis = {};
-    this.scribe = null;
-    this.newValue = null;
-    this.updatedValue = null;
+    super()
+    this.refis = {}
+    this.scribe = null
+    this.newValue = null
+    this.updatedValue = null
   }
   setRef(name) {
     return function(elem) {
-      this.refis[name] = elem;
+      this.refis[name] = elem
     }
   }
   componentDidMount() {
-    var scribe = new Scribe(this.refis.main);
-    scribe.use(scribePluginToolbar(this.refis.toolbar));
-    scribe.setContent(this.props.value);
+    var scribe = new Scribe(this.refis.main)
+    scribe.use(scribePluginToolbar(this.refis.toolbar))
+    scribe.setContent(this.props.value)
 
     function updateHtml() {
-      var value = scribe.getHTML();
+      var value = scribe.getHTML()
       if (value !== this.props.value && value !== this.newValue) {
-        this.updatedValue = value;
-        this.props.onChange(value);
+        this.updatedValue = value
+        this.props.onChange(value)
       }
     }
 
-    scribe.on('content-changed', updateHtml.bind(this));
-    this.scribe = scribe;
+    scribe.on('content-changed', updateHtml.bind(this))
+    this.scribe = scribe
   }
   componentWillUnmount() {
   }
   componentWillReceiveProps(newProps) {
     if (newProps.value !== this.props.value && this.updatedValue !== newProps.value) {
-      this.newValue = newProps.value;
-      this.scribe.setContent(newProps.value);
+      this.newValue = newProps.value
+      this.scribe.setContent(newProps.value)
     }
   }
   shouldComponentUpdate(newProps) {
     if (newProps.value !== this.props.value && this.updatedValue !== newProps.value) {
-      return true;
+      return true
     }
-    return false;
+    return false
   }
   render() {
     return (
@@ -70,7 +70,7 @@ class ScribeEditor extends Component {
                                                         .setRef('main')
                                                         .bind(this) }></div>
       </div>
-      );
+      )
   }
 }
 

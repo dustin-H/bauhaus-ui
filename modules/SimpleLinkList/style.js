@@ -42,5 +42,5 @@ var style = {
       borderBottom: '0px solid #ff0000'
     }
   }
-};
-export default style;
+}
+export default style

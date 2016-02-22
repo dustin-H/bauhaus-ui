@@ -1,10 +1,10 @@
-import React, {PropTypes, Component} from 'react';
-import look, {StyleSheet} from 'react-look';
+import React, {PropTypes, Component} from 'react'
+import look, {StyleSheet} from 'react-look'
 
 class Header extends Component {
 	render() {
-		const {state, actions} = this.props;
-		//console.log(state);
+		const {state, actions} = this.props
+		//console.log(state)
 		return (
 			<div className={styles.header}>
 				<div className={styles.headerLeft}>
@@ -18,7 +18,7 @@ class Header extends Component {
 					<span key={'k5'} className={styles.inlineBlock} onClick={actions.router.reload}><img src="media/icons/reload_white.svg" className={styles.imageIcon}/></span>
 				</div>
 			</div>
-		);
+		)
 	}
 }
 
@@ -31,9 +31,9 @@ class Header extends Component {
 Header.propTypes = {
 	state: PropTypes.object.isRequired,
 	actions: PropTypes.object.isRequired
-};
+}
 
-import styleSheet from './style.js';
-var styles = StyleSheet.create(styleSheet);
+import styleSheet from './style.js'
+var styles = StyleSheet.create(styleSheet)
 
-export default look(Header);
+export default look(Header)

@@ -1,5 +1,5 @@
-var sideBarSize = 280;
-var headerHeight = 50;
+var sideBarSize = 280
+var headerHeight = 50
 
 var style = {
 	center: {
@@ -29,6 +29,6 @@ var style = {
 		borderRadius: '38px',
 		outline: 'none'
 	}
-};
+}
 
-export default style;
+export default style

@@ -1,7 +1,7 @@
-import React, {PropTypes, Component} from 'react';
-import look, {StyleSheet} from 'react-look';
-import Route from '../Route';
-import {$} from '../../utils/i18n/index.js';
+import React, {PropTypes, Component} from 'react'
+import look, {StyleSheet} from 'react-look'
+import Route from '../Route'
+import {$} from '../../utils/i18n/index.js'
 
 const bauhaus = {
 	name: 'SimpleWrapper',
@@ -18,25 +18,25 @@ const bauhaus = {
 
 class Router extends Component {
 	componentDidMount() {
-		const {state, actions} = this.props;
+		const {state, actions} = this.props
 		actions
 			.router
-			.loadRoutes();
+			.loadRoutes()
 	}
 	render () {
 		const {
 			state,
 			actions
-		} = this.props;
+		} = this.props
 		if (state.router.loading === true) {return (
 				<div className={styles.center}><br/><img src="media/loader.gif"/></div>
-			);}
+			)}
 		if (state.router.route === false) {return (
 				<div className={styles.center}><br/>{$('$core.router.routeNotFound')}</div>
-			);}
+			)}
 		return (
 			<Route state={state} actions={actions}></Route>
-		);
+		)
 
 	}
 }
@@ -44,9 +44,9 @@ class Router extends Component {
 Router.propTypes = {
 	state: PropTypes.object.isRequired,
 	actions: PropTypes.object.isRequired
-};
+}
 
-import styleSheet from './style.js';
-var styles = StyleSheet.create(styleSheet);
+import styleSheet from './style.js'
+var styles = StyleSheet.create(styleSheet)
 
-export default look(Router);
+export default look(Router)

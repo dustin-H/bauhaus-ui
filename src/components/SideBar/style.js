@@ -1,5 +1,5 @@
-var sideBarSize = 280;
-var headerHeight = 50;
+var sideBarSize = 280
+var headerHeight = 50
 
 var style = {
   sideBar: {
@@ -7,24 +7,24 @@ var style = {
     left: (props, state, context) => {
       if (props.state.sideBar.show === false) {
         if (props.state.responsive.device.tablet === true) {
-          return -props.state.sideBar.smallSize;
+          return -props.state.sideBar.smallSize
         }
         if (props.state.responsive.device.desktop === true) {
-          return -props.state.sideBar.bigSize;
+          return -props.state.sideBar.bigSize
         }
-        return '-100%';
+        return '-100%'
       }
-      return 0;
+      return 0
     },
     height: '100%',
     width: (props, state, context) => {
       if (props.state.responsive.device.tablet === true) {
-        return props.state.sideBar.smallSize;
+        return props.state.sideBar.smallSize
       }
       if (props.state.responsive.device.desktop === true) {
-        return props.state.sideBar.bigSize;
+        return props.state.sideBar.bigSize
       }
-      return '100%';
+      return '100%'
     },
     userSelect: 'none',
     transition: 'all 0.2s',
@@ -62,9 +62,9 @@ var style = {
     position: 'absolute',
     top: (props) => {
       if (props.state.responsive.device.tablet === true) {
-        return 0;
+        return 0
       } else {
-        return 60;
+        return 60
       }
     },
     bottom: 90,
@@ -84,27 +84,27 @@ var style = {
     width: '100%',
     padding: (props) => {
       if (props.state.responsive.device.tablet === true) {
-        return 0;
+        return 0
       }
-      return 20;
+      return 20
     },
     paddingBottom: (props) => {
       if (props.state.responsive.device.tablet === true) {
-        return 8;
+        return 8
       }
-      return 20;
+      return 20
     },
     textAlign: (props) => {
       if (props.state.responsive.device.tablet === true) {
-        return 'center';
+        return 'center'
       }
-      return '';
+      return ''
     },
     fontSize: (props) => {
       if (props.state.responsive.device.tablet === true) {
-        return 5;
+        return 5
       }
-      return 10;
+      return 10
     },
     color: '#ffffff',
     boxSizing: 'border-box',
@@ -121,9 +121,9 @@ var style = {
   sideBarUserLogOut: {
     fontSize: (props) => {
       if (props.state.responsive.device.tablet === true) {
-        return 10;
+        return 10
       }
-      return 14;
+      return 14
     },
     textTransform: 'uppercase',
     paddingBottom: '10px',
@@ -174,6 +174,6 @@ var style = {
   name: {
     color: 'rgba(255, 255, 255, 0.54)'
   }
-};
+}
 
-export default style;
+export default style

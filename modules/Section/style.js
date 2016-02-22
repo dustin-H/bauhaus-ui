@@ -20,19 +20,19 @@ var style = {
     overflow: 'hidden',
     maxHeight: (props) => {
       if (props.bauhaus._state.folded === true) {
-        return 0;
+        return 0
       }
-      return false;
+      return false
     }
   }
 /*
-overflow: hidden;
-max-height: 72px;
-transition: ease 0.3s;
-transform: scaleY(0);
-transform: scaleY(1);
-transform-origin: top;
+overflow: hidden
+max-height: 72px
+transition: ease 0.3s
+transform: scaleY(0)
+transform: scaleY(1)
+transform-origin: top
 
 */
-};
-export default style;
+}
+export default style

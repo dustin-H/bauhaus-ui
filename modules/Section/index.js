@@ -1,29 +1,29 @@
-import React, { PropTypes, Component } from 'react';
-import Look, { StyleSheet } from 'react-look';
-import { $ } from 'bauhaus-ui-module-utils';
-import _ from 'lodash';
+import React, { PropTypes, Component } from 'react'
+import Look, { StyleSheet } from 'react-look'
+import { $ } from 'bauhaus-ui-module-utils'
+import _ from 'lodash'
 
 class Section extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.toggleFoldState = this
       .toggleFoldState
-      .bind(this);
+      .bind(this)
   }
   toggleFoldState() {
-    const {bauhaus} = this.props;
-    bauhaus._setState({folded: !bauhaus._state.folded});
+    const {bauhaus} = this.props
+    bauhaus._setState({folded: !bauhaus._state.folded})
   }
   componentWillMount() {
-    const {bauhaus} = this.props;
-    var folded = false;
+    const {bauhaus} = this.props
+    var folded = false
     if (bauhaus.props.folded === true) {
-      folded = true;
+      folded = true
     }
-    bauhaus._setState({folded: folded});
+    bauhaus._setState({folded: folded})
   }
   render() {
-    const {bauhaus} = this.props;
+    const {bauhaus} = this.props
     return (
       <div>
         <div className={ styles.section } onClick={ this.toggleFoldState }>
@@ -32,17 +32,17 @@ class Section extends Component {
         </div>
         <div className={ styles.content }>
           { _.map(bauhaus._childrenGenerators, function(value, key) {
-              var newProps = Object.assign({}, this.props, {key: key});
+              var newProps = Object.assign({}, this.props, {key: key})
               return value(newProps)
             }.bind(this)) }
         </div>
         <div className={ styles.sectionEnd }></div>
       </div>
-      );
+      )
   }
 }
 
-import styleSheet from './style.js';
-var styles = StyleSheet.create(styleSheet);
+import styleSheet from './style.js'
+var styles = StyleSheet.create(styleSheet)
 
-__GLOBAL__.exportDefault = Look(Section);
+__GLOBAL__.exportDefault = Look(Section)

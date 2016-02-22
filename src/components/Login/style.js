@@ -1,5 +1,5 @@
-var sideBarSize = 280;
-var headerHeight = 50;
+var sideBarSize = 280
+var headerHeight = 50
 
 var style = {
 	center: {
@@ -52,6 +52,6 @@ var style = {
       fontSize: 16,
       fontWeight: 700
 	}
-};
+}
 
-export default style;
+export default style

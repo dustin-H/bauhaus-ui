@@ -6,7 +6,7 @@ import _ from 'lodash'
 
 class SimpleLinkList extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.handleFilterChange = this
       .handleFilterChange
       .bind(this)
@@ -15,10 +15,10 @@ class SimpleLinkList extends Component {
     const {bauhaus} = this.props
     bauhaus._setState({
       filter: event.target.value
-    });
+    })
   }
   pushLocation(location) {
-    const {bauhaus} = this.props;
+    const {bauhaus} = this.props
     return function() {
       pushLocation(location)
     }
@@ -27,7 +27,7 @@ class SimpleLinkList extends Component {
     const {bauhaus} = this.props
     bauhaus._setState({
       filter: ''
-    });
+    })
   }
   render() {
     const {bauhaus} = this.props
