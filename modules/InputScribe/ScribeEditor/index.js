@@ -10,6 +10,7 @@ class ScribeEditor extends Component {
     this.refis = {};
     this.scribe = null;
     this.newValue = null;
+    this.updatedValue = null;
   }
   setRef(name) {
     return function(elem) {
@@ -24,22 +25,27 @@ class ScribeEditor extends Component {
     function updateHtml() {
       var value = scribe.getHTML();
       if (value !== this.props.value && value !== this.newValue) {
-        this.props
-          .onChange(value);
+        this.updatedValue = value;
+        this.props.onChange(value);
       }
     }
 
     scribe.on('content-changed', updateHtml.bind(this));
     this.scribe = scribe;
-    // updateHtml.bind(this)();
   }
   componentWillUnmount() {
   }
   componentWillReceiveProps(newProps) {
-    if (newProps.value !== this.props.value) {
+    if (newProps.value !== this.props.value && this.updatedValue !== newProps.value) {
       this.newValue = newProps.value;
       this.scribe.setContent(newProps.value);
     }
+  }
+  shouldComponentUpdate(newProps) {
+    if (newProps.value !== this.props.value && this.updatedValue !== newProps.value) {
+      return true;
+    }
+    return false;
   }
   render() {
     return (
