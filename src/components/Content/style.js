@@ -1,19 +1,22 @@
-
 var style = {
   contentWrapper: {
     position: 'absolute',
-    top: '50px',
-    left: '0px',
-    right: '0px',
-    bottom: '0px',
-    overflowY: 'scroll',
+    top: 50,
+    left: 0,
+    right: 0,
     boxSizing: 'border-box',
-    padding: '30px',
+    backgroundColor: '#ffffff',
+    minHeight: 'calc(100% - 50px)',
     boxShadow: '0 .25em 2em 0 rgba(0,0,0,.2) inset'
   },
   content: {
     position: 'relative',
-    width: '100%'
+    padding: (props, state, context) => {
+      if (props.state.responsive.device.smartphone === true) {
+        return 10
+      }
+      return 30
+    }
   }
 }
 

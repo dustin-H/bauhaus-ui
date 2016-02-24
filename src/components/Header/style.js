@@ -3,10 +3,20 @@ var headerHeight = 50
 
 var style = {
 	header: {
-		position: 'absolute',
-		top: '0px',
-		left: '0px',
-		right: '0px',
+		position: 'fixed',
+		top: 0,
+    left: (props, state, context) => {
+      if (props.state.sideBar.show === true) {
+        if (props.state.responsive.device.tablet === true) {
+          return props.state.sideBar.smallSize
+        }
+        if (props.state.responsive.device.desktop === true) {
+          return props.state.sideBar.bigSize
+        }
+      }
+      return 0
+    },
+		right: 0,
 		height: headerHeight + 'px',
 		backgroundColor: '#20C753',
 		boxSizing: 'border-box',
@@ -19,9 +29,9 @@ var style = {
 	},
 	headerLeft: {
 		position: 'absolute',
-		top: '0px',
-		left: '0px',
-		bottom: '0px',
+		top: 0,
+		left: 0,
+		bottom: 0,
 		width: '200px',
 		textAlign: 'left',
 		verticalAlign: 'middle',
@@ -40,9 +50,9 @@ var style = {
 	},
 	headerRight: {
 		position: 'absolute',
-		top: '0px',
-		right: '0px',
-		bottom: '0px',
+		top: 0,
+		right: 0,
+		bottom: 0,
 		width: '200px',
 		textAlign: 'right',
 		verticalAlign: 'middle',

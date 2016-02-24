@@ -4,7 +4,7 @@ var headerHeight = 50
 var style = {
   wrapper: {},
   mainFrame: {
-    position: 'fixed',
+    position: 'absolute',
     // left: sideBarSize + 'px',
     left: (props, state, context) => {
       if (props.state.sideBar.show === true) {
@@ -19,7 +19,7 @@ var style = {
     },
     top: '0px',
     right: '0px',
-    height: '100%',
+    minHeight: '100%',
     backgroundColor: '#ffffff',
     fontFamily: 'Open Sans',
     transition: 'all 0.2s',
