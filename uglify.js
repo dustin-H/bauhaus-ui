@@ -1,6 +1,6 @@
 var UglifyJS = require('uglify-js');
 var fs = require('fs');
-console.log('> Minify main bundle...');
+console.log('> Minify main bundle... Mode: ', process.env.NODE_ENV);
 var result = UglifyJS.minify('public/bundle.js');
 
 var browserFixes = fs.readFileSync('es6shim.js');

@@ -7,9 +7,11 @@
 		"public/"
 	],
 	"scripts": {
-		"build": "NODE_ENV=production webpack && npm run minify",
-		"dev": "webpack --progress --colors --watch",
-		"minify": "node uglify.js",
+		"build": "NODE_ENV=production webpack -p  --progress --colors",
+		"dev": "NODE_ENV=development webpack --progress --colors --watch",
+		"minify": "NODE_ENV=production node uglify.js",
+		"codecheck": "NODE_ENV=development node uglify.js",
+		"codecheckMinify": "NODE_ENV=development node uglify.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "Dustin Hoffner",

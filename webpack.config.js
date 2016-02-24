@@ -1,6 +1,10 @@
 var webpack = require('webpack')
 var fs = require('fs')
 
+var productionPlugin = new webpack.DefinePlugin({
+    'process.env.NODE_ENV': '"'+process.env.NODE_ENV+'"'
+})
+
 var modulesPath = 'modules'
 
 var modules = fs.readdirSync(__dirname + '/' + modulesPath)
@@ -10,12 +14,16 @@ if (modules.indexOf('.DS_Store') >= 0) {
 
 var config = [{
   name: 'bauhaus-ui',
+  plugins: [productionPlugin],
   context: __dirname + '/',
   entry: __dirname + '/src/index.js',
   output: {
     filename: 'bundle.js',
     path: __dirname + '/public/'
   },
+  externals: [{
+    'inline-style-linter': 'true'
+  }],
   module: {
     loaders: [{
       test: /\.svg$/,
@@ -32,6 +40,7 @@ for (var i in modules) {
   var name = modules[i]
   config.push({
     name: 'bauhaus-ui-' + name,
+    plugins: [productionPlugin],
     context: __dirname + '/',
     entry: __dirname + '/' + modulesPath + '/' + name + '/index.js',
     output: {
