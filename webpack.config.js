@@ -18,6 +18,9 @@ var config = [{
   },
   module: {
     loaders: [{
+      test: /\.svg$/,
+      loader: 'babel!svg-react?reactDOM=react'
+    }, {
       test: /\.js$/,
       exclude: /node_modules/,
       loader: 'babel-loader'
@@ -46,6 +49,9 @@ for (var i in modules) {
     },
     module: {
       loaders: [{
+        test: /\.svg$/,
+        loader: 'babel!svg-react?reactDOM=react'
+      }, {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
@@ -54,7 +60,7 @@ for (var i in modules) {
   })
 }
 
-fs.writeFileSync(__dirname + '/src/coreModules.js', 'module.exports = '+JSON.stringify(modules))
+fs.writeFileSync(__dirname + '/src/coreModules.js', 'module.exports = ' + JSON.stringify(modules))
 
 module.exports = config;
 /*
