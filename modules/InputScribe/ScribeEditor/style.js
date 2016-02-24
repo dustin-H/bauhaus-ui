@@ -3,16 +3,15 @@ var style = {
     position: 'relative',
     backgroundColor: '#ffffff',
     cursor: 'pointer',
-    opacity: 0.7,
+    fill: '#000000',
+    opacity: 1,
     ':disabled': {
-      opacity: '0.3 !important',
+      opacity: '0.5 !important',
+      fill: '#000000 !important',
       cursor: 'not-allowed'
     },
     ':hover': {
-      opacity: 1
-    },
-    '.active': {
-      backgroundColor: '#20C753'
+      fill: '#20C753'
     },
     padding: 10,
     border: 'none',

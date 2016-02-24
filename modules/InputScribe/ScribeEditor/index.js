@@ -5,6 +5,7 @@ import Scribe from 'scribe-editor'
 import scribePluginToolbar from 'scribe-plugin-toolbar'
 //import Icon from 'babel!svg-react!./icons/bin.svg?name=Icon'
 import icons from './icons.js'
+import _ from 'lodash';
 
 class ScribeEditor extends Component {
   constructor() {
@@ -13,6 +14,12 @@ class ScribeEditor extends Component {
     this.scribe = null
     this.newValue = null
     this.updatedValue = null
+    this.id = _.uniqueId('scribe-')
+    StyleSheet.addCSS({
+      '.active': {
+        fill: '#20C753'
+      }
+    }, '.'+this.id)
   }
   setRef(name) {
     return function(elem) {
@@ -52,7 +59,7 @@ class ScribeEditor extends Component {
   render() {
     return (
       <div>
-        <div ref={ this
+        <div className={c(this.id)} ref={ this
                      .setRef('toolbar')
                      .bind(this) }>
           <button className={styles.button} data-command-name="bold"><icons.bold className={styles.icon}/></button>
