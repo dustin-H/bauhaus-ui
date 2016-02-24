@@ -174,7 +174,7 @@ module.exports = function() {
 					components: [{
 						name: 'Label',
 						props: {
-							text: 'POSTS NEU LABEL'
+							text: 'Scribe Input 1'
 						},
 						components: [{
 							name: 'InputScribe',
@@ -185,9 +185,24 @@ module.exports = function() {
 							name: 'Validator',
 							props: {
 								path: 'hallo.welt.test2',
-								required: true,
-								regex: 'abc',
-								failMessage: 'This needs to include abc!'
+								required: true
+							}
+						}]
+					},{
+						name: 'Label',
+						props: {
+							text: 'Scribe Input 2'
+						},
+						components: [{
+							name: 'InputScribe',
+							props: {
+								path: 'hallo.welt.test3'
+							}
+						}, {
+							name: 'Validator',
+							props: {
+								path: 'hallo.welt.test3',
+								required: true
 							}
 						}]
 					}, {
