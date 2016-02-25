@@ -25,6 +25,7 @@ class ScribeEditor extends Component {
     this.scribe = null
     this.newValue = null
     this.updatedValue = null
+    this.timeout = null
   }
   setRef(name) {
     return function(elem) {
@@ -42,11 +43,17 @@ class ScribeEditor extends Component {
     scribe.setContent(this.props.value)
 
     function updateHtml() {
-      var value = scribe.getHTML()
-      if (value !== this.props.value && value !== this.newValue) {
-        this.updatedValue = value
-        this.props.onChange(value)
+      if (this.timeout != null) {
+        clearTimeout(this.timeout)
+        this.timeout = null
       }
+      this.timeout = setTimeout(function() {
+        var value = scribe.getHTML()
+        if (value !== this.props.value && value !== this.newValue) {
+          this.updatedValue = value
+          this.props.onChange(value)
+        }
+      }, 100)
     }
 
     scribe.on('content-changed', updateHtml.bind(this))
@@ -72,8 +79,8 @@ class ScribeEditor extends Component {
     return (
       <div>
         <div className={ c(componentScope) } ref={ this
-                                              .setRef('toolbar')
-                                              .bind(this) }>
+                                                     .setRef('toolbar')
+                                                     .bind(this) }>
           <button className={ styles.button } data-command-name="h1">
             <span className={ styles.buttonText }>H1</span>
           </button>
