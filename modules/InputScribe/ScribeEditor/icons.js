@@ -10,6 +10,7 @@ import subscript from './icons/subscript.svg'
 import superscript from './icons/superscript.svg'
 import undo from './icons/undo2.svg'
 import redo from './icons/redo2.svg'
+import link from './icons/link.svg'
 
 export default {
   bold,
@@ -23,5 +24,6 @@ export default {
   subscript,
   superscript,
   undo,
-  redo
+  redo,
+  link
 }
