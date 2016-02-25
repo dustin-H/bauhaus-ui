@@ -53,7 +53,7 @@ class ScribeEditor extends Component {
           this.updatedValue = value
           this.props.onChange(value)
         }
-      }, 100)
+      }.bind(this), 100)
     }
 
     scribe.on('content-changed', updateHtml.bind(this))
