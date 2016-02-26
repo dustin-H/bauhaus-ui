@@ -7,7 +7,8 @@ import scribePluginHeadingCommand from 'scribe-plugin-heading-command'
 import scribePluginLinkPromptCommand from 'scribe-plugin-link-prompt-command'
 import scribePluginBlockquoteCommand from 'scribe-plugin-blockquote-command'
 import scribePluginImagePromptCommand from './plugins/image.js'
-//import Icon from 'babel!svg-react!./icons/bin.svg?name=Icon'
+import scribePluginInsertHTMLPromptCommand from './plugins/html.js'
+//import Icon from 'babel!svg-react!./icons/bin.svg?name=Icon'  <iframe width="560" height="315" src="https://www.youtube.com/embed/eGjO_NCbouk" frameborder="0" allowfullscreen></iframe>
 import icons from './icons.js'
 
 const componentScope = 'scribe-editor-bauhaus-ui-input-scope'
@@ -41,6 +42,7 @@ class ScribeEditor extends Component {
     scribe.use(scribePluginHeadingCommand(3))
     scribe.use(scribePluginLinkPromptCommand())
     scribe.use(scribePluginImagePromptCommand())
+    scribe.use(scribePluginInsertHTMLPromptCommand())
     scribe.setContent(this.props.value)
 
     function updateHtml() {
@@ -130,6 +132,9 @@ class ScribeEditor extends Component {
           </button>
           <button className={ styles.button } data-command-name="imagePrompt">
             <icons.image className={ styles.icon } />
+          </button>
+          <button className={ styles.button } data-command-name="htmlPrompt">
+            <icons.html className={ styles.icon } />
           </button>
         </div>
         <div className={ this.props.className } ref={ this

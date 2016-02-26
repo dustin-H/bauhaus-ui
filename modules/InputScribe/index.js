@@ -27,7 +27,7 @@ class InputScribe extends Component {
       <ScribeEditor className={ c(...inputStyle) } type="text" value={ value } onChange={ this
                                                                                       .handleChange
                                                                                       .bind(this) }></ScribeEditor>
-      )
+    )
   }
 }
 
@@ -36,8 +36,11 @@ var styles = StyleSheet.create(styleSheet)
 
 StyleSheet.addCSS({
   'img': {
-    width: '100%'
+    maxWidth: '100%'
+  },
+  'iframe': {
+    maxWidth: '100%'
   }
-}, '.'+styles.textInput)
+}, '.' + styles.textInput)
 
 __GLOBAL__.exportDefault = Look(InputScribe)
