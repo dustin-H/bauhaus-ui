@@ -30,7 +30,6 @@ class Route extends Component {
 				<div className={styles.center}><br/>{$('$core.router.routeNotFound')}</div>
 			)}
       var data = Object.assign({}, state.content.data, {_path: 'root', _contentState: state.router.contentState, _actions: actions})
-      console.log(data);
 		return (
 			<Loader bauhaus={data}></Loader>
 		)

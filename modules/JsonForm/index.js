@@ -6,12 +6,10 @@ import _ from 'lodash'
 import superagent from 'superagent'
 import { superagentPlugin } from 'bauhaus-ui-module-utils'
 
-var validators = {}
-
 class JsonForm extends Component {
   constructor(props) {
     super(props)
-    console.log('NEW JSONFORM');
+    this.validators = {};
     this.saveData = this
       .saveData
       .bind(this)
@@ -33,8 +31,8 @@ class JsonForm extends Component {
       var data = state.data
       _.set(data, path, value)
       state.data = data
-      if (validators[path] != null) {
-        state.validationData[path] = validators[path](value)
+      if (this.validators[path] != null) {
+        state.validationData[path] = this.validators[path](value)
       }
       state.valid = true
       for (var i in state.validationData) {
@@ -47,7 +45,7 @@ class JsonForm extends Component {
     bauhaus._setState(state)
   }
   setValidator(path, validator) {
-    validators[path] = validator
+    this.validators[path] = validator
   }
   isValid(path) {
     const {bauhaus} = this.props
@@ -67,10 +65,10 @@ class JsonForm extends Component {
     var state = Object.assign({}, bauhaus._state)
     var data = state.data
     state.valid = true
-    for (var path in validators) {
+    for (var path in this.validators) {
       var value = _.get(data, path)
       state.data = data
-      state.validationData[path] = validators[path](value)
+      state.validationData[path] = this.validators[path](value)
       if (state.validationData[path] !== true) {
         state.valid = false
       }
@@ -183,8 +181,6 @@ class JsonForm extends Component {
         <div className={ styles.validationError }>
           <br/>
           { $('$core.commons.errors.validation') }
-          <br/>
-          <div>{JSON.stringify(bauhaus._state.validationData)}</div>
         </div>
       )
     }
