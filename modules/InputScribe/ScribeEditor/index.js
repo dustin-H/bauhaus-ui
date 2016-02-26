@@ -39,7 +39,6 @@ class ScribeEditor extends Component {
     scribe.use(scribePluginHeadingCommand(2))
     scribe.use(scribePluginHeadingCommand(3))
     scribe.use(scribePluginLinkPromptCommand())
-    scribe.use(scribePluginBlockquoteCommand())
     scribe.setContent(this.props.value)
 
     function updateHtml() {
@@ -124,7 +123,7 @@ class ScribeEditor extends Component {
           <button className={ styles.button } data-command-name="insertUnorderedList">
             <icons.list className={ styles.icon } />
           </button>
-          <button className={ styles.button } data-command-name="createLink">
+          <button className={ styles.button } data-command-name="linkPrompt">
             <icons.link className={ styles.icon } />
           </button>
         </div>
