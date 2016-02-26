@@ -34,4 +34,10 @@ class InputScribe extends Component {
 import styleSheet from './style.js'
 var styles = StyleSheet.create(styleSheet)
 
+StyleSheet.addCSS({
+  'img': {
+    width: '100%'
+  }
+}, '.'+styles.textInput)
+
 __GLOBAL__.exportDefault = Look(InputScribe)

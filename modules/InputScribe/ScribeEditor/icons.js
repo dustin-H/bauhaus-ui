@@ -11,6 +11,7 @@ import superscript from '../../../public/media/extIcons/superscript.svg'
 import undo from '../../../public/media/extIcons/undo2.svg'
 import redo from '../../../public/media/extIcons/redo2.svg'
 import link from '../../../public/media/extIcons/link.svg'
+import image from '../../../public/media/extIcons/image.svg'
 
 export default {
   bold,
@@ -25,5 +26,6 @@ export default {
   superscript,
   undo,
   redo,
-  link
+  link,
+  image
 }
