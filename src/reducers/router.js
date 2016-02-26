@@ -16,7 +16,8 @@ export default function router(state = initialState, action) {
 			newState.location = action.location
 			newState.route = action.route
 			newState.error = false
-         newState.contentState = {}
+      console.log('reset content State');
+      newState.contentState = {}
 			return newState
 		case types.ROUTER_SET_ROUTES:
 			var newState = Object.assign({}, state)
@@ -37,7 +38,7 @@ export default function router(state = initialState, action) {
 			return newState
 		case types.ROUTER_SET_CONTENT_STATE:
 			var newState = Object.assign({}, state)
-			newState.contentState[action.key] = action.state
+			newState.contentState[action.key] = Object.assign({}, action.state);
 			return newState
 		default:
 			return state

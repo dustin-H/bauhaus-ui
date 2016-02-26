@@ -48,6 +48,10 @@ module.exports = function() {
 				name: 'Posts',
 				pathname: '/posts',
 				imageUrl: 'media/icons/channels.svg'
+			},{
+				name: 'Post',
+				pathname: '/post',
+				imageUrl: 'media/icons/news.svg'
 			}, {
 				name: 'Menu',
 				pathname: '/menu'
@@ -65,6 +69,10 @@ module.exports = function() {
 				menu: {
 					endpoint: '/api/views/menu',
 					route: '/menu'
+				},
+				post: {
+					endpoint: '/api/views/post',
+					route: '/post'
 				}
 			}
 		})
@@ -78,7 +86,7 @@ module.exports = function() {
 			content: {
 				name: 'JsonForm',
 				props: {
-					url: '/api/formdata',
+					url: '/api/formdata/posts',
 					title: 'Mein schönes Testformular'
 				},
 				components: [{
@@ -258,9 +266,64 @@ module.exports = function() {
 							props: {
 								path: 'hallo.welt.number'
 							}
+						}, {
+							name: 'Validator',
+							props: {
+								path: 'hallo.welt.number',
+								required: true,
+								regex: '[0-9]|[1-9][0-9]',
+								failMessage: 'This needs to be between 0 and 99!'
+							}
 						}]
 					}]
 				}]
+			}
+		});
+	});
+
+	app.get('/views/post', function(req, res) {
+		res.json({
+			content: {
+        name: 'JsonForm',
+				props: {
+					url: '/api/formdata/post',
+					title: 'Edit Post:'
+				},
+        components: [{
+          name: 'Label',
+          props: {
+            text: 'Title'
+          },
+          components: [{
+            name: 'InputText',
+            props: {
+              path: 'title'
+            }
+          }, {
+            name: 'Validator',
+            props: {
+              path: 'title',
+              required: true
+            }
+          }]
+        },{
+          name: 'Label',
+          props: {
+            text: 'Content'
+          },
+          components: [{
+            name: 'InputScribe',
+            props: {
+              path: 'post'
+            }
+          }, {
+            name: 'Validator',
+            props: {
+              path: 'post',
+              required: true
+            }
+          }]
+        }]
 			}
 		});
 	});
@@ -337,10 +400,15 @@ module.exports = function() {
 		}
 	};
 
-	app.get('/formdata', function(req, res) {
-		if(myData != null) {
+  var theData = {};
+
+	app.get('/formdata/:id', function(req, res) {
+		if(theData[req.params.id] !== false) {
+      if(theData[req.params.id] == null){
+        theData[req.params.id] = {};
+      }
 			res.json({
-				jsondata: myData
+				jsondata: theData[req.params.id]
 			});
 		}
 		else {
@@ -349,13 +417,13 @@ module.exports = function() {
 		}
 	});
 
-	app.put('/formdata', jsonParser, function(req, res) {
-		myData = req.body;
+	app.put('/formdata/:id', jsonParser, function(req, res) {
+		theData[req.params.id] = req.body;
 		res.send();
 	});
 
-	app.delete('/formdata', function(req, res) {
-		myData = null;
+	app.delete('/formdata/:id', function(req, res) {
+		theData[req.params.id] = false;
 		res.send();
 	});
 

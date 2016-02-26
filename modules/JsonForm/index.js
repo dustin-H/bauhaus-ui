@@ -11,6 +11,7 @@ var validators = {}
 class JsonForm extends Component {
   constructor(props) {
     super(props)
+    console.log('NEW JSONFORM');
     this.saveData = this
       .saveData
       .bind(this)
@@ -182,6 +183,8 @@ class JsonForm extends Component {
         <div className={ styles.validationError }>
           <br/>
           { $('$core.commons.errors.validation') }
+          <br/>
+          <div>{JSON.stringify(bauhaus._state.validationData)}</div>
         </div>
       )
     }

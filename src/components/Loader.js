@@ -12,6 +12,7 @@ var bauhausIdCounter = 0
 class Loader extends Component {
 
    componentWillMount(){
+      console.warn('new', this.props.bauhaus.name, bauhausIdCounter);
       this._bauhausId = 'b_'+bauhausIdCounter
       bauhausIdCounter++
    }
@@ -21,7 +22,7 @@ class Loader extends Component {
 			bauhaus
 		} = this.props
 		return function(newState) {
-			bauhaus._actions.router.setContentState(key, newState)
+			bauhaus._actions.router.setContentState(key, JSON.parse(JSON.stringify(newState)))
 		}
 	}
 
@@ -38,7 +39,7 @@ class Loader extends Component {
 			bauhaus
 		} = this.props
 		var props = Object.assign({}, this.props)
-		props.bauhaus._state = props.bauhaus._contentState[this._bauhausId] ||  {}
+		props.bauhaus._state = Object.assign({}, props.bauhaus._contentState[this._bauhausId] || {})
 		props.bauhaus._setState = this.createSetStateAction(this._bauhausId)
 		if(props.bauhaus.components != null && typeof props.bauhaus.components === 'object' && props.bauhaus.components.length > 0) {
 			var childrenGenerators = []

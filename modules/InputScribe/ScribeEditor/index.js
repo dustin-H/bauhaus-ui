@@ -64,13 +64,11 @@ class ScribeEditor extends Component {
   componentWillReceiveProps(newProps) {
     if (newProps.value !== this.props.value && this.updatedValue !== newProps.value) {
       this.newValue = newProps.value
-      console.warn('Set Content');
       this.scribe.setContent(newProps.value)
     }
   }
   shouldComponentUpdate(newProps) {
     if (newProps.value !== this.props.value && this.updatedValue !== newProps.value) {
-      console.warn('Updating!');
       return true
     }
     return false
