@@ -2,15 +2,20 @@ var webpack = require('webpack')
 var fs = require('fs')
 
 var productionPlugin = new webpack.DefinePlugin({
-    'process.env.NODE_ENV': '"'+process.env.NODE_ENV+'"'
+  'process.env.NODE_ENV': '"' + process.env.NODE_ENV + '"'
 })
 
-var modulesPath = 'modules'
+var modulesPath = __dirname + '/modules'
+var moduleCreatorsPath = __dirname + '/.moduleCreators'
 
-var modules = fs.readdirSync(__dirname + '/' + modulesPath)
+var modules = fs.readdirSync(modulesPath)
 if (modules.indexOf('.DS_Store') >= 0) {
   modules.splice(modules.indexOf('.DS_Store'), 1)
 }
+
+try {
+  fs.mkdirSync(moduleCreatorsPath)
+} catch ( e ) {}
 
 var config = [{
   name: 'bauhaus-ui',
@@ -38,11 +43,17 @@ var config = [{
 
 for (var i in modules) {
   var name = modules[i]
+  var modulePath = modulesPath + '/' + name + '/index.js'
+  //var reqModulePath = modulesPath + '/' + modulePath + '/index.js'
+  var creatorPath = moduleCreatorsPath + '/' + name + '.js'
+  var src = '__GLOBAL__.exportDefault = require("' + modulePath + '")'
+  fs.writeFileSync(creatorPath, src)
+
   config.push({
     name: 'bauhaus-ui-' + name,
     plugins: [productionPlugin],
     context: __dirname + '/',
-    entry: __dirname + '/' + modulesPath + '/' + name + '/index.js',
+    entry: creatorPath,
     output: {
       filename: name + '.js',
       path: __dirname + '/public/modules/'

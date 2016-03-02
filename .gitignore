@@ -32,3 +32,4 @@ build/*
 src/coreModules.js
 public/modules/*
 public/bundle.js
+.moduleCreators
