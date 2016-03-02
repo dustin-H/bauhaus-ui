@@ -57,4 +57,4 @@ class SimpleLinkList extends Component {
 import styleSheet from './style.js'
 var styles = StyleSheet.create(styleSheet)
 
-__GLOBAL__.exportDefault = Look(SimpleLinkList)
+export default Look(SimpleLinkList)

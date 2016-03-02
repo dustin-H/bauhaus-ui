@@ -43,4 +43,4 @@ StyleSheet.addCSS({
   }
 }, '.' + styles.textInput)
 
-__GLOBAL__.exportDefault = Look(InputScribe)
+export default Look(InputScribe)

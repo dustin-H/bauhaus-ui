@@ -50,4 +50,4 @@ class InputNumber extends Component {
 import styleSheet from './style.js'
 var styles = StyleSheet.create(styleSheet)
 
-__GLOBAL__.exportDefault = Look(InputNumber)
+export default Look(InputNumber)

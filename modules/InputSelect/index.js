@@ -46,4 +46,4 @@ class InputSelect extends Component {
 import styleSheet from './style.js'
 var styles = StyleSheet.create(styleSheet)
 
-__GLOBAL__.exportDefault = Look(InputSelect)
+export default Look(InputSelect)

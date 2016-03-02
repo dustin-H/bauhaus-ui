@@ -50,4 +50,4 @@ class InputText extends Component {
 import styleSheet from './style.js'
 var styles = StyleSheet.create(styleSheet)
 
-__GLOBAL__.exportDefault = Look(InputText)
+export default Look(InputText)

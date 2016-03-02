@@ -50,4 +50,4 @@ class InputTime extends Component {
 import styleSheet from './style.js'
 var styles = StyleSheet.create(styleSheet)
 
-__GLOBAL__.exportDefault = Look(InputTime)
+export default Look(InputTime)

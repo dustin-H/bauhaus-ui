@@ -45,4 +45,4 @@ class Section extends Component {
 import styleSheet from './style.js'
 var styles = StyleSheet.create(styleSheet)
 
-__GLOBAL__.exportDefault = Look(Section)
+export default Look(Section)
