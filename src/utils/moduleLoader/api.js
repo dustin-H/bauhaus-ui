@@ -1,5 +1,5 @@
 
-import {pushLocation} from '../../actions/router.js'
+import { pushLocation } from '../../actions/router.js'
 import store from '../../store/store.js'
 
 __GLOBAL__.npm = {
@@ -13,7 +13,7 @@ __GLOBAL__.npm = {
 __GLOBAL__.bauhaus = {
   superagentPlugin: require('../helpers/superagentPlugin.js'),
   $: require('../i18n/index.js').$,
-  pushLocation: function(location){
+  pushLocation: function(location) {
     store.dispatch(pushLocation(location))
   }
 }
