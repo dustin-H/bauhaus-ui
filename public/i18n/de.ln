@@ -14,3 +14,5 @@
 {"id": "core.commons.delete", "text": "Löschen"}
 {"id": "core.commons.errors.validation", "text": "Validierung fehlgeschlagen!"}
 {"id": "core.commons.errors.required", "text": "Erforderlich!"}
+{"id": "core.commons.date", "text": "Datum"}
+{"id": "core.commons.time", "text": "Zeit"}
