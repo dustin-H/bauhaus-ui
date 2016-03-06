@@ -28,6 +28,7 @@ var config = [{
   },
   externals: [{
     'inline-style-linter': 'true'
+    //'inline-style-prefixer': 'true'
   }],
   module: {
     loaders: [{
@@ -60,11 +61,15 @@ for (var i in modules) {
     },
     resolve: {
       alias: {
-        react: 'bauhaus-ui-module-utils/npm/react',
-        'react-dom': 'bauhaus-ui-module-utils/npm/react-dom',
-        'react-look': 'bauhaus-ui-module-utils/npm/react-look',
-        superagent: 'bauhaus-ui-module-utils/npm/superagent',
-        lodash: 'bauhaus-ui-module-utils/npm/lodash'
+        react$: 'bauhaus-ui-module-utils/npm/react',
+        'react/lib/ReactTransitionGroup': 'bauhaus-ui-module-utils/npm/react-lib-ReactTransitionGroup',
+        'react/lib/update': 'bauhaus-ui-module-utils/npm/react-lib-update',
+        'react/lib/ReactComponentWithPureRenderMixin': 'bauhaus-ui-module-utils/npm/react-lib-ReactComponentWithPureRenderMixin',
+        'react/lib/ReactFragment': 'bauhaus-ui-module-utils/npm/react-lib-ReactFragment',
+        'react-dom$': 'bauhaus-ui-module-utils/npm/react-dom',
+        'react-look$': 'bauhaus-ui-module-utils/npm/react-look',
+        superagent$: 'bauhaus-ui-module-utils/npm/superagent',
+        lodash$: 'bauhaus-ui-module-utils/npm/lodash'
       }
     },
     module: {
