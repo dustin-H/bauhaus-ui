@@ -1,6 +1,6 @@
 var style = {
   label: {
-    paddingTop: 18,
+    paddingTop: 10,
     paddingBottom: 3,
     fontSize: 16,
     fontWeight: 500

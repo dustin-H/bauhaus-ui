@@ -15,7 +15,8 @@ var style = {
     ':focus': {
       border: '1px solid #20C753', // F96331 6E00FF
       color: '#000000'
-    }
+    },
+    marginBottom: 10
   },
   inputError: {
     color: '#ff0000',
