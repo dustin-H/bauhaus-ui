@@ -1,3 +1,5 @@
+import { StyleSheet } from 'react-look'
+
 var style = {
   textInput: {
     padding: '8px',
@@ -10,6 +12,7 @@ var style = {
     outline: 'none',
     color: '#4E4E4E',
     fontSize: 14,
+    minHeight: 37,
     width: '100%',
     ':focus': {
       border: '1px solid #20C753', // F96331 6E00FF
@@ -25,6 +28,26 @@ var style = {
       color: '#ff0000',
       backgroundColor: 'transparent'
     }
+  },
+  box: {
+    display: 'flex',
+    flexWrap: 'nowrap',
+    justifyContent: 'space-between',
+    marginBottom: 10
+  },
+  innerBox: {
+    display: 'flex',
+    flex: 2,
+    maxHeight: 37
+  },
+  spaceBox: {
+    display: 'flex',
+    width: 10
+  },
+  labelBox: {
+    display: 'flex',
+    width: 60,
+    paddingTop: 7
   }
 }
-export default style
+export default StyleSheet.create(style)
