@@ -1,6 +1,21 @@
 import * as types from '../constants/ActionTypes.js'
 import * as pageTypes from '../constants/PageTypes.js'
 
+function parseSecond(val) {
+    var result = false
+    var tmp = []
+    var items = location.search.substr(1).split("&")
+    for (var index = 0; index < items.length; index++) {
+        tmp = items[index].split("=")
+        if (tmp[0] === val) result = decodeURIComponent(tmp[1]);
+    }
+    return result
+}
+
+
+var val = parseSecond('singlePageView')
+var singlePageView = val === 'true' || val === '1' || val === true
+
 const initialState = {
 	page: 'LOADING',
 	loaded: false,
@@ -10,6 +25,7 @@ const initialState = {
       views: false
    },
 	config: ['config.json'],
+  singlePageView: singlePageView,
 	endpoints: {
 		/*entry: {
 			url: '/api'

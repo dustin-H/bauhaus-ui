@@ -7,7 +7,7 @@ var style = {
     position: 'absolute',
     // left: sideBarSize + 'px',
     left: (props, state, context) => {
-      if (props.state.sideBar.show === true) {
+      if (props.state.sideBar.show === true && props.state.config.singlePageView !== true) {
         if (props.state.responsive.device.tablet === true) {
           return props.state.sideBar.smallSize
         }

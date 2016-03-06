@@ -27,7 +27,13 @@ var style = {
     userSelect: 'none',
     fontSize: '10px',
     transition: 'all 0.2s',
-    transform: 'translate3d(0,0,0)'
+    transform: 'translate3d(0,0,0)',
+    display: (props) => {
+      if(props.state.config.singlePageView === true){
+        return 'none'
+      }
+      return 'initial'
+    }
   },
   headerLeft: {
     position: 'absolute',

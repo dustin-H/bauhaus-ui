@@ -22,10 +22,18 @@ class Content extends Component {
     return (
       <div className={ styles.contentWrapper }>
         <div className={ styles.content }>
-          <Router state={ state } actions={ actions }></Router>
+          <div className={ styles.contentCenter }>
+            <div className={ styles.stretcher }>
+              <div className={ styles.stretcherInside }></div>
+              <div className={ styles.stretcherInside }></div>
+              <div className={ styles.stretcherInside }></div>
+              <div className={ styles.stretcherInside }></div>
+            </div>
+            <Router state={ state } actions={ actions }></Router>
+          </div>
         </div>
       </div>
-      )
+    )
   }
 }
 

@@ -36,7 +36,13 @@ var style = {
     // backgroundAttachment: 'fixed',
     backgroundColor: '#206917',
     zIndex: 10,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    display: (props) => {
+      if(props.state.config.singlePageView === true){
+        return 'none'
+      }
+      return 'initial'
+    }
   },
   sideBarAppName: {
     height: '50px',

@@ -1,8 +1,5 @@
 
-import registerModules from './core/registerModules.js'
-import registerI18nPackages from './core/registerI18nPackages.js'
-registerModules()
-registerI18nPackages()
+import core from './core'
 
 import React from 'react'
 import { render } from 'react-dom'
