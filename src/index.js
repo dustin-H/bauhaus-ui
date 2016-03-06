@@ -10,10 +10,16 @@ import App from './containers/App.js'
 import thestore from './store/store.js'
 const store = thestore
 
-
-
 import { LookRoot, Presets } from 'react-look'
 // const customConfig = Presets['react-dom']
+
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+// Needed for onTouchTap
+// Can go away when react 1.0 release
+// Check this repo:
+// https://github.com/zilverline/react-tap-event-plugin
+injectTapEventPlugin();
 
 render(
   <LookRoot config={Presets['react-dom']}>
