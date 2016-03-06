@@ -3,6 +3,7 @@ import superagent from 'superagent'
 import superagentPlugin from '../utils/helpers/superagentPlugin.js'
 
 import { checkLogin } from './auth.js'
+import { changeWidth } from './responsive.js'
 
 export function addUrls(configUrls) {
   return {
@@ -69,6 +70,7 @@ export function load() {
           dispatch(load())
         })
     } else {
+      dispatch(changeWidth(window.innerWidth))
       dispatch(loaded())
       dispatch(checkLogin())
     }

@@ -5,7 +5,7 @@ window.onresize = function(e) {
   store.dispatch(changeWidth(window.innerWidth))
 }
 
-function changeWidth(width) {
+export function changeWidth(width) {
   return {
     type: types.RESPONSIVE_CHANGE_WIDTH,
     width
