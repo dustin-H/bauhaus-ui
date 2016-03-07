@@ -35,7 +35,7 @@ var style = {
     paddingRight: 16,
     border: '1px solid #F1BD00',
     position: 'relative',
-    marginBottom: 8
+    marginBottom: 10
   }
 }
 export default style
