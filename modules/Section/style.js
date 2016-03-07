@@ -17,12 +17,12 @@ var style = {
     height: 30
   },
   content: {
-    overflow: 'hidden',
-    maxHeight: (props) => {
+    //overflow: 'hidden',
+    display: (props) => {
       if (props.bauhaus._state.folded === true) {
-        return 0
+        return 'none'
       }
-      return false
+      return 'initial'
     }
   }
 /*
