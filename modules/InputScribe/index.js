@@ -15,18 +15,14 @@ class InputScribe extends Component {
   render() {
     const {bauhaus, get, set, isValid} = this.props
     var valid = isValid(bauhaus.props.path)
-    var inputStyle = [styles.textInput]
-    if (valid !== true) {
-      inputStyle.push(styles.inputError)
-    }
     var value = get(bauhaus.props.path)
     if (value == undefined) {
       value = ''
     }
     return (
-      <ScribeEditor className={ c(...inputStyle) } type="text" value={ value } onChange={ this
-                                                                                      .handleChange
-                                                                                      .bind(this) }></ScribeEditor>
+      <ScribeEditor valid={ valid } type="text" value={ value } onChange={ this
+                                                                       .handleChange
+                                                                       .bind(this) }></ScribeEditor>
     )
   }
 }

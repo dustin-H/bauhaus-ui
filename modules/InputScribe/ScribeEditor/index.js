@@ -71,12 +71,17 @@ class ScribeEditor extends Component {
     }
   }
   shouldComponentUpdate(newProps) {
-    if (newProps.value !== this.props.value && this.updatedValue !== newProps.value) {
+    if ((newProps.value !== this.props.value && this.updatedValue !== newProps.value) || this.props.valid !== newProps.valid) {
       return true
     }
     return false
   }
   render() {
+    const {valid} = this.props
+    var inputStyle = [styles.textInput]
+    if (valid !== true) {
+      inputStyle.push(styles.inputError)
+    }
     return (
       <div className={ styles.wrapper }>
         <div className={ c(componentScope) } ref={ this
@@ -137,9 +142,9 @@ class ScribeEditor extends Component {
             <icons.html className={ styles.icon } />
           </button>
         </div>
-        <div className={ this.props.className } ref={ this
-                                                        .setRef('main')
-                                                        .bind(this) }></div>
+        <div className={ c(...inputStyle) } ref={ this
+                                                    .setRef('main')
+                                                    .bind(this) }></div>
       </div>
     )
   }
