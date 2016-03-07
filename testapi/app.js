@@ -234,35 +234,29 @@ module.exports = function() {
           components: [{
             name: 'Label',
             props: {
-              text: 'Scribe Input 1'
+              text: 'Scribe Input'
             },
             components: [{
               name: 'InputScribe',
               props: {
-                path: 'hallo.welt.test2'
+                path: 'hallo.welt.scribe'
               }
             }, {
               name: 'Validator',
               props: {
-                path: 'hallo.welt.test2',
+                path: 'hallo.welt.scribe',
                 required: true
               }
             }]
           }, {
             name: 'Label',
             props: {
-              text: 'Scribe Input 2'
+              text: 'Scribe Input'
             },
             components: [{
-              name: 'InputScribe',
+              name: 'InputTextarea',
               props: {
-                path: 'hallo.welt.test3'
-              }
-            }, {
-              name: 'Validator',
-              props: {
-                path: 'hallo.welt.test3',
-                required: true
+                path: 'hallo.welt.scribe'
               }
             }]
           }, {
