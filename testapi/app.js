@@ -182,6 +182,17 @@ module.exports = function() {
               text: 'Dein Vorname:'
             },
             components: [{
+              name: 'InputSelect',
+              props: {
+                path: 'hallo.welt.selectMulti',
+                multiple: true,
+                options: {
+                  a: 'A Auswahl',
+                  b: 'B Auswahl',
+                  c: 'C Auswahl'
+                }
+              }
+            }, {
               name: 'InputPassword',
               props: {
                 path: 'hallo.welt.nix'
