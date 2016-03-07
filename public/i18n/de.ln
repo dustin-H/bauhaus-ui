@@ -16,3 +16,5 @@
 {"id": "core.commons.errors.required", "text": "Erforderlich!"}
 {"id": "core.commons.date", "text": "Datum"}
 {"id": "core.commons.time", "text": "Zeit"}
+{"id": "core.commons.add", "text": "Hinzufügen"}
+{"id": "core.commons.pleaseselect", "text": "Bitte auswählen!"}
