@@ -178,8 +178,7 @@ class JsonForm extends Component {
     var validationError = ''
     if (bauhaus._state.valid !== true) {
       validationError = (
-        <div className={ styles.validationError }>
-          <br/>
+        <div className={ styles.errorBox }>
           { $('$core.commons.errors.validation') }
         </div>
       )

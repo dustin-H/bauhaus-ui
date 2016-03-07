@@ -78,7 +78,7 @@ class ScribeEditor extends Component {
   }
   render() {
     return (
-      <div>
+      <div className={ styles.wrapper }>
         <div className={ c(componentScope) } ref={ this
                                                      .setRef('toolbar')
                                                      .bind(this) }>

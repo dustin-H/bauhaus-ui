@@ -25,9 +25,7 @@ class Validator extends Component {
     var valid = isValid(bauhaus.props.path)
     if (valid !== true) {
       return (
-        <span><br/>
-          <span className={ styles.error }>{ $(valid) }</span>
-        </span>
+          <div className={ styles.errorBox }>{ $(valid) }</div>
       )
     }
     return (

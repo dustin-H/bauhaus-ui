@@ -29,6 +29,9 @@ var style = {
   buttonText: {
     top: -2,
     position: 'relative'
+  },
+  wrapper: {
+    marginBottom: 10
   }
 }
 export default style
