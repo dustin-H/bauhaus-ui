@@ -63,7 +63,7 @@ module.exports = function() {
         imageUrl: 'media/icons/channels.svg'
       }, {
         name: 'Post',
-        pathname: '/post',
+        pathname: '/post/lol',
         imageUrl: 'media/icons/news.svg'
       }, {
         name: 'Menu',
@@ -85,7 +85,7 @@ module.exports = function() {
         },
         post: {
           endpoint: '/api/views/post',
-          route: '/post'
+          route: '/post/:id'
         }
       }
     })
@@ -332,7 +332,7 @@ module.exports = function() {
       content: {
         name: 'JsonForm',
         props: {
-          url: '/api/formdata/post',
+          url: '/api/formdata/:id',
           title: 'Edit Post:'
         },
         components: [{
@@ -375,6 +375,13 @@ module.exports = function() {
   });
 
   app.get('/views/menu', function(req, res) {
+    var list = [];
+    for (var i in theData) {
+      list.push({
+        name: i,
+        pathname: '/post/' + i
+      })
+    }
     res.json({
       content: {
         name: 'SimpleLinkList',
@@ -394,7 +401,7 @@ module.exports = function() {
               name: 'Es lebe der Keks!',
               pathname: '/menu'
             }
-          ]
+          ].concat(list)
         }
       }
     });
