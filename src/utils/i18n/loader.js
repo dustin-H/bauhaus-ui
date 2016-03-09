@@ -1,7 +1,6 @@
 import superagent from 'superagent'
 import store from '../../store/store.js'
 import { parseLanguage } from '../../actions/i18n.js'
-import { authPlugin } from '../auth/index.js'
 import superagentPlugin from '../helpers/superagentPlugin.js'
 
 var parse = function(data, packurl) {
