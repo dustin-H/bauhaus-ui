@@ -22,3 +22,4 @@ This documentation provides all information you need.
      * [Create custom modules](CreateCustomModule.md)
         * [Superagent Plugin](SuperagentPlugin.md)
         * [Internationalization Function](GetLanguageTextFunction.md)
+ * **2.3 [Single Page View](SinglePageView.md)**
