@@ -14,7 +14,7 @@ You can use [core-modules](docs/coreModules) like the [JSON Form Generator](docs
 **Other Features:**
 - Responsive
 - I18n Support
-- Token- and Cookie-based authorisation
+- Token- and Cookie-based authentication
 - Search
 - Sidebar
 - [Form Generator](docs/coreModules/form/JsonForm.md)
