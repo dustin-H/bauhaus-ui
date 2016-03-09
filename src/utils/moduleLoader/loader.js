@@ -77,6 +77,7 @@ var loadModulesIfNecessary = function(ids, cb) {
     loadModuleIfNecessary(id, function(ok) {
       counter--
       if (ok !== true) {
+        console.error('Module', id, 'is missing!');
         check = false
       }
       if (counter < 1) {

@@ -25,7 +25,7 @@ function setData(newData, key) {
           })
         }
       } else {
-        dispatch(showError())
+        dispatch(showError('Modules missing!'))
       }
     })
   }
