@@ -6,8 +6,6 @@ class MaterialUiDate extends Component {
   handleChange(nope, value) {
     const {onChange} = this.props
     onChange(value)
-    //console.log('LLLLL', value)
-    //this.setState({test: value})
   }
   render() {
     const {value, valid, onChange, hint} = this.props

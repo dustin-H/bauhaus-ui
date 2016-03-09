@@ -31,7 +31,6 @@ class InputDateTime extends Component {
   }
   handleTimeChange(value) {
     const {bauhaus, get, set} = this.props
-    console.log('DATE', value)
     try {
       var mom = moment(value)
       set(bauhaus.props.path, mom.toISOString())

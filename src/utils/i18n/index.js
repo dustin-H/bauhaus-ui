@@ -33,7 +33,6 @@ export function $(id) {
 }
 
 export function loadLanguagePacks(packs, cb) {
-  console.log('loadLanguagePacks')
   var k = 0
   for (var i in packs) {
     k++

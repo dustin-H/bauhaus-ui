@@ -12,7 +12,6 @@ const initialState = {
 export default function i18n(state = initialState, action) {
   switch (action.type) {
     case types.I18N_PARSE_LANGUAGE:
-      console.log('LN Redu', action.url)
       var newState = Object.assign({}, state)
       var generals = {
         id: null,
