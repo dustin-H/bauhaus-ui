@@ -1,5 +1,5 @@
 <p align="center"><img src="docs/img/Logo.png" width=260></p>
-<p align="center">Customizable & API-Driven UI Framework based on <a href="https://github.com/facebook/react">React</a></p>
+<p align="center">Extensible & API-Driven UI Framework based on <a href="https://github.com/facebook/react">React</a></p>
 <p align="center"><a href="docs/README.md">Docs</a> - <a href="docs/GetStarted.md">Get Started</a> - <a href="TODO">Example</a></p>
 
 <br/>
@@ -8,7 +8,7 @@
 
 - **API-Driven:**   
 Everything can be controlled by an individual REST-API endpoint. No need to code any client side code!
-- **Extensible and Customizable:**  
+- **Extensible:**  
 You can use [core-modules](docs/coreModules) like the [JSON Form Generator](docs/coreModules/form/JsonForm.md) or create own UI-modules/components.
 
 **Other Features:**
