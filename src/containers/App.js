@@ -15,7 +15,7 @@ import * as responsive from '../actions/responsive.js'
 
 class App extends Component {
   render() {
-    const { state, dispatch } = this.props
+    const {state, dispatch} = this.props
     const actions = {
       auth: bindActionCreators(auth, dispatch),
       config: bindActionCreators(config, dispatch),
@@ -25,10 +25,10 @@ class App extends Component {
       content: bindActionCreators(content, dispatch),
       search: bindActionCreators(search, dispatch),
       responsive: bindActionCreators(responsive, dispatch),
-   }
+    }
 
     return (
-        <Main state={state} actions={actions} />
+      <Main state={ state } actions={ actions } />
     )
   }
 }

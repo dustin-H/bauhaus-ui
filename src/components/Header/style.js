@@ -29,7 +29,7 @@ var style = {
     transition: 'all 0.2s',
     transform: 'translate3d(0,0,0)',
     display: (props) => {
-      if(props.state.config.singlePageView === true){
+      if (props.state.config.singlePageView === true) {
         return 'none'
       }
       return 'initial'

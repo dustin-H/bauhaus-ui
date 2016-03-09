@@ -17,7 +17,6 @@ const rootReducer = combineReducers({
   content,
   search,
   responsive
-  //components
 })
 
 export default rootReducer

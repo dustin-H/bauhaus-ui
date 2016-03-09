@@ -24,7 +24,9 @@ function _compilePattern(pattern) {
   const paramNames = []
   const tokens = []
 
-  let match, lastIndex = 0, matcher = /:([a-zA-Z_$][a-zA-Z0-9_$]*)|\*\*|\*|\(|\)/g
+  let match,
+    lastIndex = 0,
+    matcher = /:([a-zA-Z_$][a-zA-Z0-9_$]*)|\*\*|\*|\(|\)/g
   while ((match = matcher.exec(pattern))) {
     if (match.index !== lastIndex) {
       tokens.push(pattern.slice(lastIndex, match.index))
@@ -83,7 +85,7 @@ function matchPattern(pattern, pathname) {
     pathname = `/${pathname}`
   }
 
-  let { regexpSource, paramNames, tokens } = compilePattern(pattern)
+  let {regexpSource, paramNames, tokens} = compilePattern(pattern)
 
   regexpSource += '/*' // Capture path separators
 
@@ -97,12 +99,12 @@ function matchPattern(pattern, pathname) {
 
   const match = pathname.match(new RegExp('^' + regexpSource + '$', 'i'))
 
-  let remainingPathname, paramValues
+  let remainingPathname,
+    paramValues
   if (match != null) {
     if (captureRemaining) {
       remainingPathname = match.pop()
-      const matchedPath =
-        match[0].substr(0, match[0].length - remainingPathname.length)
+      const matchedPath = match[0].substr(0, match[0].length - remainingPathname.length)
 
       // If we didn't match the entire pathname, then make sure that the match
       // we did get ends at a path separator (potentially the one we added

@@ -23,17 +23,6 @@ class App extends Component {
   }
 }
 
-/*
-<div className={styles.footer}>
-	<div className={styles.footerLanguage}></div>
-</div>
-*/
-
-App.propTypes = {
-  state: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired
-}
-
 import styleSheet from './style.js'
 var styles = StyleSheet.create(styleSheet)
 

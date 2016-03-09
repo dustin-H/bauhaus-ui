@@ -29,16 +29,11 @@ var style = {
     userSelect: 'none',
     transition: 'all 0.2s',
     transform: 'translate3d(0,0,0)',
-    // backgroundColor: '#206917',
-    // background: (props) => {
-    //   return 'linear-gradient(to bottom, #206917 0%, #2B302C 100%)'
-    // },
-    // backgroundAttachment: 'fixed',
     backgroundColor: '#206917',
     zIndex: 10,
     overflow: 'hidden',
     display: (props) => {
-      if(props.state.config.singlePageView === true){
+      if (props.state.config.singlePageView === true) {
         return 'none'
       }
       return 'initial'

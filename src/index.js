@@ -11,7 +11,6 @@ import thestore from './store/store.js'
 const store = thestore
 
 import { LookRoot, Presets } from 'react-look'
-// const customConfig = Presets['react-dom']
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -22,10 +21,10 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 render(
-  <LookRoot config={Presets['react-dom']}>
-      <Provider store={store}>
-         <App />
-      </Provider>
-   </LookRoot>,
+  <LookRoot config={ Presets['react-dom'] }>
+    <Provider store={ store }>
+      <App />
+    </Provider>
+  </LookRoot>,
   document.getElementById('root')
 )

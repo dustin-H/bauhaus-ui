@@ -28,46 +28,41 @@ class Login extends Component {
     )
     if (state.auth.error === true && state.auth.loginLoading === false) {
       errorOutput = (
-        <span className={styles.errorMessage}>{$('$core.auth.login.error')}</span>
+        <span className={ styles.errorMessage }>{ $('$core.auth.login.error') }</span>
       )
     }
     var content = (
-    <form onSubmit={this
-      .onSubmit
-      .bind(this)}>
-				<input type='text' className={styles.input} placeholder={$('$core.auth.login.username')} value={state.auth.login.username} onChange={this.onChange('username').bind(this)}></input>
-            <br/><br/>
-            <input type='password' className={styles.input} value={state.auth.login.password} placeholder={$('$core.auth.login.password')} onChange={this.onChange('password').bind(this)}></input>
-            <br/><br/>
-            <input type='submit' className={styles.button} value={$('$core.auth.login.submit')}></input>
-			</form>
+    <form onSubmit={ this
+                   .onSubmit
+                   .bind(this) }>
+      <input type='text' className={ styles.input } placeholder={ $('$core.auth.login.username') } value={ state.auth.login.username } onChange={ this.onChange('username').bind(this) }></input>
+      <br/>
+      <br/>
+      <input type='password' className={ styles.input } value={ state.auth.login.password } placeholder={ $('$core.auth.login.password') } onChange={ this.onChange('password').bind(this) }></input>
+      <br/>
+      <br/>
+      <input type='submit' className={ styles.button } value={ $('$core.auth.login.submit') }></input>
+    </form>
     )
     if (state.auth.loginLoading === true) {
       content = (
-        <img src='media/loader.gif'/>
+        <img src='media/loader.gif' />
       )
     }
 
     return (
-      <div className={styles.center}>
-         <img src='media/bauhausuilogo.svg'/>
-         <br/><br/><br/><br/>
-         {content}<br/>
-         {errorOutput}
+      <div className={ styles.center }>
+        <img src='media/bauhausuilogo.svg' />
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        { content }
+        <br/>
+        { errorOutput }
       </div>
-      )
+    )
   }
-}
-
-/*
-<div className={styles.footer}>
-	<div className={styles.footerLanguage}></div>
-</div>
-*/
-
-Login.propTypes = {
-  state: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired
 }
 
 import styleSheet from './style.js'

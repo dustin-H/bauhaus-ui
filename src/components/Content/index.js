@@ -1,20 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import look, { StyleSheet } from 'react-look'
-import Loader from '../Loader'
 import Router from '../Router'
-
-const bauhaus = {
-  name: 'SimpleWrapper',
-  components: [
-    {
-      name: 'InputText',
-      props: {
-        defaultValue: '$core.auth.login.username',
-        label: '$core.auth.login.submit'
-      }
-    }
-  ]
-}
 
 class Content extends Component {
   render() {
@@ -35,17 +21,6 @@ class Content extends Component {
       </div>
     )
   }
-}
-
-/*
-<div className={styles.footer}>
-	<div className={styles.footerLanguage}></div>
-</div>
-*/
-
-Content.propTypes = {
-  state: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired
 }
 
 import styleSheet from './style.js'

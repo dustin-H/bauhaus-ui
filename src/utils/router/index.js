@@ -2,7 +2,7 @@
 import routesMatcher from './routesMatcher.js'
 
 let exp = {
-   matchRoutes: routesMatcher
+  matchRoutes: routesMatcher
 }
 
 export default exp

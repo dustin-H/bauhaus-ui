@@ -65,17 +65,12 @@ class SideBar extends Component {
             { $('$core.auth.logout') }
           </div>
           <span className={ styles.name }>{ state.auth.profile.firstname }&nbsp;
-                        						{ state.auth.profile.lastname }</span>
+                                    						{ state.auth.profile.lastname }</span>
           { avatar }
         </div>
       </div>
-      )
+    )
   }
-}
-
-SideBar.propTypes = {
-  state: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired
 }
 
 import styleSheet from './style.js'
