@@ -1,24 +1,36 @@
-# Bauhaus-UI
+<p align="center"><img src="docs/img/Logo.png" width=260></p>
+<p align="center">Customizable & API-Driven UI Framework based on [React](https://github.com/facebook/react)</p>
+<p align="center">[Docs](docs/README.md) - [Get Started](docs/GetStarted.md) - [Example](docs/Example.md)</p>
 
-Bauhaus-UI is an API-driven dynamic Web-UI based on [React.JS](https://github.com/facebook/react) and [Redux](https://github.com/reactjs/redux). It's designed to be used as a backend-UI for REST-API's. You can define your API as you wish and Bauhaus-UI will use it to display data.
-
-![ScreenShot](docs/img/ScreenShot1.png)
+<br/>
 
 ## Features
 
-- **API-driven:** Everything can be controlled by an API endpoint. The most common backend-UI functions are given:
- - **Login:** Login UI is given and posts the login to an endpoint you can define.
- - **Sidebar-Menu:** You can define the menu items in the sidebar.
- - **Search:** The build-in search field will request to your endpoint.
- - **Routes:** You can define routes which will lead to content pages
-- **Modular:** You can use core-modules or create own UI-modules/components.
-- **Responsive:** Supports desktop, tablet and smartphone.
-- **I18N:** Automated language loading and fallbacks.
+- **API-Driven:**   
+Everything can be controlled by an individual REST-API endpoint. No need to code any client side code!
+- **Extensible and Customizable:**  
+You can use [core-modules](docs/coreModules) like the [JSON Form Generator](docs/coreModules/form/JsonForm.md) or create own UI-modules/components.
 
-## Installation
+**Other Features:**
+- Responsive
+- I18n Support
+- Token- and Cookie-based authorisation
+- Search
+- Sidebar
+- [Form Generator](docs/coreModules/form/JsonForm.md)
+  - Input (Text, Number, Password, Rich-Text, Checkbox, Textarea, Select, Date+Time, Files)
+  - Validation
+  - Sections
+  - Hints
+  - Conditional forms
 
-- [Get Started](docs/GetStarted.md)
 
-## Information
+![ScreenShot](docs/img/ScreenShot1.png)
 
-- [Documentation](docs/README.md)
+## Contribute
+We actively welcome pull requests.
+
+## License
+Bauhaus-UI is [MIT](LICENSE) licensed.
+
+Created with ♥ by Dustin Hoffner.
