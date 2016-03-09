@@ -11,7 +11,7 @@ export function $(id) {
   }
   var state = store.getState().i18n
   for (var i in state.languages) {
-    if (state.store[state.languages[i]][id] != null) {
+    if (state.languages[i] != null && state.store[state.languages[i]] != null && state.store[state.languages[i]][id] != null) {
       return state.store[state.languages[i]][id]
     }
   }
