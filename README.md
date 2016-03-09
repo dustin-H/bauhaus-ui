@@ -1,6 +1,6 @@
 <p align="center"><img src="docs/img/Logo.png" width=260></p>
-<p align="center">Customizable & API-Driven UI Framework based on [React](https://github.com/facebook/react)</p>
-<p align="center">[Docs](docs/README.md) - [Get Started](docs/GetStarted.md) - [Example](docs/Example.md)</p>
+<p align="center">Customizable & API-Driven UI Framework based on <a href="https://github.com/facebook/react">React</a></p>
+<p align="center"><a href="docs/README.md">Docs</a> - <a href="docs/GetStarted.md">Get Started</a> - <a href="docs/Example.md">Example</a></p>
 
 <br/>
 
