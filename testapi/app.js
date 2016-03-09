@@ -169,23 +169,23 @@ module.exports = function() {
               text: 'DateInput'
             },
             components: [{
-              name: 'InputDate',
+              name: 'InputDateTime',
               props: {
                 path: 'hallo.welt.date'
               }
             }, {
-              name: 'InputDate',
+              name: 'InputDateTime',
               props: {
                 path: 'hallo.welt.date'
               }
             }, {
-              name: 'InputDate',
+              name: 'InputDateTime',
               props: {
                 path: 'hallo.welt.date',
                 dateOnly: true
               }
             }, {
-              name: 'InputDate',
+              name: 'InputDateTime',
               props: {
                 path: 'hallo.welt.date',
                 timeOnly: true
