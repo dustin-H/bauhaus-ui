@@ -3,6 +3,21 @@ var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
 var fs = require('fs');
 
+var multer = require('multer')
+
+var storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, 'testapi/uploads/')
+  },
+  filename: function(req, file, cb) {
+    cb(null, file.fieldname)
+  }
+})
+
+var upload = multer({
+  storage: storage
+})
+
 module.exports = function() {
   var app = express();
 
@@ -341,14 +356,19 @@ module.exports = function() {
             text: 'Title'
           },
           components: [{
-            name: 'InputText',
+            name: 'InputFiles',
             props: {
-              path: 'title'
+              container: 'testcontainer_:id',
+              filename: 'testfile_${time}',
+              selectMin: 0,
+              selectMax: 12,
+              maxUploads: 10,
+              path: 'files'
             }
           }, {
             name: 'Validator',
             props: {
-              path: 'title',
+              path: 'files',
               required: true
             }
           }]
@@ -478,6 +498,11 @@ module.exports = function() {
     theData[req.params.id] = false;
     res.send();
   });
+
+  app.post('/containers/:container/upload', upload.any(), function(req, res) {
+    console.log('CONTAINER:', req.params.container)
+    res.send('Done!')
+  })
 
   return app;
 }
