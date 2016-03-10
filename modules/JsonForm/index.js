@@ -84,6 +84,7 @@ class JsonForm extends Component {
     superagent
       .get(this.props.bauhaus.props.url)
       .accept('json')
+      .set('Cache-Control', 'no-cache')
       .use(superagentPlugin({auth: true}))
       .end((function(err, res) {
         var state = Object.assign({}, bauhaus._state)
