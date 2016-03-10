@@ -24,3 +24,10 @@ options<br/>(the option value is <a href="../../i18n.md"><img src="../../img/i18
    }
 }
 ```
+
+## I18n: <a href="../../i18n.md"><img src="../../img/i18n.png" height="15"/></a>
+
+id                        | english text
+------------------------- | --------------
+core.commons.pleaseselect | Please select!
+core.commons.add          | Add
