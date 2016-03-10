@@ -7,7 +7,7 @@
 ## Features
 
 - **API-Driven:**   
-Everything can be controlled by an individual REST-API endpoint. No need to code any client side code!
+Everything can be controlled by an individual REST-API endpoint. No need to code anything for the client side!
 - **Extensible:**  
 You can use [core-modules](docs/coreModules) like the [JSON Form Generator](docs/coreModules/form/JsonForm.md) or create own UI-modules/components.
 
@@ -29,6 +29,9 @@ You can use [core-modules](docs/coreModules) like the [JSON Form Generator](docs
 
 ## Contribute
 We actively welcome pull requests.
+
+## Thanks
+- Design from [Invision Now](http://www.invisionapp.com/now)
 
 ## License
 Bauhaus-UI is [MIT](LICENSE) licensed.
