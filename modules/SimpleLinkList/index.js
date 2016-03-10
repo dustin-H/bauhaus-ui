@@ -37,16 +37,18 @@ class SimpleLinkList extends Component {
         <span className={ styles.contentHeadline }>{ $(bauhaus.props.title) }</span>
         <hr className={ styles.contentHr } />
         <br/>
-        <span>Filter: <input className={ styles.textInput } type="text" value={ bauhaus._state.filter } onChange={ this.handleFilterChange } /></span>
+        <span>{ $('$core.commons.filter') }: <input className={ styles.textInput } type="text" value={ bauhaus._state.filter } onChange={ this.handleFilterChange } /></span>
         <br/>
         <br/>
         { _.map(bauhaus.props.list, function(value, key) {
             if (value.name.search(bauhaus._state.filter) >= 0) {
-              return (<div key={ key } className={ styles.listElement } onClick={ this.pushLocation({pathname: value.pathname}) }>
+              return (<div key={ 'elm' + key } className={ styles.listElement } onClick={ this.pushLocation({
+                                                                                pathname: value.pathname
+                                                                              }) }>
                         { $(value.name) }
                       </div>)
             } else {
-              return <span></span>
+              return <span key={ 'nix' }></span>
             }
           }.bind(this)) }
       </div>
