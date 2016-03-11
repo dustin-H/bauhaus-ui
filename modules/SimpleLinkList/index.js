@@ -13,7 +13,7 @@ class SimpleLinkList extends Component {
   }
   handleFilterChange(event) {
     const {bauhaus} = this.props
-    bauhaus._setState({
+    this.setState({
       filter: event.target.value
     })
   }
@@ -25,7 +25,7 @@ class SimpleLinkList extends Component {
   }
   componentWillMount() {
     const {bauhaus} = this.props
-    bauhaus._setState({
+    this.setState({
       filter: ''
     })
   }
@@ -37,11 +37,11 @@ class SimpleLinkList extends Component {
         <span className={ styles.contentHeadline }>{ $(bauhaus.props.title) }</span>
         <hr className={ styles.contentHr } />
         <br/>
-        <span>{ $('$core.commons.filter') }: <input className={ styles.textInput } type="text" value={ bauhaus._state.filter } onChange={ this.handleFilterChange } /></span>
+        <span>{ $('$core.commons.filter') }: <input className={ styles.textInput } type="text" value={ this.state.filter } onChange={ this.handleFilterChange } /></span>
         <br/>
         <br/>
         { _.map(bauhaus.props.list, function(value, key) {
-            if (value.name.search(bauhaus._state.filter) >= 0) {
+            if (value.name.search(this.state.filter) >= 0) {
               return (<div key={ 'elm' + key } className={ styles.listElement } onClick={ this.pushLocation({
                                                                                 pathname: value.pathname
                                                                               }) }>

@@ -12,7 +12,7 @@ class Section extends Component {
   }
   toggleFoldState() {
     const {bauhaus} = this.props
-    bauhaus._setState({folded: !bauhaus._state.folded})
+    this.setState({folded: !this.state.folded})
   }
   componentWillMount() {
     const {bauhaus} = this.props
@@ -20,7 +20,7 @@ class Section extends Component {
     if (bauhaus.props.folded === true) {
       folded = true
     }
-    bauhaus._setState({folded: folded})
+    this.setState({folded: folded})
   }
   render() {
     const {bauhaus} = this.props

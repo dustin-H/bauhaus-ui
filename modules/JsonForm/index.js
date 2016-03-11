@@ -19,14 +19,24 @@ class JsonForm extends Component {
     this.reset = this
       .reset
       .bind(this)
+    this.state = {
+      savedData: {},
+      data: {},
+      validationData: {},
+      loading: false,
+      initialLoaded: false,
+      changed: false,
+      error: false,
+      valid: true
+    }
   }
   getValue(path) {
     const {bauhaus} = this.props
-    return _.get(bauhaus._state.data, path)
+    return _.get(this.state.data, path)
   }
   setValue(path, value) {
     const {bauhaus} = this.props
-    var state = Object.assign({}, bauhaus._state)
+    var state = Object.assign({}, this.state)
     if (state.initialLoaded === true && state.loading === false) {
       var data = state.data
       _.set(data, path, value)
@@ -42,27 +52,27 @@ class JsonForm extends Component {
       }
       state.changed = (JSON.stringify(state.data) !== state.savedData)
     }
-    bauhaus._setState(state)
+    this.setState(state)
   }
   setValidator(path, validator) {
     this.validators[path] = validator
   }
   isValid(path) {
     const {bauhaus} = this.props
-    if (bauhaus._state == null || bauhaus._state.validationData == null || bauhaus._state.validationData[path] == null || bauhaus._state.validationData[path] === true) {
+    if (this.state == null || this.state.validationData == null || this.state.validationData[path] == null || this.state.validationData[path] === true) {
       return true
     }
-    if (bauhaus._state.validationData[path] === false) {
+    if (this.state.validationData[path] === false) {
       return '$core.commons.errors.validation'
     }
-    if (typeof bauhaus._state.validationData[path] === 'string') {
-      return bauhaus._state.validationData[path]
+    if (typeof this.state.validationData[path] === 'string') {
+      return this.state.validationData[path]
     }
     return '$core.commons.errors.validation'
   }
   validateAll() {
     const {bauhaus} = this.props
-    var state = Object.assign({}, bauhaus._state)
+    var state = Object.assign({}, this.state)
     var data = state.data
     state.valid = true
     for (var path in this.validators) {
@@ -73,51 +83,59 @@ class JsonForm extends Component {
         state.valid = false
       }
     }
-    bauhaus._setState(state)
+    this.setState(state)
     return state.valid
   }
   loadData() {
     const {bauhaus} = this.props
-    var state = Object.assign({}, bauhaus._state)
+    var state = Object.assign({}, this.state)
     state.loading = true
-    bauhaus._setState(state)
+    this.setState(state)
     superagent
       .get(this.props.bauhaus.props.url)
       .accept('json')
       .set('Cache-Control', 'no-cache')
-      .use(superagentPlugin({auth: true}))
-      .end((function(err, res) {
-        var state = Object.assign({}, bauhaus._state)
-        if (err != null || res == null || res.body == null || res.body.jsondata == null) {
-          state.error = true
-          return bauhaus._setState(state)
+      .use(superagentPlugin({
+        auth: true,
+        disable: {
+          modules: true,
+          i18n: true
         }
-        state.data = res.body.jsondata
-        state.savedData = JSON.stringify(res.body.jsondata)
+      }))
+      .end((function(err, res) {
+        var state = Object.assign({}, this.state)
+        if (err != null || res == null || res.body == null) {
+          state.error = true
+          return this.setState(state)
+        }
+        state.data = res.body
+        state.savedData = JSON.stringify(res.body)
         state.initialLoaded = true
         state.loading = false
         state.changed = false
         state.valid = true
         state.validationData = {}
-        bauhaus._setState(state)
+        this.setState(state)
       }).bind(this))
   }
   saveData() {
     if (this.validateAll() === true) {
       const {bauhaus} = this.props
-      var state = Object.assign({}, bauhaus._state)
-      bauhaus._state.loading = true
-      bauhaus._setState(bauhaus._state)
+      var state = Object.assign({}, this.state)
+      this.state.loading = true
+      this.setState(this.state)
       superagent
         .put(bauhaus.props.url)
-        .send(bauhaus._state.data)
+        .send(this.state.data)
         .accept('json')
-        .use(superagentPlugin({auth: true}))
+        .use(superagentPlugin({
+          auth: true
+        }))
         .end((function(err, res) {
           if (err != null) {
-            var state = Object.assign({}, bauhaus._state)
-            bauhaus._state.error = true
-            return bauhaus._setState(bauhaus._state)
+            var state = Object.assign({}, this.state)
+            this.state.error = true
+            return this.setState(this.state)
           }
           this.loadData()
         }).bind(this))
@@ -125,34 +143,36 @@ class JsonForm extends Component {
   }
   delete() {
     const {bauhaus} = this.props
-    var state = Object.assign({}, bauhaus._state)
-    bauhaus._state.loading = true
-    bauhaus._setState(bauhaus._state)
+    var state = Object.assign({}, this.state)
+    this.state.loading = true
+    this.setState(this.state)
     superagent
       .delete(bauhaus.props.url)
       .accept('json')
-      .use(superagentPlugin({auth: true}))
+      .use(superagentPlugin({
+        auth: true
+      }))
       .end((function(err, res) {
         if (err != null) {
-          var state = Object.assign({}, bauhaus._state)
-          bauhaus._state.error = true
-          return bauhaus._setState(bauhaus._state)
+          var state = Object.assign({}, this.state)
+          this.state.error = true
+          return this.setState(this.state)
         }
         this.loadData()
       }).bind(this))
   }
   componentWillMount() {
     const {bauhaus} = this.props
-    bauhaus._setState({
+    /*this.setState({
       savedData: {},
       data: {},
       validationData: {},
-      loading: false,
+      loading: true,
       initialLoaded: false,
       changed: false,
       error: false,
       valid: true
-    })
+    })*/
   }
   componentDidMount() {
     this.loadData()
@@ -162,22 +182,22 @@ class JsonForm extends Component {
   }
   render() {
     const {bauhaus} = this.props
-    if (bauhaus._state.error === true) {
+    if (this.state.error === true) {
       return (
         <div className={ styles.center }>
           <br/>
           { $('$core.content.error') }
         </div>
-        )
+      )
     }
-    if (bauhaus._state.loading === true || bauhaus._state.initialLoaded === false) {
+    if (this.state.loading === true || this.state.initialLoaded === false) {
       return (
         <div className={ styles.center }>
           <br/><img src="media/loader.gif" /></div>
-        )
+      )
     }
     var validationError = ''
-    if (bauhaus._state.valid !== true) {
+    if (this.state.valid !== true) {
       validationError = (
         <div className={ styles.errorBox }>
           { $('$core.commons.errors.validation') }
@@ -185,7 +205,7 @@ class JsonForm extends Component {
       )
     }
     var saveColor = styles.gray
-    if (bauhaus._state.changed === true) {
+    if (this.state.changed === true) {
       saveColor = styles.green
     }
     return (

@@ -12,13 +12,13 @@ class Label extends Component {
   }
   toggleInfoState() {
     const {bauhaus} = this.props
-    bauhaus._setState({
-      infoActive: !bauhaus._state.infoActive
+    this.setState({
+      infoActive: !this.state.infoActive
     })
   }
   componentWillMount() {
     const {bauhaus} = this.props
-    bauhaus._setState({infoActive: false})
+    this.setState({infoActive: false})
   }
   render() {
     const {bauhaus} = this.props
@@ -31,7 +31,7 @@ class Label extends Component {
         <span className={ styles.info } onClick={ this.toggleInfoState }>INFO</span>
         </span>
       )
-      if (bauhaus._state.infoActive === true) {
+      if (this.state.infoActive === true) {
         infobox = (
           <div className={ styles.infobox }>
             { $(bauhaus.props.info) }
