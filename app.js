@@ -2,7 +2,7 @@ var express = require('express');
 var testapi = require('./testapi/app.js');
 var bauhausui = require('./index.js');
 var config = require('./config.json');
-var proxy = require('express-http-proxy');
+var proxy = require('http-proxy-middleware');
 
 var app = express();
 
@@ -27,10 +27,10 @@ app.use(bauhausui(config));
   }, 2000);
 })*/
 
-app.use(proxy('localhost:3000', {
-  forwardPath: function(req, res) {
-    return require('url').parse(req.url).path;
-  }
+app.use(proxy('/', {
+  target: 'http://localhost:3000',
+  changeOrigin: false,
+  ws: false,
 }));
 
 var port = 1234;
