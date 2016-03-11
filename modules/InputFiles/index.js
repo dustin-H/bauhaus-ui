@@ -7,6 +7,7 @@ import generateFormData from './generateFormData.js'
 
 import _ from 'lodash'
 import superagent from 'superagent'
+import i18n from './i18n'
 
 import Bin from '../../public/media/extIcons/bin2.svg'
 
@@ -26,7 +27,9 @@ class InputFiles extends Component {
       loading: false,
       error: false,
       files: [],
-      selectedFiles: files
+      selectedFiles: files,
+      progress: 0,
+      showProgress: false
     }
   }
   componentDidMount() {
@@ -148,19 +151,31 @@ class InputFiles extends Component {
       container: options.container
     })
 
-    if(this.state.chosenFiles.length + this.state.files.length > options.maxUploads){
-      return alert('Zu viele Bilder! Maximal erlaubt: '+options.maxUploads)
+    if (this.state.chosenFiles.length + this.state.files.length > options.maxUploads) {
+      return alert($('$core-module.InputFiles.error.toManyFiles') + ' ' + options.maxUploads)
     }
+    this.state.showProgress = true
+    this.setState(this.state)
 
     generateFormData(bauhaus, options, this.state.chosenFiles, function(formData) {
       superagent.post(uploadUrl).send(formData).end(function(err, res) {
+        this.state.showProgress = false
+        this.state.progress = 0
+        this.setState(this.state)
         if (err != null) {
-          alert('Upload fehlgeschlagen!')
+          alert($('$core-module.InputFiles.error.upload'))
         } else {
-          this.loadContainer()
+        this.loadContainer()
         //alert('Upload erfolgreich!')
         }
       }.bind(this))
+        .on('progress', function(e) {
+          this.state.progress = e.percent
+          this.setState(this.state)
+        })
+    }.bind(this), function(progress) {
+      this.state.progress = progress
+      this.setState(this.state)
     }.bind(this))
   }
   getOptions() {
@@ -220,10 +235,10 @@ class InputFiles extends Component {
     const {set, bauhaus} = this.props
 
     if (this.isActive(id) === true) {
-      return alert('Aktive Dateien können nicht gelöscht werden!')
+      return alert($('$core-module.InputFiles.error.active'))
     }
 
-    if (confirm('Sind Sie sicher, dass Sie die Datei "' + name + '" löschen möchten?') !== true) {
+    if (confirm($('$core-module.InputFiles.confirmA') + ' "' + name + '" ' + $('$core-module.InputFiles.confirmB')) !== true) {
       return;
     }
 
@@ -242,7 +257,7 @@ class InputFiles extends Component {
       }))
       .end((function(err, res) {
         if (err != null || res == null) {
-          return alert('Löschen fehlgeschlagen!')
+          return alert($('$core-module.InputFiles.error.delete'))
         }
         this.loadContainer()
       //alert('Erfolgreicht gelöscht!')
@@ -255,13 +270,13 @@ class InputFiles extends Component {
       if (options.selectMax === 0 || options.selectMax > this.state.selectedFiles.length) {
         this.state.selectedFiles.push(id)
       } else {
-        alert('Das Maximium ist erreicht!');
+        alert($('$core-module.InputFiles.error.limit.max'));
       }
     } else {
       if (options.selectMin < this.state.selectedFiles.length) {
         this.state.selectedFiles.splice(i, 1)
       } else {
-        alert('Das Minimum ist erreicht!');
+        alert($('$core-module.InputFiles.error.limit.min'));
       }
     }
     this.setState(this.state)
@@ -273,11 +288,15 @@ class InputFiles extends Component {
     const options = this.state.options
 
     if (this.state.error === true) {
-      return (<div className={ styles.errorBox }>Fehler beim Laden des Datei-Containers!</div>)
+      return (<div className={ styles.errorBox }>
+                { $('$core-module.InputFiles.error.load') }
+              </div>)
     }
 
     if (this.state.loading === true) {
-      return (<div className={ styles.loadingBox }>Container wird geladen...</div>)
+      return (<div className={ styles.loadingBox }>
+                { $('$core-module.InputFiles.load') }
+              </div>)
     }
 
     var valid = isValid(bauhaus.props.path)
@@ -316,7 +335,7 @@ class InputFiles extends Component {
                       <a href={ href } target="_blank" className={ styles.text }>
                         { value.name }
                       </a>
-                      <span className={ styles.checkbox } onClick={ this.toggleActive.bind(this, id) }><input checked={ active } type="checkbox"/></span>
+                      <span className={ styles.checkbox } onClick={ this.toggleActive.bind(this, id) }><input checked={ active } readOnly={ true } type="checkbox"/></span>
                       <span className={ styles.delete } onClick={ this.deleteFile.bind(this, deleteUrl, id, name) }><Bin className={ styles.bin }/></span>
                     </div>)
           }.bind(this)) }
@@ -327,8 +346,11 @@ class InputFiles extends Component {
           <div className={ styles.spaceBox }>
           </div>
           <div className={ styles.buttonBox }>
-            <input className={ styles.button } type="button" value={ $('$core.commons.upload') } onClick={ this.upload } />
+            <input className={ styles.button } type="button" value={ $('$core-module.InputFiles.upload') } onClick={ this.upload } />
           </div>
+        </div>
+        <div className={ styles.progressWrapper }>
+          <div className={ styles.progress } style={ {  width: this.state.progress + '%'} }></div>
         </div>
       </div>
     )

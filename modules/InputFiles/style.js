@@ -146,6 +146,25 @@ var style = {
     color: '#ffffff',
     lineHeight: '50px',
     overflow: 'hidden'
+  },
+  progressWrapper: {
+    width: '100%',
+    height: 10,
+    overflow: 'hidden',
+    display: (props, state) => {
+      if (state.showProgress === true) {
+        return 'block'
+      }
+      return 'none'
+    },
+    backgroundColor: 'rgba(68, 37, 37, 0)',
+    border: '1px solid #20C753',
+    borderRadius: 5
+  },
+  progress: {
+    width: '0%',
+    height: 10,
+    backgroundColor: '#20C753'
   }
 }
 export default style
