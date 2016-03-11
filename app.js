@@ -21,6 +21,12 @@ app.use('/api', testapi())
 
 app.use(bauhausui(config));
 
+/*app.use(function(req, res, next) {
+  setTimeout(function() {
+    next();
+  }, 2000);
+})*/
+
 app.use(proxy('localhost:3000', {
   forwardPath: function(req, res) {
     return require('url').parse(req.url).path;

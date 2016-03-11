@@ -358,10 +358,10 @@ module.exports = function() {
           components: [{
             name: 'InputFiles',
             props: {
-              container: 'testcontainer_:id',
+              container: 'an_other',
               filename: 'testfile_${time}',
-              selectMin: 0,
-              selectMax: 12,
+              selectMin: 1,
+              selectMax: 2,
               maxUploads: 10,
               path: 'files'
             }
@@ -480,9 +480,7 @@ module.exports = function() {
       if (theData[req.params.id] == null) {
         theData[req.params.id] = {};
       }
-      res.json({
-        jsondata: theData[req.params.id]
-      });
+      res.json(theData[req.params.id]);
     } else {
       res.status(404)
         .send();
@@ -499,10 +497,10 @@ module.exports = function() {
     res.send();
   });
 
-  app.post('/containers/:container/upload', upload.any(), function(req, res) {
+  /*app.post('/containers/:container/upload', upload.any(), function(req, res) {
     console.log('CONTAINER:', req.params.container)
     res.send('Done!')
-  })
+  })*/
 
   return app;
 }
