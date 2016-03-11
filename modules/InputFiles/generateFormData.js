@@ -30,8 +30,7 @@ export default function (bauhaus, options, files, cb, progressEvent) {
         end: end,
         time: Date.now() + '-' + k,
         size: files[i].size,
-        lastModified: files[i].lastModified,
-        path: bauhaus.props.path
+        lastModified: files[i].lastModified
       }
 
       name = options.fileprefix + options.filename(templateObject) + '.' + end

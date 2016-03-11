@@ -190,7 +190,6 @@ class InputFiles extends Component {
       maxUploads: 0,
       uploadUrl: '/api/containers/${container}/upload',
       deleteUrl: '/api/containers/${container}/files/${name}',
-      getUrl: '/api/containers/${container}/upload',
       downloadUrl: '/api/containers/${container}/download/${name}',
       fileId: '/api/containers/${container}/download/${name}',
       getFilesInContainer: '/api/containers/${container}/files',
@@ -208,7 +207,6 @@ class InputFiles extends Component {
 
     options.uploadUrl = _.template(options.uploadUrl)
     options.deleteUrl = _.template(options.deleteUrl)
-    options.getUrl = _.template(options.getUrl)
     options.downloadUrl = _.template(options.downloadUrl)
     options.getFilesInContainer = _.template(options.getFilesInContainer)
     options.createContainer = _.template(options.createContainer)
