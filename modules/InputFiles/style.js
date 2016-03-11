@@ -66,6 +66,86 @@ var style = {
       // opacity: 0.6,
       transform: 'scaleX(1.1) scaleY(1.1)'
     }
+  },
+  errorBox: {
+    fontSize: 14,
+    fontWeight: 500,
+    cursor: 'pointer',
+    borderRadius: 5,
+    backgroundColor: 'rgb(255, 59, 0)',
+    padding: 8,
+    paddingLeft: 16,
+    paddingRight: 16,
+    border: '1px solid rgb(255, 59, 0)',
+    position: 'relative',
+    marginBottom: 10,
+    color: '#ffffff'
+  },
+  loadingBox: {
+    fontSize: 14,
+    fontWeight: 500,
+    cursor: 'pointer',
+    borderRadius: 5,
+    backgroundColor: '#20C753',
+    padding: 8,
+    paddingLeft: 16,
+    paddingRight: 16,
+    border: '1px solid #20C753',
+    position: 'relative',
+    marginBottom: 10,
+    color: '#ffffff'
+  },
+  image: {
+    width: 50,
+    height: 50
+  },
+  imageBox: {
+    position: 'relative',
+    padding: 5,
+    border: '1px solid rgb(210, 210, 210)',
+    borderRadius: 5,
+    marginBottom: 10,
+    maxHeight: 50,
+    filter: 'grayscale(100%)',
+    opacity: 0.5
+  },
+  text: {
+    verticalAlign: 'top',
+    marginLeft: 5,
+    fontSize: 13,
+    color: '#6F6F6F'
+  },
+  delete: {
+    fontSize: 13,
+    fill: '#6F6F6F',
+    position: 'absolute',
+    right: 5,
+    bottom: 3,
+    cursor: 'pointer',
+    ':hover': {
+      fill: 'red'
+    }
+  },
+  checkbox: {
+    position: 'absolute',
+    top: 2,
+    right: 5
+  },
+  active: {
+    filter: 'grayscale(0%)',
+    opacity: 1
+  },
+  icon: {
+    width: 50,
+    height: 50,
+    background: '#777',
+    display: 'inline-block',
+    position: 'relative',
+    textAlign: 'center',
+    verticalAlign: 'middle',
+    color: '#ffffff',
+    lineHeight: '50px',
+    overflow: 'hidden'
   }
 }
 export default style
