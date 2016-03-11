@@ -39,7 +39,16 @@ fileId<br/>(default: `'/api/containers/${container}/download/${name}'`)         
 
 ## I18n: <a href="../../i18n.md"><img src="../../img/i18n.png" height="15"/></a>
 
-id                | english text
------------------ | ------------
-core.commons.date | Date
-core.commons.time | Time
+id                                       | english text
+---------------------------------------- | ----------------------------------------
+core-module.InputFiles.error.toManyFiles | To many files! Maximum:
+core-module.InputFiles.error.upload      | Upload failed!
+core-module.InputFiles.error.active      | Active files cannot get deleted!
+core-module.InputFiles.confirmA          | Are you sure you want to delete the file
+core-module.InputFiles.confirmB          | ?
+core-module.InputFiles.error.delete      | Delete failed!
+core-module.InputFiles.error.limit.max   | Maximium files are selected!
+core-module.InputFiles.error.limit.min   | Minimum files are selected!
+core-module.InputFiles.error.load        | Error while loading the file-container!
+core-module.InputFiles.load              | Loading container...
+core-module.InputFiles.upload            | Upload
