@@ -1,6 +1,7 @@
 
 import { pushLocation } from '../../actions/router.js'
 import store from '../../store/store.js'
+import { parseLanguage } from '../../actions/i18n.js'
 
 
 
@@ -24,5 +25,8 @@ __GLOBAL__.bauhaus = {
   $: require('../i18n/index.js').$,
   pushLocation: function(location) {
     store.dispatch(pushLocation(location))
+  },
+  parseLanguage: function(list, identifier) {
+    store.dispatch(parseLanguage(list, identifier))
   }
 }
