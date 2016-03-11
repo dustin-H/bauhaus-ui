@@ -7,6 +7,8 @@
  * [InputPassword](form/InputPassword.md)
  * [InputTextarea](form/InputTextarea.md)
  * [InputScribe](form/InputScribe.md)
+ * [InputDateTime](form/InputDateTime.md)
+ * [InputFiles](form/InputFiles.md)
  * [InputCheckbox](form/InputCheckbox.md)
  * [InputSelect](form/InputSelect.md)
  * [Condition](form/Condition.md)
