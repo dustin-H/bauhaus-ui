@@ -18,8 +18,9 @@ engines:
         enabled: false
   eslint:
     enabled: true
-    config:
-      languages:
-      - javascript
+  fixme:
+    enabled: true
+  csslint:
+    enabled: true
 languages:
   JavaScript: true
