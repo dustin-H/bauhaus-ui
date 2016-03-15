@@ -7,3 +7,11 @@ exclude_paths:
 - app.js
 - webpack.config.js
 - package.json
+engines:
+  eslint:
+    enabled: true
+    checks:
+      no-eq-null:
+        enabled: false
+      eqeqeq:
+        enabled: false
