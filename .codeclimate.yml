@@ -16,5 +16,10 @@ engines:
     checks:
       Similar code:
         enabled: false
+  eslint:
+    enabled: true
+    config:
+      languages:
+      - javascript
 languages:
   JavaScript: true
