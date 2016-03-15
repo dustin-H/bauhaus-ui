@@ -8,3 +8,12 @@ exclude_paths:
 - app.js
 - webpack.config.js
 - package.json
+engines:
+  # ... CONFIG CONTENT ...
+  duplication:
+    enabled: true
+    # ... CONFIG CONTENT ...
+    checks:
+      Similar code:
+        enabled: false
+# ... CONFIG CONTENT ...
