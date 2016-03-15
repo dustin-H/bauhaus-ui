@@ -14,6 +14,7 @@
 		"build": "NODE_ENV=production webpack -p  --progress --colors",
 		"dev": "NODE_ENV=development webpack --progress --colors --watch",
 		"prepublish": "npm run build",
+		"travis": "npm run build",
 		"test": "echo \"Error: no test specified\" && exit 0"
 	},
 	"author": "Dustin Hoffner",
