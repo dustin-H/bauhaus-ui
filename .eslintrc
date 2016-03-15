@@ -1,3 +1,4 @@
 rules:
   eqeqeq: 0
   no-eq-null: 0
+  Similar code: 0
