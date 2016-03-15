@@ -4,7 +4,7 @@ var express = require('express')
 module.exports = function(config){
    var app = express()
 
-   app.use(express.static('./public'))
+   app.use(express.static(__dirname+'/public'))
 
    if(config != null && typeof config === 'object'){
       app.get('/config.json', function(req, res){
