@@ -1,5 +1,4 @@
-languages:
-  JavaScript: true
+
 exclude_paths:
 - testapi/**/*
 - docs/**/*
@@ -17,3 +16,5 @@ engines:
       Similar code:
         enabled: false
 # ... CONFIG CONTENT ...
+languages:
+  JavaScript: true
