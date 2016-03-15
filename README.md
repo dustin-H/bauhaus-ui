@@ -1,6 +1,6 @@
-<p align="center"><img src="docs/img/Logo.png" width=260></p>
+<p align="center"><img src="https://raw.githubusercontent.com/dustin-H/bauhaus-ui/master/docs/img/Logo.png" width=260></p>
 <p align="center">Extensible & API-Driven UI Framework based on <a href="https://github.com/facebook/react">React</a></p>
-<p align="center"><a href="docs/README.md">Docs</a> - <a href="docs/GetStarted.md">Get Started</a> - <a href="TODO">Example</a></p>
+<p align="center"><a href="https://github.com/dustin-H/bauhaus-ui/blob/master/docs/README.md">Docs</a> - <a href="https://github.com/dustin-H/bauhaus-ui/blob/master/docs/GetStarted.md">Get Started</a> - <a href="https://github.com/dustin-H/bauhaus-ui-example">Example</a></p>
 
 <br/>
 
@@ -9,7 +9,7 @@
 - **API-Driven:**   
 Everything can be controlled by an individual REST-API endpoint. No need to code anything for the client side!
 - **Extensible:**  
-You can use [core-modules](docs/coreModules) like the [JSON Form Generator](docs/coreModules/form/JsonForm.md) or create own UI-modules/components.
+You can use [core-modules](https://github.com/dustin-H/bauhaus-ui/blob/master/docs/coreModules) like the [JSON Form Generator](https://github.com/dustin-H/bauhaus-ui/blob/master/docs/coreModules/form/JsonForm.md) or create own UI-modules/components.
 
 **Other Features:**
 - Responsive
@@ -17,7 +17,7 @@ You can use [core-modules](docs/coreModules) like the [JSON Form Generator](docs
 - Token- and Cookie-based authentication
 - Search
 - Sidebar
-- [Form Generator](docs/coreModules/form/JsonForm.md)
+- [Form Generator](https://github.com/dustin-H/bauhaus-ui/blob/master/docs/coreModules/form/JsonForm.md)
   - Input (Text, Number, Password, Rich-Text, Checkbox, Textarea, Select, Date+Time, Files)
   - Validation
   - Sections
@@ -25,7 +25,7 @@ You can use [core-modules](docs/coreModules) like the [JSON Form Generator](docs
   - Conditional forms
 
 
-![ScreenShot](docs/img/ScreenShot1.png)
+![ScreenShot](https://raw.githubusercontent.com/dustin-H/bauhaus-ui/master/docs/img/ScreenShot1.png)
 
 ## Contribute
 We actively welcome pull requests.
@@ -34,6 +34,6 @@ We actively welcome pull requests.
 - Design from [Invision Now](http://www.invisionapp.com/now)
 
 ## License
-Bauhaus-UI is [MIT](LICENSE) licensed.
+Bauhaus-UI is [MIT](https://github.com/dustin-H/bauhaus-ui/blob/master/LICENSE) licensed.
 
 Created with ♥ by Dustin Hoffner.
