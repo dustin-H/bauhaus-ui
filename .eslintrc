@@ -1,4 +1,0 @@
----
-rules:
-  eqeqeq: off
-  no-eq-null: off
