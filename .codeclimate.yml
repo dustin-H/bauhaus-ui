@@ -3,6 +3,7 @@ languages:
 exclude_paths:
 - testapi/**/*
 - docs/**/*
+- modules/**/*
 - es6shim.js
 - app.js
 - webpack.config.js
