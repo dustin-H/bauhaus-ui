@@ -1,0 +1,7 @@
+eslint:
+  enabled: true
+  checks:
+    no-eq-null:
+      enabled: false
+    eqeqeq:
+      enabled: false
