@@ -25,7 +25,7 @@ You can use [core-modules](https://github.com/dustin-H/bauhaus-ui/blob/master/do
   - Conditional forms
 
 
-![ScreenShot](https://raw.githubusercontent.com/dustin-H/bauhaus-ui/master/docs/img/ScreenShot1.png)
+![ScreenShot](https://raw.githubusercontent.com/dustin-H/bauhaus-ui/master/docs/img/ScreenShot2.png)
 
 ## Contribute
 We actively welcome pull requests.
