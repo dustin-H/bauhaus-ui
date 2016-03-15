@@ -7,20 +7,5 @@ exclude_paths:
 - app.js
 - webpack.config.js
 - package.json
-engines:
-  duplication:
-    enabled: true
-    config:
-      languages:
-      - javascript
-    checks:
-      Similar code:
-        enabled: false
-  eslint:
-    enabled: true
-  fixme:
-    enabled: true
-  csslint:
-    enabled: true
 languages:
   JavaScript: true
