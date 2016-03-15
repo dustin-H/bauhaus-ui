@@ -1,14 +1,8 @@
-engines:
-  # ... CONFIG CONTENT ...
-  eslint:
-    enabled: true
-    # ... CONFIG CONTENT ...
-    checks:
-      eqeqeq:
-        enabled: false
-# ... CONFIG CONTENT ...
 languages:
   JavaScript: true
+engines:
+  eslint:
+    enabled: false
 exclude_paths:
 - testapi/**/*
 - docs/**/*
