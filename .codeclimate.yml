@@ -7,7 +7,6 @@ exclude_paths:
 - app.js
 - webpack.config.js
 - package.json
-
 engines:
   # ... CONFIG CONTENT ...
   eslint:
