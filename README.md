@@ -7,6 +7,8 @@
 
 ## Features
 
+[![Join the chat at https://gitter.im/dustin-H/bauhaus-ui](https://badges.gitter.im/dustin-H/bauhaus-ui.svg)](https://gitter.im/dustin-H/bauhaus-ui?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 - **API-Driven:**   
 Everything can be controlled by an individual REST-API endpoint. No need to code anything for the client side!
 - **Extensible:**  
