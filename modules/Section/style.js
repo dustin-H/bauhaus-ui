@@ -18,8 +18,8 @@ var style = {
   },
   content: {
     //overflow: 'hidden',
-    display: (props) => {
-      if (props.bauhaus._state.folded === true) {
+    display: (props, state) => {
+      if (state.folded === true) {
         return 'none'
       }
       return 'initial'
