@@ -1,0 +1,11 @@
+{
+	"searchResults": [{
+		"title": "Posts",
+		"pathname": "/posts",
+		"description": "This is a very nice description of the regarding result! "
+	}, {
+		"title": "Menu",
+		"pathname": "/menu",
+		"description": "This is a very nice description of the regarding result!"
+	}]
+}

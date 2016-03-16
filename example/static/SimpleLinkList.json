@@ -1,0 +1,48 @@
+{
+	"content": {
+		"name": "Label",
+		"props": {
+			"text": "Note: InputFiles is missing because it needs a more backend features."
+		},
+		"components": [{
+			"name": "SimpleLinkList",
+			"props": {
+				"title": "List showing all possible input fields",
+				"list": [{
+					"name": "Input Text",
+					"pathname": "/input/text"
+				}, {
+					"name": "Input Number",
+					"pathname": "/input/number"
+				}, {
+					"name": "Input Password",
+					"pathname": "/input/password"
+				}, {
+					"name": "Input Textarea",
+					"pathname": "/input/textarea"
+				}, {
+					"name": "Input Scribe (WYSIWYG / Rich-Text-Editor)",
+					"pathname": "/input/scribe"
+				}, {
+					"name": "Input Select (and Multiselect)",
+					"pathname": "/input/select"
+				}, {
+					"name": "Input Date + Time",
+					"pathname": "/input/datetime"
+				}, {
+					"name": "Input Checkbox",
+					"pathname": "/input/checkbox"
+				}, {
+					"name": "Validator Example",
+					"pathname": "/input/validator"
+				}, {
+					"name": "Section Example",
+					"pathname": "/input/section"
+				}, {
+					"name": "Condition Example",
+					"pathname": "/input/condition"
+				}]
+			}
+		}]
+	}
+}

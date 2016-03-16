@@ -1,0 +1,22 @@
+{
+	"content": {
+		"name": "JsonForm",
+		"props": {
+			"url": "/json/InputText",
+			"title": "InputText Example"
+		},
+		"components": [{
+			"name": "Label",
+			"props": {
+				"text": "InputText: Type something!",
+        "info": "This is the Label-Info function. It can be used for each label. It is not bound to InputText!"
+			},
+			"components": [{
+				"name": "InputText",
+				"props": {
+					"path": "InputText"
+				}
+			}]
+		}]
+	}
+}

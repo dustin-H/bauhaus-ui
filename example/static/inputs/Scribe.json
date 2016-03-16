@@ -1,0 +1,21 @@
+{
+	"content": {
+		"name": "JsonForm",
+		"props": {
+			"url": "/json/InputScribe",
+			"title": "InputScribe Example"
+		},
+		"components": [{
+			"name": "Label",
+			"props": {
+				"text": "InputScribe: Type something!"
+			},
+			"components": [{
+				"name": "InputScribe",
+				"props": {
+					"path": "InputScribe"
+				}
+			}]
+		}]
+	}
+}

@@ -1,0 +1,43 @@
+{
+	"content": {
+		"name": "JsonForm",
+		"props": {
+			"url": "/json/InputSelect",
+			"title": "InputSelect Example"
+		},
+		"components": [{
+			"name": "Label",
+			"props": {
+				"text": "InputSelect: Select something!"
+			},
+			"components": [{
+				"name": "InputSelect",
+				"props": {
+					"path": "InputText",
+					"options": {
+						"a": "Choice A",
+						"b": "Choice B",
+						"c": "Choice C"
+					}
+				}
+			}]
+		}, {
+			"name": "Label",
+			"props": {
+				"text": "InputSelect: Select multiple!"
+			},
+			"components": [{
+				"name": "InputSelect",
+				"props": {
+					"path": "InputTextMultiple",
+					"multiple": true,
+					"options": {
+						"a": "Choice A",
+						"b": "Choice B",
+						"c": "Choice C"
+					}
+				}
+			}]
+		}]
+	}
+}

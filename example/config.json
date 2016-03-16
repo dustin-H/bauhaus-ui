@@ -1,0 +1,16 @@
+{
+	"endpoints": {
+		"routes": {
+			"url": "/static/Routes.json"
+		},
+		"sideBar": {
+			"url": "/static/SideBar.json"
+		},
+		"search": {
+			"url": "/static/Search.json"
+		},
+		"login": {
+			"url": "/api/login"
+		}
+	}
+}

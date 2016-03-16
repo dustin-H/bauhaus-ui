@@ -33,4 +33,4 @@ src/coreModules.js
 public/modules/*
 public/bundle.js
 .moduleCreators
-testapi/uploads
+example/testapi/uploads

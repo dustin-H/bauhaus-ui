@@ -1,0 +1,44 @@
+{
+	"content": {
+		"name": "JsonForm",
+		"props": {
+			"url": "/json/Section",
+			"title": "Section Example"
+		},
+		"components": [{
+			"name": "Section",
+			"props": {
+				"text": "The First Section"
+			},
+			"components": [{
+				"name": "Label",
+				"props": {
+					"text": "Some Textarea"
+				},
+				"components": [{
+					"name": "InputTextarea",
+					"props": {
+						"path": "InputTextarea"
+					}
+				}]
+			}]
+		}, {
+			"name": "Section",
+			"props": {
+				"text": "The Second Section"
+			},
+			"components": [{
+				"name": "Label",
+				"props": {
+					"text": "Some other Textarea"
+				},
+				"components": [{
+					"name": "InputTextarea",
+					"props": {
+						"path": "InputTextarea"
+					}
+				}]
+			}]
+		}]
+	}
+}

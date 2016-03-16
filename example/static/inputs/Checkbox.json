@@ -1,0 +1,21 @@
+{
+	"content": {
+		"name": "JsonForm",
+		"props": {
+			"url": "/json/InputCheckbox",
+			"title": "InputCheckbox Example"
+		},
+		"components": [{
+			"name": "Label",
+			"props": {
+				"text": "InputCheckbox: Select it or not!"
+			},
+			"components": [{
+				"name": "InputCheckbox",
+				"props": {
+					"path": "InputCheckbox"
+				}
+			}]
+		}]
+	}
+}

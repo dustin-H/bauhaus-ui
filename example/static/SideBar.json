@@ -1,0 +1,14 @@
+{
+	"sideBar": [{
+		"name": "Post A",
+		"pathname": "/posts/testA",
+		"imageUrl": "media/icons/channels.svg"
+	}, {
+		"name": "Post B",
+		"pathname": "/posts/testB",
+		"imageUrl": "media/icons/channels.svg"
+	}, {
+		"name": "All functions",
+		"pathname": "/"
+	}]
+}

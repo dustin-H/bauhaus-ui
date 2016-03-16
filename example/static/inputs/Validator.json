@@ -1,0 +1,29 @@
+{
+	"content": {
+		"name": "JsonForm",
+		"props": {
+			"url": "/json/Validator",
+			"title": "Validator Example"
+		},
+		"components": [{
+			"name": "Label",
+			"props": {
+				"text": "Try to save without entering something here!"
+			},
+			"components": [{
+				"name": "InputText",
+				"props": {
+					"path": "Validator"
+				}
+			}, {
+				"name": "Validator",
+				"props": {
+					"path": "Validator",
+					"required": true,
+					"regex": "BAUHAUS-UI",
+					"failMessage": "This needs to include \"BAUHAUS-UI\"!"
+				}
+			}]
+		}]
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"content": {
+		"name": "JsonForm",
+		"props": {
+			"url": "/json/InputNumber",
+			"title": "InputNumber Example"
+		},
+		"components": [{
+			"name": "Label",
+			"props": {
+				"text": "InputNumber: Enter some number!"
+			},
+			"components": [{
+				"name": "InputNumber",
+				"props": {
+					"path": "InputNumber"
+				}
+			}]
+		}]
+	}
+}

@@ -1,0 +1,45 @@
+{
+	"content": {
+		"name": "JsonForm",
+		"props": {
+			"url": "/json/InputDateTime",
+			"title": "InputDateTime Example"
+		},
+		"components": [{
+			"name": "Label",
+			"props": {
+				"text": "InputDateTime: Click to select a date and a time!"
+			},
+			"components": [{
+				"name": "InputDateTime",
+				"props": {
+					"path": "InputDateTime"
+				}
+			}]
+		},{
+			"name": "Label",
+			"props": {
+				"text": "InputDateTime: Click to select a date only!"
+			},
+			"components": [{
+				"name": "InputDateTime",
+				"props": {
+					"path": "InputDateTime_DateOnly",
+          "dateOnly": true
+				}
+			}]
+		},{
+			"name": "Label",
+			"props": {
+				"text": "InputDateTime: Click to select a time only!"
+			},
+			"components": [{
+				"name": "InputDateTime",
+				"props": {
+					"path": "InputDateTime_TimeOnly",
+          "timeOnly": true
+				}
+			}]
+		}]
+	}
+}

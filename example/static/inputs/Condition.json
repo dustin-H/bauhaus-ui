@@ -1,0 +1,55 @@
+{
+	"content": {
+		"name": "JsonForm",
+		"props": {
+			"url": "/json/Condition",
+			"title": "Condition Example"
+		},
+		"components": [{
+			"name": "Label",
+			"props": {
+				"text": "Do you want to see the password?"
+			},
+			"components": [{
+				"name": "InputSelect",
+				"props": {
+					"path": "Condition",
+					"options": {
+						"a": "Yes, show me the password!",
+						"b": "No, hide it!"
+					}
+				}
+			}]
+		}, {
+			"name": "Condition",
+			"props": {
+				"valueA": "a",
+				"pathB": "Condition",
+				"operator": "=="
+			},
+			"components": [{
+				"name": "Label",
+				"props": {
+					"text": "Now the password is shown as InputText (raw text)!"
+				},
+        "components": [{
+  				"name": "InputText",
+  				"props": {
+  					"path": "ConditionPassword"
+  				}
+  			}]
+			}, {
+				"name": "Label",
+				"props": {
+					"text": "The password is shown as InputPassword (not raw)!"
+				},
+        "components": [{
+  				"name": "InputPassword",
+  				"props": {
+  					"path": "ConditionPassword"
+  				}
+  			}]
+			}]
+		}]
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"content": {
+		"name": "JsonForm",
+		"props": {
+			"url": "/json/InputTextarea",
+			"title": "InputTextarea Example"
+		},
+		"components": [{
+			"name": "Label",
+			"props": {
+				"text": "InputTextarea: Type something!"
+			},
+			"components": [{
+				"name": "InputTextarea",
+				"props": {
+					"path": "InputTextarea"
+				}
+			}]
+		}]
+	}
+}
