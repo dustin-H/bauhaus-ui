@@ -41,7 +41,7 @@ class SimpleLinkList extends Component {
         <br/>
         <br/>
         { _.map(bauhaus.props.list, function(value, key) {
-            if (value.name.search(this.state.filter) >= 0) {
+            if (value.name.toLowerCase().search(this.state.filter.toLowerCase()) >= 0) {
               return (<div key={ 'elm' + key } className={ styles.listElement } onClick={ this.pushLocation({
                                                                                 pathname: value.pathname
                                                                               }) }>
