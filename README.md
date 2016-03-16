@@ -27,9 +27,6 @@ You can use [core-modules](https://github.com/dustin-H/bauhaus-ui/blob/master/do
   - Hints
   - Conditional forms
 
-
-![ScreenShot](https://raw.githubusercontent.com/dustin-H/bauhaus-ui/master/docs/img/ScreenShot2.png)
-
 ## Demo
 The <a href="https://github.com/dustin-H/bauhaus-ui-example">Example</a> app is deployed on Heroku.
 
@@ -37,8 +34,10 @@ Username | demo
 -------- | ----
 Password | demo
 
-
 [bauhaus-ui.herokuapp.com](https://bauhaus-ui.herokuapp.com/)
+
+![ScreenShot](https://raw.githubusercontent.com/dustin-H/bauhaus-ui/master/docs/img/ScreenShot2.png)
+
 
 ## Contribute
 We actively welcome pull requests.
