@@ -25,6 +25,7 @@ export default function auth(state = initialState, action) {
     case types.AUTH_LOGIN_SUBMIT:
       var newState = Object.assign({}, state)
       newState.loginLoading = true
+      newState.error = false
       return newState
     case types.AUTH_LOGIN_ONCHANGE:
       if (action.key != null && action.value != null && (action.key === 'username' || action.key === 'password')) {
@@ -36,7 +37,6 @@ export default function auth(state = initialState, action) {
       }
     case types.AUTH_LOGOUT:
       var newState = Object.assign({}, state)
-
       return newState
     case types.AUTH_LOGIN_ERROR:
       var newState = Object.assign({}, state)
