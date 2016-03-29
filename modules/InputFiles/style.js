@@ -97,7 +97,8 @@ var style = {
   },
   image: {
     width: 50,
-    height: 50
+    height: 50,
+    cursor: 'crosshair'
   },
   imageBox: {
     position: 'relative',

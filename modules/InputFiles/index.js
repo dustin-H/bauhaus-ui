@@ -4,6 +4,7 @@ const c = StyleSheet.combineStyles
 import { $ } from 'bauhaus-ui-module-utils'
 import { superagentPlugin } from 'bauhaus-ui-module-utils'
 import generateFormData from './generateFormData.js'
+import bauhausCropper from 'bauhaus-cropper'
 
 import _ from 'lodash'
 import superagent from 'superagent'
@@ -242,6 +243,29 @@ class InputFiles extends Component {
 
     this.deleteFileForce(deleteUrl)
   }
+  cropImage(href, name){
+    const {bauhaus, get, set} = this.props
+    var options = this.state.options
+
+    var uploadUrl = options.uploadUrl({
+      container: options.container
+    })
+
+    /*{
+      width: 1000,
+      height: 300,
+      max: false,
+      circle: false
+    }*/
+    bauhausCropper(href, {}, function(err, dataUrl, blob, data) {
+      if(err){
+        return console.error(err)
+      }
+      //document.getElementById('iii').src = dataUrl
+      //OpenInNewTab(dataUrl)
+      window.open(dataUrl,'_blank');
+    })
+  }
   deleteFileForce(deleteUrl) {
     superagent
       .delete(deleteUrl)
@@ -323,7 +347,7 @@ class InputFiles extends Component {
             if (active === true) {
               boxStyles.push(styles.active)
             }
-            var icon = (<img className={ styles.image } src={ href } />)
+            var icon = (<img className={ styles.image } src={ href } onClick={ this.cropImage.bind(this, href, name) }/>)
             var end = name.split('.').pop().toLowerCase();
             if (['jpg', 'jpeg', 'png', 'gif', 'svg'].indexOf(end) < 0) {
               icon = (<span className={ styles.icon }>{ end.toUpperCase() }</span>)
