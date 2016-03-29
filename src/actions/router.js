@@ -13,6 +13,7 @@ let unlisten = history.listen(location => {
   store.dispatch(locationChanged(location))
 })
 
+
 function locationChanged(location) {
   return (dispatch, getState) => {
     var state = getState()
@@ -29,7 +30,7 @@ function locationChanged(location) {
 export function pushLocation(location) {
   return (dispatch, getState) => {
     history.push(location)
-    //WARNING: DO NEVER DISPATCH AN ACTION HERE!!!!
+    // WARNING: DO NEVER DISPATCH AN ACTION HERE!!!!
     var state = getState()
     if (state.sideBar.show === true && state.responsive.device.smartphone === true) {
       dispatch(toggleShow())
@@ -45,19 +46,11 @@ export function reload(routes) {
 }
 
 export function showError(err, url) {
-  return {
-    type: types.ROUTER_SHOW_ERROR,
-    err,
-    url
-  }
+  return {type: types.ROUTER_SHOW_ERROR, err, url}
 }
 
 export function setContentState(key, state) {
-  return {
-    type: types.ROUTER_SET_CONTENT_STATE,
-    key,
-    state
-  }
+  return {type: types.ROUTER_SET_CONTENT_STATE, key, state}
 }
 
 function setRoutes(routes) {
@@ -65,18 +58,12 @@ function setRoutes(routes) {
     var state = getState()
     var route = matchRoutes(routes, state.router.location)
 
-    dispatch({
-      type: types.ROUTER_SET_ROUTES,
-      routes,
-      route
-    })
+    dispatch({type: types.ROUTER_SET_ROUTES, routes, route})
   }
 }
 
 function setLoading() {
-  return {
-    type: types.ROUTER_SET_LOADING
-  }
+  return {type: types.ROUTER_SET_LOADING}
 }
 
 export function loadRoutes() {
@@ -88,9 +75,7 @@ export function loadRoutes() {
       superagent
         .get(url)
         .accept('json')
-        .use(superagentPlugin({
-          auth: true
-        }))
+        .use(superagentPlugin({auth: true}))
         .end(function(err, res) {
           if (err != null) {
             return dispatch(loadError(err, url))
