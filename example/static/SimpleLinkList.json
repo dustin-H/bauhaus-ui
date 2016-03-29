@@ -41,6 +41,9 @@
 				}, {
 					"name": "Condition Example",
 					"pathname": "/input/condition"
+				}, {
+					"name": "Files Example",
+					"pathname": "/input/files"
 				}]
 			}
 		}]

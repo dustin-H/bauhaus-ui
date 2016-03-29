@@ -48,6 +48,10 @@
 			"endpoint": "/static/inputs/Condition.json",
 			"route": "/input/condition"
 		},
+		"Files": {
+			"endpoint": "/static/inputs/Files.json",
+			"route": "/input/files"
+		},
 		"menu": {
 			"endpoint": "/static/SimpleLinkList.json",
 			"route": "/"
