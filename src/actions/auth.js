@@ -57,7 +57,40 @@ export function checkLogin(err) {
     if (state.auth.token !== '' && state.auth.profile != null && state.auth.profile.firstname !== '' && state.auth.profile.lastname !== '' && state.auth.profile.avatarUrl !== '') {
       dispatch(changePage(pageTypes.APP))
     } else {
-      dispatch(changePage(pageTypes.LOGIN))
+      //dispatch(changePage(pageTypes.LOGIN))
+      superagent
+        .get(state.config.endpoints.login.url)
+        .use(superagentPlugin())
+        .end(function(err, res) {
+          if (err != null) {
+            return dispatch(changePage(pageTypes.LOGIN))
+          }
+          if (res.body.token == null || typeof res.body.token !== 'string') {
+            console.error('Auth token is missing or not a string!')
+            return dispatch(changePage(pageTypes.LOGIN))
+          }
+          if (res.body.profile == null || typeof res.body.profile !== 'object') {
+            console.error('Auth profile is missing or not an object!')
+            return dispatch(changePage(pageTypes.LOGIN))
+          }
+          if (res.body.profile.firstname == null || typeof res.body.profile.firstname !== 'string') {
+            console.error('Auth profile.firstname is missing or not a string!')
+            return dispatch(changePage(pageTypes.LOGIN))
+          }
+          if (res.body.profile.lastname == null || typeof res.body.profile.lastname !== 'string') {
+            console.error('Auth profile.lastname is missing or not a string!')
+            return dispatch(changePage(pageTypes.LOGIN))
+          }
+          if (res.body.profile.avatarUrl == null || typeof res.body.profile.avatarUrl !== 'string') {
+            console.error('Auth profile.avatarUrl is missing or not a string!')
+            return dispatch(changePage(pageTypes.LOGIN))
+          }
+          if (res.body.endpoints) {
+            dispatch(setEndpoints(res.body.endpoints))
+          }
+          dispatch(loginSucceeded(res.body.token, res.body.profile))
+          dispatch(changePage(pageTypes.APP))
+        })
     }
   }
 }
