@@ -28,6 +28,7 @@ class InputFiles extends Component {
       loading: false,
       error: false,
       files: [],
+      changed: {},
       selectedFiles: files,
       progress: 0,
       showProgress: false
@@ -166,7 +167,7 @@ class InputFiles extends Component {
         if (err != null) {
           alert($('$core-module.InputFiles.error.upload'))
         } else {
-        this.loadContainer()
+          this.loadContainer()
         //alert('Upload erfolgreich!')
         }
       }.bind(this))
@@ -243,7 +244,7 @@ class InputFiles extends Component {
 
     this.deleteFileForce(deleteUrl)
   }
-  cropImage(href, name){
+  cropImage(href, name) {
     const {bauhaus, get, set} = this.props
     var options = this.state.options
 
@@ -258,13 +259,34 @@ class InputFiles extends Component {
       circle: false
     }*/
     bauhausCropper(href, {}, function(err, dataUrl, blob, data) {
-      if(err){
+      if (err) {
         return console.error(err)
       }
-      //document.getElementById('iii').src = dataUrl
-      //OpenInNewTab(dataUrl)
-      window.open(dataUrl,'_blank');
-    })
+      var formData = new FormData()
+      formData.append(name, blob, name)
+
+      superagent.post(uploadUrl).send(formData).end(function(err, res) {
+        this.state.showProgress = false
+        this.state.progress = 0
+        if(this.state.changed[name] == null){
+          this.state.changed[name] = 0
+        }
+        this.state.changed[name]++
+        this.setState(this.state)
+        if (err != null) {
+          alert($('$core-module.InputFiles.error.upload'))
+        } else {
+          this.loadContainer()
+        //alert('Upload erfolgreich!')
+        }
+      }.bind(this))
+        .on('progress', function(e) {
+          this.state.progress = e.percent
+          this.setState(this.state)
+        })
+
+    //window.open(dataUrl, '_blank');
+    }.bind(this))
   }
   deleteFileForce(deleteUrl) {
     superagent
@@ -333,6 +355,9 @@ class InputFiles extends Component {
               container: options.container,
               name: value.name
             })
+            if (this.state.changed[value.name]) {
+              href += '?v=' + this.state.changed[value.name]
+            }
             var id = options.fileId({
               container: options.container,
               name: value.name
@@ -347,7 +372,7 @@ class InputFiles extends Component {
             if (active === true) {
               boxStyles.push(styles.active)
             }
-            var icon = (<img className={ styles.image } src={ href } onClick={ this.cropImage.bind(this, href, name) }/>)
+            var icon = (<img className={ styles.image } src={ href } onClick={ this.cropImage.bind(this, href, name) } />)
             var end = name.split('.').pop().toLowerCase();
             if (['jpg', 'jpeg', 'png', 'gif', 'svg'].indexOf(end) < 0) {
               icon = (<span className={ styles.icon }>{ end.toUpperCase() }</span>)
@@ -372,7 +397,7 @@ class InputFiles extends Component {
           </div>
         </div>
         <div className={ styles.progressWrapper }>
-          <div className={ styles.progress } style={ {  width: this.state.progress + '%'} }></div>
+          <div className={ styles.progress } style={ { width: this.state.progress + '%' } }></div>
         </div>
       </div>
     )
