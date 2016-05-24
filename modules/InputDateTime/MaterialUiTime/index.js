@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react'
-import TimePicker from 'material-ui/lib/time-picker/time-picker'
+import TimePicker from 'material-ui/TimePicker'
 import Look, { StyleSheet } from 'react-look'
 
 class MaterialUiTime extends Component {
@@ -8,15 +8,16 @@ class MaterialUiTime extends Component {
     onChange(value)
   }
   componentWillReceiveProps(newProps) {
-    this.refs.picker.setTime(newProps.value)
+    //this.refs.picker.setTime(newProps.value)
   }
   componentDidMount() {
-    this.refs.picker.setTime(this.props.value)
+    //this.refs.picker.setTime(this.props.value)
   }
   render() {
     const {value, valid, onChange, hint} = this.props
+    console.log('3', JSON.stringify(value))
     return (
-      <TimePicker hintText={ hint } ref="picker" onChange={ this.handleChange.bind(this) } underlineShow={ false } fullWidth={ true } style={ {  width: '100%'} }
+      <TimePicker hintText={ hint } ref="picker" value={ value } onChange={ this.handleChange.bind(this) } underlineShow={ false } fullWidth={ true } style={ {  width: '100%'} }
         hintStyle={ {  bottom: '16px',  left: '16px'} } format="24hr" inputStyle={ inputStyles } />
     )
   }

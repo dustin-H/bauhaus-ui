@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react'
-import DatePicker from 'material-ui/lib/date-picker/date-picker'
+import DatePicker from 'material-ui/DatePicker'
 import Look, { StyleSheet } from 'react-look'
 
 class MaterialUiDate extends Component {
@@ -9,8 +9,11 @@ class MaterialUiDate extends Component {
   }
   render() {
     const {value, valid, onChange, hint} = this.props
+    console.log('2', JSON.stringify(value))
+    var theValue = value || 'bla'
+    console.log('2', JSON.stringify(theValue))
     return (
-      <DatePicker hintText={ hint } value={ value } onChange={ this.handleChange.bind(this) } underlineShow={ false } fullWidth={ true }
+      <DatePicker hintText={ hint } value={ theValue } onChange={ this.handleChange.bind(this) } underlineShow={ false } fullWidth={ true }
         style={ {  width: '100%'} } hintStyle={ {  bottom: '16px',  left: '16px'} } inputStyle = {
   inputStyles
 } />

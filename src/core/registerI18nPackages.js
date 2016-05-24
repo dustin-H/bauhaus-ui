@@ -5,11 +5,11 @@ const i18n = {
   core: {
     en: {
       complete: true,
-      url: "/i18n/en.ln"
+      url: "i18n/en.ln"
     },
     de: {
       complete: true,
-      url: "/i18n/de.ln"
+      url: "i18n/de.ln"
     }
   }
 }

@@ -12,7 +12,10 @@ const store = thestore
 
 import { LookRoot, Presets } from 'react-look'
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import injectTapEventPlugin from 'react-tap-event-plugin'
+
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 // Needed for onTouchTap
 // Can go away when react 1.0 release
@@ -21,10 +24,12 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 render(
-  <LookRoot config={ Presets['react-dom'] }>
-    <Provider store={ store }>
-      <App />
-    </Provider>
-  </LookRoot>,
+  <MuiThemeProvider muiTheme={getMuiTheme()}>
+    <LookRoot config={ Presets['react-dom'] }>
+      <Provider store={ store }>
+        <App />
+      </Provider>
+    </LookRoot>
+  </MuiThemeProvider>,
   document.getElementById('root')
 )

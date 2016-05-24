@@ -1,7 +1,7 @@
-import React, { PropTypes, Component } from 'react'
-import Look, { StyleSheet } from 'react-look'
+import React, {PropTypes, Component} from 'react'
+import Look, {StyleSheet} from 'react-look'
 const c = StyleSheet.combineStyles
-import { $, mobile } from 'bauhaus-ui-module-utils'
+import {$, mobile} from 'bauhaus-ui-module-utils'
 import Date from './Date'
 import Time from './Time'
 import styles from './style.js'
@@ -25,7 +25,7 @@ class InputDateTime extends Component {
       old.month(mom.month())
       old.year(mom.year())
       set(bauhaus.props.path, old.toISOString())
-    } catch ( e ) {
+    } catch (e) {
       throw e
     }
   }
@@ -34,7 +34,7 @@ class InputDateTime extends Component {
     try {
       var mom = moment(value)
       set(bauhaus.props.path, mom.toISOString())
-    } catch ( e ) {
+    } catch (e) {
       throw e
     }
   }
@@ -51,39 +51,43 @@ class InputDateTime extends Component {
     if (value != null && value !== '') {
       try {
         value = moment(value).toDate()
-      } catch ( e ) {
+      } catch (e) {
         throw e
       }
     }
-    var compDate = <div className={ styles.innerBox }>
-                     <Date hint={ $('$core.commons.date') } valid={ valid } value={ value } onChange={ this.handleDateChange.bind(this) } />
-                   </div>
-    var compTime = <div className={ styles.innerBox }>
-                     <Time hint={ $('$core.commons.time') } valid={ valid } value={ value } onChange={ this.handleTimeChange.bind(this) } />
-                   </div>
+    console.log('1', JSON.stringify(value))
+    if (value == null) {
+      //value = ''
+    }
+
+    var compDate = <div className={styles.innerBox}>
+      <Date hint={$('$core.commons.date')} valid={valid} value={value} onChange={this.handleDateChange.bind(this)}/>
+    </div>
+    var compTime = <div className={styles.innerBox}>
+      <Time hint={$('$core.commons.time')} valid={valid} value={value} onChange={this.handleTimeChange.bind(this)}/>
+    </div>
 
     if (bauhaus.props.dateOnly === true) {
       return (
-        <div className={ styles.box }>
-          { compDate }
+        <div className={styles.box}>
+          {compDate}
         </div>
       )
     }
 
     if (bauhaus.props.timeOnly === true) {
       return (
-        <div className={ styles.box }>
-          { compTime }
+        <div className={styles.box}>
+          {compTime}
         </div>
       )
     }
 
     return (
-      <div className={ styles.box }>
-        { compDate }
-        <div className={ styles.spaceBox }>
-        </div>
-        { compTime }
+      <div className={styles.box}>
+        {compDate}
+        <div className={styles.spaceBox}></div>
+        {compTime}
       </div>
     )
   }
