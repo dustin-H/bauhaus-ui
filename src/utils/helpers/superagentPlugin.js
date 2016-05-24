@@ -21,12 +21,12 @@ var superagentPlugin = function(config = {}) {
         if (res.type !== 'application/json') {
           return fn(err, res)
         }
-        if (res.body.modules != null && config.disable.modules !== true && typeof res.body.modules === 'object') {
+        if (res.body != null && res.body.modules != null && config.disable.modules !== true && typeof res.body.modules === 'object') {
           for (var i in res.body.modules) {
             defineModuleUrl(i, res.body.modules[i])
           }
         }
-        if (res.body.i18n != null && config.disable.i18n !== true) {
+        if (res.body != null && res.body.i18n != null && config.disable.i18n !== true) {
           loadLanguagePacks(res.body.i18n, function() {
             fn(err, res)
           })

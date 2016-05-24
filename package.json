@@ -1,6 +1,6 @@
 {
   "name": "bauhaus-ui",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Extensible & API-Driven UI Framework based on React",
   "main": "index.js",
   "repository": "dustin-H/bauhaus-ui",
