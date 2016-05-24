@@ -1,0 +1,38 @@
+{
+  "content": {
+    "name": "JsonForm",
+    "props": {
+      "url": "/api/state",
+      "title": "MCR-Status anpassen:"
+    },
+    "components": [{
+      "name": "Label",
+      "props": {
+        "text": "Status-Farbe",
+        "info": "Das ist die Farbe von dem Einkaufswagen"
+      },
+      "components": [{
+        "name": "InputSelect",
+        "props": {
+          "path": "color",
+          "options": {
+            "green": "Grün",
+            "yellow": "Gelb",
+            "red": "Rot"
+          }
+        }
+      }]
+    }, {
+      "name": "Label",
+      "props": {
+        "text": "MCR-Status Text"
+      },
+      "components": [{
+        "name": "InputText",
+        "props": {
+          "path": "text"
+        }
+      }]
+    }]
+  }
+}

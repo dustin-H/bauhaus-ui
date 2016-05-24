@@ -62,7 +62,7 @@ export function checkLogin(err) {
         .get(state.config.endpoints.login.url)
         .use(superagentPlugin())
         .end(function(err, res) {
-          if (err != null) {
+          if (err != null || res.body == null) {
             return dispatch(changePage(pageTypes.LOGIN))
           }
           if (res.body.token == null || typeof res.body.token !== 'string') {
