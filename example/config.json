@@ -12,5 +12,8 @@
 		"login": {
 			"url": "/api/login"
 		}
+	},
+	"customizations": {
+		"appName": "TEST"
 	}
 }

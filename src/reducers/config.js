@@ -28,6 +28,11 @@ const initialState = {
   config: ['config.json'],
   singlePageView: singlePageView,
   endpoints: {
+  },
+  customizations: {
+    appName: 'BAUHAUS UI',
+    title: 'BAUHAUS UI',
+    logo: 'media/logo.svg'
   }
 }
 
@@ -68,6 +73,10 @@ export default function config(state = initialState, action) {
       for (var i in action.endpoints) {
         newState.endpoints[i] = action.endpoints[i]
       }
+      return newState
+    case types.CONFIG_SET_CUSTOMIZATIONS:
+      var newState = Object.assign({}, state)
+      newState.customizations = Object.assign({}, newState.customizations, action.customizations)
       return newState
     default:
       return state

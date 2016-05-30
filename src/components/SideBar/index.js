@@ -40,7 +40,7 @@ class SideBar extends Component {
     var avatar = (<span></span>)
     if (!state.responsive.device.tablet) {
       appName = (<div className={ styles.sideBarAppName }>
-                   Bauhaus UI
+                   {state.config.customizations.appName}
                  </div>)
       avatar = (<div className={ styles.avatar }><img src={ state.auth.profile.avatarUrl } className={ styles.avatarImage } /></div>)
     }

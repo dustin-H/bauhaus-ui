@@ -8,6 +8,7 @@ import Search from '../Search'
 class App extends Component {
   render() {
     const {state, actions} = this.props
+    document.title = state.config.customizations.title 
     return (
       <div>
         <div className={ styles.wrapper }>

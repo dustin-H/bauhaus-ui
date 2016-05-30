@@ -46,6 +46,13 @@ export function setEndpoints(endpoints) {
   }
 }
 
+export function setCustomizations(customizations) {
+  return {
+    type: types.CONFIG_SET_CUSTOMIZATIONS,
+    customizations
+  }
+}
+
 export function load() {
   return (dispatch, getState) => {
     var state = getState().config
@@ -66,6 +73,9 @@ export function load() {
           }
           if (res.body.configUrls) {
             dispatch(addUrls(res.body.configUrls))
+          }
+          if (res.body.customizations) {
+            dispatch(setCustomizations(res.body.customizations))
           }
           dispatch(load())
         })

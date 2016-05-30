@@ -21,8 +21,6 @@ class Login extends Component {
   render() {
     const {state, actions} = this.props
 
-    console.log(JSON.parse(JSON.stringify(state)))
-
     var errorOutput = (
     <span></span>
     )
@@ -52,9 +50,11 @@ class Login extends Component {
 
     return (
       <div className={ styles.center }>
-        <img src='media/bauhausuilogo.svg' />
+        <img src={state.config.customizations.logo} className={styles.logo}/>
         <br/>
         <br/>
+        <br/>
+        <div className={styles.appName}>{state.config.customizations.appName}</div>
         <br/>
         <br/>
         { content }

@@ -51,6 +51,21 @@ var style = {
     color: '#FFA900',
     fontSize: 16,
     fontWeight: 700
+  },
+  appName: {
+    height: '50px',
+    backgroundColor: 'transparent',
+    boxSizing: 'border-box',
+    color: '#ffffff', // 6E00FF
+    textTransform: 'uppercase',
+    padding: '7px',
+    textAlign: 'center',
+    fontSize: '28px',
+    fontWeight: 700,
+    letterSpacing: '2px'
+  },
+  logo: {
+    width: 120
   }
 }
 
