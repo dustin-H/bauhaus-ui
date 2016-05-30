@@ -10,7 +10,7 @@ class Header extends Component {
           <span className={ styles.inlineBlock } onClick={ actions.sideBar.toggleShow }><img src="media/icons/menu_white.svg" className={ styles.imageIcon }/></span>
         </div>
         <div className={ styles.headerCenter }>
-          <span className={ styles.logoWrapper }><img src="media/logo.svg" className={ styles.logo }/></span>
+          <span className={ styles.logoWrapper }><img src={state.config.customizations.logo} className={ styles.logo }/></span>
         </div>
         <div className={ styles.headerRight }>
           <span className={ styles.inlineBlock } onClick={ actions.search.activate }><img src="media/icons/search_white.svg" className={ styles.imageIcon }/></span>
