@@ -26,6 +26,7 @@ class Main extends Component {
   }
   render() {
     const {state, actions} = this.props
+    document.title = state.config.customizations.title 
     var Comp = this.getComponent(state.config.page)
 
     return (
