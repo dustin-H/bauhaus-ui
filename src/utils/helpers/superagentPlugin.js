@@ -1,5 +1,6 @@
 import { loadLanguagePacks } from '../i18n/index.js'
 import { defineModuleUrl } from '../moduleLoader/index.js'
+import { logout } from '../../actions/auth.js'
 
 import store from '../../store/store.js'
 
@@ -16,6 +17,9 @@ var superagentPlugin = function(config = {}) {
       }
       request._end(function(err, res) { // TODO: REFACTOR THIS
         if (err != null) {
+          if(err.status === 401){
+            store.dispatch(logout())
+          }
           return fn(err, res)
         }
         if (res.type !== 'application/json') {
