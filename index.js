@@ -1,16 +1,10 @@
-
 var express = require('express')
 
-module.exports = function(config){
-   var app = express()
+var app = express()
 
-   app.use(express.static(__dirname+'/public'))
+app.use(express.static('./'))
 
-   if(config != null && typeof config === 'object'){
-      app.get('/config.json', function(req, res){
-         res.json(config)
-      })
-   }
-
-   return app
-}
+var PORT = 8080
+app.listen(PORT, () => {
+  console.log('Listening to port ' + PORT + '!')
+})

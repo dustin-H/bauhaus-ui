@@ -1,38 +1,19 @@
-import React, { PropTypes, Component } from 'react'
-import * as pageTypes from '../../constants/PageTypes.js'
+import React, { Component } from 'react'
+import felaStylesConnector from 'fela-styles-connector'
+import style from './styles.js'
+import Header from '../Header'
 
-import App from '../App'
-import Loading from '../Loading'
-import Login from '../Login'
-import Error from '../Error'
+var connect = felaStylesConnector(style)
 
 class Main extends Component {
-  getComponent(page) {
-    switch (page) {
-      case pageTypes.LOADING:
-        return Loading
-      case pageTypes.ERROR:
-        return Error
-      case pageTypes.LOGIN:
-        return Login
-      case pageTypes.APP:
-        return App
-      default:
-        return Error
-    }
-  }
-  componentDidMount() {
-    this.props.actions.config.load()
-  }
   render() {
-    const {state, actions} = this.props
-    document.title = state.config.customizations.title 
-    var Comp = this.getComponent(state.config.page)
-
+    const {state, actions, styles} = this.props
     return (
-      <Comp state={ state } actions={ actions }></Comp>
+      <div>
+        <Header state={state} actions={actions}/>
+      </div>
     )
   }
 }
 
-export default Main
+export default connect(Main)

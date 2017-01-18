@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title>BauhausJS</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="icon" href="media/favicon.png">
+   <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300,900' rel='stylesheet' type='text/css'>
+   <style>
+      #root {
+         font-family: Lato;
+      }
+      .js {
+         font-family: Lato;
+         font-weight: 300;
+         font-size: 30px;
+         width: 100%;
+         text-align: center;
+         padding: 20px;
+         padding-top: 120px;
+         box-sizing: border-box;
+      }
+   </style>
+   <script>
+      var a = 3
+      a += 7
+
+      alertg(a)
+   </script>
+   <style id="stylesheet"></style>
+</head>
+
+<body style="margin: 0; background-color: #F5F5F5;">
+   <div id="root"></div>
+   <noscript>
+      <div class="js">Bitte aktivieren Sie JavaScript um diese Seite betrachten zu können.
+         <br>
+         <br><a href="http://www.enable-javascript.com/de/" target="_blank">Anleitung wie Sie JavaScript in Ihrem Browser einschalten</a>.</div>
+   </noscript>
+   <script src="build/bundle.js?v=2" charset="utf-8"></script>
+</body>
+
+</html>

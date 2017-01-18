@@ -1,27 +1,27 @@
-import React, { PropTypes, Component } from 'react'
-import look, { StyleSheet } from 'react-look'
+import React, { Component } from 'react'
+import felaStylesConnector from 'fela-styles-connector'
+import style from './styles.js'
+
+var connect = felaStylesConnector(style)
 
 class Header extends Component {
   render() {
-    const {state, actions} = this.props
+    const {state, actions, styles} = this.props
     return (
-      <div className={ styles.header }>
-        <div className={ styles.headerLeft }>
-          <span className={ styles.inlineBlock } onClick={ actions.sideBar.toggleShow }><img src="media/icons/menu_white.svg" className={ styles.imageIcon }/></span>
-        </div>
-        <div className={ styles.headerCenter }>
-          <span className={ styles.logoWrapper }><img src={state.config.customizations.logo} className={ styles.logo }/></span>
-        </div>
-        <div className={ styles.headerRight }>
-          <span className={ styles.inlineBlock } onClick={ actions.search.activate }><img src="media/icons/search_white.svg" className={ styles.imageIcon }/></span>
-          <span className={ styles.inlineBlock } onClick={ actions.router.reload }><img src="media/icons/reload_white.svg" className={ styles.imageIcon }/></span>
+      <div className={ styles.box }>
+        <div className={ styles.innerBox }>
+          <div className={ styles.pond }>
+            <div className={ styles.flex }><img className={ styles.logo } src={ '/media/logo.svg' } /></div>
+            <div className={ styles.search }>
+              <input className={ styles.searchInput } type={ 'text' } placeholder={ 'Search' } />
+            </div>
+            <div className={ styles.flex + ' ' + styles.menu }><img className={ styles.menuImage } src={ '/media/menu.svg' } /></div>
+            { /*  <img className={ styles.logo } src={ '/media/logo.svg' } />*/ }
+          </div>
         </div>
       </div>
     )
   }
 }
 
-import styleSheet from './style.js'
-var styles = StyleSheet.create(styleSheet)
-
-export default look(Header)
+export default connect(Header)

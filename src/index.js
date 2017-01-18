@@ -1,35 +1,23 @@
 
-import core from './core'
-
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
+import { Provider as FelaProvider } from 'react-fela'
+import { createRenderer } from 'fela'
 import configureStore from './store/configureStore.js'
 import App from './containers/App.js'
+import felaConfig from './felaConfig'
 
-import thestore from './store/store.js'
-const store = thestore
+const store = configureStore()
 
-import { LookRoot, Presets } from 'react-look'
-
-import injectTapEventPlugin from 'react-tap-event-plugin'
-
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-
-// Needed for onTouchTap
-// Can go away when react 1.0 release
-// Check this repo:
-// https://github.com/zilverline/react-tap-event-plugin
-injectTapEventPlugin();
+const renderer = createRenderer(felaConfig)
+const mountNode = document.getElementById('stylesheet')
 
 render(
-  <MuiThemeProvider muiTheme={getMuiTheme()}>
-    <LookRoot config={ Presets['react-dom'] }>
-      <Provider store={ store }>
-        <App />
-      </Provider>
-    </LookRoot>
-  </MuiThemeProvider>,
+  <Provider store={ store }>
+    <FelaProvider renderer={ renderer } mountNode={ mountNode }>
+      <App />
+    </FelaProvider>
+  </Provider>,
   document.getElementById('root')
 )
