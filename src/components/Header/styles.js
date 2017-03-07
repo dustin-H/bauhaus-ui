@@ -20,17 +20,17 @@ export default {
     display: 'flex',
     height: props.state.theme.HEADER_HEIGHT
   }),
-  logo: {
+  logo: (props) => ({
     position: 'relative',
-    height: 40,
-    top: 16,
+    height: props.state.theme.HEADER_HEIGHT * (2/3),
+    top: props.state.theme.HEADER_HEIGHT * (1/6),
     cursor: 'pointer',
     transition: 'ease-in-out 0.1s',
     transform: 'scaleX(1.0) scaleY(1.0)',
     onHover: {
       transform: 'scaleX(1.1) scaleY(1.1)'
     },
-  },
+  }),
   flex: (props) => ({
     position: 'relative',
     flex: 1,
@@ -56,7 +56,7 @@ export default {
     paddingRight: 20,
     color: '#000000',
     borderRadius: 8,
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: 300,
     fontFamily: 'Lato',
     transition: 'ease-in-out 0.1s',
@@ -75,15 +75,15 @@ export default {
   menu: (props) => ({
     textAlign: 'right'
   }),
-  menuImage: {
+  menuImage: (props) => ({
     position: 'relative',
-    height: 24,
-    top: 24,
+    height: props.state.theme.HEADER_HEIGHT * (1/3),
+    top: props.state.theme.HEADER_HEIGHT * (1/3),
     transition: 'ease-in-out 0.1s',
     transform: 'scaleX(1.0) scaleY(1.0)',
     cursor: 'pointer',
     onHover: {
       transform: 'scaleX(1.3) scaleY(1.3)'
     }
-  }
+  })
 }
