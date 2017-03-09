@@ -12,7 +12,7 @@ module.exports = {
 
   output: {
     filename: 'bundle.js',
-    path: __dirname + '/build/'
+    path: __dirname + '/public/build/'
   },
   externals: [{
     'inline-style-linter': 'true'

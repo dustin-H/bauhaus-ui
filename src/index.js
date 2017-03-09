@@ -7,8 +7,11 @@ import { createRenderer } from 'fela'
 import configureStore from './store/configureStore.js'
 import App from './containers/App.js'
 import felaConfig from './felaConfig'
+import { set, get } from './store/store.js'
 
 const store = configureStore()
+
+set(store)
 
 const renderer = createRenderer(felaConfig)
 const mountNode = document.getElementById('stylesheet')
